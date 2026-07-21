@@ -1,0 +1,114 @@
+aid: benzinga
+name: Benzinga
+review:
+  question: Does Benzinga expose a public, documented API surface for its financial
+    market data products?
+  answer: true
+  date: '2026-07-21'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    Benzinga is squarely on the developer-first side of the market data
+    industry. A Mintlify-powered developer portal at docs.benzinga.com
+    (with llms.txt) documents a wide REST surface on
+    https://api.benzinga.com - newsfeed, press releases, WIIMs, quantified
+    news sentiment, a deep corporate-events calendar (earnings, dividends,
+    ratings, IPOs, splits, economics, FDA, M&A, government and insider
+    trades), delayed quotes, historical OHLCV bars, fundamentals, logos,
+    ticker trends, and earnings-call transcripts - plus three push
+    channels: WebSocket streams (wss on api.benzinga.com), a raw TCP
+    streaming service (tcp-v1.benzinga.io:11337, JSON messages, optional
+    TLS), and a data webhook engine. Authentication is API-key based
+    (recommended HTTP header, or `token` query parameter); TCP adds a
+    username. Commercially the platform is licensing-led: there is a
+    developer-console registration flow at
+    benzinga.com/apis/licensing/register but no public pricing page
+    (benzinga.com/apis/pricing returns 404), and the portal points buyers
+    at licensing@benzinga.com. Benzinga was founded in 2010 in Detroit and
+    was acquired by Beringer Capital in 2021. Official OpenAPI 3.0 and
+    AsyncAPI 3.0 specs are published in the public Benzinga/benzinga-docs
+    GitHub repo, alongside Python/Node/Java SDK docs and Go/Python TCP
+    clients.
+  posture:
+    developerPortal: https://docs.benzinga.com
+    productPage: https://www.benzinga.com/apis/
+    selfServe: registration flow exists (Benzinga Developer Console) but access
+      and entitlements are licensing/sales-led; no public pricing
+    authModel: API key via HTTP header (recommended) or `token` query parameter;
+      TCP streaming uses username + API key
+    ownership: Beringer Capital (acquired Benzinga in 2021)
+  deliveryChannels:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.benzinga.com
+      documented: true
+      probe: GET https://api.benzinga.com/api/v2/news returned HTTP 401 without
+        a key, confirming a live authenticated endpoint
+    - protocol: WebSocket
+      scheme: wss
+      baseURL: wss://api.benzinga.com
+      documented: true
+      note: Seven documented streams (news, earnings, ratings, consensus
+        ratings, analyst insights, bulls/bears say, transcripts) with AsyncAPI
+        3.0 specs and session replay actions
+    - protocol: TCP
+      endpoint: tcp-v1.benzinga.io:11337
+      documented: true
+      note: Persistent TCP JSON stream, optional TLS, Go and Python client
+        libraries
+    - protocol: Webhooks
+      documented: true
+      note: Data Webhook Engine pushes calendar, signal, and sentiment data;
+        test-delivery endpoint in the REST API
+  urlProbes:
+    - url: https://docs.benzinga.com
+      status: 200
+    - url: https://www.benzinga.com/apis
+      status: 200
+    - url: https://api.benzinga.com/api/v2/news
+      status: 401
+    - url: https://github.com/Benzinga
+      status: 200
+    - url: https://www.benzinga.com/apis/licensing/register
+      status: 200
+    - url: https://status.benzinga.com
+      status: 200
+      note: StatusCake public report
+    - url: https://www.benzinga.com/apis/pricing
+      status: 404
+      note: no public pricing page
+    - url: https://docs.benzinga.com/openapi/news-api.spec.yml
+      status: 404
+      note: llms.txt-advertised spec URLs 404 on the docs host; specs were
+        harvested from the public GitHub repo instead
+  specProvenance:
+    openapi:
+      source: https://github.com/Benzinga/benzinga-docs (main branch, openapi/
+        directory), harvested verbatim 2026-07-21 via
+        raw.githubusercontent.com
+      files: 11 OpenAPI 3.0.0 documents in openapi/ (news, press releases,
+        newsquantified, calendar, data-api-proxy covering
+        bars/quotes/movers/short-interest/fundamentals, logos, ticker trends,
+        delivery/transcripts x2, analyst reports raw text, webhook)
+    asyncapi:
+      source: https://github.com/Benzinga/benzinga-docs (main branch, asyncapi/
+        directory), harvested verbatim 2026-07-21 via
+        raw.githubusercontent.com
+      files: 7 AsyncAPI 3.0.0 documents in asyncapi/ for the WebSocket streams
+sources:
+  - url: https://docs.benzinga.com/llms.txt
+    type: Documentation
+    note: Full docs index; enumerates all REST, WebSocket, TCP, and webhook
+      references plus spec listings
+  - url: https://docs.benzinga.com/api-reference/authentication
+    type: Documentation
+    note: API-key auth via header or `token` query parameter; keys managed in
+      the Benzinga Developer Console
+  - url: https://docs.benzinga.com/tcp-reference/connection
+    type: Documentation
+    note: TCP endpoint tcp-v1.benzinga.io:11337, username + API key auth,
+      optional TLS
+  - url: https://github.com/Benzinga/benzinga-docs
+    type: GitHubRepository
+    note: Public docs source repo containing the official OpenAPI and AsyncAPI
+      specs

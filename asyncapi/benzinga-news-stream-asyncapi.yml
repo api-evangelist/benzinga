@@ -1,0 +1,169 @@
+asyncapi: '3.0.0'
+info:
+  title: Benzinga News Stream API
+  version: 1.0.0
+  description: |
+    Real-time streaming of Benzinga news articles and updates.
+
+    **Authentication**
+    - Clients must provide their API token as a query parameter:
+      ```
+      wss://api.benzinga.com/api/v1/news/stream?token=YOUR_API_TOKEN
+      ```
+    - Upon connect, you'll receive status messages for connection and authentication.
+
+    **Filtering**
+    - Filter by tickers: Use `tickers` query parameter (comma-separated)
+    - Filter by channels: Use `channels` query parameter (comma-separated)
+
+    **Actions**
+    - `ping`: Keeps the WebSocket connection alive
+    - `replay`: Replays up to the last 100 messages (cache-dependent)
+
+servers:
+  production:
+    host: api.benzinga.com/api/v1/news
+    protocol: wss
+    description: Real-time news stream endpoint
+    security:
+      - $ref: '#/components/securitySchemes/tokenAuth'
+
+channels:
+  news:
+    address: stream
+    messages:
+      publish:
+        $ref: '#/components/messages/ActionRequest'
+      subscribe:
+        $ref: '#/components/messages/NewsMessage'
+    description: Send action commands; receive real-time news updates
+
+operations:
+  news.publish:
+    action: receive
+    channel:
+      $ref: '#/channels/news'
+    summary: Send commands to the server
+    messages:
+      - $ref: '#/channels/news/messages/publish'
+  news.subscribe:
+    action: send
+    channel:
+      $ref: '#/channels/news'
+    summary: Receive real-time news updates
+    messages:
+      - $ref: '#/channels/news/messages/subscribe'
+
+components:
+  securitySchemes:
+    tokenAuth:
+      type: httpApiKey
+      name: token
+      in: query
+      description: Benzinga WebSocket API token (bz.production***)
+
+  messages:
+    ActionRequest:
+      summary: Send action commands (ping, replay)
+      contentType: text/plain
+      payload:
+        type: string
+        enum: [ping, replay]
+        description: Action to perform (ping for heartbeat, replay for message history)
+
+    NewsMessage:
+      name: NewsMessage
+      title: News Update
+      summary: A news article or update message
+      contentType: application/json
+      payload:
+        type: object
+        properties:
+          id:
+            type: string
+            description: Unique message identifier
+          api_version:
+            type: string
+            description: API version
+            example: "websocket/v1"
+          kind:
+            type: string
+            description: Message type
+            example: "news"
+          data:
+            type: object
+            properties:
+              action:
+                type: string
+                description: Action type
+                enum: [created, updated, deleted]
+              id:
+                type: integer
+                description: News article ID
+              timestamp:
+                type: string
+                format: date-time
+                description: Message timestamp
+              content:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Article ID
+                  author:
+                    type: string
+                    description: Article author
+                  created:
+                    type: string
+                    description: Article creation timestamp
+                  updated:
+                    type: string
+                    description: Article update timestamp
+                  title:
+                    type: string
+                    description: Article headline
+                  teaser:
+                    type: string
+                    description: Article teaser text
+                  body:
+                    type: string
+                    description: Full article body
+                  url:
+                    type: string
+                    description: Article URL
+                  image:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        size:
+                          type: string
+                        url:
+                          type: string
+                  channels:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                  stocks:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        cusip:
+                          type: string
+                        isin:
+                          type: string
+                        exchange:
+                          type: string
+                  tags:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string

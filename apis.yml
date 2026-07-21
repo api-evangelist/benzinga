@@ -1,0 +1,350 @@
+aid: benzinga
+url: https://raw.githubusercontent.com/api-evangelist/benzinga/refs/heads/main/apis.yml
+name: Benzinga
+kind: company
+description: Benzinga is a Detroit-based financial media and market data company
+  (founded 2010, acquired by Beringer Capital in 2021) that licenses its newsroom
+  and data products through a developer-first API platform at docs.benzinga.com.
+  Products span real-time financial news (Newsfeed, Press Releases, Why Is It
+  Moving), quantified news sentiment, a deep corporate-events Calendar (earnings,
+  dividends, ratings, IPOs, splits, economics, FDA, M&A, government and insider
+  trades), delayed quotes, historical OHLCV bars, fundamentals, logos, ticker
+  trends, and earnings-call transcripts. Delivery is REST over
+  https://api.benzinga.com with API-key auth, plus WebSocket streams, a TCP
+  streaming service (tcp-v1.benzinga.io:11337), and a data webhook engine.
+  OpenAPI and AsyncAPI specs are published in the public Benzinga/benzinga-docs
+  GitHub repo. Access is licensing-led with a developer console registration flow;
+  no public pricing page.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Financial
+- Market Data
+- Stocks
+- News
+- Real-Time
+- Sentiment
+- Analyst Ratings
+- Earnings
+- Options
+- Streaming
+created: '2026-07-21'
+modified: '2026-07-21'
+specificationVersion: '0.19'
+apis:
+- aid: benzinga:benzinga-newsfeed-api
+  name: Benzinga Newsfeed & Why Is It Moving API
+  tags:
+  - News
+  - Newsfeed
+  - WIIM
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  properties:
+  - url: https://docs.benzinga.com/api-reference/news-api/overview
+    type: Documentation
+  - url: https://docs.benzinga.com/api-reference/news-api/get-news-items
+    type: APIReference
+  - url: openapi/benzinga-news-api-openapi.yml
+    type: OpenAPI
+  description: Structured real-time and historical financial news from the Benzinga
+    newsroom, with channel filters, removed-news deltas, and Why Is It Moving (WIIM)
+    one-line explanations of price action, queried by tickers, date, and channels.
+- aid: benzinga:benzinga-press-releases-api
+  name: Benzinga Press Releases API
+  tags:
+  - Press Releases
+  - News
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.benzinga.com/api-reference/news-api/press-releases/overview
+  baseURL: https://api.benzinga.com
+  properties:
+  - url: https://docs.benzinga.com/api-reference/news-api/press-releases/overview
+    type: Documentation
+  - url: https://docs.benzinga.com/api-reference/news-api/press-releases/get-press-releases
+    type: APIReference
+  - url: openapi/benzinga-press-releases-api-openapi.yml
+    type: OpenAPI
+  description: Structured corporate press release content with ticker, date, and
+    channel filtering plus updatedSince delta queries.
+- aid: benzinga:benzinga-newsquantified-api
+  name: Benzinga NewsQuantified API
+  tags:
+  - Sentiment
+  - News Analytics
+  - Quant
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  baseURL: https://api.benzinga.com
+  properties:
+  - url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+    type: Documentation
+  - url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+    type: APIReference
+  - url: openapi/benzinga-newsquantified-api-openapi.yml
+    type: OpenAPI
+  description: Quantified news analytics with sentiment scores, relevance metrics,
+    trending scores, and ticker-level market impact indicators for quantitative
+    strategies.
+- aid: benzinga:benzinga-calendar-api
+  name: Benzinga Calendar API
+  tags:
+  - Earnings
+  - Dividends
+  - Ratings
+  - IPOs
+  - Corporate Events
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.benzinga.com/api-reference/calendar-api/overview
+  baseURL: https://api.benzinga.com
+  properties:
+  - url: https://docs.benzinga.com/api-reference/calendar-api/overview
+    type: Documentation
+  - url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+    type: APIReference
+  - url: openapi/benzinga-calendar-api-openapi.yml
+    type: OpenAPI
+  description: Corporate events and reference data across earnings, dividends,
+    analyst ratings and consensus, IPOs, splits, offerings, M&A, economics, FDA
+    milestones, conference calls, guidance, halts/resumes, block trades, unusual
+    options activity, government trades, and SEC Form 4 insider transactions.
+- aid: benzinga:benzinga-bars-api
+  name: Benzinga Historical Bars API
+  tags:
+  - OHLCV
+  - Historical Data
+  - Charts
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.benzinga.com/api-reference/bars/overview
+  baseURL: https://api.benzinga.com
+  properties:
+  - url: https://docs.benzinga.com/api-reference/bars/overview
+    type: Documentation
+  - url: https://docs.benzinga.com/api-reference/bars/get-bars
+    type: APIReference
+  - url: openapi/benzinga-data-api-proxy-openapi.yml
+    type: OpenAPI
+  description: Historical OHLCV price bars for multiple tickers at configurable
+    intervals with relative date range support, served from the /api/v2/bars
+    endpoint.
+- aid: benzinga:benzinga-delayed-quotes-api
+  name: Benzinga Delayed Quotes API
+  tags:
+  - Quotes
+  - Delayed Data
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  baseURL: https://api.benzinga.com
+  properties:
+  - url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+    type: Documentation
+  - url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+    type: APIReference
+  - url: openapi/benzinga-data-api-proxy-openapi.yml
+    type: OpenAPI
+  description: Delayed price quotes for lists of symbols via /api/v1 and /api/v2
+    quoteDelayed endpoints.
+- aid: benzinga:benzinga-market-data-api
+  name: Benzinga Market Movers & Short Interest API
+  tags:
+  - Movers
+  - Short Interest
+  - Screeners
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.benzinga.com/api-reference/market-data/overview
+  baseURL: https://api.benzinga.com
+  properties:
+  - url: https://docs.benzinga.com/api-reference/market-data/overview
+    type: Documentation
+  - url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+    type: APIReference
+  - url: openapi/benzinga-data-api-proxy-openapi.yml
+    type: OpenAPI
+  description: Market movers by session and time range with screener-style
+    filtering, plus FINRA-sourced short interest data including days to cover and
+    short interest ratios.
+- aid: benzinga:benzinga-fundamentals-api
+  name: Benzinga Company Fundamentals API
+  tags:
+  - Fundamentals
+  - Financial Statements
+  - Ratios
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.benzinga.com/api-reference/fundamentals/overview
+  baseURL: https://api.benzinga.com
+  properties:
+  - url: https://docs.benzinga.com/api-reference/fundamentals/overview
+    type: Documentation
+  - url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+    type: APIReference
+  - url: openapi/benzinga-data-api-proxy-openapi.yml
+    type: OpenAPI
+  description: Company fundamentals across v2.1 and v3 endpoints - balance sheets,
+    income statements, cash flow, earnings reports, company profiles, share
+    classes, asset classification, alpha/beta, and derived, valuation, operation,
+    and earning ratios.
+- aid: benzinga:benzinga-logos-api
+  name: Benzinga Logos API
+  tags:
+  - Logos
+  - Reference Data
+  - Branding
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.benzinga.com/api-reference/logos-api/overview
+  baseURL: https://api.benzinga.com
+  properties:
+  - url: https://docs.benzinga.com/api-reference/logos-api/overview
+    type: Documentation
+  - url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+    type: APIReference
+  - url: openapi/benzinga-logo-api-openapi.yml
+    type: OpenAPI
+  description: Company, fund, and crypto logo search and bulk sync by ticker and
+    other identifiers, with updated_since paging for full-dataset walks.
+- aid: benzinga:benzinga-ticker-trends-api
+  name: Benzinga Ticker Trends API
+  tags:
+  - Trends
+  - Attention Data
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.benzinga.com/api-reference/ticker-trends-api/overview
+  baseURL: https://api.benzinga.com
+  properties:
+  - url: https://docs.benzinga.com/api-reference/ticker-trends-api/overview
+    type: Documentation
+  - url: https://docs.benzinga.com/api-reference/ticker-trends-api/get-ticker-trend-data
+    type: APIReference
+  - url: openapi/benzinga-ticker-trends-api-openapi.yml
+    type: OpenAPI
+  description: Trending-ticker rankings and per-ticker trend scores aggregated
+    across time intervals from Benzinga audience activity.
+- aid: benzinga:benzinga-earnings-call-transcripts-api
+  name: Benzinga Earnings Call Transcripts API
+  tags:
+  - Transcripts
+  - Earnings Calls
+  - Audio
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.benzinga.com/api-reference/delivery-api/overview
+  baseURL: https://api.benzinga.com
+  properties:
+  - url: https://docs.benzinga.com/api-reference/delivery-api/overview
+    type: Documentation
+  - url: https://docs.benzinga.com/api-reference/delivery-api/calls/fetch-all-calls
+    type: APIReference
+  - url: openapi/benzinga-delivery-api-openapi.yml
+    type: OpenAPI
+  - url: openapi/benzinga-earnings-call-transcripts-api-openapi.yml
+    type: OpenAPI
+  description: Real-time and historical conference-call transcripts, audio,
+    AI-generated summaries, and speaker data, fetched by call ID or filtered
+    lists.
+- aid: benzinga:benzinga-analyst-reports-raw-text-api
+  name: Benzinga Analyst Reports Raw Text API
+  tags:
+  - Analyst Reports
+  - Research
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.benzinga.com/api-reference/introduction
+  baseURL: https://api.benzinga.com
+  properties:
+  - url: openapi/benzinga-analyst-reports-raw-text-api-openapi.yml
+    type: OpenAPI
+  description: Raw text of analyst research reports, published as an OpenAPI spec
+    in the Benzinga docs repository.
+- aid: benzinga:benzinga-webhook-api
+  name: Benzinga Data Webhook Engine
+  tags:
+  - Webhooks
+  - Push Delivery
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.benzinga.com/webhook-reference/overview
+  baseURL: https://api.benzinga.com
+  properties:
+  - url: https://docs.benzinga.com/webhook-reference/overview
+    type: Documentation
+  - url: https://docs.benzinga.com/api-reference/webhook-api/test-webhook-delivery
+    type: APIReference
+  - url: openapi/benzinga-webhook-api-openapi.yml
+    type: OpenAPI
+  description: Push delivery of Benzinga calendar, signal, and sentiment data to
+    customer endpoints with filterable, resilient webhooks and a test-delivery
+    endpoint.
+- aid: benzinga:benzinga-websocket-streaming-api
+  name: Benzinga WebSocket Streaming API
+  tags:
+  - WebSocket
+  - Streaming
+  - Real-Time
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.benzinga.com/ws-reference/overview
+  baseURL: wss://api.benzinga.com
+  properties:
+  - url: https://docs.benzinga.com/ws-reference/overview
+    type: Documentation
+  - url: https://docs.benzinga.com/ws-reference/data-websocket/get-news-stream
+    type: APIReference
+  - url: asyncapi/benzinga-news-stream-asyncapi.yml
+    type: AsyncAPI
+  - url: asyncapi/benzinga-calendar-earnings-stream-asyncapi.yml
+    type: AsyncAPI
+  - url: asyncapi/benzinga-calendar-ratings-stream-asyncapi.yml
+    type: AsyncAPI
+  - url: asyncapi/benzinga-consensus-ratings-stream-asyncapi.yml
+    type: AsyncAPI
+  - url: asyncapi/benzinga-analyst-insights-stream-asyncapi.yml
+    type: AsyncAPI
+  - url: asyncapi/benzinga-bulls-bears-say-stream-asyncapi.yml
+    type: AsyncAPI
+  - url: asyncapi/benzinga-transcripts-stream-asyncapi.yml
+    type: AsyncAPI
+  description: Real-time WebSocket streams over wss://api.benzinga.com for news,
+    earnings, analyst ratings, consensus ratings, analyst insights, bulls/bears
+    cases, and sentence-by-sentence earnings-call transcripts, with session
+    replay actions and token auth.
+- aid: benzinga:benzinga-tcp-streaming-service
+  name: Benzinga TCP Streaming Service
+  tags:
+  - TCP
+  - Streaming
+  - Low Latency
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.benzinga.com/tcp-reference/introduction
+  baseURL: tcp://tcp-v1.benzinga.io:11337
+  properties:
+  - url: https://docs.benzinga.com/tcp-reference/introduction
+    type: Documentation
+  - url: https://docs.benzinga.com/tcp-reference/connection
+    type: APIReference
+  - url: https://docs.benzinga.com/tcp-reference/go-client
+    type: SDK
+  description: Low-latency persistent TCP stream (tcp-v1.benzinga.io port 11337,
+    optional TLS) delivering real-time news, option alerts, and market events as
+    JSON messages, authenticated with username plus API key, with official Go and
+    Python client libraries.
+common:
+- type: Website
+  url: https://www.benzinga.com
+- type: Portal
+  url: https://www.benzinga.com/apis/
+- type: Documentation
+  url: https://docs.benzinga.com
+- type: GitHubOrganization
+  url: https://github.com/Benzinga
+- type: LinkedIn
+  url: https://www.linkedin.com/company/benzinga
+- type: Blog
+  url: https://www.benzinga.com/news
+- type: SignUp
+  url: https://www.benzinga.com/apis/licensing/register
+- type: TermsOfService
+  url: https://www.benzinga.com/terms-and-conditions
+- type: PrivacyPolicy
+  url: https://www.benzinga.com/page/privacy
+- type: StatusPage
+  url: https://status.benzinga.com
+- type: ChangeLog
+  url: https://docs.benzinga.com/changelog/overview
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
