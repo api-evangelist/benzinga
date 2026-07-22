@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights Channels API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: Channels
+paths:
+  /api/v2.1/news/channels:
+    get:
+      description: Returns a list of all available news channels that can be used to filter news items. Channels can have sub-channels, but they will all be listed as their own item.
+      operationId: get-channels
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+      summary: Get available news channels
+      tags:
+      - Channels
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

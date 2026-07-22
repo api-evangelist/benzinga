@@ -1,0 +1,132 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights Halt Resume API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: Halt Resume
+paths:
+  /api/v1/signal/halt_resume:
+    get:
+      description: Returns trading halt and resume information for securities, including halt reasons and expected resumption times
+      operationId: get-halt-resume-v1
+      parameters:
+      - description: Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0
+        in: query
+        name: page
+        schema:
+          type: integer
+          default: 0
+      - description: Number of results returned. Limit 1000
+        in: query
+        name: pageSize
+        schema:
+          type: integer
+          default: 100
+      - description: Start date in YYYY-MM-DD format
+        in: query
+        name: date_from
+        schema:
+          type: string
+          format: date
+      - description: End date in YYYY-MM-DD format
+        in: query
+        name: date_to
+        schema:
+          type: string
+          format: date
+      - description: One or more ticker symbols separated by a comma. Maximum 50 tickers
+        in: query
+        name: tickers
+        schema:
+          type: string
+          format: csv
+      - description: Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated
+        in: query
+        name: updated
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Halt Resume
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.HaltResume'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: HaltResume V1
+      tags:
+      - Halt Resume
+components:
+  schemas:
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.HaltResume:
+      properties:
+        count:
+          example: 1
+          type: integer
+        cusip:
+          example: 88160R101
+          type: string
+        date:
+          example: '2024-01-09'
+          type: string
+        description:
+          example: Trading halted due to news pending
+          type: string
+        exchange:
+          example: NASDAQ
+          type: string
+        halt_type:
+          example: News Pending
+          type: string
+        id:
+          example: 60a7f5e8e4b0f5a3c8e9f5b3
+          type: string
+        importance:
+          example: 4
+          type: integer
+        isin:
+          example: US88160R1014
+          type: string
+        name:
+          example: Tesla Inc.
+          type: string
+        ticker:
+          example: TSLA
+          type: string
+        time:
+          description: Time of halt or resumption (EST)
+          example: '14:25:00'
+          type: string
+        updated:
+          example: 1704819600
+          type: integer
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

@@ -1,0 +1,298 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights ratings_analysts API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: ratings_analysts
+paths:
+  /api/v2.1/calendar/ratings/analysts:
+    get:
+      description: Returns the full list of analysts that are providing ratings
+      operationId: get-ratings-analysts
+      parameters:
+      - description: Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0
+        in: query
+        name: page
+        schema:
+          type: integer
+          default: 0
+      - description: Number of results returned. Limit 1000
+        in: query
+        name: pageSize
+        schema:
+          type: integer
+          default: 100
+      - description: Fields
+        in: query
+        name: fields
+        schema:
+          type: string
+      - description: Analyst
+        in: query
+        name: analyst
+        schema:
+          type: string
+      - description: Analyst name
+        in: query
+        name: analyst_name
+        schema:
+          type: string
+      - description: Firm
+        in: query
+        name: firm
+        schema:
+          type: string
+      - description: Firm name
+        in: query
+        name: firm_name
+        schema:
+          type: string
+      - description: Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated
+        in: query
+        name: updated
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Ratings Analysts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.RatingsAnalyst'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.RatingsAnalyst'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Ratings Analysts
+      tags:
+      - ratings_analysts
+components:
+  schemas:
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.RatingsAccuracy:
+      properties:
+        1m_average_return:
+          example: '3.5'
+          type: string
+        1m_gain_count:
+          example: 52
+          type: integer
+        1m_loss_count:
+          example: 28
+          type: integer
+        1m_smart_score:
+          example: '82.5'
+          type: string
+        1m_stdev:
+          example: '2.5'
+          type: string
+        1m_success_rate:
+          example: '65.0'
+          type: string
+        1y_average_return:
+          example: '18.5'
+          type: string
+        1y_gain_count:
+          example: 57
+          type: integer
+        1y_loss_count:
+          example: 23
+          type: integer
+        1y_smart_score:
+          example: '87.0'
+          type: string
+        1y_stdev:
+          example: '9.5'
+          type: string
+        1y_success_rate:
+          example: '71.5'
+          type: string
+        2y_average_return:
+          example: '22.5'
+          type: string
+        2y_gain_count:
+          example: 55
+          type: integer
+        2y_loss_count:
+          example: 25
+          type: integer
+        2y_smart_score:
+          example: '85.5'
+          type: string
+        2y_stdev:
+          example: '11.5'
+          type: string
+        2y_success_rate:
+          example: '69.0'
+          type: string
+        3m_average_return:
+          example: '7.5'
+          type: string
+        3m_gain_count:
+          example: 54
+          type: integer
+        3m_loss_count:
+          example: 26
+          type: integer
+        3m_smart_score:
+          example: '84.0'
+          type: string
+        3m_stdev:
+          example: '4.5'
+          type: string
+        3m_success_rate:
+          example: '67.5'
+          type: string
+        3y_average_return:
+          example: '25.5'
+          type: string
+        3y_gain_count:
+          example: 53
+          type: integer
+        3y_loss_count:
+          example: 27
+          type: integer
+        3y_smart_score:
+          example: '84.0'
+          type: string
+        3y_stdev:
+          example: '13.5'
+          type: string
+        3y_success_rate:
+          example: '68.5'
+          type: string
+        9m_average_return:
+          example: '15.5'
+          type: string
+        9m_gain_count:
+          example: 56
+          type: integer
+        9m_loss_count:
+          example: 24
+          type: integer
+        9m_smart_score:
+          example: '86.5'
+          type: string
+        9m_stdev:
+          example: '7.5'
+          type: string
+        9m_success_rate:
+          example: '70.0'
+          type: string
+        overall_average_return:
+          example: '12.5'
+          type: string
+        overall_avg_return_percentile:
+          example: '72.3'
+          type: string
+        overall_gain_count:
+          example: 168
+          type: integer
+        overall_loss_count:
+          example: 77
+          type: integer
+        overall_stdev:
+          example: '8.5'
+          type: string
+        overall_success_rate:
+          example: '68.5'
+          type: string
+        smart_score:
+          example: '85.5'
+          type: string
+        total_ratings:
+          example: 245
+          type: integer
+        total_ratings_percentile:
+          example: '85.0'
+          type: string
+        updated:
+          example: 1704758400
+          type: integer
+      type: object
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank:
+      properties:
+        rank:
+          example: 15
+          type: integer
+        total:
+          example: 500
+          type: integer
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.RatingsAnalyst:
+      properties:
+        firm_id:
+          example: FIRM-123456
+          type: string
+        firm_name:
+          example: Goldman Sachs
+          type: string
+        id:
+          example: 64a1b2c3d4e5f6789012345
+          type: string
+        name_first:
+          example: John
+          type: string
+        name_full:
+          example: John Smith
+          type: string
+        name_last:
+          example: Smith
+          type: string
+        rank:
+          properties:
+            1m_smart_score_rank:
+              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
+            1y_smart_score_rank:
+              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
+            2y_smart_score_rank:
+              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
+            3m_smart_score_rank:
+              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
+            3y_smart_score_rank:
+              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
+            9m_smart_score_rank:
+              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
+            overall_smart_score_rank:
+              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
+          type: object
+        ratings_accuracy:
+          $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.RatingsAccuracy'
+        updated:
+          example: 1704758400
+          type: integer
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

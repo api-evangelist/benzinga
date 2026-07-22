@@ -1,0 +1,15 @@
+generated: '2026-07-22'
+method: generated
+skills:
+- file: benzinga-monitor-news-sentiment.md
+  name: Monitor Benzinga news and sentiment for a watchlist
+  api: openapi/benzinga-news-api-openapi.yml
+  operations: [get-channels, get-news, get-removed-news, get-newsquantified-data]
+- file: benzinga-earnings-research.md
+  name: Research earnings with calendar, transcripts, and summaries
+  api: openapi/benzinga-earnings-api-openapi.yml
+  operations: [get-earnings, get-earnings-call-transcripts, get-earnings-call-transcript-audio-files, get-summaries, get-summary-by-call-id]
+- file: benzinga-analyst-ratings-brief.md
+  name: Build an analyst-ratings brief for a ticker
+  api: openapi/benzinga-ratings-api-openapi.yml
+  operations: [get-ratings, get-consensus-ratings-v1, get-ratings-analysts, get-ratings-firms, get-analyst-insights-v1, get-bulls-say-bears-say-v1]

@@ -1,0 +1,88 @@
+generated: '2026-07-22'
+method: searched
+source: https://docs.benzinga.com/api-reference/errors.md + derived from openapi/ 4xx/5xx responses
+format: http-status
+envelope:
+  note: Error body format varies by endpoint family. Older endpoints (News API) return a bare string or flat {message}.
+    Newer APIs (Data API Proxy / Fundamentals) return a structured object.
+  structured_example:
+    data: null
+    errors:
+    - code: database_query_error
+      id: ERR_12345
+      value: 'Unable to fetch data for symbol: INVALID'
+    ok: false
+  guidance: Check the HTTP status code first; do not rely solely on the response body shape.
+problems:
+- status: 400
+  title: Bad Request
+  description: The request was unacceptable, often due to a missing or invalid parameter.
+  remediation: Check required parameters and formats; the News API returns "Invalid or Missing Query Parameters".
+  operations_count: 77
+  example_operations:
+  - openapi/benzinga-analyst-insights-api-openapi.yml#get-analyst-insights-v1
+  - openapi/benzinga-analyst-reports-api-openapi.yml#get-analyst-reports-raw-text-data
+  - openapi/benzinga-block-trade-api-openapi.yml#get-block-trade-v1
+  - openapi/benzinga-bulls-say-bears-say-api-openapi.yml#get-bulls-say-bears-say-v1
+  - openapi/benzinga-calls-api-openapi.yml#get-conference-calls
+- status: 401
+  title: Unauthorized
+  description: No valid API Key provided.
+  remediation: Check the Authorization header ("token <KEY>") or the token query parameter; ensure the key has not
+    been regenerated.
+  operations_count: 1
+  example_operations:
+  - openapi/benzinga-bulls-say-bears-say-api-openapi.yml#get-bulls-say-bears-say-v1
+- status: 402
+  title: Request Failed
+  description: The parameters were valid but the request failed for business logic reasons.
+  remediation: Inspect the response body for details.
+  documented_only: true
+- status: 404
+  title: Not Found
+  description: The requested resource (e.g., ID, endpoint) does not exist.
+  remediation: Verify the resource ID and endpoint path.
+  operations_count: 6
+  example_operations:
+  - openapi/benzinga-bulls-say-bears-say-api-openapi.yml#get-bulls-say-bears-say-v1
+  - openapi/benzinga-calls-api-openapi.yml#get-conference-call-by-id
+  - openapi/benzinga-logos-api-openapi.yml#logo-bulk-sync
+  - openapi/benzinga-logos-api-openapi.yml#get-search-logos
+  - openapi/benzinga-news-analytics-api-openapi.yml#get-newsquantified-data
+- status: 424
+  title: Failed Dependency
+  description: An upstream dependency required by this operation failed.
+  remediation: Retry later; if persistent contact support.
+  operations_count: 1
+  example_operations:
+  - openapi/benzinga-webhook-api-openapi.yml#get-webhook-test
+- status: 429
+  title: Too Many Requests
+  description: You have exceeded your rate limit.
+  remediation: Back off and retry after a delay; rate limiting is enforced at the Kong gateway.
+  documented_only: true
+- status: 499
+  title: Client Closed Request
+  description: The client closed the connection before the server responded.
+  remediation: Increase client timeouts and retry.
+  operations_count: 3
+  example_operations:
+  - openapi/benzinga-news-api-openapi.yml#get-news
+  - openapi/benzinga-news-api-openapi.yml#get-removed-news
+  - openapi/benzinga-press-releases-api-openapi.yml#get-press-releases
+- status: 500
+  title: Internal Server Error
+  description: Something went wrong on Benzinga's servers.
+  remediation: Retry with backoff; these are rare.
+  operations_count: 80
+  example_operations:
+  - openapi/benzinga-analyst-insights-api-openapi.yml#get-analyst-insights-v1
+  - openapi/benzinga-analyst-reports-api-openapi.yml#get-analyst-reports-raw-text-data
+  - openapi/benzinga-block-trade-api-openapi.yml#get-block-trade-v1
+  - openapi/benzinga-bulls-say-bears-say-api-openapi.yml#get-bulls-say-bears-say-v1
+  - openapi/benzinga-calls-api-openapi.yml#get-conference-calls
+- status: 503
+  title: Service Unavailable
+  description: The service is temporarily unavailable (e.g., maintenance).
+  remediation: Retry after the maintenance window.
+  documented_only: true

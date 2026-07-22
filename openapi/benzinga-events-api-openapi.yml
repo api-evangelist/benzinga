@@ -1,0 +1,207 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights events API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: events
+paths:
+  /api/v2/calendar/events:
+    get:
+      description: Returns corporate events including investor meetings, conferences, and special announcements
+      operationId: get-events
+      parameters:
+      - description: Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0
+        in: query
+        name: page
+        schema:
+          type: integer
+          default: 0
+      - description: Number of results returned. Limit 1000
+        in: query
+        name: pageSize
+        schema:
+          type: integer
+          default: 100
+      - description: Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest
+        in: query
+        name: parameters[date]
+        schema:
+          type: string
+          format: date
+      - description: Start date in YYYY-MM-DD format
+        in: query
+        name: parameters[date_from]
+        schema:
+          type: string
+          format: date
+      - description: End date in YYYY-MM-DD format
+        in: query
+        name: parameters[date_to]
+        schema:
+          type: string
+          format: date
+      - description: The importance level to filter by. Uses Greater Than or Equal To the importance indicated
+        in: query
+        name: parameters[importance]
+        schema:
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+      - description: One or more ticker symbols separated by a comma. Maximum 50 tickers
+        in: query
+        name: parameters[tickers]
+        schema:
+          type: string
+          format: csv
+      - description: Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated
+        in: query
+        name: parameters[updated]
+        schema:
+          type: integer
+      - description: Search keys type
+        in: query
+        name: search_keys_type
+        schema:
+          type: string
+          enum:
+          - event_type
+      - description: Search keys
+        in: query
+        name: search_keys
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Events
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.EventsResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.EventsResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Events
+      tags:
+      - events
+components:
+  schemas:
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
+    api.EventsResponse:
+      description: API response containing an array of event records
+      properties:
+        events:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Events'
+          type: array
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Securities:
+      properties:
+        country:
+          example: US
+          type: string
+        cusip:
+          example: 037833100
+          type: string
+        exchange:
+          example: NASDAQ
+          type: string
+        isin:
+          example: US0378331005
+          type: string
+        symbol:
+          example: AAPL
+          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Events:
+      properties:
+        date_end:
+          example: '2024-01-11'
+          type: string
+        date_start:
+          example: '2024-01-09'
+          type: string
+        event_name:
+          example: CES 2024
+          type: string
+        event_type:
+          example: Conference
+          type: string
+        id:
+          example: 60a7f5e8e4b0f5a3c8e9f5bc
+          type: string
+        importance:
+          example: 3
+          type: integer
+        international_number:
+          example: +1-212-555-0100
+          type: string
+        location:
+          example: Las Vegas Convention Center
+          type: string
+        phone_number:
+          example: 1-800-555-0100
+          type: string
+        securities:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Securities'
+          type: array
+        source_link:
+          example: https://www.example.com/event-details
+          type: string
+        start_time:
+          example: 09:00:00
+          type: string
+        tags:
+          example:
+          - '["Technology"'
+          - '"Innovation"]'
+          items:
+            type: string
+          type: array
+        updated:
+          example: 1704819600
+          type: integer
+        webcast_link:
+          example: https://webcast.example.com/event123
+          type: string
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

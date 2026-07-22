@@ -1,0 +1,156 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights consensus_ratings API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: consensus_ratings
+paths:
+  /api/v1/consensus-ratings:
+    get:
+      description: Returns aggregated consensus analyst ratings data for a given ticker symbol. This endpoint provides consensus price targets, aggregate ratings distribution, and analyst counts based on recent analyst ratings.
+      operationId: get-consensus-ratings-v1
+      parameters:
+      - description: Specifies return format. Query parameters work the same for both formats
+        in: header
+        name: accept
+        required: true
+        schema:
+          type: string
+          enum:
+          - application/json
+          default: application/json
+      - description: Number of results returned. Limit 1000
+        in: query
+        name: pagesize
+        schema:
+          type: integer
+      - description: Date to query from point in time
+        in: query
+        name: parameters[date_from]
+        schema:
+          type: string
+          format: YYYY-MM-DD
+      - description: Date to query to point in time
+        in: query
+        name: parameters[date_to]
+        schema:
+          type: string
+          format: YYYY-MM-DD
+      - description: One ticker symbol to query the aggregate for. Maximum 1 ticker
+        in: query
+        name: parameters[tickers]
+        schema:
+          type: string
+      - description: To simplify the aggregate ratings to only BUY, SELL, HOLD, default will return all ratings (STRONG_BUY, BUY, HOLD, SELL, STRONG_SELL)
+        in: query
+        name: simplify
+        schema:
+          type: boolean
+          default: false
+      - description: To aggregate the ratings by either number or percentage
+        in: query
+        name: aggregate_type
+        schema:
+          type: string
+          enum:
+          - number
+          - percentage
+          default: number
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.ConsensusRating'
+        '204':
+          description: No Content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+        '500':
+          description: Internal Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Returns analyst ratings consensus data
+      tags:
+      - consensus_ratings
+components:
+  schemas:
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.ConsensusRating:
+      properties:
+        aggregate_ratings:
+          $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.AggregateRating'
+        aggregate_type:
+          example: 90D
+          type: string
+        consensus_price_target:
+          example: 195.5
+          type: number
+        consensus_rating:
+          example: Buy
+          type: string
+        consensus_rating_val:
+          example: 4.2
+          type: number
+        high_price_target:
+          example: 225
+          type: number
+        low_price_target:
+          example: 150
+          type: number
+        total_analyst_count:
+          example: 19
+          type: integer
+        unique_analyst_count:
+          example: 15
+          type: integer
+        updated_at:
+          example: '2024-01-09T16:00:00Z'
+          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.AggregateRating:
+      properties:
+        buy:
+          example: 10
+          type: integer
+        hold:
+          example: 3
+          type: integer
+        sell:
+          example: 1
+          type: integer
+        strong_buy:
+          example: 5
+          type: integer
+        strong_sell:
+          example: 0
+          type: integer
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

@@ -1,0 +1,148 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights Bulls Say Bears Say API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: Bulls Say Bears Say
+paths:
+  /api/v1/bulls_bears_say:
+    get:
+      description: Returns the latest bullish and bearish investment cases for a given stock ticker symbol. Bull cases present positive arguments for buying a stock, while bear cases present negative arguments against it.
+      operationId: get-bulls-say-bears-say-v1
+      parameters:
+      - description: Stock ticker symbol to query for bull/bear cases
+        in: query
+        name: symbols
+        required: true
+        schema:
+          type: string
+      - description: Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0
+        in: query
+        name: page
+        schema:
+          type: integer
+          default: 0
+      - description: Number of results to be returned. Limit 200
+        in: query
+        name: pagesize
+        schema:
+          type: integer
+          maximum: 200
+          default: 100
+      - description: Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated
+        in: query
+        name: parameters[updated]
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: An array of bull and bear cases for the requested ticker symbol
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.BullsSayBearsSayResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+        '401':
+          description: Authentication information is missing or invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+        '404':
+          description: A bull/bear case for the provided ticker symbol was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Latest bull and bear cases for a given ticker symbol
+      tags:
+      - Bulls Say Bears Say
+components:
+  schemas:
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.BullsSayBearsSay:
+      properties:
+        analyst_firms_referenced:
+          example: 12
+          type: integer
+        bear_case:
+          example: Market saturation and competitive pressures
+          type: string
+        bull_case:
+          example: Strong product pipeline and ecosystem lock-in effect
+          type: string
+        created:
+          example: 1704819000
+          type: integer
+        exchange:
+          example: NASDAQ
+          type: string
+        id:
+          example: 60a7f5e8e4b0f5a3c8e9f5c0
+          type: string
+        latest:
+          example: true
+          type: boolean
+        securities:
+          items:
+            properties:
+              cik:
+                example: '320193'
+                type: string
+              exchange:
+                example: NASDAQ
+                type: string
+              isin:
+                example: US0378331005
+                type: string
+              name:
+                example: Apple Inc.
+                type: string
+              symbol:
+                example: AAPL
+                type: string
+            type: object
+          type: array
+        ticker:
+          example: AAPL
+          type: string
+        updated:
+          example: 1704819600
+          type: integer
+      type: object
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
+    api.BullsSayBearsSayResponse:
+      description: API response containing an array of bulls say bears say records
+      properties:
+        bulls-say-bears-say:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.BullsSayBearsSay'
+          type: array
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

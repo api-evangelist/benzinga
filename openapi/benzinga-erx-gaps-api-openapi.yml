@@ -1,0 +1,481 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights ERx Gaps API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: ERx Gaps
+paths:
+  /api/v1/erx_gaps:
+    get:
+      description: Returns earnings reaction gap data, which tracks significant price gaps following earnings announcements
+      operationId: get-erx-gaps
+      parameters:
+      - description: Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0
+        in: query
+        name: page
+        schema:
+          type: integer
+          default: 0
+      - description: Number of results returned. Limit 1000
+        in: query
+        name: pageSize
+        schema:
+          type: integer
+          default: 100
+      - description: Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest
+        in: query
+        name: parameters[date]
+        schema:
+          type: string
+          format: date
+      - description: Start date in YYYY-MM-DD format
+        in: query
+        name: parameters[date_from]
+        schema:
+          type: string
+          format: date
+      - description: End date in YYYY-MM-DD format
+        in: query
+        name: parameters[date_to]
+        schema:
+          type: string
+          format: date
+      - description: Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated
+        in: query
+        name: updated
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ERx Gaps
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.ErxGaps'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.ErxGaps'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: ERx Gaps
+      tags:
+      - ERx Gaps
+components:
+  schemas:
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.ErxGaps:
+      properties:
+        closing_range_alerts:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.ClosingRangeAlert'
+          type: array
+        day:
+          example: 5
+          type: integer
+        day_alerts:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.DayAlert'
+          type: array
+        day1_valid:
+          example: true
+          type: boolean
+        earnings_surprise:
+          example: 0.15
+          type: number
+        ema_crossovers:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.EmaCrossover'
+          type: array
+        ema_status:
+          example: Above EMA21
+          type: string
+        ema_status_updated:
+          example: '2024-01-09T10:30:00Z'
+          type: string
+        fibonacci_alerts:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.FibonacciAlert'
+          type: array
+        fibonacci_status:
+          example: Above 50%
+          type: string
+        fibonacci_status_updated:
+          example: '2024-01-09T10:30:00Z'
+          type: string
+        first_13min_close:
+          example: 155.75
+          type: number
+        gap_date:
+          example: '2024-01-09'
+          type: string
+        gap_day_high:
+          example: 157.5
+          type: number
+        gap_day_low:
+          example: 153.25
+          type: number
+        gap_percentage:
+          example: 3.75
+          type: number
+        hvc_price:
+          example: 156
+          type: number
+        hvc_undercut:
+          example: 155.5
+          type: number
+        id:
+          example: 64a1b2c3d4e5f6789012345
+          type: string
+        market_session_alerts:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.MarketSessionAlert'
+          type: array
+        milestone_measurements:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.MilestoneMeasurement'
+          type: array
+        monster_gap:
+          example: true
+          type: boolean
+        monster_power_earning_gap:
+          example: false
+          type: boolean
+        next_ms_date:
+          example: '2024-01-19'
+          type: string
+        next_ms_day:
+          example: 10
+          type: integer
+        oel_gap:
+          example: true
+          type: boolean
+        open:
+          example: 154.5
+          type: number
+        power_earning_gap:
+          example: true
+          type: boolean
+        previous_close:
+          example: 150.25
+          type: number
+        price:
+          example: 156.25
+          type: number
+        price_alerts:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.PriceAlert'
+          type: array
+        status:
+          example: true
+          type: boolean
+        symbol:
+          example: AAPL
+          type: string
+        triggered_date:
+          example: '2024-01-09'
+          type: string
+        updated:
+          example: 1704758400
+          type: integer
+        volume:
+          example: 12500000
+          type: integer
+        volume_50d:
+          example: 8500000
+          type: integer
+        volume_alerts:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.VolumeAlert'
+          type: array
+      type: object
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.PriceAlert:
+      properties:
+        description:
+          example: Price moved above High Volume Close level
+          type: string
+        direction:
+          example: Above
+          type: string
+        gap_id:
+          example: 500
+          type: integer
+        level_name:
+          example: HVC
+          type: string
+        level_price:
+          example: 156
+          type: number
+        price:
+          example: 156.25
+          type: number
+        price_alert_id:
+          example: 3001
+          type: integer
+        title:
+          example: Price Above HVC
+          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.ClosingRangeAlert:
+      properties:
+        alert_date:
+          example: '2024-01-09'
+          type: string
+        alert_type:
+          example: Upper Third Close
+          type: string
+        closing_id:
+          example: 4001
+          type: integer
+        closing_range_percentage:
+          example: 85.5
+          type: number
+        day_high:
+          example: 157.5
+          type: number
+        day_low:
+          example: 153.25
+          type: number
+        description:
+          example: Stock closed in the upper third of the day's range
+          type: string
+        gap_id:
+          example: 500
+          type: integer
+        symbol:
+          example: AAPL
+          type: string
+        title:
+          example: Upper Third Close
+          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.MarketSessionAlert:
+      properties:
+        description:
+          example: Price broke above first 15-minute high
+          type: string
+        first_5min_close:
+          example: 155.25
+          type: number
+        first_5min_high:
+          example: 155.5
+          type: number
+        first_15min_close:
+          example: 155.75
+          type: number
+        first_15min_high:
+          example: 156
+          type: number
+        gap_id:
+          example: 500
+          type: integer
+        session_date:
+          example: '2024-01-09'
+          type: string
+        session_high:
+          example: 157.5
+          type: number
+        session_id:
+          example: 5001
+          type: integer
+        session_type:
+          example: Regular
+          type: string
+        session_volume:
+          example: 12500000
+          type: integer
+        symbol:
+          example: AAPL
+          type: string
+        title:
+          example: First 15 Min Breakout
+          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.VolumeAlert:
+      properties:
+        alert_date:
+          example: '2024-01-09'
+          type: string
+        alert_id:
+          example: 1001
+          type: integer
+        alert_type:
+          example: High Volume
+          type: string
+        average_volume_50d:
+          example: 8500000
+          type: integer
+        description:
+          example: Volume exceeded 1.5x the 50-day average
+          type: string
+        gap_id:
+          example: 500
+          type: integer
+        symbol:
+          example: AAPL
+          type: string
+        title:
+          example: Volume Spike Alert
+          type: string
+        volume:
+          example: 15000000
+          type: integer
+        volume_ratio:
+          example: 1.76
+          type: number
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.MilestoneMeasurement:
+      properties:
+        above_hvc_pct:
+          example: 1.6
+          type: number
+        above_milestone_avg_pct:
+          example: 0.79
+          type: number
+        alert_type:
+          example: Milestone Day 10
+          type: string
+        close_price:
+          example: 158.5
+          type: number
+        description:
+          example: Stock held above HVC on Day 10
+          type: string
+        gap_id:
+          example: 500
+          type: integer
+        milestone_avg:
+          example: 157.25
+          type: number
+        milestone_date:
+          example: '2024-01-19'
+          type: string
+        milestone_day:
+          example: 10
+          type: integer
+        milestone_id:
+          example: 7001
+          type: integer
+        price_type:
+          example: Close
+          type: string
+        title:
+          example: Day 10 Milestone
+          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.EmaCrossover:
+      properties:
+        crossover_date:
+          example: '2024-01-12'
+          type: string
+        crossover_id:
+          example: 6001
+          type: integer
+        crossover_price:
+          example: 154.75
+          type: number
+        crossover_type:
+          example: EMA21
+          type: string
+        days_from_gap:
+          example: '3'
+          type: string
+        description:
+          example: Price crossed above EMA21
+          type: string
+        gap_id:
+          example: 500
+          type: integer
+        title:
+          example: EMA21 Crossover
+          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.DayAlert:
+      properties:
+        alert_date:
+          type: string
+        alert_type:
+          type: string
+        day:
+          type: integer
+        day_alert_id:
+          type: integer
+        description:
+          type: string
+        gap_id:
+          type: integer
+        price:
+          type: number
+        price_type:
+          type: string
+        title:
+          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.FibonacciAlert:
+      properties:
+        alert_date:
+          example: '2024-01-09'
+          type: string
+        alert_type:
+          example: Fibonacci Retracement
+          type: string
+        description:
+          example: Price reached 50% Fibonacci retracement level
+          type: string
+        fib_id:
+          example: 2001
+          type: integer
+        fibonacci_level:
+          example: 50%
+          type: string
+        gap_id:
+          example: 500
+          type: integer
+        level_price:
+          example: 153.5
+          type: number
+        open:
+          example: 154.5
+          type: number
+        prev_close:
+          example: 150.25
+          type: number
+        symbol:
+          example: AAPL
+          type: string
+        title:
+          example: 50% Fibonacci Retracement
+          type: string
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

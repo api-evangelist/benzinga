@@ -1,0 +1,21 @@
+generated: '2026-07-22'
+method: searched
+source: https://docs.benzinga.com (changelog, architecture) + https://status.benzinga.com
+versioning:
+  scheme: uri-path
+  examples: [/api/v1, /api/v2, /api/v2.1, /api/v2.2, /api/v3]
+  note: Endpoint families version independently in the URL path; fundamentals span v2/v2.1/v3, dividends v2.2, quotes v1/v2.
+  docs: https://docs.benzinga.com/api-reference/introduction
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No published deprecation policy or RFC 8594 Sunset header support found in the docs; older path versions remain documented alongside newer ones.
+sla:
+  url: https://docs.benzinga.com/introduction/architecture
+  uptime_target: '99.9%'
+  note: Architecture page commits to 99.9% API availability with 24/5 on-call engineering support; Kong gateway handles rate limiting and authentication.
+status_page: https://status.benzinga.com
+changelog:
+  url: https://docs.benzinga.com/changelog/overview
+  cadence: monthly
+deprecated_operations: []

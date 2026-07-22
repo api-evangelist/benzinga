@@ -1,0 +1,107 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights QuoteDelayed API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: QuoteDelayed
+paths:
+  /api/v1/quoteDelayed:
+    get:
+      description: Get delayed quotes for a list of symbols, ISINs, or CIKs
+      operationId: get-quote-delayed-v1
+      parameters:
+      - description: Comma-separated list of stock ticker symbols. At least one of symbols, isin, or cik is required.
+        in: query
+        name: symbols
+        schema:
+          type: string
+      - description: Comma-separated list of ISIN identifiers. Maximum 50. At least one of symbols, isin, or cik is required.
+        in: query
+        name: isin
+        schema:
+          type: string
+      - description: Comma-separated list of CIK identifiers. At least one of symbols, isin, or cik is required.
+        in: query
+        name: cik
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Returns a JSON object with delayed quotes
+          content:
+            application/json:
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Get delayted quotes V1
+      tags:
+      - QuoteDelayed
+  /api/v2/quoteDelayed:
+    get:
+      description: Get delayed quotes for a list of symbols
+      operationId: get-quote-delayed-v2
+      parameters:
+      - description: Comma-separated list of stock ticker symbols. At least one of symbols, isin, or cik is required.
+        in: query
+        name: symbols
+        schema:
+          type: string
+      - description: Comma-separated list of ISIN identifiers. Maximum 50. At least one of symbols, isin, or cik is required.
+        in: query
+        name: isin
+        schema:
+          type: string
+      - description: Comma-separated list of CIK identifiers. At least one of symbols, isin, or cik is required.
+        in: query
+        name: cik
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Returns a JSON object with delayed quotes
+          content:
+            application/json:
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Get delayed quotes V2
+      tags:
+      - QuoteDelayed
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

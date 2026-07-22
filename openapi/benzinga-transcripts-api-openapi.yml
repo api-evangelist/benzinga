@@ -1,0 +1,194 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights transcripts API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: transcripts
+paths:
+  /api/v1/transcripts/transcripts/{transcript_id}/segment/{segment_id}:
+    delete:
+      description: Delete a specific transcript segment
+      operationId: delete-transcript-segments-by-id
+      parameters:
+      - description: The unique identifier of the transcript
+        in: path
+        name: transcript_id
+        required: true
+        schema:
+          type: string
+      - description: The unique identifier of the segment
+        in: path
+        name: segment_id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Delete transcript segment by ID
+      tags:
+      - transcripts
+    put:
+      description: Update specific transcript segment details
+      operationId: update-transcript-segments-by-id
+      parameters:
+      - description: The unique identifier of the transcript
+        in: path
+        name: transcript_id
+        required: true
+        schema:
+          type: string
+      - description: The unique identifier of the segment
+        in: path
+        name: segment_id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/domain.UpdateTranscriptSegmentsReq'
+        description: Segment update details
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Update transcript segment by ID
+      tags:
+      - transcripts
+  /api/v1/transcripts/transcripts/{transcript_id}/speaker:
+    put:
+      description: Rename a speaker (and optionally set its role) everywhere it appears in a transcript. Locates segments + participant by the speaker's current name, relabels every matching segment, and upserts the participant entry. Renaming into an existing name merges the two speakers.
+      operationId: update-transcript-speaker
+      parameters:
+      - description: The unique identifier of the transcript
+        in: path
+        name: transcript_id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/domain.UpdateTranscriptSpeakerReq'
+        description: Speaker update details
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Update a speaker across a transcript
+      tags:
+      - transcripts
+components:
+  schemas:
+    domain.UpdateTranscriptSegmentsReq:
+      properties:
+        end_time:
+          example: 00:05:30
+          type: string
+        speaker:
+          example: Elon Musk
+          type: string
+        start_time:
+          example: 00:00:10
+          type: string
+        text:
+          example: Welcome everyone to the Q3 earnings call.
+          type: string
+      type: object
+    domain.UpdateTranscriptSpeakerReq:
+      properties:
+        current_name:
+          example: Speaker 1
+          type: string
+        name:
+          example: John Doe
+          type: string
+        role:
+          example: Chief Executive Officer
+          type: string
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

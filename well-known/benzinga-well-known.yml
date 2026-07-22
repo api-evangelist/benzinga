@@ -1,0 +1,30 @@
+generated: '2026-07-22'
+method: searched
+hosts:
+- host: https://www.benzinga.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: benzinga-security.txt
+    note: 'RFC 9116 security.txt. Contact: security@benzinga.com; Policy: https://www.benzinga.com/.well-known/security-policy.md (200). Expires field is stale (2025-06-01).'
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://api.benzinga.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 301
+    note: All /.well-known/* paths on the API host return 301 redirects back to the same URL (edge redirect loop); no discovery documents served.
+- host: https://docs.benzinga.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404

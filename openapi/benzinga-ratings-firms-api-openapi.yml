@@ -1,0 +1,108 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights ratings_firms API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: ratings_firms
+paths:
+  /api/v2.1/calendar/ratings/firms:
+    get:
+      description: Returns the available firms providing analyst ratings
+      operationId: get-ratings-firms
+      parameters:
+      - description: Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0
+        in: query
+        name: page
+        schema:
+          type: integer
+          default: 0
+      - description: Number of results returned. Limit 1000
+        in: query
+        name: pageSize
+        schema:
+          type: integer
+          default: 100
+      - description: Fields
+        in: query
+        name: fields
+        schema:
+          type: string
+      - description: Firm
+        in: query
+        name: firm
+        schema:
+          type: string
+      - description: Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated
+        in: query
+        name: updated
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Ratings Firms
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.RatingsFirm'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.RatingsFirm'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Ratings Firms
+      tags:
+      - ratings_firms
+components:
+  schemas:
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.RatingsFirm:
+      properties:
+        currency:
+          example: USD
+          type: string
+        homepage:
+          example: https://www.goldmansachs.com
+          type: string
+        id:
+          example: 60a7f5e8e4b0f5a3c8e9f5ba
+          type: string
+        name:
+          example: Goldman Sachs
+          type: string
+        updated:
+          example: 1704819600
+          type: integer
+      type: object
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

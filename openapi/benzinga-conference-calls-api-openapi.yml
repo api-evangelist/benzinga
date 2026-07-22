@@ -1,0 +1,184 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights conference_calls API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: conference_calls
+paths:
+  /api/v2.1/calendar/conference-calls:
+    get:
+      description: Returns Conference call data for a selected period and/or security. Conference calls are scheduled calls where company management discusses quarterly or annual financial results, business updates, and answers questions from analysts and investors.
+      operationId: get-conference-calls
+      parameters:
+      - description: Specifies return format. Query parameters work the same for both formats
+        in: header
+        name: accept
+        required: true
+        schema:
+          type: string
+          enum:
+          - application/json
+          default: application/json
+      - description: Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date
+        in: query
+        name: page
+        schema:
+          type: integer
+          default: 0
+      - description: Number of results returned. Limit 1000
+        in: query
+        name: pagesize
+        schema:
+          type: integer
+      - description: Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest
+        in: query
+        name: parameters[date]
+        schema:
+          type: string
+          format: YYYY-MM-DD
+      - description: Date to query from point in time
+        in: query
+        name: parameters[date_from]
+        schema:
+          type: string
+          format: YYYY-MM-DD
+      - description: Date to query to point in time
+        in: query
+        name: parameters[date_to]
+        schema:
+          type: string
+          format: YYYY-MM-DD
+      - description: One or more ticker symbols separated by a comma. Maximum 50 tickers
+        in: query
+        name: parameters[tickers]
+        schema:
+          type: string
+          format: csv
+      - description: Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated
+        in: query
+        name: parameters[updated]
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ConferenceResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ConferenceResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Returns Conference call data
+      tags:
+      - conference_calls
+components:
+  schemas:
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Conference:
+      properties:
+        access_code:
+          example: '123456'
+          type: string
+        confirmed:
+          example: true
+          type: boolean
+        cusip:
+          example: 037833100
+          type: string
+        date:
+          example: '2024-01-09'
+          type: string
+        exchange:
+          example: NASDAQ
+          type: string
+        id:
+          example: 60a7f5e8e4b0f5a3c8e9f5ae
+          type: string
+        importance:
+          example: 4
+          type: integer
+        international_num:
+          example: 1-201-389-0918
+          type: string
+        isin:
+          example: US0378331005
+          type: string
+        name:
+          example: Apple Inc.
+          type: string
+        notes:
+          example: Q1 2024 Earnings Conference Call
+          type: string
+        period:
+          example: Q1
+          type: string
+        period_year:
+          example: 2025
+          type: integer
+        phone_num:
+          example: 1-877-407-0890
+          type: string
+        reservation_num:
+          example: '13744123'
+          type: string
+        start_time:
+          example: '16:30:00'
+          type: string
+        ticker:
+          example: AAPL
+          type: string
+        time:
+          description: Time of the conference call (EST)
+          example: '16:30:00'
+          type: string
+        updated:
+          example: 1704819600
+          type: integer
+        webcast_url:
+          example: https://event.webcasts.com/example
+          type: string
+      type: object
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
+    api.ConferenceResponse:
+      description: API response containing an array of conference call records
+      properties:
+        conference-calls:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Conference'
+          type: array
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

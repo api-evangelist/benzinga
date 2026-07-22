@@ -1,0 +1,190 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights offerings API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: offerings
+paths:
+  /api/v2.1/calendar/offerings:
+    get:
+      description: Returns secondary offering data for public companies issuing additional shares after their IPO. Includes offering price, proceeds, number of shares, shelf offerings, and whether securities are sold in portions over time or at the initial offering date.
+      operationId: get-offerings
+      parameters:
+      - description: Specifies return format. Query parameters work the same for both formats
+        in: header
+        name: accept
+        required: true
+        schema:
+          type: string
+          enum:
+          - application/json
+          default: application/json
+      - description: Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date
+        in: query
+        name: page
+        schema:
+          type: integer
+          default: 0
+      - description: Number of results returned. Limit 1000
+        in: query
+        name: pagesize
+        schema:
+          type: integer
+      - description: Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest
+        in: query
+        name: parameters[date]
+        schema:
+          type: string
+          format: YYYY-MM-DD
+      - description: Date to query from point in time
+        in: query
+        name: parameters[date_from]
+        schema:
+          type: string
+          format: YYYY-MM-DD
+      - description: Date to query to point in time
+        in: query
+        name: parameters[date_to]
+        schema:
+          type: string
+          format: YYYY-MM-DD
+      - description: The importance level to filter by. Uses Greater Than or Equal To the importance indicated
+        in: query
+        name: parameters[importance]
+        schema:
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+      - description: One or more ticker symbols separated by a comma. Maximum 50 tickers
+        in: query
+        name: parameters[tickers]
+        schema:
+          type: string
+          format: csv
+      - description: Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated
+        in: query
+        name: parameters[updated]
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.OfferingResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.OfferingResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Returns Secondary Offering data
+      tags:
+      - offerings
+components:
+  schemas:
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Offering:
+      properties:
+        currency:
+          example: USD
+          type: string
+        cusip:
+          example: 88160R101
+          type: string
+        date:
+          example: '2024-01-09'
+          type: string
+        dollar_shares:
+          example: '5000000000'
+          type: string
+        exchange:
+          example: NASDAQ
+          type: string
+        id:
+          example: 60a7f5e8e4b0f5a3c8e9f5ab
+          type: string
+        importance:
+          example: 4
+          type: integer
+        name:
+          example: Tesla Inc.
+          type: string
+        notes:
+          example: Common stock offering
+          type: string
+        number_shares:
+          example: 20592018
+          type: integer
+        offering_type:
+          example: Follow-on
+          type: string
+        price:
+          example: '242.84'
+          type: string
+        proceeds:
+          example: '5000000000'
+          type: string
+        shelf:
+          example: false
+          type: boolean
+        ticker:
+          example: TSLA
+          type: string
+        time:
+          description: Time of the offering (EST)
+          example: 09:30:00
+          type: string
+        updated:
+          example: 1704819600
+          type: integer
+        url:
+          example: https://www.benzinga.com/offering/123456
+          type: string
+      type: object
+    api.OfferingResponse:
+      description: API response containing an array of offering records
+      properties:
+        offerings:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Offering'
+          type: array
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

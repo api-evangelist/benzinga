@@ -1,0 +1,219 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights summaries API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: summaries
+paths:
+  /api/v1/transcripts/summaries:
+    get:
+      description: Retrieve a list of summaries with optional filtering and pagination
+      operationId: get-summaries
+      parameters:
+      - description: The page number for pagination (starts at 1)
+        in: query
+        name: page
+        schema:
+          type: integer
+          default: 1
+      - description: The number of items to return per page
+        in: query
+        name: page_size
+        schema:
+          type: integer
+          default: 10
+      - description: Filter by stock ticker symbol (e.g. AAPL)
+        in: query
+        name: symbol
+        schema:
+          type: string
+      - description: Filter summaries for calls starting on or after this date (RFC3339, e.g. 2024-01-01T00:00:00)
+        in: query
+        name: from
+        schema:
+          type: string
+      - description: Filter summaries for calls starting on or before this date (RFC3339, e.g. 2024-12-31T23:59:59)
+        in: query
+        name: to
+        schema:
+          type: string
+      - description: Field to sort results by (e.g. created_at)
+        in: query
+        name: sort_by
+        schema:
+          type: string
+      - description: Filter by Share Class FiGi identifier (e.g. BBG000B9XRY4)
+        in: query
+        name: share_class_figi
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Fetch summaries
+      tags:
+      - summaries
+  /api/v1/transcripts/summaries/{call_id}:
+    get:
+      description: Retrieve summary details for a specific call ID
+      operationId: get-summary-by-call-id
+      parameters:
+      - description: The unique identifier of the call associated with the summary
+        in: path
+        name: call_id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/domain.Summaries'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Fetch summary by Call ID
+      tags:
+      - summaries
+    put:
+      description: Update summary details for a specific call ID
+      operationId: update-summary-by-call-id
+      parameters:
+      - description: The unique identifier of the call
+        in: path
+        name: call_id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/domain.UpdateSummaryReq'
+        description: Summary update details
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Update summary by Call ID
+      tags:
+      - summaries
+components:
+  schemas:
+    domain.UpdateSummaryReq:
+      properties:
+        language:
+          example: en
+          type: string
+        summary:
+          example: Overall, the quarter was strong with 5% revenue growth...
+          type: string
+        symbol:
+          example: AAPL
+          type: string
+      type: object
+    domain.Summaries:
+      properties:
+        call_id:
+          example: 770e8400-e29b-41d4-a716-446655440000
+          type: string
+        created_at:
+          type: string
+        deleted_at:
+          type: string
+        language:
+          example: en
+          type: string
+        sentiment:
+          example: 0.85
+          type: number
+        summary:
+          example: The company reported positive growth...
+          type: string
+        summary_id:
+          example: 550e8400-e29b-41d4-a716-446655440000
+          type: string
+        symbol:
+          example: MSFT
+          type: string
+        transcript_id:
+          example: 660e8400-e29b-41d4-a716-446655440000
+          type: string
+        updated_at:
+          type: string
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

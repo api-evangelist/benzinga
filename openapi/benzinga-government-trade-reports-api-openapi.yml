@@ -1,0 +1,260 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights Government Trade Reports API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: Government Trade Reports
+paths:
+  /api/v1/gov/usa/congress/trades/reports:
+    get:
+      description: Returns detailed government trade disclosure reports including periodic transaction reports filed by congressional members
+      operationId: get-government-trade-reports
+      parameters:
+      - description: Page number
+        in: query
+        name: page
+        schema:
+          type: integer
+      - description: Page size
+        in: query
+        name: pageSize
+        schema:
+          type: integer
+      - description: Date from
+        in: query
+        name: date_from
+        schema:
+          type: integer
+          format: int64
+      - description: Date to
+        in: query
+        name: date_to
+        schema:
+          type: integer
+          format: int64
+      - description: Updated since
+        in: query
+        name: updated_since
+        schema:
+          type: integer
+          format: int64
+      - description: Date
+        in: query
+        name: date
+        schema:
+          type: integer
+          format: int64
+      - description: Chamber
+        in: query
+        name: chamber
+        schema:
+          type: string
+          enum:
+          - '"House"'
+          - '"Senate"'
+      - description: Fields
+        in: query
+        name: fields
+        schema:
+          type: string
+      - description: Search keys type
+        in: query
+        name: search_keys_type
+        schema:
+          type: string
+          enum:
+          - '"report_id"'
+          - '"ticker"'
+      - description: Search keys
+        in: query
+        name: search_keys
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Government Trade Reports
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.GovernmentTradeReportsResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Government Trade Reports
+      tags:
+      - Government Trade Reports
+components:
+  schemas:
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
+    api.SwaggerGovtTradeReport:
+      properties:
+        amendment_number:
+          example: 0
+          type: integer
+        disclosure_url:
+          example: https://disclosurespreview.house.gov/ld/ldxmlrelease/2024/RR/123456.xml
+          type: string
+        filer_info:
+          $ref: '#/components/schemas/api.SwaggerGovtTradeReportFilerInfo'
+        id:
+          example: 60a7f5e8e4b0f5a3c8e9f5c4
+          type: string
+        latest:
+          example: true
+          type: boolean
+        report_date:
+          example: '2024-01-09'
+          type: string
+        report_id:
+          example: RPT-2024-5678
+          type: string
+        transactions:
+          items:
+            $ref: '#/components/schemas/api.SwaggerGovtTradeReportTransaction'
+          type: array
+        updated:
+          example: 1704819600
+          type: integer
+      type: object
+    api.GovernmentTradeReportsResponse:
+      description: API response containing an array of government trade report records
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/api.SwaggerGovtTradeReport'
+          type: array
+      type: object
+    api.SwaggerGovtTradeReportSecurity:
+      properties:
+        name:
+          example: Apple Inc. - Common Stock
+          type: string
+        ticker:
+          example: AAPL
+          type: string
+        type:
+          example: Stock
+          type: string
+      type: object
+    api.SwaggerGovtTradeReportTransaction:
+      properties:
+        amendment_number:
+          example: 0
+          type: integer
+        amount:
+          example: $15,001 - $50,000
+          type: string
+        chamber:
+          example: Senate
+          type: string
+        description:
+          example: Common Stock
+          type: string
+        disclosure_url:
+          example: https://disclosurespreview.house.gov/ld/ldxmlrelease/2024/RR/123456.xml
+          type: string
+        id:
+          example: 60a7f5e8e4b0f5a3c8e9f5c5
+          type: string
+        notification_date:
+          example: '2024-01-15'
+          type: string
+        ownership:
+          example: Joint
+          type: string
+        report_date:
+          example: '2024-01-09'
+          type: string
+        report_id:
+          example: RPT-2024-5678
+          type: string
+        security:
+          $ref: '#/components/schemas/api.SwaggerGovtTradeReportSecurity'
+        transaction_date:
+          example: '2024-01-05'
+          type: string
+        transaction_id:
+          example: TXN-2024-001234
+          type: string
+        transaction_type:
+          example: Purchase
+          type: string
+        updated:
+          example: 1704819600
+          type: integer
+      type: object
+    api.SwaggerGovtTradeReportFilerInfo:
+      properties:
+        chamber:
+          example: House
+          type: string
+        committees:
+          additionalProperties:
+            type: string
+          type: object
+        display_name:
+          example: Pelosi, Nancy
+          type: string
+        district:
+          example: '11'
+          type: string
+        headshot:
+          example: https://example.com/headshots/pelosi.jpg
+          type: string
+        id:
+          example: 60a7f5e8e4b0f5a3c8e9f5c3
+          type: string
+        leadership_positions:
+          example:
+          - Speaker Emerita
+          items:
+            type: string
+          type: array
+        member_id:
+          example: P000197
+          type: string
+        member_name:
+          example: Nancy Pelosi
+          type: string
+        party:
+          example: Democrat
+          type: string
+        state:
+          example: CA
+          type: string
+        status:
+          example: Active
+          type: string
+        updated:
+          example: 1704819600
+          type: integer
+        website:
+          example: https://pelosi.house.gov
+          type: string
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

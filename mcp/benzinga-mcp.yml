@@ -1,0 +1,237 @@
+generated: '2026-07-22'
+method: derived
+status: candidate
+source: derived from openapi/ operations; no official Benzinga MCP server found (searched MCP registries and docs
+  2026-07-22)
+server:
+  name: benzinga
+  transport: http
+tools:
+- name: get_analyst_insights_v1
+  description: Analyst Insights V1
+  source_operation: openapi/benzinga-analyst-insights-api-openapi.yml#get-analyst-insights-v1
+- name: get_analyst_reports_raw_text_data
+  description: Analyst Research Reports
+  source_operation: openapi/benzinga-analyst-reports-api-openapi.yml#get-analyst-reports-raw-text-data
+- name: get_block_trade_v1
+  description: BlockTrade V1
+  source_operation: openapi/benzinga-block-trade-api-openapi.yml#get-block-trade-v1
+- name: get_bulls_say_bears_say_v1
+  description: Latest bull and bear cases for a given ticker symbol
+  source_operation: openapi/benzinga-bulls-say-bears-say-api-openapi.yml#get-bulls-say-bears-say-v1
+- name: get_conference_calls
+  description: Fetch all calls
+  source_operation: openapi/benzinga-calls-api-openapi.yml#get-conference-calls
+- name: delete_conference_call_by_id
+  description: Delete call by ID
+  source_operation: openapi/benzinga-calls-api-openapi.yml#delete-conference-call-by-id
+- name: get_conference_call_by_id
+  description: Fetch call by ID
+  source_operation: openapi/benzinga-calls-api-openapi.yml#get-conference-call-by-id
+- name: update_conference_call_by_id
+  description: Update call by ID
+  source_operation: openapi/benzinga-calls-api-openapi.yml#update-conference-call-by-id
+- name: get_channels
+  description: Get available news channels
+  source_operation: openapi/benzinga-channels-api-openapi.yml#get-channels
+- name: get_conference_calls
+  description: Returns Conference call data
+  source_operation: openapi/benzinga-conference-calls-api-openapi.yml#get-conference-calls
+- name: get_consensus_ratings_v1
+  description: Returns analyst ratings consensus data
+  source_operation: openapi/benzinga-consensus-ratings-api-openapi.yml#get-consensus-ratings-v1
+- name: get_dividends
+  description: Dividends Events
+  source_operation: openapi/benzinga-dividends-api-openapi.yml#get-dividends
+- name: get_dividends_v22
+  description: Dividends Events V2.2
+  source_operation: openapi/benzinga-dividends-api-openapi.yml#get-dividends-v22
+- name: get_earnings
+  description: Returns the earnings data
+  source_operation: openapi/benzinga-earnings-api-openapi.yml#get-earnings
+- name: get_earnings_call_transcripts
+  description: Earnings Call Transcripts
+  source_operation: openapi/benzinga-earnings-call-transcripts-api-openapi.yml#get-earnings-call-transcripts
+- name: get_earnings_call_transcript_audio_files
+  description: Earnings Call Audio Files
+  source_operation: openapi/benzinga-earnings-call-transcripts-api-openapi.yml#get-earnings-call-transcript-audio-files
+- name: get_economics
+  description: Returns the economic calendar data
+  source_operation: openapi/benzinga-economics-api-openapi.yml#get-economics
+- name: get_erx_gaps
+  description: ERx Gaps
+  source_operation: openapi/benzinga-erx-gaps-api-openapi.yml#get-erx-gaps
+- name: get_events
+  description: Events
+  source_operation: openapi/benzinga-events-api-openapi.yml#get-events
+- name: get_fda
+  description: FDA approvals, clinical trials, and PDUFA dates
+  source_operation: openapi/benzinga-fda-api-openapi.yml#get-fda
+- name: get_fundamentals_v21
+  description: Company Fundamentals V2.1
+  source_operation: openapi/benzinga-fundamentals-api-openapi.yml#get-fundamentals-v21
+- name: get_alpha_beta_v21
+  description: Get Alpha Beta V2.1
+  source_operation: openapi/benzinga-fundamentals-api-openapi.yml#get-alpha-beta-v21
+- name: get_asset_classification_v21
+  description: Get Asset Classification V2.1
+  source_operation: openapi/benzinga-fundamentals-api-openapi.yml#get-asset-classification-v21
+- name: get_company_v21
+  description: Company Financial Data V2.1
+  source_operation: openapi/benzinga-fundamentals-api-openapi.yml#get-company-v21
+- name: get_company_profile_v21
+  description: Company Profile Information V2.1
+  source_operation: openapi/benzinga-fundamentals-api-openapi.yml#get-company-profile-v21
+- name: get_earning_ratios_v21
+  description: Get Earning Ratios V2.1
+  source_operation: openapi/benzinga-fundamentals-api-openapi.yml#get-earning-ratios-v21
+- name: get_earnings_reports_v21
+  description: Quarterly and Annual Earnings Reports V2.1
+  source_operation: openapi/benzinga-fundamentals-api-openapi.yml#get-earnings-reports-v21
+- name: get_operation_ratios_v21
+  description: Get Operation Ratios V2.1
+  source_operation: openapi/benzinga-fundamentals-api-openapi.yml#get-operation-ratios-v21
+- name: get_valuation_ratios_v21
+  description: Get Valuation Ratios V2.1
+  source_operation: openapi/benzinga-fundamentals-api-openapi.yml#get-valuation-ratios-v21
+- name: get_fundamentals_v2
+  description: Company Fundamentals V2
+  source_operation: openapi/benzinga-fundamentals-api-openapi.yml#get-fundamentals-v2
+- name: get_operation_ratios_v2
+  description: Operational Efficiency Ratios V2
+  source_operation: openapi/benzinga-fundamentals-api-openapi.yml#get-operation-ratios-v2
+- name: get_fundamentals_v3
+  description: Company Fundamentals V3
+  source_operation: openapi/benzinga-fundamentals-api-openapi.yml#get-fundamentals-v3
+- name: get_balance_sheet_v3
+  description: Get Balance Sheet V3
+  source_operation: openapi/benzinga-fundamentals-api-openapi.yml#get-balance-sheet-v3
+- name: get_derived_figures_and_ratios_v3
+  description: Get Derived Figures and Ratios V3
+  source_operation: openapi/benzinga-fundamentals-api-openapi.yml#get-derived-figures-and-ratios-v3
+- name: get_income_statement_v3
+  description: Income Statement Data V3
+  source_operation: openapi/benzinga-fundamentals-api-openapi.yml#get-income-statement-v3
+- name: get_share_price_ratios_v3
+  description: Get Share Price Ratios V3
+  source_operation: openapi/benzinga-fundamentals-api-openapi.yml#get-share-price-ratios-v3
+- name: get_government_trade_reports
+  description: Government Trade Reports
+  source_operation: openapi/benzinga-government-trade-reports-api-openapi.yml#get-government-trade-reports
+- name: get_government_trades
+  description: Government Trades
+  source_operation: openapi/benzinga-government-trades-api-openapi.yml#get-government-trades
+- name: get_guidance
+  description: Returns guidance data
+  source_operation: openapi/benzinga-guidance-api-openapi.yml#get-guidance
+- name: get_halt_resume_v1
+  description: HaltResume V1
+  source_operation: openapi/benzinga-halt-resume-api-openapi.yml#get-halt-resume-v1
+- name: get_insider_transaction
+  description: Insider Transactions
+  source_operation: openapi/benzinga-insider-transaction-api-openapi.yml#get-insider-transaction
+- name: get_insider_transaction_owner
+  description: Insider Transaction Owner
+  source_operation: openapi/benzinga-insider-transaction-api-openapi.yml#get-insider-transaction-owner
+- name: get_ipos_v21
+  description: IPOs V2.1
+  source_operation: openapi/benzinga-ipos-api-openapi.yml#get-ipos-v21
+- name: get_ipos_v2
+  description: Returns ipo data
+  source_operation: openapi/benzinga-ipos-api-openapi.yml#get-ipos-v2
+- name: logo_bulk_sync
+  description: Bulk logos sync
+  source_operation: openapi/benzinga-logos-api-openapi.yml#logo-bulk-sync
+- name: get_search_logos
+  description: Search Logos
+  source_operation: openapi/benzinga-logos-api-openapi.yml#get-search-logos
+- name: get_ma
+  description: Returns the mergers and acquisitions data
+  source_operation: openapi/benzinga-ma-api-openapi.yml#get-ma
+- name: get_movers
+  description: Market Movers
+  source_operation: openapi/benzinga-market-data-api-openapi.yml#get-movers
+- name: get_short_interest
+  description: Short Interest Data
+  source_operation: openapi/benzinga-market-data-api-openapi.yml#get-short-interest
+- name: get_bars_v2
+  description: Historical Price Bars
+  source_operation: openapi/benzinga-market-data-api-openapi.yml#get-bars-v2
+- name: get_newsquantified_data
+  description: Quantitative News Analytics
+  source_operation: openapi/benzinga-news-analytics-api-openapi.yml#get-newsquantified-data
+- name: get_news
+  description: Get the news items
+  source_operation: openapi/benzinga-news-api-openapi.yml#get-news
+- name: get_removed_news
+  description: Returns the removed news data
+  source_operation: openapi/benzinga-news-api-openapi.yml#get-removed-news
+- name: get_offerings
+  description: Returns Secondary Offering data
+  source_operation: openapi/benzinga-offerings-api-openapi.yml#get-offerings
+- name: get_option_activity_v1
+  description: OptionActivity V1
+  source_operation: openapi/benzinga-option-activity-api-openapi.yml#get-option-activity-v1
+- name: delete_participant_by_id
+  description: Delete participant by ID
+  source_operation: openapi/benzinga-participants-api-openapi.yml#delete-participant-by-id
+- name: update_participant_by_id
+  description: Update participant by ID
+  source_operation: openapi/benzinga-participants-api-openapi.yml#update-participant-by-id
+- name: get_press_releases
+  description: Press Releases
+  source_operation: openapi/benzinga-press-releases-api-openapi.yml#get-press-releases
+- name: get_quote_delayed_v1
+  description: Get delayted quotes V1
+  source_operation: openapi/benzinga-quotedelayed-api-openapi.yml#get-quote-delayed-v1
+- name: get_quote_delayed_v2
+  description: Get delayed quotes V2
+  source_operation: openapi/benzinga-quotedelayed-api-openapi.yml#get-quote-delayed-v2
+- name: get_ratings_analysts
+  description: Ratings Analysts
+  source_operation: openapi/benzinga-ratings-analysts-api-openapi.yml#get-ratings-analysts
+- name: get_ratings
+  description: Returns analyst ratings data
+  source_operation: openapi/benzinga-ratings-api-openapi.yml#get-ratings
+- name: get_ratings_firms
+  description: Ratings Firms
+  source_operation: openapi/benzinga-ratings-firms-api-openapi.yml#get-ratings-firms
+- name: get_removed
+  description: Removed (v2)
+  source_operation: openapi/benzinga-removed-api-openapi.yml#get-removed
+- name: get_splits
+  description: Returns the splits calendar data
+  source_operation: openapi/benzinga-splits-api-openapi.yml#get-splits
+- name: query_status_view
+  description: Query status view
+  source_operation: openapi/benzinga-status-api-openapi.yml#query-status-view
+- name: query_status_view
+  description: Query status view
+  source_operation: openapi/benzinga-status-api-openapi.yml#query-status-view
+- name: get_summaries
+  description: Fetch summaries
+  source_operation: openapi/benzinga-summaries-api-openapi.yml#get-summaries
+- name: get_summary_by_call_id
+  description: Fetch summary by Call ID
+  source_operation: openapi/benzinga-summaries-api-openapi.yml#get-summary-by-call-id
+- name: update_summary_by_call_id
+  description: Update summary by Call ID
+  source_operation: openapi/benzinga-summaries-api-openapi.yml#update-summary-by-call-id
+- name: get_ticker_trend_data
+  description: Get Ticker Trend Data
+  source_operation: openapi/benzinga-ticker-trends-api-openapi.yml#get-ticker-trend-data
+- name: get_ticker_trend_list_data
+  description: Get Trending Tickers List
+  source_operation: openapi/benzinga-ticker-trends-api-openapi.yml#get-ticker-trend-list-data
+- name: delete_transcript_segments_by_id
+  description: Delete transcript segment by ID
+  source_operation: openapi/benzinga-transcripts-api-openapi.yml#delete-transcript-segments-by-id
+- name: update_transcript_segments_by_id
+  description: Update transcript segment by ID
+  source_operation: openapi/benzinga-transcripts-api-openapi.yml#update-transcript-segments-by-id
+- name: update_transcript_speaker
+  description: Update a speaker across a transcript
+  source_operation: openapi/benzinga-transcripts-api-openapi.yml#update-transcript-speaker
+- name: get_webhook_test
+  description: Test Webhook Delivery
+  source_operation: openapi/benzinga-webhook-api-openapi.yml#get-webhook-test

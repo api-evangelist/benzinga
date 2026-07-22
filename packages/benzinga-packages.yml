@@ -1,0 +1,69 @@
+generated: '2026-07-22'
+method: searched
+source: https://docs.benzinga.com/sdks/overview + PyPI + npm + github.com/Benzinga
+packages:
+- language: python
+  registry: pypi
+  name: benzinga
+  url: https://pypi.org/project/benzinga/
+  install: pip install benzinga
+  repository: https://github.com/Benzinga/benzinga-python-client
+  docs: https://docs.benzinga.com/sdks/languages/python
+  official: true
+  notes: Python client library for Benzinga news and financial data (modules benzinga.financial_data, benzinga.news_data).
+- language: javascript
+  registry: npm
+  name: '@benzinga/session'
+  url: https://www.npmjs.com/package/@benzinga/session
+  install: npm install @benzinga/session
+  repository: https://github.com/Benzinga/benzinga-javascript-client
+  docs: https://docs.benzinga.com/sdks/languages/node
+  official: true
+  notes: Core session package of the modular TypeScript/JavaScript SDK; works in browser and Node.js.
+- language: javascript
+  registry: npm
+  name: '@benzinga/news-data'
+  url: https://www.npmjs.com/package/@benzinga/news-data
+  install: npm install @benzinga/news-data
+  repository: https://github.com/Benzinga/benzinga-javascript-client
+  docs: https://docs.benzinga.com/sdks/languages/node
+  official: true
+- language: javascript
+  registry: npm
+  name: '@benzinga/calendar-data'
+  url: https://www.npmjs.com/package/@benzinga/calendar-data
+  install: npm install @benzinga/calendar-data
+  repository: https://github.com/Benzinga/benzinga-javascript-client
+  docs: https://docs.benzinga.com/sdks/languages/node
+  official: true
+- language: javascript
+  registry: npm
+  name: '@benzinga/quotes'
+  url: https://www.npmjs.com/package/@benzinga/quotes
+  install: npm install @benzinga/quotes
+  repository: https://github.com/Benzinga/benzinga-javascript-client
+  docs: https://docs.benzinga.com/sdks/languages/node
+  official: true
+- language: java
+  registry: maven
+  name: org.benzinga:BZClient
+  install: implementation 'org.benzinga:BZClient:0.2.7'
+  repository: https://github.com/Benzinga/bz-java-client
+  docs: https://docs.benzinga.com/sdks/languages/java
+  official: true
+  notes: Documented Gradle/Maven coordinate org.benzinga:BZClient:0.2.7; not found on Maven Central search 2026-07-22 (may be distributed via GitHub).
+- language: go
+  registry: github
+  name: go-bztcp
+  url: https://github.com/Benzinga/go-bztcp
+  install: go get github.com/Benzinga/go-bztcp
+  docs: https://docs.benzinga.com/tcp-reference/go-client
+  official: true
+  notes: Pure-Go client for the Benzinga TCP streaming protocol (tcp-v1.benzinga.io:11337).
+- language: python
+  registry: github
+  name: python-bztcp
+  url: https://github.com/Benzinga/python-bztcp
+  docs: https://docs.benzinga.com/tcp-reference/python-client
+  official: true
+  notes: Pure-Python client for the Benzinga TCP streaming protocol.

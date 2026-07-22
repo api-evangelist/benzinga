@@ -1,0 +1,126 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights participants API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: participants
+paths:
+  /api/v1/transcripts/participants/{participant_id}:
+    delete:
+      description: Delete a specific participant by their ID
+      operationId: delete-participant-by-id
+      parameters:
+      - description: The unique identifier of the participant
+        in: path
+        name: participant_id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Delete participant by ID
+      tags:
+      - participants
+    put:
+      description: Update details of a specific participant by their ID
+      operationId: update-participant-by-id
+      parameters:
+      - description: The unique identifier of the participant
+        in: path
+        name: participant_id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/domain.UpdateParticipantReq'
+        description: Participant update details
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Update participant by ID
+      tags:
+      - participants
+components:
+  schemas:
+    domain.UpdateParticipantReq:
+      properties:
+        human_verified:
+          example: true
+          type: boolean
+        mentions:
+          example: 5
+          type: integer
+        name:
+          example: Tim Cook
+          type: string
+        organization:
+          example: Apple Inc.
+          type: string
+        role:
+          example: CEO
+          type: string
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

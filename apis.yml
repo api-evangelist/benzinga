@@ -2,20 +2,27 @@ aid: benzinga
 url: https://raw.githubusercontent.com/api-evangelist/benzinga/refs/heads/main/apis.yml
 name: Benzinga
 kind: company
-description: Benzinga is a Detroit-based financial media and market data company
-  (founded 2010, acquired by Beringer Capital in 2021) that licenses its newsroom
-  and data products through a developer-first API platform at docs.benzinga.com.
-  Products span real-time financial news (Newsfeed, Press Releases, Why Is It
-  Moving), quantified news sentiment, a deep corporate-events Calendar (earnings,
-  dividends, ratings, IPOs, splits, economics, FDA, M&A, government and insider
-  trades), delayed quotes, historical OHLCV bars, fundamentals, logos, ticker
-  trends, and earnings-call transcripts. Delivery is REST over
-  https://api.benzinga.com with API-key auth, plus WebSocket streams, a TCP
-  streaming service (tcp-v1.benzinga.io:11337), and a data webhook engine.
-  OpenAPI and AsyncAPI specs are published in the public Benzinga/benzinga-docs
-  GitHub repo. Access is licensing-led with a developer console registration flow;
-  no public pricing page.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+description: Benzinga is a Detroit-based financial media and market data company (founded 2010, acquired
+  by Beringer Capital in 2021) that licenses its newsroom and data products through a developer-first
+  API platform at docs.benzinga.com. Products span real-time financial news (Newsfeed, Press Releases,
+  Why Is It Moving), quantified news sentiment, a deep corporate-events Calendar (earnings, dividends,
+  ratings, IPOs, splits, economics, FDA, M&A, government and insider trades), delayed quotes, historical
+  OHLCV bars, fundamentals, logos, ticker trends, and earnings-call transcripts. Delivery is REST over
+  https://api.benzinga.com with API-key auth, plus WebSocket streams, a TCP streaming service (tcp-v1.benzinga.io:11337),
+  and a data webhook engine. OpenAPI and AsyncAPI specs are published in the public Benzinga/benzinga-docs
+  GitHub repo. Access is licensing-led with a developer console registration flow; no public pricing page.
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/benzinga.png
 tags:
 - Financial
 - Market Data
@@ -28,7 +35,7 @@ tags:
 - Options
 - Streaming
 created: '2026-07-21'
-modified: '2026-07-21'
+modified: '2026-07-22'
 specificationVersion: '0.19'
 apis:
 - aid: benzinga:benzinga-newsfeed-api
@@ -47,9 +54,11 @@ apis:
     type: APIReference
   - url: openapi/benzinga-news-api-openapi.yml
     type: OpenAPI
-  description: Structured real-time and historical financial news from the Benzinga
-    newsroom, with channel filters, removed-news deltas, and Why Is It Moving (WIIM)
-    one-line explanations of price action, queried by tickers, date, and channels.
+  - type: Overlay
+    url: overlays/benzinga-news-api-overlay.yaml
+  description: Structured real-time and historical financial news from the Benzinga newsroom, with channel
+    filters, removed-news deltas, and Why Is It Moving (WIIM) one-line explanations of price action, queried
+    by tickers, date, and channels.
 - aid: benzinga:benzinga-press-releases-api
   name: Benzinga Press Releases API
   tags:
@@ -65,142 +74,10 @@ apis:
     type: APIReference
   - url: openapi/benzinga-press-releases-api-openapi.yml
     type: OpenAPI
-  description: Structured corporate press release content with ticker, date, and
-    channel filtering plus updatedSince delta queries.
-- aid: benzinga:benzinga-newsquantified-api
-  name: Benzinga NewsQuantified API
-  tags:
-  - Sentiment
-  - News Analytics
-  - Quant
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.benzinga.com/api-reference/newsquantified-api/overview
-  baseURL: https://api.benzinga.com
-  properties:
-  - url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
-    type: Documentation
-  - url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
-    type: APIReference
-  - url: openapi/benzinga-newsquantified-api-openapi.yml
-    type: OpenAPI
-  description: Quantified news analytics with sentiment scores, relevance metrics,
-    trending scores, and ticker-level market impact indicators for quantitative
-    strategies.
-- aid: benzinga:benzinga-calendar-api
-  name: Benzinga Calendar API
-  tags:
-  - Earnings
-  - Dividends
-  - Ratings
-  - IPOs
-  - Corporate Events
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.benzinga.com/api-reference/calendar-api/overview
-  baseURL: https://api.benzinga.com
-  properties:
-  - url: https://docs.benzinga.com/api-reference/calendar-api/overview
-    type: Documentation
-  - url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
-    type: APIReference
-  - url: openapi/benzinga-calendar-api-openapi.yml
-    type: OpenAPI
-  description: Corporate events and reference data across earnings, dividends,
-    analyst ratings and consensus, IPOs, splits, offerings, M&A, economics, FDA
-    milestones, conference calls, guidance, halts/resumes, block trades, unusual
-    options activity, government trades, and SEC Form 4 insider transactions.
-- aid: benzinga:benzinga-bars-api
-  name: Benzinga Historical Bars API
-  tags:
-  - OHLCV
-  - Historical Data
-  - Charts
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.benzinga.com/api-reference/bars/overview
-  baseURL: https://api.benzinga.com
-  properties:
-  - url: https://docs.benzinga.com/api-reference/bars/overview
-    type: Documentation
-  - url: https://docs.benzinga.com/api-reference/bars/get-bars
-    type: APIReference
-  - url: openapi/benzinga-data-api-proxy-openapi.yml
-    type: OpenAPI
-  description: Historical OHLCV price bars for multiple tickers at configurable
-    intervals with relative date range support, served from the /api/v2/bars
-    endpoint.
-- aid: benzinga:benzinga-delayed-quotes-api
-  name: Benzinga Delayed Quotes API
-  tags:
-  - Quotes
-  - Delayed Data
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.benzinga.com/api-reference/quotedelayed/overview
-  baseURL: https://api.benzinga.com
-  properties:
-  - url: https://docs.benzinga.com/api-reference/quotedelayed/overview
-    type: Documentation
-  - url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
-    type: APIReference
-  - url: openapi/benzinga-data-api-proxy-openapi.yml
-    type: OpenAPI
-  description: Delayed price quotes for lists of symbols via /api/v1 and /api/v2
-    quoteDelayed endpoints.
-- aid: benzinga:benzinga-market-data-api
-  name: Benzinga Market Movers & Short Interest API
-  tags:
-  - Movers
-  - Short Interest
-  - Screeners
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.benzinga.com/api-reference/market-data/overview
-  baseURL: https://api.benzinga.com
-  properties:
-  - url: https://docs.benzinga.com/api-reference/market-data/overview
-    type: Documentation
-  - url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
-    type: APIReference
-  - url: openapi/benzinga-data-api-proxy-openapi.yml
-    type: OpenAPI
-  description: Market movers by session and time range with screener-style
-    filtering, plus FINRA-sourced short interest data including days to cover and
-    short interest ratios.
-- aid: benzinga:benzinga-fundamentals-api
-  name: Benzinga Company Fundamentals API
-  tags:
-  - Fundamentals
-  - Financial Statements
-  - Ratios
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.benzinga.com/api-reference/fundamentals/overview
-  baseURL: https://api.benzinga.com
-  properties:
-  - url: https://docs.benzinga.com/api-reference/fundamentals/overview
-    type: Documentation
-  - url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
-    type: APIReference
-  - url: openapi/benzinga-data-api-proxy-openapi.yml
-    type: OpenAPI
-  description: Company fundamentals across v2.1 and v3 endpoints - balance sheets,
-    income statements, cash flow, earnings reports, company profiles, share
-    classes, asset classification, alpha/beta, and derived, valuation, operation,
-    and earning ratios.
-- aid: benzinga:benzinga-logos-api
-  name: Benzinga Logos API
-  tags:
-  - Logos
-  - Reference Data
-  - Branding
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.benzinga.com/api-reference/logos-api/overview
-  baseURL: https://api.benzinga.com
-  properties:
-  - url: https://docs.benzinga.com/api-reference/logos-api/overview
-    type: Documentation
-  - url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
-    type: APIReference
-  - url: openapi/benzinga-logo-api-openapi.yml
-    type: OpenAPI
-  description: Company, fund, and crypto logo search and bulk sync by ticker and
-    other identifiers, with updated_since paging for full-dataset walks.
+  - type: Overlay
+    url: overlays/benzinga-press-releases-api-overlay.yaml
+  description: Structured corporate press release content with ticker, date, and channel filtering plus
+    updatedSince delta queries.
 - aid: benzinga:benzinga-ticker-trends-api
   name: Benzinga Ticker Trends API
   tags:
@@ -216,8 +93,10 @@ apis:
     type: APIReference
   - url: openapi/benzinga-ticker-trends-api-openapi.yml
     type: OpenAPI
-  description: Trending-ticker rankings and per-ticker trend scores aggregated
-    across time intervals from Benzinga audience activity.
+  - type: Overlay
+    url: overlays/benzinga-ticker-trends-api-overlay.yaml
+  description: Trending-ticker rankings and per-ticker trend scores aggregated across time intervals from
+    Benzinga audience activity.
 - aid: benzinga:benzinga-earnings-call-transcripts-api
   name: Benzinga Earnings Call Transcripts API
   tags:
@@ -236,22 +115,10 @@ apis:
     type: OpenAPI
   - url: openapi/benzinga-earnings-call-transcripts-api-openapi.yml
     type: OpenAPI
-  description: Real-time and historical conference-call transcripts, audio,
-    AI-generated summaries, and speaker data, fetched by call ID or filtered
-    lists.
-- aid: benzinga:benzinga-analyst-reports-raw-text-api
-  name: Benzinga Analyst Reports Raw Text API
-  tags:
-  - Analyst Reports
-  - Research
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.benzinga.com/api-reference/introduction
-  baseURL: https://api.benzinga.com
-  properties:
-  - url: openapi/benzinga-analyst-reports-raw-text-api-openapi.yml
-    type: OpenAPI
-  description: Raw text of analyst research reports, published as an OpenAPI spec
-    in the Benzinga docs repository.
+  - type: Overlay
+    url: overlays/benzinga-earnings-call-transcripts-api-overlay.yaml
+  description: Real-time and historical conference-call transcripts, audio, AI-generated summaries, and
+    speaker data, fetched by call ID or filtered lists.
 - aid: benzinga:benzinga-webhook-api
   name: Benzinga Data Webhook Engine
   tags:
@@ -267,9 +134,10 @@ apis:
     type: APIReference
   - url: openapi/benzinga-webhook-api-openapi.yml
     type: OpenAPI
-  description: Push delivery of Benzinga calendar, signal, and sentiment data to
-    customer endpoints with filterable, resilient webhooks and a test-delivery
-    endpoint.
+  - type: Overlay
+    url: overlays/benzinga-webhook-api-overlay.yaml
+  description: Push delivery of Benzinga calendar, signal, and sentiment data to customer endpoints with
+    filterable, resilient webhooks and a test-delivery endpoint.
 - aid: benzinga:benzinga-websocket-streaming-api
   name: Benzinga WebSocket Streaming API
   tags:
@@ -298,10 +166,9 @@ apis:
     type: AsyncAPI
   - url: asyncapi/benzinga-transcripts-stream-asyncapi.yml
     type: AsyncAPI
-  description: Real-time WebSocket streams over wss://api.benzinga.com for news,
-    earnings, analyst ratings, consensus ratings, analyst insights, bulls/bears
-    cases, and sentence-by-sentence earnings-call transcripts, with session
-    replay actions and token auth.
+  description: Real-time WebSocket streams over wss://api.benzinga.com for news, earnings, analyst ratings,
+    consensus ratings, analyst insights, bulls/bears cases, and sentence-by-sentence earnings-call transcripts,
+    with session replay actions and token auth.
 - aid: benzinga:benzinga-tcp-streaming-service
   name: Benzinga TCP Streaming Service
   tags:
@@ -318,11 +185,1496 @@ apis:
     type: APIReference
   - url: https://docs.benzinga.com/tcp-reference/go-client
     type: SDK
-  description: Low-latency persistent TCP stream (tcp-v1.benzinga.io port 11337,
-    optional TLS) delivering real-time news, option alerts, and market events as
-    JSON messages, authenticated with username plus API key, with official Go and
-    Python client libraries.
+  description: Low-latency persistent TCP stream (tcp-v1.benzinga.io port 11337, optional TLS) delivering
+    real-time news, option alerts, and market events as JSON messages, authenticated with username plus
+    API key, with official Go and Python client libraries.
+- aid: benzinga:benzinga-analyst-insights-api
+  name: Benzinga Analyst Insights API
+  description: The Analyst Insights API from Benzinga — 1 operation(s) for analyst insights.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - Analyst Insights
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-analyst-insights-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-analyst-insights-api-overlay.yaml
+- aid: benzinga:benzinga-analyst-reports-api
+  name: Benzinga Analyst Reports API
+  description: The Analyst Reports API from Benzinga — 1 operation(s) for analyst reports.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - Analyst Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-analyst-reports-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-analyst-reports-api-overlay.yaml
+- aid: benzinga:benzinga-block-trade-api
+  name: Benzinga Block Trade API
+  description: The Block Trade API from Benzinga — 1 operation(s) for block trade.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - Block Trade
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-block-trade-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-block-trade-api-overlay.yaml
+- aid: benzinga:benzinga-bulls-say-bears-say-api
+  name: Benzinga Bulls Say Bears Say API
+  description: The Bulls Say Bears Say API from Benzinga — 1 operation(s) for bulls say bears say.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - Bulls Say Bears Say
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-bulls-say-bears-say-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-bulls-say-bears-say-api-overlay.yaml
+- aid: benzinga:benzinga-calls-api
+  name: Benzinga calls API
+  description: The calls API from Benzinga — 2 operation(s) for calls.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - calls
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-calls-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-calls-api-overlay.yaml
+- aid: benzinga:benzinga-channels-api
+  name: Benzinga Channels API
+  description: The Channels API from Benzinga — 1 operation(s) for channels.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - Channels
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-channels-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-channels-api-overlay.yaml
+- aid: benzinga:benzinga-conference-calls-api
+  name: Benzinga conference_calls API
+  description: The conference_calls API from Benzinga — 1 operation(s) for conference_calls.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - conference_calls
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-conference-calls-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-conference-calls-api-overlay.yaml
+- aid: benzinga:benzinga-consensus-ratings-api
+  name: Benzinga consensus_ratings API
+  description: The consensus_ratings API from Benzinga — 1 operation(s) for consensus_ratings.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - consensus_ratings
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-consensus-ratings-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-consensus-ratings-api-overlay.yaml
+- aid: benzinga:benzinga-dividends-api
+  name: Benzinga Dividends API
+  description: The Dividends API from Benzinga — 2 operation(s) for dividends.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - Dividends
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-dividends-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-dividends-api-overlay.yaml
+- aid: benzinga:benzinga-earnings-api
+  name: Benzinga earnings API
+  description: The earnings API from Benzinga — 1 operation(s) for earnings.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - earnings
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-earnings-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-earnings-api-overlay.yaml
+- aid: benzinga:benzinga-economics-api
+  name: Benzinga economics API
+  description: The economics API from Benzinga — 1 operation(s) for economics.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - economics
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-economics-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-economics-api-overlay.yaml
+- aid: benzinga:benzinga-erx-gaps-api
+  name: Benzinga ERx Gaps API
+  description: The ERx Gaps API from Benzinga — 1 operation(s) for erx gaps.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - ERx Gaps
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-erx-gaps-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-erx-gaps-api-overlay.yaml
+- aid: benzinga:benzinga-events-api
+  name: Benzinga events API
+  description: The events API from Benzinga — 1 operation(s) for events.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - events
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-events-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-events-api-overlay.yaml
+- aid: benzinga:benzinga-fda-api
+  name: Benzinga fda API
+  description: The fda API from Benzinga — 1 operation(s) for fda.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - fda
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-fda-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-fda-api-overlay.yaml
+- aid: benzinga:benzinga-fundamentals-api
+  name: Benzinga Fundamentals API
+  description: The Fundamentals API from Benzinga — 20 operation(s) for fundamentals.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - Fundamentals
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-fundamentals-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-fundamentals-api-overlay.yaml
+- aid: benzinga:benzinga-government-trade-reports-api
+  name: Benzinga Government Trade Reports API
+  description: The Government Trade Reports API from Benzinga — 1 operation(s) for government trade reports.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - Government Trade Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-government-trade-reports-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-government-trade-reports-api-overlay.yaml
+- aid: benzinga:benzinga-government-trades-api
+  name: Benzinga Government Trades API
+  description: The Government Trades API from Benzinga — 1 operation(s) for government trades.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - Government Trades
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-government-trades-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-government-trades-api-overlay.yaml
+- aid: benzinga:benzinga-guidance-api
+  name: Benzinga guidance API
+  description: The guidance API from Benzinga — 1 operation(s) for guidance.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - guidance
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-guidance-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-guidance-api-overlay.yaml
+- aid: benzinga:benzinga-halt-resume-api
+  name: Benzinga Halt Resume API
+  description: The Halt Resume API from Benzinga — 1 operation(s) for halt resume.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - Halt Resume
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-halt-resume-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-halt-resume-api-overlay.yaml
+- aid: benzinga:benzinga-insider-transaction-api
+  name: Benzinga Insider Transaction API
+  description: The Insider Transaction API from Benzinga — 2 operation(s) for insider transaction.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - Insider Transaction
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-insider-transaction-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-insider-transaction-api-overlay.yaml
+- aid: benzinga:benzinga-ipos-api
+  name: Benzinga ipos API
+  description: The ipos API from Benzinga — 2 operation(s) for ipos.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - ipos
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-ipos-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-ipos-api-overlay.yaml
+- aid: benzinga:benzinga-logos-api
+  name: Benzinga logos API
+  description: The logos API from Benzinga — 2 operation(s) for logos.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - logos
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-logos-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-logos-api-overlay.yaml
+- aid: benzinga:benzinga-ma-api
+  name: Benzinga ma API
+  description: The ma API from Benzinga — 1 operation(s) for ma.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - ma
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-ma-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-ma-api-overlay.yaml
+- aid: benzinga:benzinga-market-data-api
+  name: Benzinga Market Data API
+  description: The Market Data API from Benzinga — 3 operation(s) for market data.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - Market Data
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-market-data-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-market-data-api-overlay.yaml
+- aid: benzinga:benzinga-news-analytics-api
+  name: Benzinga News Analytics API
+  description: The News Analytics API from Benzinga — 1 operation(s) for news analytics.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - News Analytics
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-news-analytics-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-news-analytics-api-overlay.yaml
+- aid: benzinga:benzinga-offerings-api
+  name: Benzinga offerings API
+  description: The offerings API from Benzinga — 1 operation(s) for offerings.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - offerings
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-offerings-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-offerings-api-overlay.yaml
+- aid: benzinga:benzinga-option-activity-api
+  name: Benzinga Option Activity API
+  description: The Option Activity API from Benzinga — 1 operation(s) for option activity.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - Option Activity
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-option-activity-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-option-activity-api-overlay.yaml
+- aid: benzinga:benzinga-participants-api
+  name: Benzinga participants API
+  description: The participants API from Benzinga — 1 operation(s) for participants.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - participants
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-participants-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-participants-api-overlay.yaml
+- aid: benzinga:benzinga-quotedelayed-api
+  name: Benzinga QuoteDelayed API
+  description: The QuoteDelayed API from Benzinga — 2 operation(s) for quotedelayed.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - QuoteDelayed
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-quotedelayed-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-quotedelayed-api-overlay.yaml
+- aid: benzinga:benzinga-ratings-analysts-api
+  name: Benzinga ratings_analysts API
+  description: The ratings_analysts API from Benzinga — 1 operation(s) for ratings_analysts.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - ratings_analysts
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-ratings-analysts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-ratings-analysts-api-overlay.yaml
+- aid: benzinga:benzinga-ratings-api
+  name: Benzinga ratings API
+  description: The ratings API from Benzinga — 1 operation(s) for ratings.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - ratings
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-ratings-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-ratings-api-overlay.yaml
+- aid: benzinga:benzinga-ratings-firms-api
+  name: Benzinga ratings_firms API
+  description: The ratings_firms API from Benzinga — 1 operation(s) for ratings_firms.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - ratings_firms
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-ratings-firms-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-ratings-firms-api-overlay.yaml
+- aid: benzinga:benzinga-removed-api
+  name: Benzinga removed API
+  description: The removed API from Benzinga — 1 operation(s) for removed.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - removed
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-removed-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-removed-api-overlay.yaml
+- aid: benzinga:benzinga-splits-api
+  name: Benzinga splits API
+  description: The splits API from Benzinga — 1 operation(s) for splits.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - splits
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-splits-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-splits-api-overlay.yaml
+- aid: benzinga:benzinga-status-api
+  name: Benzinga status API
+  description: The status API from Benzinga — 1 operation(s) for status.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - status
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-status-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-status-api-overlay.yaml
+- aid: benzinga:benzinga-summaries-api
+  name: Benzinga summaries API
+  description: The summaries API from Benzinga — 2 operation(s) for summaries.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - summaries
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-summaries-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-summaries-api-overlay.yaml
+- aid: benzinga:benzinga-transcripts-api
+  name: Benzinga transcripts API
+  description: The transcripts API from Benzinga — 2 operation(s) for transcripts.
+  humanURL: https://docs.benzinga.com/api-reference/news-api/overview
+  baseURL: https://api.benzinga.com
+  tags:
+  - transcripts
+  properties:
+  - type: OpenAPI
+    url: openapi/benzinga-transcripts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/newsquantified-api/get-newsquantified-data
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/calendar-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/calendar-api/get-earnings
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/bars/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/bars/get-bars
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/quotedelayed/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/quotedelayed/get-delayed-quotes
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/market-data/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/market-data/get-market-movers
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/fundamentals/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/fundamentals/get-fundamentals
+  - type: Documentation
+    url: https://docs.benzinga.com/api-reference/logos-api/overview
+  - type: APIReference
+    url: https://docs.benzinga.com/api-reference/logos-api/get-search-logos
+  - type: Overlay
+    url: overlays/benzinga-transcripts-api-overlay.yaml
 common:
+- type: VulnerabilityDisclosure
+  url: security/benzinga-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/benzinga-domain-security.yml
+- type: Authentication
+  url: authentication/benzinga-authentication.yml
 - type: Website
   url: https://www.benzinga.com
 - type: Portal
@@ -345,6 +1697,44 @@ common:
   url: https://status.benzinga.com
 - type: ChangeLog
   url: https://docs.benzinga.com/changelog/overview
+- type: Packages
+  url: packages/benzinga-packages.yml
+- type: SDKs
+  url: packages/benzinga-packages.yml
+- type: WellKnown
+  url: well-known/benzinga-well-known.yml
+- type: SecurityTxt
+  url: well-known/benzinga-security.txt
+- type: MCPServer
+  url: mcp/benzinga-mcp.yml
+- type: LLMsTxt
+  url: llms/benzinga-llms.txt
+- type: Conformance
+  url: conformance/benzinga-conformance.yml
+- type: ErrorCatalog
+  url: errors/benzinga-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/benzinga-lifecycle.yml
+- type: Security
+  url: https://www.benzinga.com/.well-known/security-policy.md
+- type: Conventions
+  url: conventions/benzinga-conventions.yml
+- type: ChangeLog
+  url: changelog/benzinga-changelog.yml
+- type: Components
+  url: components/benzinga-components.yml
+- type: DataModel
+  url: data-model/benzinga-data-model.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Webhooks
+  url: https://docs.benzinga.com/webhook-reference/overview
+- type: GettingStarted
+  url: https://docs.benzinga.com/introduction/introduction
+- type: APIReference
+  url: https://docs.benzinga.com/api-reference/introduction
+- type: Support
+  url: https://help.benzinga.com/en/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

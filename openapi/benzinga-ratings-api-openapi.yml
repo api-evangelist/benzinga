@@ -1,0 +1,270 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights ratings API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: ratings
+paths:
+  /api/v2.1/calendar/ratings:
+    get:
+      description: Returns analyst ratings data including upgrades, downgrades, initiations, and price target changes from Wall Street analysts. Includes current and prior ratings, price targets, analyst information, and ratings accuracy metrics when available.
+      operationId: get-ratings
+      parameters:
+      - description: Specifies return format. Query parameters work the same for both formats
+        in: header
+        name: accept
+        required: true
+        schema:
+          type: string
+          enum:
+          - application/json
+          default: application/json
+      - description: 'Comma-separated list of fields to return. Available fields: id, date, time, ticker, exchange, name, currency, action_pt, action_company, rating_current, pt_current, rating_prior, pt_prior, pt_pct_change, url, url_calendar, url_news, analyst, analyst_id, analyst_name, ratings_accuracy, importance, notes, updated. Use * for all fields including ratings_accuracy'
+        in: query
+        name: fields
+        schema:
+          type: string
+          format: csv
+      - description: Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date
+        in: query
+        name: page
+        schema:
+          type: integer
+          default: 0
+      - description: Number of results returned. Limit 1000
+        in: query
+        name: pagesize
+        schema:
+          type: integer
+      - description: Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest
+        in: query
+        name: parameters[date]
+        schema:
+          type: string
+          format: YYYY-MM-DD
+      - description: Date to query from point in time
+        in: query
+        name: parameters[date_from]
+        schema:
+          type: string
+          format: YYYY-MM-DD
+      - description: Date to query to point in time
+        in: query
+        name: parameters[date_to]
+        schema:
+          type: string
+          format: YYYY-MM-DD
+      - description: The importance level to filter by. Uses Greater Than or Equal To the importance indicated
+        in: query
+        name: parameters[importance]
+        schema:
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+      - description: One or more ticker symbols separated by a comma. Maximum 50 tickers
+        in: query
+        name: parameters[tickers]
+        schema:
+          type: string
+          format: csv
+      - description: Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated
+        in: query
+        name: parameters[updated]
+        schema:
+          type: integer
+      - description: One or more analyst ids (analyst_id) separated by a comma
+        in: query
+        name: parameters[analyst_id]
+        schema:
+          type: string
+          format: csv
+      - description: One or more firm ids (firm_id) separated by a comma
+        in: query
+        name: parameters[firm_id]
+        schema:
+          type: string
+          format: csv
+      - description: Filter by a specific action_company (action for rating). Note that all of these terms are precisely defined
+        in: query
+        name: parameters[action]
+        schema:
+          type: string
+          enum:
+          - Downgrades
+          - Maintains
+          - Reinstates
+          - Reiterates
+          - Upgrades
+          - Assumes
+          - Initiates Coverage On
+          - Terminates Coverage On
+          - Removes
+          - Suspends
+          - Firm Dissolved
+      - description: A comma separated list of analyst (person) ID's to bring back. Omitting will bring back all available analysts
+        in: query
+        name: analyst
+        schema:
+          type: string
+          format: csv
+      - description: A comma separated list of analyst firm ID's to bring back. Omitting will bring back all available firms
+        in: query
+        name: firm
+        schema:
+          type: string
+          format: csv
+      - description: Simplify the ratings to standardized categories
+        in: query
+        name: simplify
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.RatingResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.RatingResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Returns analyst ratings data
+      tags:
+      - ratings
+components:
+  schemas:
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rating:
+      properties:
+        action_company:
+          example: Goldman Sachs
+          type: string
+        action_pt:
+          example: Raises
+          type: string
+        adjusted_pt_current:
+          example: '200.00'
+          type: string
+        adjusted_pt_prior:
+          example: '185.00'
+          type: string
+        analyst:
+          example: Goldman Sachs
+          type: string
+        analyst_id:
+          example: 60a7f5e8e4b0f5a3c8e9f5a6
+          type: string
+        analyst_name:
+          example: John Smith
+          type: string
+        currency:
+          example: USD
+          type: string
+        cusip:
+          example: 037833100
+          type: string
+        date:
+          example: '2024-01-09'
+          type: string
+        exchange:
+          example: NASDAQ
+          type: string
+        firm_id:
+          example: 60a7f5e8e4b0f5a3c8e9f5a5
+          type: string
+        id:
+          example: 60a7f5e8e4b0f5a3c8e9f5a4
+          type: string
+        importance:
+          example: 3
+          type: integer
+        isin:
+          example: US0378331005
+          type: string
+        name:
+          example: Apple Inc.
+          type: string
+        notes:
+          example: Upgraded due to strong quarterly performance
+          type: string
+        pt_current:
+          example: '200.00'
+          type: string
+        pt_prior:
+          example: '185.00'
+          type: string
+        rating_current:
+          example: Buy
+          type: string
+        rating_prior:
+          example: Neutral
+          type: string
+        ticker:
+          example: AAPL
+          type: string
+        time:
+          description: Time of the rating announcement (EST)
+          example: 09:30:00
+          type: string
+        updated:
+          example: 1704819600
+          type: integer
+        url:
+          example: https://www.benzinga.com/ratings/123456
+          type: string
+        url_calendar:
+          example: https://www.benzinga.com/calendar/ratings/123456
+          type: string
+        url_news:
+          example: https://www.benzinga.com/news/123456
+          type: string
+      type: object
+    api.RatingResponse:
+      description: API response containing an array of analyst ratings
+      properties:
+        ratings:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rating'
+          type: array
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

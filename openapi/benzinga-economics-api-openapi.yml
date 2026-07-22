@@ -1,0 +1,203 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights economics API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: economics
+paths:
+  /api/v2.1/calendar/economics:
+    get:
+      description: Returns economic calendar data including economic indicators, releases, and reports from various countries. Includes actual values, consensus estimates, and prior values for economic events such as GDP, employment data, inflation metrics, and more.
+      operationId: get-economics
+      parameters:
+      - description: Specifies return format. Query parameters work the same for both formats
+        in: header
+        name: accept
+        required: true
+        schema:
+          type: string
+          enum:
+          - application/json
+          default: application/json
+      - description: Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date
+        in: query
+        name: page
+        schema:
+          type: integer
+          default: 0
+      - description: Number of results returned. Limit 1000
+        in: query
+        name: pagesize
+        schema:
+          type: integer
+          maximum: 1000
+      - description: Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest
+        in: query
+        name: parameters[date]
+        schema:
+          type: string
+          format: YYYY-MM-DD
+      - description: Date to query from point in time
+        in: query
+        name: parameters[date_from]
+        schema:
+          type: string
+          format: YYYY-MM-DD
+      - description: Date to query to point in time
+        in: query
+        name: parameters[date_to]
+        schema:
+          type: string
+          format: YYYY-MM-DD
+      - description: The importance level to filter by. Uses Greater Than or Equal To the importance indicated
+        in: query
+        name: parameters[importance]
+        schema:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 3
+      - description: Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated
+        in: query
+        name: parameters[updated]
+        schema:
+          type: integer
+      - description: 3-Digit Country Code (e.g., USA, CAN, GBR)
+        in: query
+        name: country
+        schema:
+          type: string
+          format: A-Z:3
+      - description: One or more event name prefixes separated by a comma (e.g., CPI matches CPI, CPI (MoM), CPI (Mom) - Prelim)
+        in: query
+        name: event_name
+        schema:
+          type: string
+          format: csv
+      - description: One or more categories separated by a comma
+        in: query
+        name: event_category
+        schema:
+          type: string
+          format: csv
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.EconomicResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.EconomicResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Returns the economic calendar data
+      tags:
+      - economics
+components:
+  schemas:
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Economic:
+      properties:
+        actual:
+          example: '216000'
+          type: string
+        actual_t:
+          example: 216K
+          type: string
+        confirmed:
+          example: true
+          type: boolean
+        consensus:
+          example: '170000'
+          type: string
+        consensus_t:
+          example: 170K
+          type: string
+        country:
+          example: United States
+          type: string
+        date:
+          example: '2024-01-09'
+          type: string
+        description:
+          example: The change in the number of employed people
+          type: string
+        event_category:
+          example: Employment
+          type: string
+        event_name:
+          example: Nonfarm Payrolls
+          type: string
+        event_period:
+          example: December
+          type: string
+        id:
+          example: 60a7f5e8e4b0f5a3c8e9f5af
+          type: string
+        importance:
+          example: 5
+          type: integer
+        notes:
+          example: Nonfarm payrolls beat expectations
+          type: string
+        period_year:
+          example: 2023
+          type: integer
+        prior:
+          example: '199000'
+          type: string
+        prior_t:
+          example: 199K
+          type: string
+        time:
+          description: Time of the economic event release (EST)
+          example: 08:30:00
+          type: string
+        updated:
+          example: 1704819600
+          type: integer
+      type: object
+    api.EconomicResponse:
+      description: API response containing an array of economic event records
+      properties:
+        economics:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Economic'
+          type: array
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

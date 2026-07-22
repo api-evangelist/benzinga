@@ -1,0 +1,345 @@
+generated: '2026-07-22'
+method: derived
+source: openapi/ (40 tag-split specs)
+note: 'Benzinga is a read-mostly market-data catalog: nearly every entity is keyed by security identifiers (ticker/symbol,
+  ISIN, CUSIP) and date ranges rather than by cross-entity foreign keys. The security (ticker) is the hub entity.'
+hub:
+  entity: security
+  keys:
+  - symbol/ticker
+  - ISIN
+  - CUSIP
+  - CIK
+entities:
+- name: analyst-insights
+  operations:
+  - get-analyst-insights-v1
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: analyst-reports
+  operations:
+  - get-analyst-reports-raw-text-data
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: block-trade
+  operations:
+  - get-block-trade-v1
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: bulls-say-bears-say
+  operations:
+  - get-bulls-say-bears-say-v1
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: calls
+  operations:
+  - get-conference-calls
+  - delete-conference-call-by-id
+  - get-conference-call-by-id
+  - update-conference-call-by-id
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: channels
+  operations:
+  - get-channels
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: conference-calls
+  operations:
+  - get-conference-calls
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: consensus-ratings
+  operations:
+  - get-consensus-ratings-v1
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: dividends
+  operations:
+  - get-dividends
+  - get-dividends-v22
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: earnings
+  operations:
+  - get-earnings
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: earnings-call-transcripts
+  operations:
+  - get-earnings-call-transcripts
+  - get-earnings-call-transcript-audio-files
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: economics
+  operations:
+  - get-economics
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: erx-gaps
+  operations:
+  - get-erx-gaps
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: events
+  operations:
+  - get-events
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: fda
+  operations:
+  - get-fda
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: fundamentals
+  operations:
+  - get-fundamentals-v21
+  - get-alpha-beta-v21
+  - get-asset-classification-v21
+  - get-company-v21
+  - get-company-profile-v21
+  - get-earning-ratios-v21
+  - get-earnings-reports-v21
+  - null
+  - get-operation-ratios-v21
+  - null
+  - null
+  - get-valuation-ratios-v21
+  - get-fundamentals-v2
+  - get-operation-ratios-v2
+  - get-fundamentals-v3
+  - get-balance-sheet-v3
+  - null
+  - get-derived-figures-and-ratios-v3
+  - get-income-statement-v3
+  - get-share-price-ratios-v3
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: government-trade-reports
+  operations:
+  - get-government-trade-reports
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: government-trades
+  operations:
+  - get-government-trades
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: guidance
+  operations:
+  - get-guidance
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: halt-resume
+  operations:
+  - get-halt-resume-v1
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: insider-transaction
+  operations:
+  - get-insider-transaction
+  - get-insider-transaction-owner
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: ipos
+  operations:
+  - get-ipos-v21
+  - get-ipos-v2
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: logos
+  operations:
+  - logo-bulk-sync
+  - get-search-logos
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: ma
+  operations:
+  - get-ma
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: market-data
+  operations:
+  - get-movers
+  - get-short-interest
+  - get-bars-v2
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: news
+  operations:
+  - get-news
+  - get-removed-news
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: news-analytics
+  operations:
+  - get-newsquantified-data
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: offerings
+  operations:
+  - get-offerings
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: option-activity
+  operations:
+  - get-option-activity-v1
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: participants
+  operations:
+  - delete-participant-by-id
+  - update-participant-by-id
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: press-releases
+  operations:
+  - get-press-releases
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: quotedelayed
+  operations:
+  - get-quote-delayed-v1
+  - get-quote-delayed-v2
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: ratings
+  operations:
+  - get-ratings
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: ratings-analysts
+  operations:
+  - get-ratings-analysts
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: ratings-firms
+  operations:
+  - get-ratings-firms
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: removed
+  operations:
+  - get-removed
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: splits
+  operations:
+  - get-splits
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: status
+  operations:
+  - query-status-view
+  - query-status-view
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: summaries
+  operations:
+  - get-summaries
+  - get-summary-by-call-id
+  - update-summary-by-call-id
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: ticker-trends
+  operations:
+  - get-ticker-trend-data
+  - get-ticker-trend-list-data
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: transcripts
+  operations:
+  - delete-transcript-segments-by-id
+  - update-transcript-segments-by-id
+  - update-transcript-speaker
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter
+- name: webhook
+  operations:
+  - get-webhook-test
+  relationships:
+  - type: belongs_to
+    entity: security
+    via: symbols/tickers parameter

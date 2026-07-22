@@ -1,0 +1,213 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights ma API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: ma
+paths:
+  /api/v2.1/calendar/ma:
+    get:
+      description: Returns mergers and acquisitions (M&A) data including deal announcements, completions, and details about acquiring and target companies. Includes deal size, payment type, deal status, and expected/completed dates for corporate consolidation activities.
+      operationId: get-ma
+      parameters:
+      - description: Specifies return format. Query parameters work the same for both formats
+        in: header
+        name: accept
+        required: true
+        schema:
+          type: string
+          enum:
+          - application/json
+          default: application/json
+      - description: Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date
+        in: query
+        name: page
+        schema:
+          type: integer
+          default: 0
+      - description: Number of results returned. Limit 1000
+        in: query
+        name: pagesize
+        schema:
+          type: integer
+      - description: Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest
+        in: query
+        name: parameters[date]
+        schema:
+          type: string
+          format: YYYY-MM-DD
+      - description: Date to query from point in time
+        in: query
+        name: parameters[date_from]
+        schema:
+          type: string
+          format: YYYY-MM-DD
+      - description: Date to query to point in time
+        in: query
+        name: parameters[date_to]
+        schema:
+          type: string
+          format: YYYY-MM-DD
+      - description: The importance level to filter by. Uses Greater Than or Equal To the importance indicated
+        in: query
+        name: parameters[importance]
+        schema:
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+      - description: One or more ticker symbols separated by a comma. Maximum 50 tickers
+        in: query
+        name: parameters[tickers]
+        schema:
+          type: string
+          format: csv
+      - description: Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated
+        in: query
+        name: parameters[updated]
+        schema:
+          type: integer
+      - description: M&A date field to sort on (newest to oldest for expected and completed; oldest to newest for announced)
+        in: query
+        name: parameters[date_sort]
+        schema:
+          type: string
+          enum:
+          - expected
+          - completed
+          - announced
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.AcquisitionResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.AcquisitionResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Returns the mergers and acquisitions data
+      tags:
+      - ma
+components:
+  schemas:
+    api.AcquisitionResponse:
+      description: API response containing an array of M&A records
+      properties:
+        ma:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Acquisition'
+          type: array
+      type: object
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Acquisition:
+      properties:
+        acquirer_cusip:
+          example: '594918104'
+          type: string
+        acquirer_exchange:
+          example: NASDAQ
+          type: string
+        acquirer_isin:
+          example: US5949181045
+          type: string
+        acquirer_name:
+          example: Microsoft Corporation
+          type: string
+        acquirer_ticker:
+          example: MSFT
+          type: string
+        currency:
+          example: USD
+          type: string
+        date:
+          example: '2024-01-09'
+          type: string
+        date_completed:
+          example: '2024-06-15'
+          type: string
+        date_expected:
+          example: '2024-06-30'
+          type: string
+        deal_payment_type:
+          example: Cash
+          type: string
+        deal_size:
+          example: '68700000000'
+          type: string
+        deal_status:
+          example: Completed
+          type: string
+        deal_terms_extra:
+          example: All-cash transaction
+          type: string
+        deal_type:
+          example: Merger
+          type: string
+        id:
+          example: 60a7f5e8e4b0f5a3c8e9f5ac
+          type: string
+        importance:
+          example: 5
+          type: integer
+        notes:
+          example: Subject to regulatory approval
+          type: string
+        target_cusip:
+          example: 00507V109
+          type: string
+        target_exchange:
+          example: NASDAQ
+          type: string
+        target_isin:
+          example: US00507V1098
+          type: string
+        target_name:
+          example: Activision Blizzard Inc.
+          type: string
+        target_ticker:
+          example: ATVI
+          type: string
+        updated:
+          example: 1704819600
+          type: integer
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

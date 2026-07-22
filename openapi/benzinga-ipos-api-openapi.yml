@@ -1,0 +1,350 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights ipos API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: ipos
+paths:
+  /api/v2.1/calendar/ipos:
+    get:
+      description: Returns Initial Public Offering (IPO) data including pricing information, underwriters, deal status, and offering details
+      operationId: get-ipos-v21
+      parameters:
+      - description: Page number
+        in: query
+        name: page
+        schema:
+          type: integer
+      - description: Page size
+        in: query
+        name: pagesize
+        schema:
+          type: integer
+      - description: Date of IPO in YYYY-MM-DD format (new preferred parameter)
+        in: query
+        name: ipo_date
+        schema:
+          type: string
+          format: date
+      - description: Date of IPO in YYYY-MM-DD format (deprecated)
+        in: query
+        name: parameters[ipo_date]
+        schema:
+          type: string
+          format: date
+      - description: Start date in YYYY-MM-DD format
+        in: query
+        name: parameters[date_from]
+        schema:
+          type: string
+          format: date
+      - description: End date in YYYY-MM-DD format
+        in: query
+        name: parameters[date_to]
+        schema:
+          type: string
+          format: date
+      - description: Tickers
+        in: query
+        name: parameters[tickers]
+        schema:
+          type: string
+      - description: IPO type
+        in: query
+        name: parameters[ipo_type]
+        schema:
+          type: string
+      - description: Updated time in Unix format
+        in: query
+        name: parameters[updated]
+        schema:
+          type: string
+          format: int64
+      responses:
+        '200':
+          description: IPOs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.IPOResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.IPOResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: IPOs V2.1
+      tags:
+      - ipos
+  /api/v2/calendar/ipos:
+    get:
+      description: Returns Initial Public Offering (IPO) data including pricing information, underwriters, deal status, and offering details. IPOs represent when a private company first offers shares to the public. Note that for the IPOs endpoint, new tickers may not return results right away as they are not automatically linked to the underlying company's data. To obtain the most recent rows, send queries without the tickers parameter specified.
+      operationId: get-ipos-v2
+      parameters:
+      - description: Specifies return format. Query parameters work the same for both formats
+        in: header
+        name: accept
+        required: true
+        schema:
+          type: string
+          enum:
+          - application/json
+          default: application/json
+      - description: Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date
+        in: query
+        name: page
+        schema:
+          type: integer
+          default: 0
+      - description: Number of results returned. Limit 1000
+        in: query
+        name: pagesize
+        schema:
+          type: integer
+      - description: Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest
+        in: query
+        name: parameters[date]
+        schema:
+          type: string
+          format: YYYY-MM-DD
+      - description: Date to query from point in time
+        in: query
+        name: parameters[date_from]
+        schema:
+          type: string
+          format: YYYY-MM-DD
+      - description: Date to query to point in time
+        in: query
+        name: parameters[date_to]
+        schema:
+          type: string
+          format: YYYY-MM-DD
+      - description: One or more ticker symbols separated by a comma. Maximum 50 tickers. Note that new tickers may not return results right away
+        in: query
+        name: parameters[tickers]
+        schema:
+          type: string
+          format: csv
+      - description: 'One or more IPO types separated by a comma. Example: Ordinary Shares,SPAC'
+        in: query
+        name: parameters[ipo_type]
+        schema:
+          type: string
+          format: csv
+      - description: Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated
+        in: query
+        name: parameters[updated]
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.IPOResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.IPOResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Returns ipo data
+      tags:
+      - ipos
+components:
+  schemas:
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
+    api.IPOResponse:
+      description: API response containing an array of IPO records
+      properties:
+        ipos:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.IPO'
+          type: array
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.IPO:
+      properties:
+        currency:
+          example: USD
+          type: string
+        cusip:
+          example: 038744101
+          type: string
+        date:
+          example: '2024-01-09'
+          type: string
+        deal_status:
+          example: Priced
+          type: string
+        description:
+          example: Online marketplace for lodging and tourism experiences
+          type: string
+        exchange:
+          example: NASDAQ
+          type: string
+        id:
+          example: 60a7f5e8e4b0f5a3c8e9f5a9
+          type: string
+        initial_filing_date:
+          example: '2023-11-15'
+          type: string
+        insider_lockup_date:
+          example: '2024-07-07'
+          type: string
+        insider_lockup_days:
+          example: 180
+          type: integer
+        ipo_type:
+          example: IPO
+          type: string
+        last_yr_income:
+          example: -674000000
+          type: integer
+        last_yr_income_year:
+          example: 2023
+          type: integer
+        last_yr_revenue:
+          example: 4805000000
+          type: integer
+        last_yr_revenue_year:
+          example: 2023
+          type: integer
+        lead_underwriters:
+          example:
+          - '[{"name":"Morgan Stanley"}]'
+          items:
+            type: string
+          type: array
+        market_cap_at_offer:
+          example: 47000000000
+          type: integer
+        name:
+          example: Airbnb Inc.
+          type: string
+        notes:
+          example: Strong first day trading
+          type: string
+        offering_shares:
+          example: 51500000
+          type: integer
+        offering_shares_ord_adr:
+          example: 51500000
+          type: integer
+        offering_value:
+          example: 3500000000
+          type: integer
+        open_date_verified:
+          example: true
+          type: boolean
+        ord_shares_out_after_offer:
+          example: 615000000
+          type: integer
+        other_underwriters:
+          example:
+          - '[{"name":"Goldman Sachs"}]'
+          items:
+            type: string
+          type: array
+        price_max:
+          example: '50.00'
+          type: string
+        price_min:
+          example: '44.00'
+          type: string
+        price_open:
+          example: '146.00'
+          type: string
+        price_public_offering:
+          example: '68.00'
+          type: string
+        pricing_date:
+          example: '2024-01-08'
+          type: string
+        pricing_date_verified:
+          example: true
+          type: boolean
+        sec_accession_number:
+          example: 0001559720-20-000079
+          type: string
+        sec_filing_url:
+          example: https://www.sec.gov/cgi-bin/browse-edgar
+          type: string
+        shares_outstanding:
+          example: 615000000
+          type: integer
+        sic:
+          example: 7389
+          type: integer
+        spac_converted_to_target:
+          example: false
+          type: boolean
+        state_location:
+          example: Delaware
+          type: string
+        ticker:
+          example: ABNB
+          type: string
+        time:
+          description: Time of IPO opening (EST)
+          example: 09:30:00
+          type: string
+        underwriter_quiet_expiration_date:
+          example: '2024-02-03'
+          type: string
+        underwriter_quiet_expiration_days:
+          example: 25
+          type: integer
+        updated:
+          example: 1704819600
+          type: integer
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

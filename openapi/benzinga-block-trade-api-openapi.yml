@@ -1,0 +1,155 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights Block Trade API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: Block Trade
+paths:
+  /api/v1/signal/block_trade:
+    get:
+      description: Returns block trade data, which includes unusually large trades that may indicate institutional trading activity
+      operationId: get-block-trade-v1
+      parameters:
+      - description: Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0
+        in: query
+        name: page
+        schema:
+          type: integer
+          default: 0
+      - description: Number of results returned. Limit 1000
+        in: query
+        name: pageSize
+        schema:
+          type: integer
+          default: 100
+      - description: Start date in YYYY-MM-DD format
+        in: query
+        name: date_from
+        schema:
+          type: string
+          format: date
+      - description: End date in YYYY-MM-DD format
+        in: query
+        name: date_to
+        schema:
+          type: string
+          format: date
+      - description: One or more ticker symbols separated by a comma. Maximum 50 tickers
+        in: query
+        name: tickers
+        schema:
+          type: string
+          format: csv
+      - description: Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated
+        in: query
+        name: updated
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Block Trade
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.BlockTradeResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: BlockTrade V1
+      tags:
+      - Block Trade
+components:
+  schemas:
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.BlockTrade:
+      properties:
+        ask:
+          example: '185.44'
+          type: string
+        bid:
+          example: '185.40'
+          type: string
+        count:
+          example: 1
+          type: integer
+        cusip:
+          example: 037833100
+          type: string
+        date:
+          example: '2024-01-09'
+          type: string
+        description:
+          example: Large institutional trade
+          type: string
+        exchange:
+          example: NASDAQ
+          type: string
+        executing_exchange:
+          example: Q
+          type: string
+        id:
+          example: 60a7f5e8e4b0f5a3c8e9f5b4
+          type: string
+        importance:
+          example: 4
+          type: integer
+        isin:
+          example: US0378331005
+          type: string
+        name:
+          example: Apple Inc.
+          type: string
+        price:
+          example: '185.42'
+          type: string
+        sale_conditions:
+          example: '@'
+          type: string
+        size:
+          example: '500000'
+          type: string
+        ticker:
+          example: AAPL
+          type: string
+        time:
+          description: Time of the block trade (EST)
+          example: '15:45:30'
+          type: string
+        updated:
+          example: 1704819600
+          type: integer
+      type: object
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
+    api.BlockTradeResponse:
+      description: API response containing an array of block trade records
+      properties:
+        block-trade:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.BlockTrade'
+          type: array
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

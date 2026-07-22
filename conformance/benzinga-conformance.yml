@@ -1,0 +1,34 @@
+generated: '2026-07-22'
+method: derived
+source: openapi/ + asyncapi/ + https://docs.benzinga.com (authentication, errors, architecture pages)
+standards:
+- id: openapi-3
+  conforms: true
+  evidence: 40 tag-split OpenAPI 3.x documents in openapi/ published from the Benzinga/benzinga-docs repo and docs.benzinga.com/openapi/*.spec.yml.
+- id: asyncapi
+  conforms: true
+  evidence: 7 AsyncAPI documents published at docs.benzinga.com/asyncapi/*.yml for the WebSocket streams (captured in asyncapi/).
+- id: oauth2
+  conforms: false
+  evidence: No oauth2 securitySchemes in any spec; auth is a single apiKey scheme (token in query, or Authorization "token <KEY>" header per docs).
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration 404 on all hosts.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Error bodies are plain strings, flat {message} objects, or a custom {data, errors[], ok} envelope — no application/problem+json.
+- id: rfc9116-security-txt
+  conforms: true
+  evidence: https://www.benzinga.com/.well-known/security.txt with Contact + Policy (Expires field stale, 2025-06-01).
+- id: pagination
+  conforms: true
+  evidence: Offset pagination via page/pageSize query parameters; News/Press Releases page offsets limited 0-100000; updatedSince delta queries supported.
+- id: idempotency-key
+  conforms: false
+  evidence: Read-mostly API; no Idempotency-Key header documented in docs or specs.
+- id: json-api
+  conforms: false
+  evidence: Responses are custom JSON shapes, not JSON:API.
+- id: websocket
+  conforms: true
+  evidence: Real-time streams over wss://api.benzinga.com documented in ws-reference with session replay actions.

@@ -1,0 +1,35 @@
+generated: '2026-07-22'
+method: searched
+source: https://docs.benzinga.com/api-reference/authentication.md + errors.md + endpoint reference pages + openapi/
+authentication:
+  style: api-key
+  header: 'Authorization: token <YOUR_API_KEY>   # recommended for production'
+  query_parameter: token
+  note: Specs declare only the token query parameter (ApiKeyAuth); docs additionally document and recommend the Authorization header form. Keys are issued via the Benzinga Developer Console (licensing-led).
+  see: authentication/benzinga-authentication.yml
+idempotency:
+  supported: false
+  note: Read-mostly market-data API; no Idempotency-Key header or replay-safe write contract is documented. The few write operations (delivery-api transcript/participant management) publish no idempotency semantics.
+pagination:
+  style: offset
+  params: [page, pageSize]
+  limits: News and Press Releases page offsets are limited to 0-100000.
+  delta_queries: updatedSince timestamps supported on News, Press Releases, WIIM, and Removed endpoints for incremental sync; Logos bulk sync walks page/pagesize with updated_since.
+field_selection:
+  note: Many endpoints accept a fields parameter to trim response payloads (e.g. calendar and news endpoints).
+request_tracing:
+  request_id_header: null
+  note: No documented request-id/trace header contract.
+versioning:
+  style: uri-path
+  see: lifecycle/benzinga-lifecycle.yml
+error_envelope:
+  note: Varies by endpoint family — bare string or flat {message} on older endpoints (News API); structured {data, errors[{code,id,value}], ok} on newer APIs (Data API Proxy / Fundamentals). Always branch on the HTTP status code first.
+  see: errors/benzinga-problem-types.yml
+rate_limiting:
+  signal: HTTP 429 Too Many Requests
+  note: Rate limiting is enforced at the Kong API gateway; published limits vary by license/plan and are not enumerated publicly.
+streaming:
+  websocket: wss://api.benzinga.com (7 streams, AsyncAPI in asyncapi/, session replay actions, token auth)
+  tcp: tcp-v1.benzinga.io:11337 (username + API key, optional TLS, JSON messages)
+  webhooks: Data Webhook Engine pushes calendar/signal/sentiment data to customer endpoints; test delivery endpoint available.

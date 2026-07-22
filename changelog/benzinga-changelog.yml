@@ -1,0 +1,6 @@
+generated: '2026-07-22'
+method: searched
+source: https://docs.benzinga.com/changelog/overview
+scheme: monthly
+note: The docs publish a "What's New?" changelog updated on a monthly basis. Entries are rendered client-side on the Mintlify page and are not exposed in the markdown/llms.txt export, so individual dated entries could not be captured machine-readably on 2026-07-22. The live page is the source of truth.
+entries: []

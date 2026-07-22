@@ -1,0 +1,191 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: Analyst Insights
+paths:
+  /api/v1/analyst/insights:
+    get:
+      description: Returns analyst insights and research perspectives on securities, including detailed analysis and recommendations from financial analysts
+      operationId: get-analyst-insights-v1
+      parameters:
+      - description: Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0
+        in: query
+        name: page
+        schema:
+          type: integer
+          default: 0
+      - description: Number of results returned. Limit 1000
+        in: query
+        name: pageSize
+        schema:
+          type: integer
+          default: 100
+      - description: Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest
+        in: query
+        name: date
+        schema:
+          type: string
+          format: date
+      - description: Start date in YYYY-MM-DD format
+        in: query
+        name: date_from
+        schema:
+          type: string
+          format: date
+      - description: End date in YYYY-MM-DD format
+        in: query
+        name: date_to
+        schema:
+          type: string
+          format: date
+      - description: One or more ticker symbols separated by a comma. Maximum 50 tickers
+        in: query
+        name: symbols
+        schema:
+          type: string
+          format: csv
+      - description: Analyst
+        in: query
+        name: analyst
+        schema:
+          type: string
+      - description: Rating ID
+        in: query
+        name: rating_id
+        schema:
+          type: string
+      - description: Search keys type
+        in: query
+        name: search_keys_type
+        schema:
+          type: string
+          enum:
+          - firm_id
+          - firm
+          - analyst_id
+          - analyst_name
+      - description: Search keys
+        in: query
+        name: search_keys
+        schema:
+          type: string
+      - description: 'Field to sort by, format: field:order (e.g., date:asc). Defaults to desc.'
+        in: query
+        name: sort
+        schema:
+          type: string
+          enum:
+          - date
+      - description: Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated
+        in: query
+        name: parameters[updated]
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Analyst Insights
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.AnalystInsightsResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Analyst Insights V1
+      tags:
+      - Analyst Insights
+components:
+  schemas:
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.AnalystInsightsSecurity:
+      properties:
+        cik:
+          example: '320193'
+          type: string
+        exchange:
+          example: NASDAQ
+          type: string
+        isin:
+          example: US0378331005
+          type: string
+        name:
+          example: Apple Inc.
+          type: string
+        symbol:
+          example: AAPL
+          type: string
+      type: object
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.AnalystInsights:
+      properties:
+        action:
+          example: Maintains
+          type: string
+        analyst_id:
+          example: 60a7f5e8e4b0f5a3c8e9f5b8
+          type: string
+        analyst_insights:
+          example: Strong fundamentals support higher valuation
+          type: string
+        date:
+          example: '2024-01-09'
+          type: string
+        firm:
+          example: Goldman Sachs
+          type: string
+        firm_id:
+          example: 60a7f5e8e4b0f5a3c8e9f5b7
+          type: string
+        id:
+          example: 60a7f5e8e4b0f5a3c8e9f5b6
+          type: string
+        pt:
+          example: '200.00'
+          type: string
+        rating:
+          example: Buy
+          type: string
+        rating_id:
+          example: 60a7f5e8e4b0f5a3c8e9f5b9
+          type: string
+        security:
+          $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.AnalystInsightsSecurity'
+        updated:
+          example: 1704819600
+          type: integer
+      type: object
+    api.AnalystInsightsResponse:
+      description: API response containing an array of analyst insights
+      properties:
+        analyst-insights:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.AnalystInsights'
+          type: array
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

@@ -1,0 +1,20 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Analyst Reports Raw Text Analyst Insights ratings_analysts API
+  version: 1.0.0
+extends: openapi/benzinga-ratings-analysts-api-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: benzinga
+    x-apievangelist-reviewed: '2026-07-22'
+    contact:
+      name: Benzinga Licensing
+      email: licensing@benzinga.com
+      url: https://www.benzinga.com/apis/
+    termsOfService: https://www.benzinga.com/terms-and-conditions
+- target: $
+  update:
+    externalDocs:
+      description: Benzinga API documentation
+      url: https://docs.benzinga.com

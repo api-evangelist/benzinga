@@ -1,0 +1,70 @@
+generated: '2026-07-22'
+method: searched
+source: openapi/benzinga-analyst-insights-api-openapi.yml, openapi/benzinga-analyst-reports-api-openapi.yml, openapi/benzinga-block-trade-api-openapi.yml,
+  openapi/benzinga-bulls-say-bears-say-api-openapi.yml, openapi/benzinga-calls-api-openapi.yml, openapi/benzinga-channels-api-openapi.yml,
+  openapi/benzinga-conference-calls-api-openapi.yml, openapi/benzinga-consensus-ratings-api-openapi.yml, openapi/benzinga-dividends-api-openapi.yml,
+  openapi/benzinga-earnings-api-openapi.yml, openapi/benzinga-earnings-call-transcripts-api-openapi.yml, openapi/benzinga-economics-api-openapi.yml
+  ...
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+  notes: 'Docs recommend header auth for production: Authorization: token <YOUR_API_KEY>. The query parameter form
+    (?token=) is supported for quick testing. Keys are issued in the Benzinga Developer Console (licensing-led);
+    403 means the key is valid but the plan does not include the endpoint.'
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: query
+  parameter: token
+  sources:
+  - openapi/benzinga-analyst-insights-api-openapi.yml
+  - openapi/benzinga-analyst-reports-api-openapi.yml
+  - openapi/benzinga-block-trade-api-openapi.yml
+  - openapi/benzinga-bulls-say-bears-say-api-openapi.yml
+  - openapi/benzinga-calls-api-openapi.yml
+  - openapi/benzinga-channels-api-openapi.yml
+  - openapi/benzinga-conference-calls-api-openapi.yml
+  - openapi/benzinga-consensus-ratings-api-openapi.yml
+  - openapi/benzinga-dividends-api-openapi.yml
+  - openapi/benzinga-earnings-api-openapi.yml
+  - openapi/benzinga-earnings-call-transcripts-api-openapi.yml
+  - openapi/benzinga-economics-api-openapi.yml
+  - openapi/benzinga-erx-gaps-api-openapi.yml
+  - openapi/benzinga-events-api-openapi.yml
+  - openapi/benzinga-fda-api-openapi.yml
+  - openapi/benzinga-fundamentals-api-openapi.yml
+  - openapi/benzinga-government-trade-reports-api-openapi.yml
+  - openapi/benzinga-government-trades-api-openapi.yml
+  - openapi/benzinga-guidance-api-openapi.yml
+  - openapi/benzinga-halt-resume-api-openapi.yml
+  - openapi/benzinga-insider-transaction-api-openapi.yml
+  - openapi/benzinga-ipos-api-openapi.yml
+  - openapi/benzinga-logos-api-openapi.yml
+  - openapi/benzinga-ma-api-openapi.yml
+  - openapi/benzinga-market-data-api-openapi.yml
+  - openapi/benzinga-news-analytics-api-openapi.yml
+  - openapi/benzinga-news-api-openapi.yml
+  - openapi/benzinga-offerings-api-openapi.yml
+  - openapi/benzinga-option-activity-api-openapi.yml
+  - openapi/benzinga-participants-api-openapi.yml
+  - openapi/benzinga-press-releases-api-openapi.yml
+  - openapi/benzinga-quotedelayed-api-openapi.yml
+  - openapi/benzinga-ratings-analysts-api-openapi.yml
+  - openapi/benzinga-ratings-api-openapi.yml
+  - openapi/benzinga-ratings-firms-api-openapi.yml
+  - openapi/benzinga-removed-api-openapi.yml
+  - openapi/benzinga-splits-api-openapi.yml
+  - openapi/benzinga-status-api-openapi.yml
+  - openapi/benzinga-summaries-api-openapi.yml
+  - openapi/benzinga-ticker-trends-api-openapi.yml
+  - openapi/benzinga-transcripts-api-openapi.yml
+  - openapi/benzinga-webhook-api-openapi.yml
+  documented_alternative:
+    in: header
+    header: Authorization
+    format: token <YOUR_API_KEY>
+    recommended: true
+    source: https://docs.benzinga.com/api-reference/authentication
+docs: https://docs.benzinga.com/api-reference/authentication

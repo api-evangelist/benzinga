@@ -1,0 +1,150 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: This REST API provides endpoints to get analyst report details.
+  termsOfService: http://swagger.io/terms/
+  title: Analyst Reports Raw Text Analyst Insights status API
+  version: 1.0.0
+servers:
+- url: https://api.benzinga.com
+  description: PROD
+tags:
+- name: status
+paths:
+  /api/v1/transcripts/status:
+    get:
+      description: Query a specific view with filters and pagination. Supports both GET (query params) and POST (JSON body).
+      operationId: query-status-view
+      parameters:
+      - description: View name (for GET)
+        in: query
+        name: view_name
+        schema:
+          type: string
+      - description: JSON encoded where clause (for GET)
+        in: query
+        name: where
+        schema:
+          type: string
+      - description: JSON encoded order_by (for GET)
+        in: query
+        name: order_by
+        schema:
+          type: string
+      - description: Page number
+        in: query
+        name: page
+        schema:
+          type: integer
+      - description: Page size
+        in: query
+        name: page_size
+        schema:
+          type: integer
+      requestBody:
+        $ref: '#/components/requestBodies/api.QueryRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Query status view
+      tags:
+      - status
+    post:
+      description: Query a specific view with filters and pagination. Supports both GET (query params) and POST (JSON body).
+      operationId: query-status-view
+      parameters:
+      - description: View name (for GET)
+        in: query
+        name: view_name
+        schema:
+          type: string
+      - description: JSON encoded where clause (for GET)
+        in: query
+        name: where
+        schema:
+          type: string
+      - description: JSON encoded order_by (for GET)
+        in: query
+        name: order_by
+        schema:
+          type: string
+      - description: Page number
+        in: query
+        name: page
+        schema:
+          type: integer
+      - description: Page size
+        in: query
+        name: page_size
+        schema:
+          type: integer
+      requestBody:
+        $ref: '#/components/requestBodies/api.QueryRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Query status view
+      tags:
+      - status
+components:
+  requestBodies:
+    api.QueryRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/api.QueryRequest'
+      description: Query details (for POST)
+  schemas:
+    api.QueryRequest:
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

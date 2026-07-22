@@ -1,0 +1,17 @@
+generated: '2026-07-22'
+method: searched
+source: https://docs.benzinga.com/widgets/overview + https://docs.benzinga.com/widgets/authorization
+families:
+- family: Benzinga Widgets
+  description: Pre-built, embeddable iframe components that display financial charts, stock information, and market data on customer websites; customizable colors/branding via URL parameters.
+  loader: iframe embeds from https://widgets.benzinga.com/embed/
+  authorization: Widget API token passed as a token URL parameter; obtained from licensing@benzinga.com under a licensing agreement.
+  components:
+  - name: Charting
+    embed: https://widgets.benzinga.com/embed/chart/<TICKER>
+    params: [timeframe, exchange, bgColor, chartColor, token]
+  - name: Sector Performance Heatmap
+    embed: https://widgets.benzinga.com/embed/sector-performance-heatmap
+  - name: Sankey Chart
+    embed: https://widgets.benzinga.com/embed/ (sankey variant documented on the widgets overview page)
+docs: https://docs.benzinga.com/widgets/overview
