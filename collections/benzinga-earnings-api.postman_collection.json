@@ -1,0 +1,396 @@
+{
+  "item": [
+    {
+      "id": "037edfa9-a125-4058-8a19-0d8bdae89481",
+      "name": "earnings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4616c9fc-f298-4007-8aee-80251da89bb5",
+          "name": "Returns the earnings data",
+          "request": {
+            "name": "Returns the earnings data",
+            "description": {
+              "content": "Returns earnings data for a selected period and/or security. Includes actual EPS and revenue figures, estimates, surprises, and historical comparisons. Earnings data is crucial for investors to assess company performance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "calendar",
+                "earnings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "<integer>",
+                  "description": "Number of results returned. Limit 1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_from]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query from point in time"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_to]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query to point in time"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_sort]",
+                  "value": "<string>",
+                  "description": "Field sort option for earnings calendar. Apply `:desc`, `:asc` for sort order"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[importance]",
+                  "value": "<integer>",
+                  "description": "The importance level to filter by. Uses Greater Than or Equal To the importance indicated"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[tickers]",
+                  "value": "<csv>",
+                  "description": "One or more ticker symbols separated by a comma. Maximum 50 tickers"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[updated]",
+                  "value": "<integer>",
+                  "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8496cdad-27fb-4c8b-a759-9e2637e26e78",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "earnings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_sort]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"earnings\": [\n    {\n      \"currency\": \"USD\",\n      \"cusip\": \"string\",\n      \"date\": \"2024-01-09\",\n      \"date_confirmed\": 1,\n      \"eps\": \"2.18\",\n      \"eps_est\": \"2.10\",\n      \"eps_prior\": \"1.88\",\n      \"eps_surprise\": \"0.08\",\n      \"eps_surprise_percent\": \"3.81\",\n      \"eps_type\": \"GAAP\",\n      \"exchange\": \"NASDAQ\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5a3\",\n      \"importance\": 5,\n      \"isin\": \"US0378331005\",\n      \"name\": \"Apple Inc.\",\n      \"notes\": \"Beat on EPS and revenue\",\n      \"period\": \"Q1\",\n      \"period_year\": 2024,\n      \"revenue\": \"89537000000\",\n      \"revenue_est\": \"88500000000\",\n      \"revenue_prior\": \"81800000000\",\n      \"revenue_surprise\": \"1037000000\",\n      \"revenue_surprise_percent\": \"1.17\",\n      \"revenue_type\": \"GAAP\",\n      \"ticker\": \"AAPL\",\n      \"time\": \"amc\",\n      \"updated\": 1704819600\n    },\n    {\n      \"currency\": \"USD\",\n      \"cusip\": \"string\",\n      \"date\": \"2024-01-09\",\n      \"date_confirmed\": 1,\n      \"eps\": \"2.18\",\n      \"eps_est\": \"2.10\",\n      \"eps_prior\": \"1.88\",\n      \"eps_surprise\": \"0.08\",\n      \"eps_surprise_percent\": \"3.81\",\n      \"eps_type\": \"GAAP\",\n      \"exchange\": \"NASDAQ\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5a3\",\n      \"importance\": 5,\n      \"isin\": \"US0378331005\",\n      \"name\": \"Apple Inc.\",\n      \"notes\": \"Beat on EPS and revenue\",\n      \"period\": \"Q1\",\n      \"period_year\": 2024,\n      \"revenue\": \"89537000000\",\n      \"revenue_est\": \"88500000000\",\n      \"revenue_prior\": \"81800000000\",\n      \"revenue_surprise\": \"1037000000\",\n      \"revenue_surprise_percent\": \"1.17\",\n      \"revenue_type\": \"GAAP\",\n      \"ticker\": \"AAPL\",\n      \"time\": \"amc\",\n      \"updated\": 1704819600\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75e0e38c-3587-4e07-bc2c-c79ff32264fa",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "earnings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_sort]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b6c90c0-bf7e-4148-916a-0a5f64f7b7a7",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "earnings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_sort]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e44b1271-0cf7-4dc3-8b0b-fa98db7e3d1b",
+    "name": "Analyst Reports Raw Text Analyst Insights earnings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

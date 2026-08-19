@@ -1,0 +1,718 @@
+{
+  "item": [
+    {
+      "id": "3f2e28ca-2cc0-426f-a6e9-0589cbfaf54e",
+      "name": "Press Releases",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "95b54964-36d6-4985-a00c-76d8e830edcf",
+          "name": "Press Releases",
+          "request": {
+            "name": "Press Releases",
+            "description": {
+              "content": "This REST API returns structured data for press releases. For optimal performance, limit the scope of the query using parameters such as tickers, date, and channels, or use updatedSince for deltas. Page offsets are limited from 0 - 100000.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "news"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "15",
+                  "description": "Number of results returned. Maximum 100."
+                },
+                {
+                  "disabled": false,
+                  "key": "displayOutput",
+                  "value": "headline",
+                  "description": "Specify headline only (headline), headline + teaser (abstract), or headline + full body (full) text"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "The date to query for news. Shorthand for dateFrom and dateTo if they are the same. Format: yyyy-mm-dd"
+                },
+                {
+                  "disabled": false,
+                  "key": "dateFrom",
+                  "value": "<string>",
+                  "description": "Date to query from point in time. Sorted by published date. Format: yyyy-mm-dd"
+                },
+                {
+                  "disabled": false,
+                  "key": "dateTo",
+                  "value": "<string>",
+                  "description": "Date to query to point in time. Sorted by published date. Format: yyyy-mm-dd"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedSince",
+                  "value": "<integer>",
+                  "description": "The last updated Unix timestamp (UTC) to pull and sort by"
+                },
+                {
+                  "disabled": false,
+                  "key": "publishedSince",
+                  "value": "<integer>",
+                  "description": "The last published Unix timestamp (UTC) to pull and sort by"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Allows control of results sorting. Default is created, DESC. Format: field:direction. Sort Fields: id, created, updated. Sort Order: asc (ascending), desc (descending)"
+                },
+                {
+                  "disabled": false,
+                  "key": "isin",
+                  "value": "<string>",
+                  "description": "One or more ISINs separated by a comma. Maximum 50. Format: csv"
+                },
+                {
+                  "disabled": false,
+                  "key": "cusips",
+                  "value": "<string>",
+                  "description": "One or more CUSIPs separated by a comma. Maximum 50. License agreement required. Format: csv"
+                },
+                {
+                  "disabled": false,
+                  "key": "tickers",
+                  "value": "<string>",
+                  "description": "One or more ticker symbols separated by a comma. Maximum 50. Format: csv"
+                },
+                {
+                  "disabled": false,
+                  "key": "primaryTickers",
+                  "value": "<string>",
+                  "description": "One or more primary ticker symbols separated by a comma. Filters by primary ticker association only. Format: csv"
+                },
+                {
+                  "disabled": false,
+                  "key": "channels",
+                  "value": "<string>",
+                  "description": "One or more channel names or IDs separated by a comma. Format: csv"
+                },
+                {
+                  "disabled": false,
+                  "key": "topics",
+                  "value": "<string>",
+                  "description": "One or more words/phrases separated by a comma; searches Title, Tags, and Body in order of priority. Format: csv"
+                },
+                {
+                  "disabled": false,
+                  "key": "topic_group_by",
+                  "value": "or",
+                  "description": "Logical operator for topics query. Use 'and' to require all topics, 'or' to require any topic"
+                },
+                {
+                  "disabled": false,
+                  "key": "authors",
+                  "value": "<string>",
+                  "description": "One or more authors separated by a comma. Format: csv"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Specify the desired format for the api response"
+                },
+                {
+                  "disabled": false,
+                  "key": "importance",
+                  "value": "<string>",
+                  "description": "Filter by importance level"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "Filter by region (e.g., 'ca' or 'canada' for Canadian content)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6d96a454-e045-474e-b00a-72a3881bc6b1",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "news"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "15"
+                    },
+                    {
+                      "key": "displayOutput",
+                      "value": "headline"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dateFrom",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dateTo",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedSince",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "publishedSince",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isin",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cusips",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tickers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "primaryTickers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "channels",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topics",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topic_group_by",
+                      "value": "or"
+                    },
+                    {
+                      "key": "authors",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "importance",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specify return format",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"author\": \"Benzinga Newsdesk\",\n    \"body\": \"string\",\n    \"channels\": [\n      {\n        \"name\": \"Technology\"\n      },\n      {\n        \"name\": \"Technology\"\n      }\n    ],\n    \"created\": \"Wed, 17 May 2017 14:20:15 -0400\",\n    \"id\": 123456,\n    \"image\": [\n      {\n        \"size\": \"large\",\n        \"url\": \"https://cdn.benzinga.com/files/images/story/2024/example.jpg\"\n      },\n      {\n        \"size\": \"large\",\n        \"url\": \"https://cdn.benzinga.com/files/images/story/2024/example.jpg\"\n      }\n    ],\n    \"original_id\": 6970,\n    \"stocks\": [\n      {\n        \"cusip\": \"string\",\n        \"exchange\": \"NASDAQ\",\n        \"isin\": \"US0378331005\",\n        \"name\": \"AAPL\"\n      },\n      {\n        \"cusip\": \"string\",\n        \"exchange\": \"NASDAQ\",\n        \"isin\": \"US0378331005\",\n        \"name\": \"AAPL\"\n      }\n    ],\n    \"tags\": [\n      {\n        \"name\": \"Technology\"\n      },\n      {\n        \"name\": \"Technology\"\n      }\n    ],\n    \"teaser\": \"string\",\n    \"title\": \"Apple Announces New iPhone\",\n    \"updated\": \"Wed, 17 May 2017 14:20:15 -0400\",\n    \"url\": \"https://www.benzinga.com/news/123456\"\n  },\n  {\n    \"author\": \"Benzinga Newsdesk\",\n    \"body\": \"string\",\n    \"channels\": [\n      {\n        \"name\": \"Technology\"\n      },\n      {\n        \"name\": \"Technology\"\n      }\n    ],\n    \"created\": \"Wed, 17 May 2017 14:20:15 -0400\",\n    \"id\": 123456,\n    \"image\": [\n      {\n        \"size\": \"large\",\n        \"url\": \"https://cdn.benzinga.com/files/images/story/2024/example.jpg\"\n      },\n      {\n        \"size\": \"large\",\n        \"url\": \"https://cdn.benzinga.com/files/images/story/2024/example.jpg\"\n      }\n    ],\n    \"original_id\": 8315,\n    \"stocks\": [\n      {\n        \"cusip\": \"string\",\n        \"exchange\": \"NASDAQ\",\n        \"isin\": \"US0378331005\",\n        \"name\": \"AAPL\"\n      },\n      {\n        \"cusip\": \"string\",\n        \"exchange\": \"NASDAQ\",\n        \"isin\": \"US0378331005\",\n        \"name\": \"AAPL\"\n      }\n    ],\n    \"tags\": [\n      {\n        \"name\": \"Technology\"\n      },\n      {\n        \"name\": \"Technology\"\n      }\n    ],\n    \"teaser\": \"string\",\n    \"title\": \"Apple Announces New iPhone\",\n    \"updated\": \"Wed, 17 May 2017 14:20:15 -0400\",\n    \"url\": \"https://www.benzinga.com/news/123456\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15d9e7c1-58d1-4ead-b9fb-d78c452df181",
+              "name": "Invalid or Missing Query Parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "news"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "15"
+                    },
+                    {
+                      "key": "displayOutput",
+                      "value": "headline"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dateFrom",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dateTo",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedSince",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "publishedSince",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isin",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cusips",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tickers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "primaryTickers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "channels",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topics",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topic_group_by",
+                      "value": "or"
+                    },
+                    {
+                      "key": "authors",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "importance",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specify return format",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a91e694e-652a-4bf5-a15d-2bc00cdeca07",
+              "name": "Request Context Cancelled",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "news"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "15"
+                    },
+                    {
+                      "key": "displayOutput",
+                      "value": "headline"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dateFrom",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dateTo",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedSince",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "publishedSince",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isin",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cusips",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tickers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "primaryTickers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "channels",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topics",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topic_group_by",
+                      "value": "or"
+                    },
+                    {
+                      "key": "authors",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "importance",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specify return format",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Client Closed Request",
+              "code": 499,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df0d5ec6-cc44-4ef8-84fc-1f5102f5d3f2",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "news"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "15"
+                    },
+                    {
+                      "key": "displayOutput",
+                      "value": "headline"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dateFrom",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dateTo",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedSince",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "publishedSince",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isin",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cusips",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tickers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "primaryTickers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "channels",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topics",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topic_group_by",
+                      "value": "or"
+                    },
+                    {
+                      "key": "authors",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "importance",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specify return format",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "783bb5f8-bf05-4408-9d38-929804ff3d79",
+    "name": "Analyst Reports Raw Text Analyst Insights Press Releases API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

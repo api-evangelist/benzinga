@@ -1,0 +1,360 @@
+{
+  "item": [
+    {
+      "id": "8ccfde20-0826-4c74-aad3-112c8ae89bc9",
+      "name": "conference_calls",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "825c5f78-4f76-48d6-8905-3e9f09193954",
+          "name": "Returns Conference call data",
+          "request": {
+            "name": "Returns Conference call data",
+            "description": {
+              "content": "Returns Conference call data for a selected period and/or security. Conference calls are scheduled calls where company management discusses quarterly or annual financial results, business updates, and answers questions from analysts and investors.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "calendar",
+                "conference-calls"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "<integer>",
+                  "description": "Number of results returned. Limit 1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_from]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query from point in time"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_to]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query to point in time"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[tickers]",
+                  "value": "<csv>",
+                  "description": "One or more ticker symbols separated by a comma. Maximum 50 tickers"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[updated]",
+                  "value": "<integer>",
+                  "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d66b1504-0224-4edd-8f90-70ad4945dc8c",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "conference-calls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"conference-calls\": [\n    {\n      \"access_code\": \"123456\",\n      \"confirmed\": true,\n      \"cusip\": \"string\",\n      \"date\": \"2024-01-09\",\n      \"exchange\": \"NASDAQ\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5ae\",\n      \"importance\": 4,\n      \"international_num\": \"1-201-389-0918\",\n      \"isin\": \"US0378331005\",\n      \"name\": \"Apple Inc.\",\n      \"notes\": \"Q1 2024 Earnings Conference Call\",\n      \"period\": \"Q1\",\n      \"period_year\": 2025,\n      \"phone_num\": \"1-877-407-0890\",\n      \"reservation_num\": \"13744123\",\n      \"start_time\": \"16:30:00\",\n      \"ticker\": \"AAPL\",\n      \"time\": \"16:30:00\",\n      \"updated\": 1704819600,\n      \"webcast_url\": \"https://event.webcasts.com/example\"\n    },\n    {\n      \"access_code\": \"123456\",\n      \"confirmed\": true,\n      \"cusip\": \"string\",\n      \"date\": \"2024-01-09\",\n      \"exchange\": \"NASDAQ\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5ae\",\n      \"importance\": 4,\n      \"international_num\": \"1-201-389-0918\",\n      \"isin\": \"US0378331005\",\n      \"name\": \"Apple Inc.\",\n      \"notes\": \"Q1 2024 Earnings Conference Call\",\n      \"period\": \"Q1\",\n      \"period_year\": 2025,\n      \"phone_num\": \"1-877-407-0890\",\n      \"reservation_num\": \"13744123\",\n      \"start_time\": \"16:30:00\",\n      \"ticker\": \"AAPL\",\n      \"time\": \"16:30:00\",\n      \"updated\": 1704819600,\n      \"webcast_url\": \"https://event.webcasts.com/example\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72928f1c-8ffe-40e5-8c31-0c3e0f99ffcd",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "conference-calls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea01e2b8-cfcc-4c5b-827c-75620820e8e2",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "conference-calls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9e593ce2-1497-435b-ae58-fbf2207c9974",
+    "name": "Analyst Reports Raw Text Analyst Insights conference_calls API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

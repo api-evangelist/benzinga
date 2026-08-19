@@ -1,0 +1,400 @@
+{
+  "item": [
+    {
+      "id": "3247bf8d-9c79-43bc-8908-d80cec19f248",
+      "name": "Bulls Say Bears Say",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b2296e74-09a6-4200-88d3-94f0506dd5c2",
+          "name": "Latest bull and bear cases for a given ticker symbol",
+          "request": {
+            "name": "Latest bull and bear cases for a given ticker symbol",
+            "description": {
+              "content": "Returns the latest bullish and bearish investment cases for a given stock ticker symbol. Bull cases present positive arguments for buying a stock, while bear cases present negative arguments against it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "bulls_bears_say"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Stock ticker symbol to query for bull/bear cases"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "100",
+                  "description": "Number of results to be returned. Limit 200"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[updated]",
+                  "value": "<integer>",
+                  "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "55dfe429-a538-4264-8445-1effaae0f196",
+              "name": "An array of bull and bear cases for the requested ticker symbol",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "bulls_bears_say"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulls-say-bears-say\": [\n    {\n      \"analyst_firms_referenced\": 12,\n      \"bear_case\": \"Market saturation and competitive pressures\",\n      \"bull_case\": \"Strong product pipeline and ecosystem lock-in effect\",\n      \"created\": 1704819000,\n      \"exchange\": \"NASDAQ\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5c0\",\n      \"latest\": true,\n      \"securities\": [\n        {\n          \"cik\": \"320193\",\n          \"exchange\": \"NASDAQ\",\n          \"isin\": \"US0378331005\",\n          \"name\": \"Apple Inc.\",\n          \"symbol\": \"AAPL\"\n        },\n        {\n          \"cik\": \"320193\",\n          \"exchange\": \"NASDAQ\",\n          \"isin\": \"US0378331005\",\n          \"name\": \"Apple Inc.\",\n          \"symbol\": \"AAPL\"\n        }\n      ],\n      \"ticker\": \"AAPL\",\n      \"updated\": 1704819600\n    },\n    {\n      \"analyst_firms_referenced\": 12,\n      \"bear_case\": \"Market saturation and competitive pressures\",\n      \"bull_case\": \"Strong product pipeline and ecosystem lock-in effect\",\n      \"created\": 1704819000,\n      \"exchange\": \"NASDAQ\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5c0\",\n      \"latest\": true,\n      \"securities\": [\n        {\n          \"cik\": \"320193\",\n          \"exchange\": \"NASDAQ\",\n          \"isin\": \"US0378331005\",\n          \"name\": \"Apple Inc.\",\n          \"symbol\": \"AAPL\"\n        },\n        {\n          \"cik\": \"320193\",\n          \"exchange\": \"NASDAQ\",\n          \"isin\": \"US0378331005\",\n          \"name\": \"Apple Inc.\",\n          \"symbol\": \"AAPL\"\n        }\n      ],\n      \"ticker\": \"AAPL\",\n      \"updated\": 1704819600\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "14761b59-5bb3-4589-85a2-240ae4f6af6e",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "bulls_bears_say"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a6778ca4-853b-485b-81a3-d5761d1b9e6b",
+              "name": "Authentication information is missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "bulls_bears_say"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1727605-bf99-440c-96ef-08e5925ee5ee",
+              "name": "A bull/bear case for the provided ticker symbol was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "bulls_bears_say"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "edc1873c-f4c3-4b1d-b19b-01dc904399f4",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "bulls_bears_say"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "07608c18-9c00-49bc-a287-401e4b3778b5",
+    "name": "Analyst Reports Raw Text Analyst Insights Bulls Say Bears Say API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

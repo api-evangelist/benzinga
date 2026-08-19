@@ -1,8 +1,8 @@
 generated: '2026-07-22'
 method: derived
 status: candidate
-source: derived from openapi/ operations; no official Benzinga MCP server found (searched MCP registries and docs
-  2026-07-22)
+source: derived from openapi/ operations; no official Benzinga MCP server found (searched MCP registries
+  and docs 2026-07-22)
 server:
   name: benzinga
   transport: http
@@ -235,3 +235,9 @@ tools:
 - name: get_webhook_test
   description: Test Webhook Delivery
   source_operation: openapi/benzinga-webhook-api-openapi.yml#get-webhook-test
+deployment:
+  mode: none
+  verified: derived
+  tools: 76
+  checked: '2026-08-12'
+  source: catalog MCP census

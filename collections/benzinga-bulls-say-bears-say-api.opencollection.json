@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights Bulls Say Bears Say API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bulls Say Bears Say",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Latest bull and bear cases for a given ticker symbol",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v1/bulls_bears_say",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Stock ticker symbol to query for bull/bear cases"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to be returned. Limit 200"
+              },
+              {
+                "name": "parameters[updated]",
+                "value": "",
+                "type": "query",
+                "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Returns the latest bullish and bearish investment cases for a given stock ticker symbol. Bull cases present positive arguments for buying a stock, while bear cases present negative arguments against it."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights Halt Resume API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Halt Resume",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "HaltResume V1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v1/signal/halt_resume",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results returned. Limit 1000"
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Start date in YYYY-MM-DD format"
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "End date in YYYY-MM-DD format"
+              },
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "One or more ticker symbols separated by a comma. Maximum 50 tickers"
+              },
+              {
+                "name": "updated",
+                "value": "",
+                "type": "query",
+                "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Returns trading halt and resume information for securities, including halt reasons and expected resumption times"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

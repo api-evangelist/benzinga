@@ -1,0 +1,152 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights logos API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "logos",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Bulk logos sync",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2.1/logos/sync",
+            "params": [
+              {
+                "name": "search_keys",
+                "value": "",
+                "type": "query",
+                "description": "Only applies to v2.1 exchange logos (search_keys_type=exchange): comma-separated list of exchange MIC codes to filter by."
+              },
+              {
+                "name": "search_keys_type",
+                "value": "",
+                "type": "query",
+                "description": "Set to exchange to sync v2.1 exchange logos (filtered by search_keys). Omit for the default bulk security-logo sync."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of logo fields to return. Maximum 12 fields. Available: logo_light, logo_dark, logo_vector_light, logo_vector_dark, mark_light, mark_dark, mark_vector_light, mark_vector_dark, mark_composite_light, mark_composite_dark, mark_vector_composite_light, mark_vector_composite_dark, colors"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. Used with pagesize for bulk sync operations."
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page. Default: 100. Maximum: 1000"
+              },
+              {
+                "name": "updated_since",
+                "value": "",
+                "type": "query",
+                "description": "Unix timestamp (UTC). Returns logos updated after this timestamp."
+              },
+              {
+                "name": "scale",
+                "value": "",
+                "type": "query",
+                "description": "Scale image dimensions in WIDTHxHEIGHT format (e.g., 300x300). Images scale down only, never up. Default: 300x300"
+              },
+              {
+                "name": "composite_radius",
+                "value": "",
+                "type": "query",
+                "description": "Border radius for composite images in percentage. Range 0-50 where 50 creates a circle. Default: 0"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Bulk logos sync. Walks the full logo dataset via page/pagesize (optionally narrowed by updated_since); it is not a per-identifier lookup. To fetch logos for specific securities, use GET /api/v2/logos/search."
+        },
+        {
+          "info": {
+            "name": "Search Logos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2/logos/search",
+            "params": [
+              {
+                "name": "search_keys",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of security identifiers. Maximum 100 identifiers. Type depends on search_keys_type parameter."
+              },
+              {
+                "name": "search_keys_type",
+                "value": "",
+                "type": "query",
+                "description": "Type of identifier being searched. Supported types: symbol (default), cik, cusip, isin"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of logo fields to return. Maximum 12 fields. Available: logo_light, logo_dark, logo_vector_light, logo_vector_dark, mark_light, mark_dark, mark_vector_light, mark_vector_dark, mark_composite_light, mark_composite_dark, mark_vector_composite_light, mark_vector_composite_dark, colors"
+              },
+              {
+                "name": "composite_auto",
+                "value": "",
+                "type": "query",
+                "description": "If true and no logo exists, generates a composite image based on company name and brand colors"
+              },
+              {
+                "name": "composite_radius",
+                "value": "",
+                "type": "query",
+                "description": "Border radius for composite images in percentage. Range 0-50 where 50 creates a circle. Default: 0"
+              },
+              {
+                "name": "scale",
+                "value": "",
+                "type": "query",
+                "description": "Scale image dimensions in WIDTHxHEIGHT format (e.g., 300x300). Images scale down only, never up. Default: 300x300"
+              },
+              {
+                "name": "max_width",
+                "value": "",
+                "type": "query",
+                "description": "Maximum width constraint for scaled images in pixels"
+              },
+              {
+                "name": "flutter_compatible",
+                "value": "",
+                "type": "query",
+                "description": "If true, adds flutter_compatible=true query parameter to SVG URLs for flutter_svg library compatibility"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Search Logos"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

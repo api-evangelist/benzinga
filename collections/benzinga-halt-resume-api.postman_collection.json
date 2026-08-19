@@ -1,0 +1,324 @@
+{
+  "item": [
+    {
+      "id": "31385c34-9616-4b88-9c54-673a0b336598",
+      "name": "Halt Resume",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9d6184f4-fa9d-48f3-84d0-7ec9fe0b61c7",
+          "name": "HaltResume V1",
+          "request": {
+            "name": "HaltResume V1",
+            "description": {
+              "content": "Returns trading halt and resume information for securities, including halt reasons and expected resumption times",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "signal",
+                "halt_resume"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "Number of results returned. Limit 1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<date>",
+                  "description": "Start date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<date>",
+                  "description": "End date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "key": "tickers",
+                  "value": "<csv>",
+                  "description": "One or more ticker symbols separated by a comma. Maximum 50 tickers"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated",
+                  "value": "<integer>",
+                  "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "05473dd0-3059-4754-91c0-09eb5bd6543f",
+              "name": "Halt Resume",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "signal",
+                    "halt_resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "tickers",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "updated",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1,\n  \"cusip\": \"88160R101\",\n  \"date\": \"2024-01-09\",\n  \"description\": \"Trading halted due to news pending\",\n  \"exchange\": \"NASDAQ\",\n  \"halt_type\": \"News Pending\",\n  \"id\": \"60a7f5e8e4b0f5a3c8e9f5b3\",\n  \"importance\": 4,\n  \"isin\": \"US88160R1014\",\n  \"name\": \"Tesla Inc.\",\n  \"ticker\": \"TSLA\",\n  \"time\": \"14:25:00\",\n  \"updated\": 1704819600\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85a590b8-caf8-4a29-b218-793b578becc1",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "signal",
+                    "halt_resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "tickers",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "updated",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0698b943-ff93-435b-bf07-78dff78373d3",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "signal",
+                    "halt_resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "tickers",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "updated",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4e8c9d5b-2f91-4536-9fc8-c1be50784910",
+    "name": "Analyst Reports Raw Text Analyst Insights Halt Resume API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

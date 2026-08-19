@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights Earnings Call Transcripts API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Earnings Call Transcripts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Earnings Call Transcripts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v1/earnings-call-transcripts",
+            "params": [
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols to filter earnings call transcripts (e.g., AAPL,MSFT,GOOGL). Returns all transcripts for these companies."
+              },
+              {
+                "name": "call_id",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of specific call IDs to retrieve. Use this to fetch transcripts for known earnings call identifiers. Takes precedence over ticker filtering."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. Zero-indexed (0 = first page, 1 = second page, etc.). Default: 0"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page. Default: 5. Maximum: 1000. Use larger page sizes for bulk data retrieval."
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Start date filter in YYYY-MM-DD format (e.g., 2024-01-01). Returns transcripts from earnings calls on or after this date."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "End date filter in YYYY-MM-DD format (e.g., 2024-12-31). Returns transcripts from earnings calls on or before this date."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieves earnings call transcripts for specified companies or call IDs. Returns full text transcripts of quarterly and annual earnings calls including Q&A sessions, speaker identification, and timestamps. Use date filters to retrieve transcripts from specific reporting periods or filter by ticker symbols for company-specific earnings discussions."
+        },
+        {
+          "info": {
+            "name": "Earnings Call Audio Files",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v1/earnings-call-transcripts/audio",
+            "params": [
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols to filter audio files (e.g., AAPL,MSFT,GOOGL). Returns audio files for all earnings calls from these companies."
+              },
+              {
+                "name": "call_id",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of specific call IDs to retrieve audio files for. Use this to fetch audio for known earnings call identifiers."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. Zero-indexed (0 = first page, 1 = second page, etc.). Default: 0"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page. Default: 5. Maximum: 1000"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieves downloadable audio file URLs for earnings call recordings. Returns signed URLs for accessing full audio recordings of quarterly and annual earnings calls. Audio files include complete earnings presentations and Q&A sessions. URLs are time-limited and securely signed for authorized access."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

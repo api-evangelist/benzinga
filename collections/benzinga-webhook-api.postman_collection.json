@@ -1,0 +1,347 @@
+{
+  "item": [
+    {
+      "id": "88acdd8b-dea6-41b2-aa87-42d9b3a4d039",
+      "name": "Webhook",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7e061ad4-6a1a-4f47-ad31-32f9f40f6f39",
+          "name": "Test Webhook Delivery",
+          "request": {
+            "name": "Test Webhook Delivery",
+            "description": {
+              "content": "This endpoint will send test data to your webhook endpoint so you may verify your integration",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "webhook",
+                "test"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "destination",
+                  "value": "<uri>",
+                  "description": "(Required) The webhook endpoint URL where the test data will be sent"
+                },
+                {
+                  "disabled": false,
+                  "key": "version",
+                  "value": "webhook/v1",
+                  "description": "(Required) API version, currently webhook/v1"
+                },
+                {
+                  "disabled": false,
+                  "key": "kind",
+                  "value": "News/v1",
+                  "description": "(Required) Identifies the message kind for the test payload"
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "Specify token to have data transformed for production usage"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d99a59c6-ab7b-4bb1-9fbf-ea6bf3d82680",
+              "name": "Success - Test webhook delivery was sent successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "webhook",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "destination",
+                      "value": "https://your-endpoint.com/webhook"
+                    },
+                    {
+                      "key": "version",
+                      "value": "webhook/v1"
+                    },
+                    {
+                      "key": "kind",
+                      "value": "News/v1"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e392ab28-95a9-4c44-b4e7-ca00f1912044",
+              "name": "Invalid request - Inspect response body for details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "webhook",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "destination",
+                      "value": "https://your-endpoint.com/webhook"
+                    },
+                    {
+                      "key": "version",
+                      "value": "webhook/v1"
+                    },
+                    {
+                      "key": "kind",
+                      "value": "News/v1"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Invalid destination URL\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d7f9de6-2556-46de-b05d-b88a473b7a6d",
+              "name": "Delivery error - System encountered an error delivering the test payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "webhook",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "destination",
+                      "value": "https://your-endpoint.com/webhook"
+                    },
+                    {
+                      "key": "version",
+                      "value": "webhook/v1"
+                    },
+                    {
+                      "key": "kind",
+                      "value": "News/v1"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Failed Dependency (WebDAV) (RFC 4918)",
+              "code": 424,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Failed to deliver test payload to destination\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c6ee8ba1-2574-438c-b130-c0609bc79330",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "webhook",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "destination",
+                      "value": "https://your-endpoint.com/webhook"
+                    },
+                    {
+                      "key": "version",
+                      "value": "webhook/v1"
+                    },
+                    {
+                      "key": "kind",
+                      "value": "News/v1"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Internal server error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "df4bb656-598e-4a99-bddb-9ed84ca81404",
+    "name": "Analyst Reports Raw Text Analyst Insights Webhook API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

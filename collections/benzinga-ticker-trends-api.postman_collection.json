@@ -1,0 +1,684 @@
+{
+  "item": [
+    {
+      "id": "36df0e49-f53d-42e2-9fc1-0fcfa7a918c5",
+      "name": "Ticker Trends",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0a74cdec-a18f-426c-9226-319d03b300ce",
+          "name": "Get Ticker Trend Data",
+          "request": {
+            "name": "Get Ticker Trend Data",
+            "description": {
+              "content": "Retrieve trending data for specific tickers, including rank and change. Returns aggregated trend scores and activity levels across different time intervals.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "trending-tickers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>",
+                  "description": "(Required) Time interval for aggregating trend data. Supported values: 10m (10 minutes), 1h (1 hour), 1d (1 day). Required."
+                },
+                {
+                  "disabled": false,
+                  "key": "tickers",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,TSLA) to retrieve trend data for. Required."
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "(Required) Data source filter for trend calculation. Supported values: all (all sources combined), clickstream (user interaction data), logo (logo request data). Required."
+                },
+                {
+                  "disabled": false,
+                  "key": "timeframe",
+                  "value": "<string>",
+                  "description": "Time window for trend analysis. Optional custom timeframe specification for filtering results by specific date ranges."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number for pagination. Zero-indexed (0 = first page, 1 = second page, etc.). Default: 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "<integer>",
+                  "description": "Number of results per page. Default: 1000. Maximum: 1000"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ebead2bd-5039-48bb-bb8b-c4edf27c6d2c",
+              "name": "Trending data with engagement metrics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "trending-tickers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tickers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timeframe",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"exchange\": \"NASDAQ\",\n      \"metrics\": [\n        {\n          \"count\": 1523,\n          \"count_mavg\": 1245.67,\n          \"market_count_average\": 92.1,\n          \"scaled_count\": 98.5,\n          \"scaled_count_mavg\": 87.3,\n          \"time_bucket\": \"2024-01-09T10:00:00Z\"\n        },\n        {\n          \"count\": 1523,\n          \"count_mavg\": 1245.67,\n          \"market_count_average\": 92.1,\n          \"scaled_count\": 98.5,\n          \"scaled_count_mavg\": 87.3,\n          \"time_bucket\": \"2024-01-09T10:00:00Z\"\n        }\n      ],\n      \"ticker\": \"AAPL\"\n    },\n    {\n      \"exchange\": \"NASDAQ\",\n      \"metrics\": [\n        {\n          \"count\": 1523,\n          \"count_mavg\": 1245.67,\n          \"market_count_average\": 92.1,\n          \"scaled_count\": 98.5,\n          \"scaled_count_mavg\": 87.3,\n          \"time_bucket\": \"2024-01-09T10:00:00Z\"\n        },\n        {\n          \"count\": 1523,\n          \"count_mavg\": 1245.67,\n          \"market_count_average\": 92.1,\n          \"scaled_count\": 98.5,\n          \"scaled_count_mavg\": 87.3,\n          \"time_bucket\": \"2024-01-09T10:00:00Z\"\n        }\n      ],\n      \"ticker\": \"AAPL\"\n    }\n  ],\n  \"ok\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df461dca-62a6-46c7-ab6a-aa987baecbf0",
+              "name": "Bad request - missing or invalid required parameters (interval, tickers, or source)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "trending-tickers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tickers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timeframe",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": 7180.098471981163\n  },\n  \"errors\": [\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"unsupported_message_type\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ebcc613a-5ef0-49cc-b028-4250fff48e03",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "trending-tickers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tickers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timeframe",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"exchange\": \"NASDAQ\",\n      \"metrics\": [\n        {\n          \"count\": 1523,\n          \"count_mavg\": 1245.67,\n          \"market_count_average\": 92.1,\n          \"scaled_count\": 98.5,\n          \"scaled_count_mavg\": 87.3,\n          \"time_bucket\": \"2024-01-09T10:00:00Z\"\n        },\n        {\n          \"count\": 1523,\n          \"count_mavg\": 1245.67,\n          \"market_count_average\": 92.1,\n          \"scaled_count\": 98.5,\n          \"scaled_count_mavg\": 87.3,\n          \"time_bucket\": \"2024-01-09T10:00:00Z\"\n        }\n      ],\n      \"ticker\": \"AAPL\"\n    },\n    {\n      \"exchange\": \"NASDAQ\",\n      \"metrics\": [\n        {\n          \"count\": 1523,\n          \"count_mavg\": 1245.67,\n          \"market_count_average\": 92.1,\n          \"scaled_count\": 98.5,\n          \"scaled_count_mavg\": 87.3,\n          \"time_bucket\": \"2024-01-09T10:00:00Z\"\n        },\n        {\n          \"count\": 1523,\n          \"count_mavg\": 1245.67,\n          \"market_count_average\": 92.1,\n          \"scaled_count\": 98.5,\n          \"scaled_count_mavg\": 87.3,\n          \"time_bucket\": \"2024-01-09T10:00:00Z\"\n        }\n      ],\n      \"ticker\": \"AAPL\"\n    }\n  ],\n  \"ok\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a614c8b9-300b-4ce9-a3b8-e4e30598f174",
+          "name": "Get Trending Tickers List",
+          "request": {
+            "name": "Get Trending Tickers List",
+            "description": {
+              "content": "Retrieve a list of trending tickers based on various metrics. Returns securities ordered by trending score across different time intervals.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "trending-tickers",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>",
+                  "description": "(Required) Deprecated. Use timeframe instead. Time interval for aggregating trend data."
+                },
+                {
+                  "disabled": false,
+                  "key": "tickers",
+                  "value": "<string>",
+                  "description": "Optional comma-separated list of ticker symbols to filter results. If omitted, returns all trending tickers."
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "(Required) Data source filter for trend calculation. Supported values: all (all sources combined), clickstream (user interaction data), logo (logo request data). Required."
+                },
+                {
+                  "disabled": false,
+                  "key": "timeframe",
+                  "value": "<string>",
+                  "description": "Time interval for trend aggregation. Supported values: 10m (10 minutes), 1h (1 hour), 1d (1 day). Default: 1d"
+                },
+                {
+                  "disabled": false,
+                  "key": "time_from",
+                  "value": "<string>",
+                  "description": "Start time filter in 24-hour format (e.g., 09:15, 14:30). Use with date_from for precise time ranges."
+                },
+                {
+                  "disabled": false,
+                  "key": "time_to",
+                  "value": "<string>",
+                  "description": "End time filter in 24-hour format (e.g., 16:00, 22:30). Use with date_to for precise time ranges."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<string>",
+                  "description": "Start date filter in ISO 8601 format (e.g., 2024-12-30, 2024-01-15). Use with time_from for precise ranges."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<string>",
+                  "description": "End date filter in ISO 8601 format (e.g., 2024-12-30, 2024-01-31). Use with time_to for precise ranges."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number for pagination. Zero-indexed (0 = first page, 1 = second page, etc.). Default: 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "<integer>",
+                  "description": "Number of results per page. Default: 1000. Maximum: 1000"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b7c40e6c-8e64-4b2d-8c18-1997c00b3b2c",
+              "name": "Ranked list of trending tickers with engagement scores",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "trending-tickers",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tickers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timeframe",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "time_from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "time_to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"count\": 1523,\n      \"pct_chg\": 15,\n      \"security\": {\n        \"exchange\": \"NASDAQ\",\n        \"name\": \"Apple Inc\",\n        \"ticker\": \"AAPL\"\n      }\n    },\n    {\n      \"count\": 1523,\n      \"pct_chg\": 15,\n      \"security\": {\n        \"exchange\": \"NASDAQ\",\n        \"name\": \"Apple Inc\",\n        \"ticker\": \"AAPL\"\n      }\n    }\n  ],\n  \"ok\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d42610c-d02f-45e4-8b0c-89b9f53fd053",
+              "name": "Bad request - missing or invalid source parameter, or invalid date/time format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "trending-tickers",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tickers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timeframe",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "time_from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "time_to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": 1201.4903260614763,\n    \"key_1\": 1972.110035244191,\n    \"key_2\": 1966\n  },\n  \"errors\": [\n    {\n      \"code\": \"database_query_error\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"unsupported_message_type\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9ace2436-c958-4748-bc87-716236e350a4",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "trending-tickers",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tickers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timeframe",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "time_from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "time_to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"count\": 1523,\n      \"pct_chg\": 15,\n      \"security\": {\n        \"exchange\": \"NASDAQ\",\n        \"name\": \"Apple Inc\",\n        \"ticker\": \"AAPL\"\n      }\n    },\n    {\n      \"count\": 1523,\n      \"pct_chg\": 15,\n      \"security\": {\n        \"exchange\": \"NASDAQ\",\n        \"name\": \"Apple Inc\",\n        \"ticker\": \"AAPL\"\n      }\n    }\n  ],\n  \"ok\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "32e49894-fe56-4d44-9a35-101b61976411",
+    "name": "Analyst Reports Raw Text Analyst Insights Ticker Trends API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

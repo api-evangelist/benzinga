@@ -1,0 +1,504 @@
+{
+  "item": [
+    {
+      "id": "c7838c97-0fa3-4ba5-9e6f-230af3d29ea3",
+      "name": "ratings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5870b0af-5130-4e65-8ff6-df570f2b4ca3",
+          "name": "Returns analyst ratings data",
+          "request": {
+            "name": "Returns analyst ratings data",
+            "description": {
+              "content": "Returns analyst ratings data including upgrades, downgrades, initiations, and price target changes from Wall Street analysts. Includes current and prior ratings, price targets, analyst information, and ratings accuracy metrics when available.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "calendar",
+                "ratings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<csv>",
+                  "description": "Comma-separated list of fields to return. Available fields: id, date, time, ticker, exchange, name, currency, action_pt, action_company, rating_current, pt_current, rating_prior, pt_prior, pt_pct_change, url, url_calendar, url_news, analyst, analyst_id, analyst_name, ratings_accuracy, importance, notes, updated. Use * for all fields including ratings_accuracy"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "<integer>",
+                  "description": "Number of results returned. Limit 1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_from]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query from point in time"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_to]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query to point in time"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[importance]",
+                  "value": "<integer>",
+                  "description": "The importance level to filter by. Uses Greater Than or Equal To the importance indicated"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[tickers]",
+                  "value": "<csv>",
+                  "description": "One or more ticker symbols separated by a comma. Maximum 50 tickers"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[updated]",
+                  "value": "<integer>",
+                  "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[analyst_id]",
+                  "value": "<csv>",
+                  "description": "One or more analyst ids (analyst_id) separated by a comma"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[firm_id]",
+                  "value": "<csv>",
+                  "description": "One or more firm ids (firm_id) separated by a comma"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[action]",
+                  "value": "<string>",
+                  "description": "Filter by a specific action_company (action for rating). Note that all of these terms are precisely defined"
+                },
+                {
+                  "disabled": false,
+                  "key": "analyst",
+                  "value": "<csv>",
+                  "description": "A comma separated list of analyst (person) ID's to bring back. Omitting will bring back all available analysts"
+                },
+                {
+                  "disabled": false,
+                  "key": "firm",
+                  "value": "<csv>",
+                  "description": "A comma separated list of analyst firm ID's to bring back. Omitting will bring back all available firms"
+                },
+                {
+                  "disabled": false,
+                  "key": "simplify",
+                  "value": "false",
+                  "description": "Simplify the ratings to standardized categories"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d8d41ab9-bbd2-4140-b207-76f02c6bbfd0",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "ratings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[analyst_id]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[firm_id]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[action]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "analyst",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "firm",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "simplify",
+                      "value": "false"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ratings\": [\n    {\n      \"action_company\": \"Goldman Sachs\",\n      \"action_pt\": \"Raises\",\n      \"adjusted_pt_current\": \"200.00\",\n      \"adjusted_pt_prior\": \"185.00\",\n      \"analyst\": \"Goldman Sachs\",\n      \"analyst_id\": \"60a7f5e8e4b0f5a3c8e9f5a6\",\n      \"analyst_name\": \"John Smith\",\n      \"currency\": \"USD\",\n      \"cusip\": \"string\",\n      \"date\": \"2024-01-09\",\n      \"exchange\": \"NASDAQ\",\n      \"firm_id\": \"60a7f5e8e4b0f5a3c8e9f5a5\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5a4\",\n      \"importance\": 3,\n      \"isin\": \"US0378331005\",\n      \"name\": \"Apple Inc.\",\n      \"notes\": \"Upgraded due to strong quarterly performance\",\n      \"pt_current\": \"200.00\",\n      \"pt_prior\": \"185.00\",\n      \"rating_current\": \"Buy\",\n      \"rating_prior\": \"Neutral\",\n      \"ticker\": \"AAPL\",\n      \"time\": \"09:30:00\",\n      \"updated\": 1704819600,\n      \"url\": \"https://www.benzinga.com/ratings/123456\",\n      \"url_calendar\": \"https://www.benzinga.com/calendar/ratings/123456\",\n      \"url_news\": \"https://www.benzinga.com/news/123456\"\n    },\n    {\n      \"action_company\": \"Goldman Sachs\",\n      \"action_pt\": \"Raises\",\n      \"adjusted_pt_current\": \"200.00\",\n      \"adjusted_pt_prior\": \"185.00\",\n      \"analyst\": \"Goldman Sachs\",\n      \"analyst_id\": \"60a7f5e8e4b0f5a3c8e9f5a6\",\n      \"analyst_name\": \"John Smith\",\n      \"currency\": \"USD\",\n      \"cusip\": \"string\",\n      \"date\": \"2024-01-09\",\n      \"exchange\": \"NASDAQ\",\n      \"firm_id\": \"60a7f5e8e4b0f5a3c8e9f5a5\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5a4\",\n      \"importance\": 3,\n      \"isin\": \"US0378331005\",\n      \"name\": \"Apple Inc.\",\n      \"notes\": \"Upgraded due to strong quarterly performance\",\n      \"pt_current\": \"200.00\",\n      \"pt_prior\": \"185.00\",\n      \"rating_current\": \"Buy\",\n      \"rating_prior\": \"Neutral\",\n      \"ticker\": \"AAPL\",\n      \"time\": \"09:30:00\",\n      \"updated\": 1704819600,\n      \"url\": \"https://www.benzinga.com/ratings/123456\",\n      \"url_calendar\": \"https://www.benzinga.com/calendar/ratings/123456\",\n      \"url_news\": \"https://www.benzinga.com/news/123456\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "09756107-5717-4b9b-b22a-3aa6a07f8319",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "ratings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[analyst_id]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[firm_id]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[action]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "analyst",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "firm",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "simplify",
+                      "value": "false"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5e6e6d1-af36-4c73-9990-bf9ee19c1c2b",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "ratings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[analyst_id]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[firm_id]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[action]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "analyst",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "firm",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "simplify",
+                      "value": "false"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5e241856-cdc2-47a7-a3dd-6e7373095243",
+    "name": "Analyst Reports Raw Text Analyst Insights ratings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

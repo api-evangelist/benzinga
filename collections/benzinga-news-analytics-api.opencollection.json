@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights News Analytics API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "News Analytics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Quantitative News Analytics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2/newsquantified",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. Zero-indexed (0 = first page, 1 = second page, etc.). Default: 0"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page. Default: 1000. Maximum: 1000. Returns most recent data first."
+              },
+              {
+                "name": "updated_since",
+                "value": "",
+                "type": "query",
+                "description": "Unix timestamp in seconds (UTC). Returns newsquantified data updated after this timestamp. Use for incremental updates."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols to filter results (e.g., AAPL,MSFT,TSLA). Returns analytics for specified securities only."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Single date in YYYY-MM-DD format (e.g., 2024-12-30). Shorthand for filtering when date_from and date_to are the same. Returns data for this specific date."
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Start date in YYYY-MM-DD format (e.g., 2024-01-01). Returns data from this date forward. Use with date_to for date range queries."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "End date in YYYY-MM-DD format (e.g., 2024-12-31). Returns data up to and including this date. Use with date_from for date range queries."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieves quantified news analytics data with sentiment scores, relevance metrics, and market impact indicators. Returns structured data analyzing the quantitative aspects of news coverage including sentiment polarity, article counts, trending scores, and ticker-specific metrics. Use this endpoint to access machine-readable news analytics for algorithmic trading and quantitative research."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

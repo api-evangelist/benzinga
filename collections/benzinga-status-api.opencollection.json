@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights status API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query status view",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v1/transcripts/status",
+            "params": [
+              {
+                "name": "view_name",
+                "value": "",
+                "type": "query",
+                "description": "View name (for GET)"
+              },
+              {
+                "name": "where",
+                "value": "",
+                "type": "query",
+                "description": "JSON encoded where clause (for GET)"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "JSON encoded order_by (for GET)"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Query a specific view with filters and pagination. Supports both GET (query params) and POST (JSON body)."
+        },
+        {
+          "info": {
+            "name": "Query status view",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.benzinga.com/api/v1/transcripts/status",
+            "params": [
+              {
+                "name": "view_name",
+                "value": "",
+                "type": "query",
+                "description": "View name (for GET)"
+              },
+              {
+                "name": "where",
+                "value": "",
+                "type": "query",
+                "description": "JSON encoded where clause (for GET)"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "JSON encoded order_by (for GET)"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Query a specific view with filters and pagination. Supports both GET (query params) and POST (JSON body)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

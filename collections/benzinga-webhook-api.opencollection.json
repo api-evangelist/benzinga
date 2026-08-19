@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights Webhook API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Webhook",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Test Webhook Delivery",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v1/webhook/test",
+            "params": [
+              {
+                "name": "destination",
+                "value": "https://your-endpoint.com/webhook",
+                "type": "query",
+                "description": "The webhook endpoint URL where the test data will be sent"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query",
+                "description": "API version, currently webhook/v1"
+              },
+              {
+                "name": "kind",
+                "value": "",
+                "type": "query",
+                "description": "Identifies the message kind for the test payload"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Specify token to have data transformed for production usage"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "This endpoint will send test data to your webhook endpoint so you may verify your integration"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

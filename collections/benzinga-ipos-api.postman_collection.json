@@ -1,0 +1,724 @@
+{
+  "item": [
+    {
+      "id": "d3b13cb5-5ce3-47d8-93f6-ad169403db1d",
+      "name": "ipos",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c90a9d71-885f-40b0-9385-233444ac95ae",
+          "name": "IPOs V2.1",
+          "request": {
+            "name": "IPOs V2.1",
+            "description": {
+              "content": "Returns Initial Public Offering (IPO) data including pricing information, underwriters, deal status, and offering details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "calendar",
+                "ipos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "<integer>",
+                  "description": "Page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "ipo_date",
+                  "value": "<date>",
+                  "description": "Date of IPO in YYYY-MM-DD format (new preferred parameter)"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[ipo_date]",
+                  "value": "<date>",
+                  "description": "Date of IPO in YYYY-MM-DD format (deprecated)"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_from]",
+                  "value": "<date>",
+                  "description": "Start date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_to]",
+                  "value": "<date>",
+                  "description": "End date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[tickers]",
+                  "value": "<string>",
+                  "description": "Tickers"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[ipo_type]",
+                  "value": "<string>",
+                  "description": "IPO type"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[updated]",
+                  "value": "<int64>",
+                  "description": "Updated time in Unix format"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c985869c-28f4-4637-9014-ab0e35e008d6",
+              "name": "IPOs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "ipos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ipo_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[ipo_date]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[ipo_type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<int64>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ipos\": [\n    {\n      \"currency\": \"USD\",\n      \"cusip\": \"string\",\n      \"date\": \"2024-01-09\",\n      \"deal_status\": \"Priced\",\n      \"description\": \"Online marketplace for lodging and tourism experiences\",\n      \"exchange\": \"NASDAQ\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5a9\",\n      \"initial_filing_date\": \"2023-11-15\",\n      \"insider_lockup_date\": \"2024-07-07\",\n      \"insider_lockup_days\": 180,\n      \"ipo_type\": \"IPO\",\n      \"last_yr_income\": -674000000,\n      \"last_yr_income_year\": 2023,\n      \"last_yr_revenue\": 4805000000,\n      \"last_yr_revenue_year\": 2023,\n      \"lead_underwriters\": [\n        \"[{\\\"name\\\":\\\"Morgan Stanley\\\"}]\"\n      ],\n      \"market_cap_at_offer\": 47000000000,\n      \"name\": \"Airbnb Inc.\",\n      \"notes\": \"Strong first day trading\",\n      \"offering_shares\": 51500000,\n      \"offering_shares_ord_adr\": 51500000,\n      \"offering_value\": 3500000000,\n      \"open_date_verified\": true,\n      \"ord_shares_out_after_offer\": 615000000,\n      \"other_underwriters\": [\n        \"[{\\\"name\\\":\\\"Goldman Sachs\\\"}]\"\n      ],\n      \"price_max\": \"50.00\",\n      \"price_min\": \"44.00\",\n      \"price_open\": \"146.00\",\n      \"price_public_offering\": \"68.00\",\n      \"pricing_date\": \"2024-01-08\",\n      \"pricing_date_verified\": true,\n      \"sec_accession_number\": \"0001559720-20-000079\",\n      \"sec_filing_url\": \"https://www.sec.gov/cgi-bin/browse-edgar\",\n      \"shares_outstanding\": 615000000,\n      \"sic\": 7389,\n      \"spac_converted_to_target\": false,\n      \"state_location\": \"Delaware\",\n      \"ticker\": \"ABNB\",\n      \"time\": \"09:30:00\",\n      \"underwriter_quiet_expiration_date\": \"2024-02-03\",\n      \"underwriter_quiet_expiration_days\": 25,\n      \"updated\": 1704819600\n    },\n    {\n      \"currency\": \"USD\",\n      \"cusip\": \"string\",\n      \"date\": \"2024-01-09\",\n      \"deal_status\": \"Priced\",\n      \"description\": \"Online marketplace for lodging and tourism experiences\",\n      \"exchange\": \"NASDAQ\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5a9\",\n      \"initial_filing_date\": \"2023-11-15\",\n      \"insider_lockup_date\": \"2024-07-07\",\n      \"insider_lockup_days\": 180,\n      \"ipo_type\": \"IPO\",\n      \"last_yr_income\": -674000000,\n      \"last_yr_income_year\": 2023,\n      \"last_yr_revenue\": 4805000000,\n      \"last_yr_revenue_year\": 2023,\n      \"lead_underwriters\": [\n        \"[{\\\"name\\\":\\\"Morgan Stanley\\\"}]\"\n      ],\n      \"market_cap_at_offer\": 47000000000,\n      \"name\": \"Airbnb Inc.\",\n      \"notes\": \"Strong first day trading\",\n      \"offering_shares\": 51500000,\n      \"offering_shares_ord_adr\": 51500000,\n      \"offering_value\": 3500000000,\n      \"open_date_verified\": true,\n      \"ord_shares_out_after_offer\": 615000000,\n      \"other_underwriters\": [\n        \"[{\\\"name\\\":\\\"Goldman Sachs\\\"}]\"\n      ],\n      \"price_max\": \"50.00\",\n      \"price_min\": \"44.00\",\n      \"price_open\": \"146.00\",\n      \"price_public_offering\": \"68.00\",\n      \"pricing_date\": \"2024-01-08\",\n      \"pricing_date_verified\": true,\n      \"sec_accession_number\": \"0001559720-20-000079\",\n      \"sec_filing_url\": \"https://www.sec.gov/cgi-bin/browse-edgar\",\n      \"shares_outstanding\": 615000000,\n      \"sic\": 7389,\n      \"spac_converted_to_target\": false,\n      \"state_location\": \"Delaware\",\n      \"ticker\": \"ABNB\",\n      \"time\": \"09:30:00\",\n      \"underwriter_quiet_expiration_date\": \"2024-02-03\",\n      \"underwriter_quiet_expiration_days\": 25,\n      \"updated\": 1704819600\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ecbcba17-c70e-4fba-b1e6-85bbc42fdd37",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "ipos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ipo_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[ipo_date]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[ipo_type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<int64>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e525f733-b6f7-4278-9931-7eeeb2e4dc4c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "ipos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ipo_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[ipo_date]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[ipo_type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<int64>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f59c6dfb-1c9a-4d9f-abb6-f3c371e72137",
+          "name": "Returns ipo data",
+          "request": {
+            "name": "Returns ipo data",
+            "description": {
+              "content": "Returns Initial Public Offering (IPO) data including pricing information, underwriters, deal status, and offering details. IPOs represent when a private company first offers shares to the public. Note that for the IPOs endpoint, new tickers may not return results right away as they are not automatically linked to the underlying company's data. To obtain the most recent rows, send queries without the tickers parameter specified.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "calendar",
+                "ipos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "<integer>",
+                  "description": "Number of results returned. Limit 1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_from]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query from point in time"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_to]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query to point in time"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[tickers]",
+                  "value": "<csv>",
+                  "description": "One or more ticker symbols separated by a comma. Maximum 50 tickers. Note that new tickers may not return results right away"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[ipo_type]",
+                  "value": "<csv>",
+                  "description": "One or more IPO types separated by a comma. Example: Ordinary Shares,SPAC"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[updated]",
+                  "value": "<integer>",
+                  "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d9b99496-5253-40bc-8f50-10b4444b347b",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "calendar",
+                    "ipos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[ipo_type]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ipos\": [\n    {\n      \"currency\": \"USD\",\n      \"cusip\": \"string\",\n      \"date\": \"2024-01-09\",\n      \"deal_status\": \"Priced\",\n      \"description\": \"Online marketplace for lodging and tourism experiences\",\n      \"exchange\": \"NASDAQ\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5a9\",\n      \"initial_filing_date\": \"2023-11-15\",\n      \"insider_lockup_date\": \"2024-07-07\",\n      \"insider_lockup_days\": 180,\n      \"ipo_type\": \"IPO\",\n      \"last_yr_income\": -674000000,\n      \"last_yr_income_year\": 2023,\n      \"last_yr_revenue\": 4805000000,\n      \"last_yr_revenue_year\": 2023,\n      \"lead_underwriters\": [\n        \"[{\\\"name\\\":\\\"Morgan Stanley\\\"}]\"\n      ],\n      \"market_cap_at_offer\": 47000000000,\n      \"name\": \"Airbnb Inc.\",\n      \"notes\": \"Strong first day trading\",\n      \"offering_shares\": 51500000,\n      \"offering_shares_ord_adr\": 51500000,\n      \"offering_value\": 3500000000,\n      \"open_date_verified\": true,\n      \"ord_shares_out_after_offer\": 615000000,\n      \"other_underwriters\": [\n        \"[{\\\"name\\\":\\\"Goldman Sachs\\\"}]\"\n      ],\n      \"price_max\": \"50.00\",\n      \"price_min\": \"44.00\",\n      \"price_open\": \"146.00\",\n      \"price_public_offering\": \"68.00\",\n      \"pricing_date\": \"2024-01-08\",\n      \"pricing_date_verified\": true,\n      \"sec_accession_number\": \"0001559720-20-000079\",\n      \"sec_filing_url\": \"https://www.sec.gov/cgi-bin/browse-edgar\",\n      \"shares_outstanding\": 615000000,\n      \"sic\": 7389,\n      \"spac_converted_to_target\": false,\n      \"state_location\": \"Delaware\",\n      \"ticker\": \"ABNB\",\n      \"time\": \"09:30:00\",\n      \"underwriter_quiet_expiration_date\": \"2024-02-03\",\n      \"underwriter_quiet_expiration_days\": 25,\n      \"updated\": 1704819600\n    },\n    {\n      \"currency\": \"USD\",\n      \"cusip\": \"string\",\n      \"date\": \"2024-01-09\",\n      \"deal_status\": \"Priced\",\n      \"description\": \"Online marketplace for lodging and tourism experiences\",\n      \"exchange\": \"NASDAQ\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5a9\",\n      \"initial_filing_date\": \"2023-11-15\",\n      \"insider_lockup_date\": \"2024-07-07\",\n      \"insider_lockup_days\": 180,\n      \"ipo_type\": \"IPO\",\n      \"last_yr_income\": -674000000,\n      \"last_yr_income_year\": 2023,\n      \"last_yr_revenue\": 4805000000,\n      \"last_yr_revenue_year\": 2023,\n      \"lead_underwriters\": [\n        \"[{\\\"name\\\":\\\"Morgan Stanley\\\"}]\"\n      ],\n      \"market_cap_at_offer\": 47000000000,\n      \"name\": \"Airbnb Inc.\",\n      \"notes\": \"Strong first day trading\",\n      \"offering_shares\": 51500000,\n      \"offering_shares_ord_adr\": 51500000,\n      \"offering_value\": 3500000000,\n      \"open_date_verified\": true,\n      \"ord_shares_out_after_offer\": 615000000,\n      \"other_underwriters\": [\n        \"[{\\\"name\\\":\\\"Goldman Sachs\\\"}]\"\n      ],\n      \"price_max\": \"50.00\",\n      \"price_min\": \"44.00\",\n      \"price_open\": \"146.00\",\n      \"price_public_offering\": \"68.00\",\n      \"pricing_date\": \"2024-01-08\",\n      \"pricing_date_verified\": true,\n      \"sec_accession_number\": \"0001559720-20-000079\",\n      \"sec_filing_url\": \"https://www.sec.gov/cgi-bin/browse-edgar\",\n      \"shares_outstanding\": 615000000,\n      \"sic\": 7389,\n      \"spac_converted_to_target\": false,\n      \"state_location\": \"Delaware\",\n      \"ticker\": \"ABNB\",\n      \"time\": \"09:30:00\",\n      \"underwriter_quiet_expiration_date\": \"2024-02-03\",\n      \"underwriter_quiet_expiration_days\": 25,\n      \"updated\": 1704819600\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "58736ed8-02b3-4439-9ea1-4cba172c5ef3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "calendar",
+                    "ipos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[ipo_type]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4ad6f7d-39d1-4f5f-b82b-57f465abf4b7",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "calendar",
+                    "ipos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[ipo_type]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "db598a81-0af5-47a9-98a6-4872e6300660",
+    "name": "Analyst Reports Raw Text Analyst Insights ipos API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

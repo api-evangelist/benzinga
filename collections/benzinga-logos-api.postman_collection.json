@@ -1,0 +1,838 @@
+{
+  "item": [
+    {
+      "id": "a06ab045-902c-4a45-9c2b-c8e4907e9bf1",
+      "name": "logos",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c1d9eb9e-4e3f-4861-a870-999cbd49297b",
+          "name": "Bulk logos sync",
+          "request": {
+            "name": "Bulk logos sync",
+            "description": {
+              "content": "Bulk logos sync. Walks the full logo dataset via page/pagesize (optionally narrowed by updated_since); it is not a per-identifier lookup. To fetch logos for specific securities, use GET /api/v2/logos/search.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "logos",
+                "sync"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search_keys",
+                  "value": "<string>",
+                  "description": "Only applies to v2.1 exchange logos (search_keys_type=exchange): comma-separated list of exchange MIC codes to filter by."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_keys_type",
+                  "value": "<string>",
+                  "description": "Set to exchange to sync v2.1 exchange logos (filtered by search_keys). Omit for the default bulk security-logo sync."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>,<string>",
+                  "description": "(Required) Comma-separated list of logo fields to return. Maximum 12 fields. Available: logo_light, logo_dark, logo_vector_light, logo_vector_dark, mark_light, mark_dark, mark_vector_light, mark_vector_dark, mark_composite_light, mark_composite_dark, mark_vector_composite_light, mark_vector_composite_dark, colors"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number for pagination. Used with pagesize for bulk sync operations."
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "<integer>",
+                  "description": "Number of results per page. Default: 100. Maximum: 1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_since",
+                  "value": "<string>",
+                  "description": "Unix timestamp (UTC). Returns logos updated after this timestamp."
+                },
+                {
+                  "disabled": false,
+                  "key": "scale",
+                  "value": "<string>",
+                  "description": "Scale image dimensions in WIDTHxHEIGHT format (e.g., 300x300). Images scale down only, never up. Default: 300x300"
+                },
+                {
+                  "disabled": false,
+                  "key": "composite_radius",
+                  "value": "<integer>",
+                  "description": "Border radius for composite images in percentage. Range 0-50 where 50 creates a circle. Default: 0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "efeeb5cd-7b2b-4bf5-8c6e-d57b772c6e53",
+              "name": "Success response with array of BulkSyncResponse objects in data field",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "logos",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "composite_radius",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"internal_server_error\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"internal_server_error\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6aef01ac-8a8b-4e02-a501-89f43456d384",
+              "name": "Bad request - invalid or missing parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "logos",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "composite_radius",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false\n  },\n  \"errors\": [\n    {\n      \"code\": \"failed_dependency\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"no_matching_endpoint\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1d17ea28-97c3-49cd-ba30-b258ccf61421",
+              "name": "Not found - no logos found matching the criteria",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "logos",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "composite_radius",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false\n  },\n  \"errors\": [\n    {\n      \"code\": \"failed_dependency\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"no_matching_endpoint\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "07409630-16e4-4a59-8e0e-7ad3244fdc5b",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "logos",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "composite_radius",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false\n  },\n  \"errors\": [\n    {\n      \"code\": \"failed_dependency\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"no_matching_endpoint\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "53f9ff00-f427-437b-a16d-7fe57ee9938d",
+          "name": "Search Logos",
+          "request": {
+            "name": "Search Logos",
+            "description": {
+              "content": "Search Logos",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "logos",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search_keys",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of security identifiers. Maximum 100 identifiers. Type depends on search_keys_type parameter."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_keys_type",
+                  "value": "<string>",
+                  "description": "Type of identifier being searched. Supported types: symbol (default), cik, cusip, isin"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of logo fields to return. Maximum 12 fields. Available: logo_light, logo_dark, logo_vector_light, logo_vector_dark, mark_light, mark_dark, mark_vector_light, mark_vector_dark, mark_composite_light, mark_composite_dark, mark_vector_composite_light, mark_vector_composite_dark, colors"
+                },
+                {
+                  "disabled": false,
+                  "key": "composite_auto",
+                  "value": "<boolean>",
+                  "description": "If true and no logo exists, generates a composite image based on company name and brand colors"
+                },
+                {
+                  "disabled": false,
+                  "key": "composite_radius",
+                  "value": "<integer>",
+                  "description": "Border radius for composite images in percentage. Range 0-50 where 50 creates a circle. Default: 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "scale",
+                  "value": "<string>",
+                  "description": "Scale image dimensions in WIDTHxHEIGHT format (e.g., 300x300). Images scale down only, never up. Default: 300x300"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_width",
+                  "value": "<string>",
+                  "description": "Maximum width constraint for scaled images in pixels"
+                },
+                {
+                  "disabled": false,
+                  "key": "flutter_compatible",
+                  "value": "<boolean>",
+                  "description": "If true, adds flutter_compatible=true query parameter to SVG URLs for flutter_svg library compatibility"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "46a00564-96ce-496b-a07a-62369b28ef76",
+              "name": "Success response with array of LogoClientResponse objects in data field",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "logos",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "composite_auto",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "composite_radius",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "scale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_width",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flutter_compatible",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false\n  },\n  \"errors\": [\n    {\n      \"code\": \"failed_dependency\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"no_matching_endpoint\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee34955f-6ce1-4bf9-a75c-c6ffec33ecf3",
+              "name": "Bad request - invalid or missing parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "logos",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "composite_auto",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "composite_radius",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "scale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_width",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flutter_compatible",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false\n  },\n  \"errors\": [\n    {\n      \"code\": \"failed_dependency\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"no_matching_endpoint\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fcedd11f-f8a9-40a0-91d3-a0bdb13dee5a",
+              "name": "Not found - no logos found for the specified search keys",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "logos",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "composite_auto",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "composite_radius",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "scale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_width",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flutter_compatible",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false\n  },\n  \"errors\": [\n    {\n      \"code\": \"failed_dependency\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"no_matching_endpoint\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb09be25-ad1c-4c1d-a49a-22601047db4d",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "logos",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "composite_auto",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "composite_radius",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "scale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_width",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flutter_compatible",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false\n  },\n  \"errors\": [\n    {\n      \"code\": \"failed_dependency\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"no_matching_endpoint\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6e50c1bc-23a8-4544-bc96-f38be23401d7",
+    "name": "Analyst Reports Raw Text Analyst Insights logos API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

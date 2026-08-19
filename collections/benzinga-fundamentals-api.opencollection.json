@@ -1,0 +1,872 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights Fundamentals API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fundamentals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Company Fundamentals V2.1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2.1/fundamentals",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,GOOGL). Required."
+              },
+              {
+                "name": "asOf",
+                "value": "",
+                "type": "query",
+                "description": "Filter results for dates on or after this date. Format: YYYY-MM-DD (e.g., 2024-01-01)"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Time period filter for financial reporting periods. Supported values: Q1 (first quarter), Q2 (second quarter), Q3 (third quarter), Q4 (fourth quarter), FY (fiscal year), TTM (trailing twelve months)"
+              },
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "query",
+                "description": "Type of financial report to retrieve. Supported values: TTM (trailing twelve months), A (as originally reported), R (restated values), P (preliminary announcements)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieves enhanced financial fundamentals data for specified securities. This is an improved version of the V2 endpoint with additional data fields and better performance. Returns comprehensive financial metrics, ratios, and company information from updated data sources."
+        },
+        {
+          "info": {
+            "name": "Get Alpha Beta V2.1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2.1/fundamentals/alphaBeta",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of symbols (e.g., AAPL, MSFT)"
+              },
+              {
+                "name": "asOf",
+                "value": "",
+                "type": "query",
+                "description": "Return results for dates greater than or equal date specified in this parameter (YYYY-MM-DD)"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the time period of the returned results (e.g., Q1, 2023)"
+              },
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "query",
+                "description": "Report type: TTM (Trailing Twelve Months), A (As originally reported), R (Restated), P (Preliminary)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieve Alpha and Beta metrics for specified symbols. These metrics indicate volatility and performance relative to the market."
+        },
+        {
+          "info": {
+            "name": "Get Asset Classification V2.1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2.1/fundamentals/assetClassification",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of symbols (e.g., AAPL, MSFT)"
+              },
+              {
+                "name": "asOf",
+                "value": "",
+                "type": "query",
+                "description": "Return results for dates greater than or equal date specified in this parameter (YYYY-MM-DD)"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the time period of the returned results (e.g., Q1, 2023)"
+              },
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "query",
+                "description": "Report type: TTM (Trailing Twelve Months), A (As originally reported), R (Restated), P (Preliminary)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieve asset classification details for specified symbols, including sector, industry, and other classification metadata. Useful for portfolio categorization and analysis."
+        },
+        {
+          "info": {
+            "name": "Company Financial Data V2.1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2.1/fundamentals/company",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,GOOGL). Required."
+              },
+              {
+                "name": "asOf",
+                "value": "",
+                "type": "query",
+                "description": "Filter results for dates on or after this date. Format: YYYY-MM-DD (e.g., 2024-01-01)"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Time period filter for financial reporting periods. Supported values: Q1, Q2, Q3, Q4 (quarters), FY (fiscal year), TTM (trailing twelve months)"
+              },
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "query",
+                "description": "Type of financial report. Supported values: TTM (trailing twelve months), A (as originally reported), R (restated values), P (preliminary announcements)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieves detailed company-specific financial data including key metrics, operational statistics, and historical financial performance. Provides a comprehensive view of company financials beyond basic fundamentals."
+        },
+        {
+          "info": {
+            "name": "Company Profile Information V2.1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2.1/fundamentals/companyProfile",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,GOOGL). Required."
+              },
+              {
+                "name": "asOf",
+                "value": "",
+                "type": "query",
+                "description": "Filter results for dates on or after this date. Format: YYYY-MM-DD (e.g., 2024-01-01)"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Time period filter for financial reporting periods. Supported values: Q1, Q2, Q3, Q4 (quarters), FY (fiscal year), TTM (trailing twelve months)"
+              },
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "query",
+                "description": "Type of financial report. Supported values: TTM (trailing twelve months), A (as originally reported), R (restated values), P (preliminary announcements)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieves comprehensive company profile information including business description, industry classification, sector details, headquarters location, key executives, and other corporate metadata. Essential for understanding company background and organizational structure."
+        },
+        {
+          "info": {
+            "name": "Get Earning Ratios V2.1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2.1/fundamentals/earningRatios",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of symbols (e.g., AAPL, MSFT)"
+              },
+              {
+                "name": "asOf",
+                "value": "",
+                "type": "query",
+                "description": "Return results for dates greater than or equal date specified in this parameter (YYYY-MM-DD)"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the time period of the returned results (e.g., Q1, 2023)"
+              },
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "query",
+                "description": "Report type: TTM (Trailing Twelve Months), A (As originally reported), R (Restated), P (Preliminary)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieve earning ratios for a list of symbols. Includes metrics like P/E ratio, EPS, and other earnings-related ratios."
+        },
+        {
+          "info": {
+            "name": "Quarterly and Annual Earnings Reports V2.1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2.1/fundamentals/earningReports",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,GOOGL). Required."
+              },
+              {
+                "name": "asOf",
+                "value": "",
+                "type": "query",
+                "description": "Filter results for dates on or after this date. Format: YYYY-MM-DD (e.g., 2024-01-01)"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Time period filter for financial reporting periods. Supported values: Q1, Q2, Q3, Q4 (quarters), FY (fiscal year), TTM (trailing twelve months)"
+              },
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "query",
+                "description": "Type of financial report. Supported values: TTM (trailing twelve months), A (as originally reported), R (restated values), P (preliminary announcements)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieves detailed earnings reports for specified securities including revenue, earnings per share (EPS), EBITDA, net income, and other key financial results from quarterly and annual reports. Essential for analyzing company financial performance and earnings trends over time."
+        },
+        {
+          "info": {
+            "name": "Get Financials V2.1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2.1/fundamentals/financials",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of symbols (e.g., AAPL, MSFT)"
+              },
+              {
+                "name": "asOf",
+                "value": "",
+                "type": "query",
+                "description": "Return results for dates greater than or equal date specified in this parameter (YYYY-MM-DD)"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the time period of the returned results (e.g., Q1, 2023)"
+              },
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "query",
+                "description": "Report type: TTM (Trailing Twelve Months), A (As originally reported), R (Restated), P (Preliminary)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieve financial statements for specified symbols. Includes data from balance sheets, income statements, and cash flow statements."
+        },
+        {
+          "info": {
+            "name": "Get Operation Ratios V2.1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2.1/fundamentals/operationRatios",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of symbols (e.g., AAPL, MSFT)"
+              },
+              {
+                "name": "asOf",
+                "value": "",
+                "type": "query",
+                "description": "Return results for dates greater than or equal date specified in this parameter (YYYY-MM-DD)"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the time period of the returned results (e.g., Q1, 2023)"
+              },
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "query",
+                "description": "Report type: TTM (Trailing Twelve Months), A (As originally reported), R (Restated), P (Preliminary)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieve operation ratios for a list of symbols. Includes metrics like operating margin, profit margin, ROA, ROE, and others."
+        },
+        {
+          "info": {
+            "name": "Get Share Class V2.1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2.1/fundamentals/shareClass",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of symbols (e.g., AAPL, MSFT)"
+              },
+              {
+                "name": "asOf",
+                "value": "",
+                "type": "query",
+                "description": "Return results for dates greater than or equal date specified in this parameter (YYYY-MM-DD)"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the time period of the returned results (e.g., Q1, 2023)"
+              },
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "query",
+                "description": "Report type: TTM (Trailing Twelve Months), A (As originally reported), R (Restated), P (Preliminary)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieve share class information for specific symbols. Returns detailed share structure data including share class IDs, currency, and other related metadata."
+        },
+        {
+          "info": {
+            "name": "Get Share Class Profile V2.1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2.1/fundamentals/shareClassProfile",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of symbols (e.g., AAPL, MSFT)"
+              },
+              {
+                "name": "asOf",
+                "value": "",
+                "type": "query",
+                "description": "Return results for dates greater than or equal date specified in this parameter (YYYY-MM-DD)"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the time period of the returned results (e.g., Q1, 2023)"
+              },
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "query",
+                "description": "Report type: TTM (Trailing Twelve Months), A (As originally reported), R (Restated), P (Preliminary)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieve profile information for share classes, providing details about the share class characteristics and associated metadata."
+        },
+        {
+          "info": {
+            "name": "Get Valuation Ratios V2.1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2.1/fundamentals/valuationRatios",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of symbols (e.g., AAPL, MSFT)"
+              },
+              {
+                "name": "asOf",
+                "value": "",
+                "type": "query",
+                "description": "Return results for dates greater than or equal date specified in this parameter (YYYY-MM-DD)"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the time period of the returned results (e.g., Q1, 2023)"
+              },
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "query",
+                "description": "Report type: TTM (Trailing Twelve Months), A (As originally reported), R (Restated), P (Preliminary)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieve valuation ratios for a list of symbols. Includes metrics like P/E, P/B, P/S, and other valuation metrics essential for investment analysis."
+        },
+        {
+          "info": {
+            "name": "Company Fundamentals V2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2/fundamentals",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,GOOGL). Required."
+              },
+              {
+                "name": "asOf",
+                "value": "",
+                "type": "query",
+                "description": "Filter results for dates on or after this date. Format: YYYY-MM-DD (e.g., 2024-01-01)"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Time period filter for financial reporting periods. Supported values: Q1 (first quarter), Q2 (second quarter), Q3 (third quarter), Q4 (fourth quarter), FY (fiscal year), TTM (trailing twelve months)"
+              },
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "query",
+                "description": "Type of financial report to retrieve. Supported values: TTM (trailing twelve months), A (as originally reported), R (restated values), P (preliminary announcements)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieves comprehensive financial fundamentals data for specified securities. Returns key financial metrics, ratios, and company information from MorningStar data sources. Use this endpoint to access income statement, balance sheet, and cash flow statement data."
+        },
+        {
+          "info": {
+            "name": "Operational Efficiency Ratios V2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2/fundamentals/operationRatios",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,GOOGL). Required."
+              },
+              {
+                "name": "asOf",
+                "value": "",
+                "type": "query",
+                "description": "Filter results for dates on or after this date. Format: YYYY-MM-DD (e.g., 2024-01-01)"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Time period filter for financial reporting periods. Supported values: Q1, Q2, Q3, Q4 (quarters), FY (fiscal year), TTM (trailing twelve months)"
+              },
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "query",
+                "description": "Type of financial report. Supported values: TTM (trailing twelve months), A (as originally reported), R (restated values), P (preliminary announcements)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieves operational efficiency ratios and metrics for specified securities. Includes key performance indicators such as asset turnover, inventory turnover, receivables turnover, payables period, and other operational metrics that measure how effectively a company utilizes its assets and manages operations."
+        },
+        {
+          "info": {
+            "name": "Company Fundamentals V3",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v3/fundamentals",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,GOOGL). Required."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for query. Supports multiple formats: YYYY-MM-DD (e.g., 2024-01-01), YTD (year-to-date from Jan 1), or relative dates like 1MONTH/1m/1M (1 month ago), 1WEEK/1w/1W (1 week ago), 1DAY/1d/1D (1 day ago)"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for query. Format: YYYY-MM-DD (e.g., 2024-12-31). Returns data up to and including this date. Defaults to current date if not specified."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Report type filter for financial statements. Supported values: TTM (trailing twelve months), A (as originally reported), R (restated values), P (preliminary announcements)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieves the latest generation of financial fundamentals data powered by Benzinga's enhanced data pipeline. Provides comprehensive financial statements, metrics, and ratios with improved data quality and coverage. Supports flexible date range queries and relative date specifications."
+        },
+        {
+          "info": {
+            "name": "Get Balance Sheet V3",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v3/fundamentals/balance-sheet",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols (e.g., AAPL, MSFT)"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for query in YYYY-MM-DD format. Supports: YYYY-MM-DD, YTD (year-to-date), 1MONTH/1m/1M (1 month ago)"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for query in YYYY-MM-DD format. Returns data up to and including this date."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Report type filter. Values: TTM (trailing twelve months), A (as reported), R (restated), P (preliminary)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieve balance sheet data for specified symbols. Includes assets, liabilities, and equity details."
+        },
+        {
+          "info": {
+            "name": "Get Cash Flow V3",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v3/fundamentals/cash-flow",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of symbols (e.g., AAPL, MSFT)"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for query in YYYY-MM-DD format. Supports: YYYY-MM-DD, YTD (year-to-date), 1MONTH/1m/1M (1 month ago)"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for query in YYYY-MM-DD format. Returns data up to and including this date."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Report type filter. Values: TTM (trailing twelve months), A (as reported), R (restated), P (preliminary)"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed cash flow statement data for specified symbols. Includes operating, investing, and financing cash flows."
+        },
+        {
+          "info": {
+            "name": "Get Derived Figures and Ratios V3",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v3/fundamentals/derived",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of symbols (e.g., AAPL, MSFT)"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for query in YYYY-MM-DD format. Supports: YYYY-MM-DD, YTD (year-to-date), 1MONTH/1m/1M (1 month ago)"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for query in YYYY-MM-DD format. Returns data up to and including this date."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Report type filter. Values: TTM (trailing twelve months), A (as reported), R (restated), P (preliminary)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieve derived financial figures and ratios for a list of symbols. Includes calculated metrics essential for financial analysis."
+        },
+        {
+          "info": {
+            "name": "Income Statement Data V3",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v3/fundamentals/income-statement",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,GOOGL). Required."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for query. Supports multiple formats: YYYY-MM-DD (e.g., 2024-01-01), YTD (year-to-date from Jan 1), or relative dates like 1MONTH/1m/1M (1 month ago)"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for query. Format: YYYY-MM-DD (e.g., 2024-12-31). Returns data up to and including this date."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Report type filter for financial statements. Supported values: TTM (trailing twelve months), A (as originally reported), R (restated values), P (preliminary announcements)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieves comprehensive income statement data for specified securities. Includes revenue, cost of goods sold, operating expenses, operating income, interest expense, taxes, net income, and earnings per share. Essential for analyzing company profitability and operational performance over time."
+        },
+        {
+          "info": {
+            "name": "Get Share Price Ratios V3",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v3/fundamentals/share-price-ratios",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols (e.g., AAPL, MSFT)"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for query in YYYY-MM-DD format. Supports: YYYY-MM-DD, YTD (year-to-date), 1MONTH/1m/1M (1 month ago)"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for query in YYYY-MM-DD format. Returns data up to and including this date."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Report type filter. Values: TTM (trailing twelve months), A (as reported), R (restated), P (preliminary)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieve share price ratios for specified symbols. Includes metrics like price-to-earnings, price-to-sales, and other price-based ratios."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

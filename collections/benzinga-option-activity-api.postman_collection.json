@@ -1,0 +1,378 @@
+{
+  "item": [
+    {
+      "id": "f5ada284-aa12-4fba-9af8-c7b0b7f74bdd",
+      "name": "Option Activity",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e80029c1-847b-489e-90e1-586299870df2",
+          "name": "OptionActivity V1",
+          "request": {
+            "name": "OptionActivity V1",
+            "description": {
+              "content": "Returns unusual options activity data, including large or unusual options trades that may signal informed trading",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "signal",
+                "option_activity"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "Number of results returned. Limit 1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date]",
+                  "value": "<date>",
+                  "description": "Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_from]",
+                  "value": "<date>",
+                  "description": "Start date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_to]",
+                  "value": "<date>",
+                  "description": "End date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_sort]",
+                  "value": "<string>",
+                  "description": "Sort by date"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[tickers]",
+                  "value": "<csv>",
+                  "description": "One or more ticker symbols separated by a comma. Maximum 50 tickers"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[id]",
+                  "value": "<string>",
+                  "description": "ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[updated]",
+                  "value": "<integer>",
+                  "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b24d615a-9f26-4b86-9e8b-c60cf394af35",
+              "name": "Option Activity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "signal",
+                    "option_activity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_sort]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"aggressor_ind\": \"1\",\n  \"ask\": \"4.35\",\n  \"bid\": \"4.25\",\n  \"cost_basis\": \"2156000\",\n  \"date\": \"2024-01-09\",\n  \"date_expiration\": \"2024-01-19\",\n  \"description\": \"Trade\",\n  \"description_extended\": \"Sweep | Bullish | Above Ask\",\n  \"exchange\": \"NASDAQ\",\n  \"execution_estimate\": \"Above Ask\",\n  \"id\": \"60a7f5e8e4b0f5a3c8e9f5ad\",\n  \"midpoint\": \"4.30\",\n  \"open_interest\": \"1523\",\n  \"option_activity_type\": \"Sweep\",\n  \"option_symbol\": \"AAPL240119C00195000\",\n  \"price\": \"4.31\",\n  \"put_call\": \"Call\",\n  \"sentiment\": \"Bullish\",\n  \"size\": \"500\",\n  \"strike_price\": \"195.00\",\n  \"ticker\": \"AAPL\",\n  \"time\": \"14:35:22\",\n  \"trade_count\": 1,\n  \"underlying_price\": \"185.92\",\n  \"underlying_type\": \"Common Stock\",\n  \"updated\": 1704819600,\n  \"volume\": \"2845\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "debb4121-935f-4808-9d09-18f2f391dd0b",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "signal",
+                    "option_activity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_sort]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b07519de-37ff-4f45-bff2-e167ae514652",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "signal",
+                    "option_activity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_sort]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2a0f5147-8b3b-4b51-95ed-86a0dcf1dd84",
+    "name": "Analyst Reports Raw Text Analyst Insights Option Activity API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

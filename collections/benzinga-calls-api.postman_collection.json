@@ -1,0 +1,1271 @@
+{
+  "item": [
+    {
+      "id": "fe338aef-2307-45d0-84f0-70e8ee674a3f",
+      "name": "calls",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f7d7e8a2-7a1b-43b5-a908-4a1392610636",
+          "name": "Fetch all calls",
+          "request": {
+            "name": "Fetch all calls",
+            "description": {
+              "content": "Retrieve a list of calls with optional filtering and pagination. By default, only COMPLETED calls are returned. Use status=ALL to return all statuses.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "transcripts",
+                "calls"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number for pagination (starts at 1)"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "10",
+                  "description": "The number of items to return per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "COMPLETED",
+                  "description": "Filter by call status. Defaults to COMPLETED. Use ALL to return all statuses."
+                },
+                {
+                  "disabled": false,
+                  "key": "symbol",
+                  "value": "<string>",
+                  "description": "Filter by stock ticker symbol (e.g. AAPL)"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "Filter calls starting on or after this date (RFC3339, e.g. 2024-01-01T00:00:00)"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "Filter calls starting on or before this date (RFC3339, e.g. 2024-12-31T23:59:59)"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "<string>",
+                  "description": "Field to sort results by (e.g. start_time)"
+                },
+                {
+                  "disabled": false,
+                  "key": "share_class_figi",
+                  "value": "<string>",
+                  "description": "Filter by Share Class FiGi identifier (e.g. BBG000B9XRY4)"
+                },
+                {
+                  "disabled": false,
+                  "key": "securities",
+                  "value": "<boolean>",
+                  "description": "If true, includes securities information in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "info_only",
+                  "value": "<boolean>",
+                  "description": "If true, returns only call metadata without transcript content"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "General filter; pass 'all' to bypass default status filter"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0d5fb455-06dd-4e90-ba29-c9d93f178718",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "transcripts",
+                    "calls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "status",
+                      "value": "COMPLETED"
+                    },
+                    {
+                      "key": "symbol",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "share_class_figi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "securities",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "info_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b418cbf6-eec3-4f11-8e5d-9b7d0dc731b6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "transcripts",
+                    "calls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "status",
+                      "value": "COMPLETED"
+                    },
+                    {
+                      "key": "symbol",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "share_class_figi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "securities",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "info_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "732d0395-2e74-41e0-bb9d-e92faeb589ad",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "transcripts",
+                    "calls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "status",
+                      "value": "COMPLETED"
+                    },
+                    {
+                      "key": "symbol",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "share_class_figi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "securities",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "info_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5410e6f-fb8b-4350-9ef8-01abbd1e9e83",
+          "name": "Delete call by ID",
+          "request": {
+            "name": "Delete call by ID",
+            "description": {
+              "content": "Delete a specific call by its ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "transcripts",
+                "calls",
+                ":call_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "call_id",
+                  "description": "(Required) The unique identifier of the transcript call"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "72f7b915-99d2-454c-9e80-9bacff7ff04e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "transcripts",
+                    "calls",
+                    ":call_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "call_id",
+                      "description": "(Required) The unique identifier of the transcript call"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d458aa3-55bb-489a-8b1e-ce9d64ed7c56",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "transcripts",
+                    "calls",
+                    ":call_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "call_id",
+                      "description": "(Required) The unique identifier of the transcript call"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ec916bc-6c61-4084-bf12-00ab1a93ddbf",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "transcripts",
+                    "calls",
+                    ":call_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "call_id",
+                      "description": "(Required) The unique identifier of the transcript call"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e73e27f1-b7d3-4180-9a3a-90e1b646002e",
+          "name": "Fetch call by ID",
+          "request": {
+            "name": "Fetch call by ID",
+            "description": {
+              "content": "Retrieve detailed information about a specific call by its ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "transcripts",
+                "calls",
+                ":call_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "audio",
+                  "value": "<boolean>",
+                  "description": "Set to false to exclude audio recordings. Defaults to true; returns pre-signed/CDN URLs when included"
+                },
+                {
+                  "disabled": false,
+                  "key": "pdf",
+                  "value": "<boolean>",
+                  "description": "If true, includes pre-signed URLs for the PDF transcript"
+                },
+                {
+                  "disabled": false,
+                  "key": "assets",
+                  "value": "<boolean>",
+                  "description": "If true, includes pre-signed URLs for external assets (e.g. slide deck PDFs)"
+                },
+                {
+                  "disabled": false,
+                  "key": "clean",
+                  "value": "<boolean>",
+                  "description": "If true, returns a cleaner simplified output format"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response format: 'json' (default) or 'html'"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "call_id",
+                  "description": "(Required) The unique identifier of the transcript call"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1d867ca2-9959-471a-97fd-b1014fdaa157",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "transcripts",
+                    "calls",
+                    ":call_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "audio",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pdf",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "assets",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "clean",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "call_id",
+                      "description": "(Required) The unique identifier of the transcript call"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"call_id\": \"80753086-444f-4dcf-961d-15509ba09dc7\",\n  \"call_title\": \"Q3 2023 Earnings Call\",\n  \"created_at\": \"string\",\n  \"deleted_at\": \"string\",\n  \"description\": \"Quarterly earnings report\",\n  \"duration\": 60,\n  \"end_time\": \"2023-10-25T15:00:00Z\",\n  \"exchange\": \"NASDAQ\",\n  \"figis\": [\n    \"[\\\"BBG000B9XRY4\\\"]\"\n  ],\n  \"headline\": \"Company X Reports Strong Q3 Results\",\n  \"name\": \"Apple Inc.\",\n  \"participants\": [\n    {\n      \"call_id\": \"string\",\n      \"deleted_at\": \"string\",\n      \"human_verified\": false,\n      \"mentions\": 2409,\n      \"name\": \"string\",\n      \"organization\": \"string\",\n      \"participant_id\": \"string\",\n      \"role\": \"string\"\n    },\n    {\n      \"call_id\": \"string\",\n      \"deleted_at\": \"string\",\n      \"human_verified\": false,\n      \"mentions\": 8197,\n      \"name\": \"string\",\n      \"organization\": \"string\",\n      \"participant_id\": \"string\",\n      \"role\": \"string\"\n    }\n  ],\n  \"period\": \"Q3\",\n  \"recordings\": [\n    {\n      \"bucket\": \"string\",\n      \"created_at\": \"string\",\n      \"duration\": 5722,\n      \"formats\": {\n        \"bytes\": [\n          2353,\n          7016\n        ],\n        \"status\": 1\n      },\n      \"language\": \"string\",\n      \"location\": \"string\",\n      \"recording_id\": \"string\",\n      \"total_files\": 8990,\n      \"total_size\": 2863,\n      \"updated_at\": \"string\"\n    },\n    {\n      \"bucket\": \"string\",\n      \"created_at\": \"string\",\n      \"duration\": 1675,\n      \"formats\": {\n        \"bytes\": [\n          5524,\n          2018\n        ],\n        \"status\": 2\n      },\n      \"language\": \"string\",\n      \"location\": \"string\",\n      \"recording_id\": \"string\",\n      \"total_files\": 1547,\n      \"total_size\": 6854,\n      \"updated_at\": \"string\"\n    }\n  ],\n  \"securities\": {\n    \"bytes\": [\n      4493,\n      6360\n    ],\n    \"status\": 2\n  },\n  \"start_time\": \"2023-10-25T14:00:00Z\",\n  \"status\": \"completed\",\n  \"summary\": {\n    \"call_id\": \"770e8400-e29b-41d4-a716-446655440000\",\n    \"created_at\": \"string\",\n    \"deleted_at\": \"string\",\n    \"language\": \"en\",\n    \"sentiment\": 0.85,\n    \"summary\": \"The company reported positive growth...\",\n    \"summary_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n    \"symbol\": \"MSFT\",\n    \"transcript_id\": \"660e8400-e29b-41d4-a716-446655440000\",\n    \"updated_at\": \"string\"\n  },\n  \"symbol\": \"AAPL\",\n  \"transcripts\": [\n    {\n      \"confidence_score\": 4474.546269979267,\n      \"language\": \"string\",\n      \"segments\": [\n        {\n          \"confidence\": 1639.4609672664196,\n          \"end_time\": \"string\",\n          \"segment_id\": 1222,\n          \"sentiment\": 7863.058429426131,\n          \"speaker\": \"string\",\n          \"start_time\": \"string\",\n          \"text\": \"string\"\n        },\n        {\n          \"confidence\": 3173.336748662751,\n          \"end_time\": \"string\",\n          \"segment_id\": 3138,\n          \"sentiment\": 2198.3248177588257,\n          \"speaker\": \"string\",\n          \"start_time\": \"string\",\n          \"text\": \"string\"\n        }\n      ],\n      \"text\": \"string\",\n      \"transcript_id\": \"string\",\n      \"type\": \"LIVE\"\n    },\n    {\n      \"confidence_score\": 3798.9745293074407,\n      \"language\": \"string\",\n      \"segments\": [\n        {\n          \"confidence\": 5015.913706365651,\n          \"end_time\": \"string\",\n          \"segment_id\": 7754,\n          \"sentiment\": 7279.044350091191,\n          \"speaker\": \"string\",\n          \"start_time\": \"string\",\n          \"text\": \"string\"\n        },\n        {\n          \"confidence\": 6986.172586060145,\n          \"end_time\": \"string\",\n          \"segment_id\": 8525,\n          \"sentiment\": 489.0588398315143,\n          \"speaker\": \"string\",\n          \"start_time\": \"string\",\n          \"text\": \"string\"\n        }\n      ],\n      \"text\": \"string\",\n      \"transcript_id\": \"string\",\n      \"type\": \"LIVE\"\n    }\n  ],\n  \"updated_at\": \"string\",\n  \"webcast_url\": \"https://example.com/webcast\",\n  \"year\": 2023\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1dcd5af-0d21-477c-9ddf-e5ee613af75a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "transcripts",
+                    "calls",
+                    ":call_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "audio",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pdf",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "assets",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "clean",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "call_id",
+                      "description": "(Required) The unique identifier of the transcript call"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a032c00-1908-4531-b150-c612be1818f7",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "transcripts",
+                    "calls",
+                    ":call_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "audio",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pdf",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "assets",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "clean",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "call_id",
+                      "description": "(Required) The unique identifier of the transcript call"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d640b58-014f-45f5-a5b2-055e5f74ecaf",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "transcripts",
+                    "calls",
+                    ":call_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "audio",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pdf",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "assets",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "clean",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "call_id",
+                      "description": "(Required) The unique identifier of the transcript call"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7cff5bb2-09cd-4434-b32e-91b9d374fac4",
+          "name": "Update call by ID",
+          "request": {
+            "name": "Update call by ID",
+            "description": {
+              "content": "Update details of a specific call by its ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "transcripts",
+                "calls",
+                ":call_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "call_id",
+                  "description": "(Required) The unique identifier of the transcript call"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"call_title\": \"<string>\",\n  \"cusip\": \"<string>\",\n  \"duration\": \"<integer>\",\n  \"end_time\": \"<string>\",\n  \"exchange\": \"<string>\",\n  \"headline\": \"<string>\",\n  \"isin\": \"<string>\",\n  \"name\": \"<string>\",\n  \"start_time\": \"<string>\",\n  \"status\": \"<string>\",\n  \"symbol\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "83317349-e112-4a63-982e-a84a2b03c075",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "transcripts",
+                    "calls",
+                    ":call_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "call_id",
+                      "description": "(Required) The unique identifier of the transcript call"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"call_title\": \"Q3 2023 Earnings Call\",\n  \"cusip\": \"<string>\",\n  \"duration\": 60,\n  \"end_time\": \"2023-10-25T15:00:00Z\",\n  \"exchange\": \"NASDAQ\",\n  \"headline\": \"Company X Reports Strong Q3 Results\",\n  \"isin\": \"US0378331005\",\n  \"name\": \"Apple Inc.\",\n  \"start_time\": \"2023-10-25T14:00:00Z\",\n  \"status\": \"completed\",\n  \"symbol\": \"AAPL\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "07230532-ff98-4ce6-9060-34c07d6acd1e",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "transcripts",
+                    "calls",
+                    ":call_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "call_id",
+                      "description": "(Required) The unique identifier of the transcript call"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"call_title\": \"Q3 2023 Earnings Call\",\n  \"cusip\": \"<string>\",\n  \"duration\": 60,\n  \"end_time\": \"2023-10-25T15:00:00Z\",\n  \"exchange\": \"NASDAQ\",\n  \"headline\": \"Company X Reports Strong Q3 Results\",\n  \"isin\": \"US0378331005\",\n  \"name\": \"Apple Inc.\",\n  \"start_time\": \"2023-10-25T14:00:00Z\",\n  \"status\": \"completed\",\n  \"symbol\": \"AAPL\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c64f92f-7d8b-4eea-99f4-777928c85b15",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "transcripts",
+                    "calls",
+                    ":call_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "call_id",
+                      "description": "(Required) The unique identifier of the transcript call"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"call_title\": \"Q3 2023 Earnings Call\",\n  \"cusip\": \"<string>\",\n  \"duration\": 60,\n  \"end_time\": \"2023-10-25T15:00:00Z\",\n  \"exchange\": \"NASDAQ\",\n  \"headline\": \"Company X Reports Strong Q3 Results\",\n  \"isin\": \"US0378331005\",\n  \"name\": \"Apple Inc.\",\n  \"start_time\": \"2023-10-25T14:00:00Z\",\n  \"status\": \"completed\",\n  \"symbol\": \"AAPL\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2dbd5b69-4339-413c-89b7-42c1241c3283",
+    "name": "Analyst Reports Raw Text Analyst Insights calls API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

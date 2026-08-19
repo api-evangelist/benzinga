@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights Channels API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Channels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get available news channels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2.1/news/channels"
+          },
+          "docs": "Returns a list of all available news channels that can be used to filter news items. Channels can have sub-channels, but they will all be listed as their own item."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

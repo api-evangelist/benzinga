@@ -1,0 +1,324 @@
+{
+  "item": [
+    {
+      "id": "aeef232f-6c38-4613-9813-abacab259210",
+      "name": "Block Trade",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d91eed04-52ce-4bc6-9145-0ea36fa56c5c",
+          "name": "BlockTrade V1",
+          "request": {
+            "name": "BlockTrade V1",
+            "description": {
+              "content": "Returns block trade data, which includes unusually large trades that may indicate institutional trading activity",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "signal",
+                "block_trade"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "Number of results returned. Limit 1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<date>",
+                  "description": "Start date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<date>",
+                  "description": "End date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "key": "tickers",
+                  "value": "<csv>",
+                  "description": "One or more ticker symbols separated by a comma. Maximum 50 tickers"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated",
+                  "value": "<integer>",
+                  "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2ccc73d2-d925-4313-8ee9-6a8b8ff71be0",
+              "name": "Block Trade",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "signal",
+                    "block_trade"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "tickers",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "updated",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"block-trade\": [\n    {\n      \"ask\": \"185.44\",\n      \"bid\": \"185.40\",\n      \"count\": 1,\n      \"cusip\": \"string\",\n      \"date\": \"2024-01-09\",\n      \"description\": \"Large institutional trade\",\n      \"exchange\": \"NASDAQ\",\n      \"executing_exchange\": \"Q\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5b4\",\n      \"importance\": 4,\n      \"isin\": \"US0378331005\",\n      \"name\": \"Apple Inc.\",\n      \"price\": \"185.42\",\n      \"sale_conditions\": \"@\",\n      \"size\": \"500000\",\n      \"ticker\": \"AAPL\",\n      \"time\": \"15:45:30\",\n      \"updated\": 1704819600\n    },\n    {\n      \"ask\": \"185.44\",\n      \"bid\": \"185.40\",\n      \"count\": 1,\n      \"cusip\": \"string\",\n      \"date\": \"2024-01-09\",\n      \"description\": \"Large institutional trade\",\n      \"exchange\": \"NASDAQ\",\n      \"executing_exchange\": \"Q\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5b4\",\n      \"importance\": 4,\n      \"isin\": \"US0378331005\",\n      \"name\": \"Apple Inc.\",\n      \"price\": \"185.42\",\n      \"sale_conditions\": \"@\",\n      \"size\": \"500000\",\n      \"ticker\": \"AAPL\",\n      \"time\": \"15:45:30\",\n      \"updated\": 1704819600\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e14527ca-dfec-409a-b5d6-2c9eb4178723",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "signal",
+                    "block_trade"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "tickers",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "updated",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75732015-4a8b-4815-8ddb-c285b46c31de",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "signal",
+                    "block_trade"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "tickers",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "updated",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "936dfcd7-019a-4300-8885-649db695dd4d",
+    "name": "Analyst Reports Raw Text Analyst Insights Block Trade API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

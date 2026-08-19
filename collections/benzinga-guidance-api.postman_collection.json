@@ -1,0 +1,396 @@
+{
+  "item": [
+    {
+      "id": "ee1c303b-ef53-48d7-88db-836dd99d3440",
+      "name": "guidance",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cdfecefa-6eed-42fc-bc8c-350a36ad8d0d",
+          "name": "Returns guidance data",
+          "request": {
+            "name": "Returns guidance data",
+            "description": {
+              "content": "Returns company guidance data including forward-looking earnings and revenue projections provided by company management. Includes EPS guidance ranges (min/max), revenue guidance ranges, and comparisons to prior guidance. Guidance is crucial for understanding management's expectations for future performance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "calendar",
+                "guidance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "<integer>",
+                  "description": "Number of results returned. Limit 1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_from]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query from point in time"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_to]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query to point in time"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[importance]",
+                  "value": "<integer>",
+                  "description": "The importance level to filter by. Uses Greater Than or Equal To the importance indicated"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[is_primary]",
+                  "value": "Y",
+                  "description": "Determines if guidance returned is primary, secondary or all. Default set to Y"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[tickers]",
+                  "value": "<csv>",
+                  "description": "One or more ticker symbols separated by a comma. Maximum 50 tickers"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[updated]",
+                  "value": "<integer>",
+                  "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7ddb801b-8b2c-46c0-9dcf-3489871be92f",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "guidance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[is_primary]",
+                      "value": "Y"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"guidance\": [\n    {\n      \"confirmed\": true,\n      \"currency\": \"USD\",\n      \"cusip\": \"string\",\n      \"date\": \"2024-01-09\",\n      \"eps_guidance_est\": \"1.55\",\n      \"eps_guidance_max\": \"1.60\",\n      \"eps_guidance_min\": \"1.50\",\n      \"eps_guidance_prior_max\": \"1.45\",\n      \"eps_guidance_prior_min\": \"1.35\",\n      \"eps_type\": \"GAAP\",\n      \"exchange\": \"NASDAQ\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5b1\",\n      \"importance\": 4,\n      \"is_primary\": \"true\",\n      \"name\": \"Apple Inc.\",\n      \"notes\": \"Raised guidance above analyst expectations\",\n      \"period\": \"Q2\",\n      \"period_year\": 2024,\n      \"prelim\": \"false\",\n      \"revenue_guidance_est\": \"93000000000\",\n      \"revenue_guidance_max\": \"95000000000\",\n      \"revenue_guidance_min\": \"91000000000\",\n      \"revenue_guidance_prior_max\": \"89000000000\",\n      \"revenue_guidance_prior_min\": \"87000000000\",\n      \"revenue_type\": \"GAAP\",\n      \"ticker\": \"AAPL\",\n      \"time\": \"16:05:00\",\n      \"updated\": 1704819600\n    },\n    {\n      \"confirmed\": false,\n      \"currency\": \"USD\",\n      \"cusip\": \"string\",\n      \"date\": \"2024-01-09\",\n      \"eps_guidance_est\": \"1.55\",\n      \"eps_guidance_max\": \"1.60\",\n      \"eps_guidance_min\": \"1.50\",\n      \"eps_guidance_prior_max\": \"1.45\",\n      \"eps_guidance_prior_min\": \"1.35\",\n      \"eps_type\": \"GAAP\",\n      \"exchange\": \"NASDAQ\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5b1\",\n      \"importance\": 4,\n      \"is_primary\": \"true\",\n      \"name\": \"Apple Inc.\",\n      \"notes\": \"Raised guidance above analyst expectations\",\n      \"period\": \"Q2\",\n      \"period_year\": 2024,\n      \"prelim\": \"false\",\n      \"revenue_guidance_est\": \"93000000000\",\n      \"revenue_guidance_max\": \"95000000000\",\n      \"revenue_guidance_min\": \"91000000000\",\n      \"revenue_guidance_prior_max\": \"89000000000\",\n      \"revenue_guidance_prior_min\": \"87000000000\",\n      \"revenue_type\": \"GAAP\",\n      \"ticker\": \"AAPL\",\n      \"time\": \"16:05:00\",\n      \"updated\": 1704819600\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b40f3ac9-0b5d-4a04-b728-ab35b89f454b",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "guidance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[is_primary]",
+                      "value": "Y"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c04f9879-e82d-4148-ad55-7f14e0c274c9",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "guidance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[is_primary]",
+                      "value": "Y"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1c44b119-d9c8-43d6-87b4-3be75861598d",
+    "name": "Analyst Reports Raw Text Analyst Insights guidance API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

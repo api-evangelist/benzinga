@@ -1,0 +1,396 @@
+{
+  "item": [
+    {
+      "id": "3e22b68c-7065-4d5b-a287-49b13ee821e8",
+      "name": "ma",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cca93d1d-dffe-4275-8c75-8f775b91219d",
+          "name": "Returns the mergers and acquisitions data",
+          "request": {
+            "name": "Returns the mergers and acquisitions data",
+            "description": {
+              "content": "Returns mergers and acquisitions (M&A) data including deal announcements, completions, and details about acquiring and target companies. Includes deal size, payment type, deal status, and expected/completed dates for corporate consolidation activities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "calendar",
+                "ma"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "<integer>",
+                  "description": "Number of results returned. Limit 1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_from]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query from point in time"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_to]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query to point in time"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[importance]",
+                  "value": "<integer>",
+                  "description": "The importance level to filter by. Uses Greater Than or Equal To the importance indicated"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[tickers]",
+                  "value": "<csv>",
+                  "description": "One or more ticker symbols separated by a comma. Maximum 50 tickers"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[updated]",
+                  "value": "<integer>",
+                  "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_sort]",
+                  "value": "<string>",
+                  "description": "M&A date field to sort on (newest to oldest for expected and completed; oldest to newest for announced)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "46ef6de7-36a6-4fcc-a515-4899ff13a0ab",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "ma"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date_sort]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ma\": [\n    {\n      \"acquirer_cusip\": \"594918104\",\n      \"acquirer_exchange\": \"NASDAQ\",\n      \"acquirer_isin\": \"US5949181045\",\n      \"acquirer_name\": \"Microsoft Corporation\",\n      \"acquirer_ticker\": \"MSFT\",\n      \"currency\": \"USD\",\n      \"date\": \"2024-01-09\",\n      \"date_completed\": \"2024-06-15\",\n      \"date_expected\": \"2024-06-30\",\n      \"deal_payment_type\": \"Cash\",\n      \"deal_size\": \"68700000000\",\n      \"deal_status\": \"Completed\",\n      \"deal_terms_extra\": \"All-cash transaction\",\n      \"deal_type\": \"Merger\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5ac\",\n      \"importance\": 5,\n      \"notes\": \"Subject to regulatory approval\",\n      \"target_cusip\": \"00507V109\",\n      \"target_exchange\": \"NASDAQ\",\n      \"target_isin\": \"US00507V1098\",\n      \"target_name\": \"Activision Blizzard Inc.\",\n      \"target_ticker\": \"ATVI\",\n      \"updated\": 1704819600\n    },\n    {\n      \"acquirer_cusip\": \"594918104\",\n      \"acquirer_exchange\": \"NASDAQ\",\n      \"acquirer_isin\": \"US5949181045\",\n      \"acquirer_name\": \"Microsoft Corporation\",\n      \"acquirer_ticker\": \"MSFT\",\n      \"currency\": \"USD\",\n      \"date\": \"2024-01-09\",\n      \"date_completed\": \"2024-06-15\",\n      \"date_expected\": \"2024-06-30\",\n      \"deal_payment_type\": \"Cash\",\n      \"deal_size\": \"68700000000\",\n      \"deal_status\": \"Completed\",\n      \"deal_terms_extra\": \"All-cash transaction\",\n      \"deal_type\": \"Merger\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5ac\",\n      \"importance\": 5,\n      \"notes\": \"Subject to regulatory approval\",\n      \"target_cusip\": \"00507V109\",\n      \"target_exchange\": \"NASDAQ\",\n      \"target_isin\": \"US00507V1098\",\n      \"target_name\": \"Activision Blizzard Inc.\",\n      \"target_ticker\": \"ATVI\",\n      \"updated\": 1704819600\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4b022523-8221-484b-b1fd-c134406ba697",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "ma"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date_sort]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9dcf4292-29bb-431c-8238-6714eca8cb1f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "ma"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date_sort]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0c286eec-2ce1-4fdc-b758-b2a916e9a32c",
+    "name": "Analyst Reports Raw Text Analyst Insights ma API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

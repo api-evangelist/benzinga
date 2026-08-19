@@ -1,0 +1,832 @@
+{
+  "item": [
+    {
+      "id": "19811df5-78c5-4760-afe0-08fdc2d71c0a",
+      "name": "Dividends",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2ca2c52a-8d36-4dab-9d69-1ca99b72361f",
+          "name": "Dividends Events",
+          "request": {
+            "name": "Dividends Events",
+            "description": {
+              "content": "Returns dividends data for a selected period and/or security. Includes dividend amounts, ex-dividend dates, payment dates, dividend yields, and other relevant dividend information for stocks.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "calendar",
+                "dividends"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "<integer>",
+                  "description": "Number of results returned. Limit 1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_from]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query from point in time"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_to]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query to point in time"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_sort]",
+                  "value": "<string>",
+                  "description": "Dividend date field to sort on (newest to oldest)"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[dividend_yield_operation]",
+                  "value": "<string>",
+                  "description": "Specifies how to filter using dividend yield. gt = Greater Than, gte = Greater Than Equal, eq = Equal, lt = Less Than, lte = Less Than Equal"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[dividend_yield]",
+                  "value": "<number>",
+                  "description": "The dividend yield amount to filter by. Defaults to using Equal To the amount indicated. 1 = 100%"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[importance]",
+                  "value": "<integer>",
+                  "description": "The importance level to filter by. Uses Greater Than or Equal To the importance indicated"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[tickers]",
+                  "value": "<csv>",
+                  "description": "One or more ticker symbols separated by a comma. Maximum 50 tickers"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[updated]",
+                  "value": "<integer>",
+                  "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "057496c1-9d5b-4cba-b628-28166beece7f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "dividends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_sort]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[dividend_yield_operation]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[dividend_yield]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dividends\": [\n    {\n      \"confirmed\": true,\n      \"currency\": \"USD\",\n      \"cusip\": \"string\",\n      \"date\": \"2024-01-09\",\n      \"dividend\": \"0.25\",\n      \"dividend_prior\": \"0.24\",\n      \"dividend_type\": \"Cash\",\n      \"dividend_yield\": \"0.55\",\n      \"end_regular_dividend\": false,\n      \"ex_dividend_date\": \"2024-01-12\",\n      \"exchange\": \"NASDAQ\",\n      \"frequency\": 4,\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5a7\",\n      \"importance\": 3,\n      \"isin\": \"US0378331005\",\n      \"name\": \"Apple Inc.\",\n      \"notes\": \"Regular quarterly dividend\",\n      \"payable_date\": \"2024-02-15\",\n      \"period\": \"Q1\",\n      \"record_date\": \"2024-01-15\",\n      \"ticker\": \"AAPL\",\n      \"updated\": 1704819600,\n      \"year\": 2024\n    },\n    {\n      \"confirmed\": true,\n      \"currency\": \"USD\",\n      \"cusip\": \"string\",\n      \"date\": \"2024-01-09\",\n      \"dividend\": \"0.25\",\n      \"dividend_prior\": \"0.24\",\n      \"dividend_type\": \"Cash\",\n      \"dividend_yield\": \"0.55\",\n      \"end_regular_dividend\": false,\n      \"ex_dividend_date\": \"2024-01-12\",\n      \"exchange\": \"NASDAQ\",\n      \"frequency\": 4,\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5a7\",\n      \"importance\": 3,\n      \"isin\": \"US0378331005\",\n      \"name\": \"Apple Inc.\",\n      \"notes\": \"Regular quarterly dividend\",\n      \"payable_date\": \"2024-02-15\",\n      \"period\": \"Q1\",\n      \"record_date\": \"2024-01-15\",\n      \"ticker\": \"AAPL\",\n      \"updated\": 1704819600,\n      \"year\": 2024\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01e727d5-5053-4e82-9318-06740051a0c5",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "dividends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_sort]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[dividend_yield_operation]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[dividend_yield]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "005afa6d-befe-47df-bc86-8142b593e599",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "dividends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_sort]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[dividend_yield_operation]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[dividend_yield]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49ceb4b2-415a-4011-94e3-b99609135213",
+          "name": "Dividends Events V2.2",
+          "request": {
+            "name": "Dividends Events V2.2",
+            "description": {
+              "content": "Returns dividends data for a selected period and/or security, including both confirmed and unconfirmed dividend dates. V2.2 includes additional fields: confirmed, period, and year. This version provides more detailed information about dividend confirmation status and periodicity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.2",
+                "calendar",
+                "dividends"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "<integer>",
+                  "description": "Number of results returned. Limit 1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_from]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query from point in time"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_to]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query to point in time"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_sort]",
+                  "value": "<string>",
+                  "description": "Dividend date field to sort on (newest to oldest)"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[dividend_yield_operation]",
+                  "value": "<string>",
+                  "description": "Specifies how to filter using dividend yield. gt = Greater Than, gte = Greater Than Equal, eq = Equal, lt = Less Than, lte = Less Than Equal"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[dividend_yield]",
+                  "value": "<number>",
+                  "description": "The dividend yield amount to filter by. Defaults to using Equal To the amount indicated. 1 = 100%"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[importance]",
+                  "value": "<integer>",
+                  "description": "The importance level to filter by. Uses Greater Than or Equal To the importance indicated"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[tickers]",
+                  "value": "<csv>",
+                  "description": "One or more ticker symbols separated by a comma. Maximum 50 tickers"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[updated]",
+                  "value": "<integer>",
+                  "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8aa33709-0ccf-4aac-816b-6267004738a7",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.2",
+                    "calendar",
+                    "dividends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_sort]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[dividend_yield_operation]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[dividend_yield]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dividends\": [\n    {\n      \"confirmed\": true,\n      \"currency\": \"USD\",\n      \"cusip\": \"string\",\n      \"date\": \"2024-01-09\",\n      \"dividend\": \"0.25\",\n      \"dividend_prior\": \"0.24\",\n      \"dividend_type\": \"Cash\",\n      \"dividend_yield\": \"0.55\",\n      \"end_regular_dividend\": false,\n      \"ex_dividend_date\": \"2024-01-12\",\n      \"exchange\": \"NASDAQ\",\n      \"frequency\": 4,\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5a7\",\n      \"importance\": 3,\n      \"isin\": \"US0378331005\",\n      \"name\": \"Apple Inc.\",\n      \"notes\": \"Regular quarterly dividend\",\n      \"payable_date\": \"2024-02-15\",\n      \"period\": \"Q1\",\n      \"record_date\": \"2024-01-15\",\n      \"ticker\": \"AAPL\",\n      \"updated\": 1704819600,\n      \"year\": 2024\n    },\n    {\n      \"confirmed\": true,\n      \"currency\": \"USD\",\n      \"cusip\": \"string\",\n      \"date\": \"2024-01-09\",\n      \"dividend\": \"0.25\",\n      \"dividend_prior\": \"0.24\",\n      \"dividend_type\": \"Cash\",\n      \"dividend_yield\": \"0.55\",\n      \"end_regular_dividend\": false,\n      \"ex_dividend_date\": \"2024-01-12\",\n      \"exchange\": \"NASDAQ\",\n      \"frequency\": 4,\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5a7\",\n      \"importance\": 3,\n      \"isin\": \"US0378331005\",\n      \"name\": \"Apple Inc.\",\n      \"notes\": \"Regular quarterly dividend\",\n      \"payable_date\": \"2024-02-15\",\n      \"period\": \"Q1\",\n      \"record_date\": \"2024-01-15\",\n      \"ticker\": \"AAPL\",\n      \"updated\": 1704819600,\n      \"year\": 2024\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "88e2f045-89a7-4fec-892c-c9292355ee34",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.2",
+                    "calendar",
+                    "dividends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_sort]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[dividend_yield_operation]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[dividend_yield]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b78881f0-8318-453e-8b9f-a38bc1d40fb9",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.2",
+                    "calendar",
+                    "dividends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_sort]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[dividend_yield_operation]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[dividend_yield]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "aca79a17-3ba6-429b-8775-f360638448da",
+    "name": "Analyst Reports Raw Text Analyst Insights Dividends API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

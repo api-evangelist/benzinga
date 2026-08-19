@@ -1,0 +1,408 @@
+{
+  "item": [
+    {
+      "id": "1e2cc91b-0cae-4483-8e94-dcdc11dccc8d",
+      "name": "News Analytics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0a98c80a-e54c-4668-8c1b-6356bcc1d611",
+          "name": "Quantitative News Analytics",
+          "request": {
+            "name": "Quantitative News Analytics",
+            "description": {
+              "content": "Retrieves quantified news analytics data with sentiment scores, relevance metrics, and market impact indicators. Returns structured data analyzing the quantitative aspects of news coverage including sentiment polarity, article counts, trending scores, and ticker-specific metrics. Use this endpoint to access machine-readable news analytics for algorithmic trading and quantitative research.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "newsquantified"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number for pagination. Zero-indexed (0 = first page, 1 = second page, etc.). Default: 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "<integer>",
+                  "description": "Number of results per page. Default: 1000. Maximum: 1000. Returns most recent data first."
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_since",
+                  "value": "<integer>",
+                  "description": "Unix timestamp in seconds (UTC). Returns newsquantified data updated after this timestamp. Use for incremental updates."
+                },
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "Comma-separated list of stock ticker symbols to filter results (e.g., AAPL,MSFT,TSLA). Returns analytics for specified securities only."
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "Single date in YYYY-MM-DD format (e.g., 2024-12-30). Shorthand for filtering when date_from and date_to are the same. Returns data for this specific date."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<string>",
+                  "description": "Start date in YYYY-MM-DD format (e.g., 2024-01-01). Returns data from this date forward. Use with date_to for date range queries."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<string>",
+                  "description": "End date in YYYY-MM-DD format (e.g., 2024-12-31). Returns data up to and including this date. Use with date_from for date range queries."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "650e5ea2-f6f1-4b6e-b658-71a342a627f9",
+              "name": "Array of quantified news analytics with sentiment scores and metrics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "newsquantified"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"_id\": \"507f1f77bcf86cd799439011\",\n    \"1_Minute%\": \"0.2\",\n    \"5_Minutes%\": \"0.5\",\n    \"10_Minutes%\": \"0.8\",\n    \"30_Minutes%\": \"1.2\",\n    \"30_Seconds%\": \"0.1\",\n    \"60_Minutes%\": \"1.5\",\n    \"90_Minutes%\": \"1.8\",\n    \"120_Minutes%\": \"2.0\",\n    \"ATR_Ratio\": \"1.1\",\n    \"ATR14\": \"2.5\",\n    \"AllTicks\": \"1000\",\n    \"AllVWAP\": \"153.00\",\n    \"AnalystAction\": \"Upgrade\",\n    \"AnalystActionFrom\": \"Hold\",\n    \"AnalystActionTo\": \"Buy\",\n    \"AnalystFirm\": \"Goldman Sachs\",\n    \"Close_Vol\": \"45000\",\n    \"Comments\": \"Positive earnings surprise\",\n    \"Curr_Vol\": \"1600000\",\n    \"Date\": \"2024-01-09\",\n    \"DayOpen\": \"152.00\",\n    \"DividendYield%\": \"1.5\",\n    \"EODClose\": \"156.00\",\n    \"EODHigh\": \"158.00\",\n    \"EODLow\": \"151.00\",\n    \"EODVWAP\": \"155.00\",\n    \"EPSAction\": \"Beat\",\n    \"EPSActual\": \"1.50\",\n    \"Ex\": \"NASDAQ\",\n    \"Headlines\": \"Apple Announces New Product Launch\",\n    \"HighExcStdDev\": \"2.1\",\n    \"L1\": \"150.00\",\n    \"L2\": \"151.00\",\n    \"L3\": \"152.00\",\n    \"L4\": \"153.00\",\n    \"L5\": \"154.00\",\n    \"L10\": \"156.00\",\n    \"L20\": \"157.00\",\n    \"L75\": \"155.00\",\n    \"LS\": \"L\",\n    \"LowExcStdDev\": \"1.8\",\n    \"MainVWAP\": \"153.50\",\n    \"MaxDnAmt\": \"2.00\",\n    \"MaxUpAmt\": \"5.00\",\n    \"MktCap(1000)\": \"2000000\",\n    \"Mov_Vol\": \"5.2\",\n    \"NewsSess\": \"Pre-Market\",\n    \"Open_Vol\": \"50000\",\n    \"OpenGap%\": \"0.5\",\n    \"P1\": \"150.50\",\n    \"P2\": \"151.50\",\n    \"P3\": \"152.50\",\n    \"P4\": \"153.50\",\n    \"P5\": \"154.50\",\n    \"P10\": \"156.50\",\n    \"P20\": \"157.50\",\n    \"P75\": \"155.50\",\n    \"PERatio\": \"25.5\",\n    \"PID\": \"BZ-12345\",\n    \"PUBt\": \"2024-01-09T10:00:00Z\",\n    \"PostVWAP\": \"154.00\",\n    \"PreVWAP\": \"151.00\",\n    \"Prev_Vol\": \"1500000\",\n    \"PrevClose\": \"150.00\",\n    \"Provider\": \"Benzinga\",\n    \"RECt\": \"2024-01-09T10:30:00Z\",\n    \"Range%\": \"4.5\",\n    \"RangeAmt\": \"7.00\",\n    \"RangeStdDev\": \"1.2\",\n    \"ReportSess\": \"Q3\",\n    \"ResourceID\": \"12345678\",\n    \"Result%\": \"2.45\",\n    \"Result_Vs_Index%\": \"1.5\",\n    \"S1\": \"149.00\",\n    \"S2\": \"148.00\",\n    \"S3\": \"147.00\",\n    \"S4\": \"146.00\",\n    \"S5\": \"145.00\",\n    \"S10\": \"143.00\",\n    \"S20\": \"142.00\",\n    \"S75\": \"144.00\",\n    \"SPYLast\": \"420.50\",\n    \"SPYclose\": \"422.00\",\n    \"ShortInterest%\": \"5.2\",\n    \"Symb\": \"AAPL\",\n    \"TONHigh\": \"155.00\",\n    \"TONLast\": \"153.00\",\n    \"TONLow\": \"149.00\",\n    \"Topics\": \"Earnings, Tech\",\n    \"Vol_Ratio\": \"1.1\",\n    \"VolumeStdDev\": \"3.5\",\n    \"created\": 1704819600,\n    \"maxDown%\": \"1.5\",\n    \"maxUp%\": \"3.2\",\n    \"prevDay%\": \"1.2\"\n  },\n  {\n    \"_id\": \"507f1f77bcf86cd799439011\",\n    \"1_Minute%\": \"0.2\",\n    \"5_Minutes%\": \"0.5\",\n    \"10_Minutes%\": \"0.8\",\n    \"30_Minutes%\": \"1.2\",\n    \"30_Seconds%\": \"0.1\",\n    \"60_Minutes%\": \"1.5\",\n    \"90_Minutes%\": \"1.8\",\n    \"120_Minutes%\": \"2.0\",\n    \"ATR_Ratio\": \"1.1\",\n    \"ATR14\": \"2.5\",\n    \"AllTicks\": \"1000\",\n    \"AllVWAP\": \"153.00\",\n    \"AnalystAction\": \"Upgrade\",\n    \"AnalystActionFrom\": \"Hold\",\n    \"AnalystActionTo\": \"Buy\",\n    \"AnalystFirm\": \"Goldman Sachs\",\n    \"Close_Vol\": \"45000\",\n    \"Comments\": \"Positive earnings surprise\",\n    \"Curr_Vol\": \"1600000\",\n    \"Date\": \"2024-01-09\",\n    \"DayOpen\": \"152.00\",\n    \"DividendYield%\": \"1.5\",\n    \"EODClose\": \"156.00\",\n    \"EODHigh\": \"158.00\",\n    \"EODLow\": \"151.00\",\n    \"EODVWAP\": \"155.00\",\n    \"EPSAction\": \"Beat\",\n    \"EPSActual\": \"1.50\",\n    \"Ex\": \"NASDAQ\",\n    \"Headlines\": \"Apple Announces New Product Launch\",\n    \"HighExcStdDev\": \"2.1\",\n    \"L1\": \"150.00\",\n    \"L2\": \"151.00\",\n    \"L3\": \"152.00\",\n    \"L4\": \"153.00\",\n    \"L5\": \"154.00\",\n    \"L10\": \"156.00\",\n    \"L20\": \"157.00\",\n    \"L75\": \"155.00\",\n    \"LS\": \"L\",\n    \"LowExcStdDev\": \"1.8\",\n    \"MainVWAP\": \"153.50\",\n    \"MaxDnAmt\": \"2.00\",\n    \"MaxUpAmt\": \"5.00\",\n    \"MktCap(1000)\": \"2000000\",\n    \"Mov_Vol\": \"5.2\",\n    \"NewsSess\": \"Pre-Market\",\n    \"Open_Vol\": \"50000\",\n    \"OpenGap%\": \"0.5\",\n    \"P1\": \"150.50\",\n    \"P2\": \"151.50\",\n    \"P3\": \"152.50\",\n    \"P4\": \"153.50\",\n    \"P5\": \"154.50\",\n    \"P10\": \"156.50\",\n    \"P20\": \"157.50\",\n    \"P75\": \"155.50\",\n    \"PERatio\": \"25.5\",\n    \"PID\": \"BZ-12345\",\n    \"PUBt\": \"2024-01-09T10:00:00Z\",\n    \"PostVWAP\": \"154.00\",\n    \"PreVWAP\": \"151.00\",\n    \"Prev_Vol\": \"1500000\",\n    \"PrevClose\": \"150.00\",\n    \"Provider\": \"Benzinga\",\n    \"RECt\": \"2024-01-09T10:30:00Z\",\n    \"Range%\": \"4.5\",\n    \"RangeAmt\": \"7.00\",\n    \"RangeStdDev\": \"1.2\",\n    \"ReportSess\": \"Q3\",\n    \"ResourceID\": \"12345678\",\n    \"Result%\": \"2.45\",\n    \"Result_Vs_Index%\": \"1.5\",\n    \"S1\": \"149.00\",\n    \"S2\": \"148.00\",\n    \"S3\": \"147.00\",\n    \"S4\": \"146.00\",\n    \"S5\": \"145.00\",\n    \"S10\": \"143.00\",\n    \"S20\": \"142.00\",\n    \"S75\": \"144.00\",\n    \"SPYLast\": \"420.50\",\n    \"SPYclose\": \"422.00\",\n    \"ShortInterest%\": \"5.2\",\n    \"Symb\": \"AAPL\",\n    \"TONHigh\": \"155.00\",\n    \"TONLast\": \"153.00\",\n    \"TONLow\": \"149.00\",\n    \"Topics\": \"Earnings, Tech\",\n    \"Vol_Ratio\": \"1.1\",\n    \"VolumeStdDev\": \"3.5\",\n    \"created\": 1704819600,\n    \"maxDown%\": \"1.5\",\n    \"maxUp%\": \"3.2\",\n    \"prevDay%\": \"1.2\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4068af7d-4509-4342-9f52-2c25c92f8521",
+              "name": "Bad request - invalid date format or parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "newsquantified"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cd2b83e9-0f91-45b1-a1c7-435c83b936c3",
+              "name": "Not found - no data available for specified parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "newsquantified"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": \"string\",\n    \"key_1\": 715\n  },\n  \"errors\": [\n    {\n      \"code\": \"no_data_found\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"failed_dependency\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1a531139-d7f7-40c4-b1de-c9979742a4ed",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "newsquantified"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "50a895ad-6cf6-49e1-bf2e-05b440fb9617",
+    "name": "Analyst Reports Raw Text Analyst Insights News Analytics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

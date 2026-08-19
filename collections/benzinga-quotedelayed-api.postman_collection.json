@@ -1,0 +1,500 @@
+{
+  "item": [
+    {
+      "id": "d3821c74-38dd-4818-b9fd-45a223b7b8de",
+      "name": "QuoteDelayed",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fdad3a27-7695-4dd8-8a08-e44ee6a9ce77",
+          "name": "Get delayted quotes V1",
+          "request": {
+            "name": "Get delayted quotes V1",
+            "description": {
+              "content": "Get delayed quotes for a list of symbols, ISINs, or CIKs",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "quoteDelayed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "Comma-separated list of stock ticker symbols. At least one of symbols, isin, or cik is required."
+                },
+                {
+                  "disabled": false,
+                  "key": "isin",
+                  "value": "<string>",
+                  "description": "Comma-separated list of ISIN identifiers. Maximum 50. At least one of symbols, isin, or cik is required."
+                },
+                {
+                  "disabled": false,
+                  "key": "cik",
+                  "value": "<string>",
+                  "description": "Comma-separated list of CIK identifiers. At least one of symbols, isin, or cik is required."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2e415dfc-353a-4e73-b0ea-d8995609cb20",
+              "name": "Returns a JSON object with delayed quotes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "quoteDelayed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isin",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cik",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45b42515-962c-4326-858c-14a0b2c564b4",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "quoteDelayed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isin",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cik",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7185637-9491-4d79-8906-00d19981e1d6",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "quoteDelayed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isin",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cik",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a5bdbf8-5475-4a20-b390-8aafc4ed5d81",
+          "name": "Get delayed quotes V2",
+          "request": {
+            "name": "Get delayed quotes V2",
+            "description": {
+              "content": "Get delayed quotes for a list of symbols",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "quoteDelayed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "Comma-separated list of stock ticker symbols. At least one of symbols, isin, or cik is required."
+                },
+                {
+                  "disabled": false,
+                  "key": "isin",
+                  "value": "<string>",
+                  "description": "Comma-separated list of ISIN identifiers. Maximum 50. At least one of symbols, isin, or cik is required."
+                },
+                {
+                  "disabled": false,
+                  "key": "cik",
+                  "value": "<string>",
+                  "description": "Comma-separated list of CIK identifiers. At least one of symbols, isin, or cik is required."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bccf27e1-eafd-4589-b6b8-0c1782525785",
+              "name": "Returns a JSON object with delayed quotes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "quoteDelayed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isin",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cik",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9fad7c92-dfff-4a4a-a85c-75300bcf3ac9",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "quoteDelayed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isin",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cik",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "07cfd000-c775-4415-ac4d-329491f54342",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "quoteDelayed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isin",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cik",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "beee6052-f889-4564-a6c1-919f0605d0e4",
+    "name": "Analyst Reports Raw Text Analyst Insights QuoteDelayed API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

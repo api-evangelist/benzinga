@@ -1,0 +1,396 @@
+{
+  "item": [
+    {
+      "id": "72e0fa75-83e5-48ab-8117-861f2a6a0daa",
+      "name": "events",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9f807245-ce8c-46df-aade-8dd373466d8a",
+          "name": "Events",
+          "request": {
+            "name": "Events",
+            "description": {
+              "content": "Returns corporate events including investor meetings, conferences, and special announcements",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "calendar",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "Number of results returned. Limit 1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date]",
+                  "value": "<date>",
+                  "description": "Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_from]",
+                  "value": "<date>",
+                  "description": "Start date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_to]",
+                  "value": "<date>",
+                  "description": "End date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[importance]",
+                  "value": "<integer>",
+                  "description": "The importance level to filter by. Uses Greater Than or Equal To the importance indicated"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[tickers]",
+                  "value": "<csv>",
+                  "description": "One or more ticker symbols separated by a comma. Maximum 50 tickers"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[updated]",
+                  "value": "<integer>",
+                  "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+                },
+                {
+                  "disabled": false,
+                  "key": "search_keys_type",
+                  "value": "<string>",
+                  "description": "Search keys type"
+                },
+                {
+                  "disabled": false,
+                  "key": "search_keys",
+                  "value": "<string>",
+                  "description": "Search keys"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4d311f52-3756-4574-9c95-8a109054cd07",
+              "name": "Events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "calendar",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"events\": [\n    {\n      \"date_end\": \"2024-01-11\",\n      \"date_start\": \"2024-01-09\",\n      \"event_name\": \"CES 2024\",\n      \"event_type\": \"Conference\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5bc\",\n      \"importance\": 3,\n      \"international_number\": \"+1-212-555-0100\",\n      \"location\": \"Las Vegas Convention Center\",\n      \"phone_number\": \"1-800-555-0100\",\n      \"securities\": [\n        {\n          \"country\": \"US\",\n          \"cusip\": \"string\",\n          \"exchange\": \"NASDAQ\",\n          \"isin\": \"US0378331005\",\n          \"symbol\": \"AAPL\"\n        },\n        {\n          \"country\": \"US\",\n          \"cusip\": \"string\",\n          \"exchange\": \"NASDAQ\",\n          \"isin\": \"US0378331005\",\n          \"symbol\": \"AAPL\"\n        }\n      ],\n      \"source_link\": \"https://www.example.com/event-details\",\n      \"start_time\": \"09:00:00\",\n      \"tags\": [\n        \"[\\\"Technology\\\"\",\n        \"\\\"Innovation\\\"]\"\n      ],\n      \"updated\": 1704819600,\n      \"webcast_link\": \"https://webcast.example.com/event123\"\n    },\n    {\n      \"date_end\": \"2024-01-11\",\n      \"date_start\": \"2024-01-09\",\n      \"event_name\": \"CES 2024\",\n      \"event_type\": \"Conference\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5bc\",\n      \"importance\": 3,\n      \"international_number\": \"+1-212-555-0100\",\n      \"location\": \"Las Vegas Convention Center\",\n      \"phone_number\": \"1-800-555-0100\",\n      \"securities\": [\n        {\n          \"country\": \"US\",\n          \"cusip\": \"string\",\n          \"exchange\": \"NASDAQ\",\n          \"isin\": \"US0378331005\",\n          \"symbol\": \"AAPL\"\n        },\n        {\n          \"country\": \"US\",\n          \"cusip\": \"string\",\n          \"exchange\": \"NASDAQ\",\n          \"isin\": \"US0378331005\",\n          \"symbol\": \"AAPL\"\n        }\n      ],\n      \"source_link\": \"https://www.example.com/event-details\",\n      \"start_time\": \"09:00:00\",\n      \"tags\": [\n        \"[\\\"Technology\\\"\",\n        \"\\\"Innovation\\\"]\"\n      ],\n      \"updated\": 1704819600,\n      \"webcast_link\": \"https://webcast.example.com/event123\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d8704f0-6006-471e-a7ae-fd74c505796d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "calendar",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "850d92aa-d6a1-468f-ad51-d3daca306d5e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "calendar",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[importance]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[tickers]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bd57693c-fb40-44bb-a237-eaa9634a1fc7",
+    "name": "Analyst Reports Raw Text Analyst Insights events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

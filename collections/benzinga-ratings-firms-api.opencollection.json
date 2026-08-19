@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights ratings_firms API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ratings_firms",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Ratings Firms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2.1/calendar/ratings/firms",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results returned. Limit 1000"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Fields"
+              },
+              {
+                "name": "firm",
+                "value": "",
+                "type": "query",
+                "description": "Firm"
+              },
+              {
+                "name": "updated",
+                "value": "",
+                "type": "query",
+                "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Returns the available firms providing analyst ratings"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights transcripts API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "transcripts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Update transcript segment by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.benzinga.com/api/v1/transcripts/transcripts/:transcript_id/segment/:segment_id",
+            "params": [
+              {
+                "name": "transcript_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the transcript"
+              },
+              {
+                "name": "segment_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the segment"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Update specific transcript segment details"
+        },
+        {
+          "info": {
+            "name": "Delete transcript segment by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.benzinga.com/api/v1/transcripts/transcripts/:transcript_id/segment/:segment_id",
+            "params": [
+              {
+                "name": "transcript_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the transcript"
+              },
+              {
+                "name": "segment_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the segment"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Delete a specific transcript segment"
+        },
+        {
+          "info": {
+            "name": "Update a speaker across a transcript",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.benzinga.com/api/v1/transcripts/transcripts/:transcript_id/speaker",
+            "params": [
+              {
+                "name": "transcript_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the transcript"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Rename a speaker (and optionally set its role) everywhere it appears in a transcript. Locates segments + participant by the speaker's current name, relabels every matching segment, and upserts the participant entry. Renaming into an existing name merges the two speakers."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

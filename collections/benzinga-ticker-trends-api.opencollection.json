@@ -1,0 +1,152 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights Ticker Trends API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ticker Trends",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Ticker Trend Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v1/trending-tickers",
+            "params": [
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Time interval for aggregating trend data. Supported values: 10m (10 minutes), 1h (1 hour), 1d (1 day). Required."
+              },
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,TSLA) to retrieve trend data for. Required."
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "Data source filter for trend calculation. Supported values: all (all sources combined), clickstream (user interaction data), logo (logo request data). Required."
+              },
+              {
+                "name": "timeframe",
+                "value": "",
+                "type": "query",
+                "description": "Time window for trend analysis. Optional custom timeframe specification for filtering results by specific date ranges."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. Zero-indexed (0 = first page, 1 = second page, etc.). Default: 0"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page. Default: 1000. Maximum: 1000"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieve trending data for specific tickers, including rank and change. Returns aggregated trend scores and activity levels across different time intervals."
+        },
+        {
+          "info": {
+            "name": "Get Trending Tickers List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v1/trending-tickers/list",
+            "params": [
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated. Use timeframe instead. Time interval for aggregating trend data."
+              },
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "Optional comma-separated list of ticker symbols to filter results. If omitted, returns all trending tickers."
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "Data source filter for trend calculation. Supported values: all (all sources combined), clickstream (user interaction data), logo (logo request data). Required."
+              },
+              {
+                "name": "timeframe",
+                "value": "",
+                "type": "query",
+                "description": "Time interval for trend aggregation. Supported values: 10m (10 minutes), 1h (1 hour), 1d (1 day). Default: 1d"
+              },
+              {
+                "name": "time_from",
+                "value": "",
+                "type": "query",
+                "description": "Start time filter in 24-hour format (e.g., 09:15, 14:30). Use with date_from for precise time ranges."
+              },
+              {
+                "name": "time_to",
+                "value": "",
+                "type": "query",
+                "description": "End time filter in 24-hour format (e.g., 16:00, 22:30). Use with date_to for precise time ranges."
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Start date filter in ISO 8601 format (e.g., 2024-12-30, 2024-01-15). Use with time_from for precise ranges."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "End date filter in ISO 8601 format (e.g., 2024-12-30, 2024-01-31). Use with time_to for precise ranges."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. Zero-indexed (0 = first page, 1 = second page, etc.). Default: 0"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page. Default: 1000. Maximum: 1000"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieve a list of trending tickers based on various metrics. Returns securities ordered by trending score across different time intervals."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

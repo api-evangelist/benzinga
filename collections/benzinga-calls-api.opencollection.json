@@ -1,0 +1,212 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights calls API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "calls",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch all calls",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v1/transcripts/calls",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number for pagination (starts at 1)"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to return per page"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by call status. Defaults to COMPLETED. Use ALL to return all statuses."
+              },
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "query",
+                "description": "Filter by stock ticker symbol (e.g. AAPL)"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Filter calls starting on or after this date (RFC3339, e.g. 2024-01-01T00:00:00)"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "Filter calls starting on or before this date (RFC3339, e.g. 2024-12-31T23:59:59)"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by (e.g. start_time)"
+              },
+              {
+                "name": "share_class_figi",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Share Class FiGi identifier (e.g. BBG000B9XRY4)"
+              },
+              {
+                "name": "securities",
+                "value": "",
+                "type": "query",
+                "description": "If true, includes securities information in the response"
+              },
+              {
+                "name": "info_only",
+                "value": "",
+                "type": "query",
+                "description": "If true, returns only call metadata without transcript content"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "General filter; pass 'all' to bypass default status filter"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieve a list of calls with optional filtering and pagination. By default, only COMPLETED calls are returned. Use status=ALL to return all statuses."
+        },
+        {
+          "info": {
+            "name": "Fetch call by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v1/transcripts/calls/:call_id",
+            "params": [
+              {
+                "name": "call_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the transcript call"
+              },
+              {
+                "name": "audio",
+                "value": "",
+                "type": "query",
+                "description": "Set to false to exclude audio recordings. Defaults to true; returns pre-signed/CDN URLs when included"
+              },
+              {
+                "name": "pdf",
+                "value": "",
+                "type": "query",
+                "description": "If true, includes pre-signed URLs for the PDF transcript"
+              },
+              {
+                "name": "assets",
+                "value": "",
+                "type": "query",
+                "description": "If true, includes pre-signed URLs for external assets (e.g. slide deck PDFs)"
+              },
+              {
+                "name": "clean",
+                "value": "",
+                "type": "query",
+                "description": "If true, returns a cleaner simplified output format"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format: 'json' (default) or 'html'"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieve detailed information about a specific call by its ID"
+        },
+        {
+          "info": {
+            "name": "Update call by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.benzinga.com/api/v1/transcripts/calls/:call_id",
+            "params": [
+              {
+                "name": "call_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the transcript call"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Update details of a specific call by its ID"
+        },
+        {
+          "info": {
+            "name": "Delete call by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.benzinga.com/api/v1/transcripts/calls/:call_id",
+            "params": [
+              {
+                "name": "call_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the transcript call"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Delete a specific call by its ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

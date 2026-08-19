@@ -1,0 +1,396 @@
+{
+  "item": [
+    {
+      "id": "ae56e590-b3f8-4304-94e5-38626c16e25a",
+      "name": "fda",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0a64eabe-ad74-48a0-adf0-2b6e53550a1d",
+          "name": "FDA approvals, clinical trials, and PDUFA dates",
+          "request": {
+            "name": "FDA approvals, clinical trials, and PDUFA dates",
+            "description": {
+              "content": "Returns FDA approvals, clinical trials, and PDUFA (Prescription Drug User Fee Act) dates for pharmaceutical and biotech companies. Includes information about drug development stages, trial results, approval outcomes, and regulatory milestones.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "calendar",
+                "fda"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "<integer>",
+                  "description": "Number of results returned. Limit 1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_from]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query from point in time"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_to]",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "Date to query to point in time"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_search_field]",
+                  "value": "announced",
+                  "description": "Date to filter and sort calendar by. Default is `announced`"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_search_strict]",
+                  "value": "true",
+                  "description": "Some date fields (such as the FDA calendar target date) include fuzzy dates such as 2021-Q1. When filtering, you may choose to allow fuzzy date matching, or strict date matching that searches for ONLY dates that have an exact match within the given date period. Default `TRUE`"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[securities]",
+                  "value": "<csv>",
+                  "description": "One or more security identifiers separated by a comma. Maximum 50 securities. Security identifiers must be in the format of ticker symbols, only for US-listed equities"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[updated]",
+                  "value": "<integer>",
+                  "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "392072b2-b6db-4959-827a-8c5a397e5807",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "fda"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_search_field]",
+                      "value": "announced"
+                    },
+                    {
+                      "key": "parameters[date_search_strict]",
+                      "value": "true"
+                    },
+                    {
+                      "key": "parameters[securities]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fda\": [\n    {\n      \"commentary\": \"Approval was expected based on positive Phase 3 results\",\n      \"companies\": [\n        {\n          \"cik\": \"1682852\",\n          \"id\": \"60a7f5e8e4b0f5a3c8e9f5be\",\n          \"name\": \"Moderna Inc.\",\n          \"securities\": [\n            {\n              \"exchange\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"exchange\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"cik\": \"1682852\",\n          \"id\": \"60a7f5e8e4b0f5a3c8e9f5be\",\n          \"name\": \"Moderna Inc.\",\n          \"securities\": [\n            {\n              \"exchange\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"exchange\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"created\": 1704819000,\n      \"date\": \"2024-01-09\",\n      \"drug\": {\n        \"generic\": false,\n        \"id\": \"60a7f5e8e4b0f5a3c8e9f5bf\",\n        \"indication_symptom\": [\n          \"[\\\"COVID-19\\\"]\"\n        ],\n        \"name\": \"Spikevax\"\n      },\n      \"event_type\": \"PDUFA\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5bd\",\n      \"nic_number\": \"022527\",\n      \"notes\": \"Breakthrough therapy designation\",\n      \"outcome\": \"FDA approved the drug for treatment of condition X\",\n      \"outcome_brief\": \"Approved\",\n      \"source_link\": \"https://www.fda.gov/drugs/news-events\",\n      \"source_type\": \"FDA\",\n      \"status\": \"Pending\",\n      \"target_date\": \"2024-03-15\",\n      \"time\": \"00:00:00\",\n      \"updated\": 1704819600\n    },\n    {\n      \"commentary\": \"Approval was expected based on positive Phase 3 results\",\n      \"companies\": [\n        {\n          \"cik\": \"1682852\",\n          \"id\": \"60a7f5e8e4b0f5a3c8e9f5be\",\n          \"name\": \"Moderna Inc.\",\n          \"securities\": [\n            {\n              \"exchange\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"exchange\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"cik\": \"1682852\",\n          \"id\": \"60a7f5e8e4b0f5a3c8e9f5be\",\n          \"name\": \"Moderna Inc.\",\n          \"securities\": [\n            {\n              \"exchange\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"exchange\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"symbol\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"created\": 1704819000,\n      \"date\": \"2024-01-09\",\n      \"drug\": {\n        \"generic\": false,\n        \"id\": \"60a7f5e8e4b0f5a3c8e9f5bf\",\n        \"indication_symptom\": [\n          \"[\\\"COVID-19\\\"]\"\n        ],\n        \"name\": \"Spikevax\"\n      },\n      \"event_type\": \"PDUFA\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5bd\",\n      \"nic_number\": \"022527\",\n      \"notes\": \"Breakthrough therapy designation\",\n      \"outcome\": \"FDA approved the drug for treatment of condition X\",\n      \"outcome_brief\": \"Approved\",\n      \"source_link\": \"https://www.fda.gov/drugs/news-events\",\n      \"source_type\": \"FDA\",\n      \"status\": \"Pending\",\n      \"target_date\": \"2024-03-15\",\n      \"time\": \"00:00:00\",\n      \"updated\": 1704819600\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb53b150-abc8-4c32-984a-37c9bfe7f7f0",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "fda"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_search_field]",
+                      "value": "announced"
+                    },
+                    {
+                      "key": "parameters[date_search_strict]",
+                      "value": "true"
+                    },
+                    {
+                      "key": "parameters[securities]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6da68437-70ad-4c85-a0ff-45c2da6f20b6",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "calendar",
+                    "fda"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<YYYY-MM-DD>"
+                    },
+                    {
+                      "key": "parameters[date_search_field]",
+                      "value": "announced"
+                    },
+                    {
+                      "key": "parameters[date_search_strict]",
+                      "value": "true"
+                    },
+                    {
+                      "key": "parameters[securities]",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Specifies return format. Query parameters work the same for both formats",
+                    "key": "accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "491da144-e427-426b-8811-443a265cd12e",
+    "name": "Analyst Reports Raw Text Analyst Insights fda API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

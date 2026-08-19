@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights Government Trade Reports API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Government Trade Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Government Trade Reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v1/gov/usa/congress/trades/reports",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Date from"
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "Date to"
+              },
+              {
+                "name": "updated_since",
+                "value": "",
+                "type": "query",
+                "description": "Updated since"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Date"
+              },
+              {
+                "name": "chamber",
+                "value": "",
+                "type": "query",
+                "description": "Chamber"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Fields"
+              },
+              {
+                "name": "search_keys_type",
+                "value": "",
+                "type": "query",
+                "description": "Search keys type"
+              },
+              {
+                "name": "search_keys",
+                "value": "",
+                "type": "query",
+                "description": "Search keys"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Returns detailed government trade disclosure reports including periodic transaction reports filed by congressional members"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

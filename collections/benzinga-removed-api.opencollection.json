@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights removed API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "removed",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Removed (v2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2.1/calendar-removed/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results returned. Limit 1000"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Type"
+              },
+              {
+                "name": "updated",
+                "value": "",
+                "type": "query",
+                "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Returns calendar events that have been removed or cancelled from the specified event types"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

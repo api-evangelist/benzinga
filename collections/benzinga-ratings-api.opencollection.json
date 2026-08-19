@@ -1,0 +1,133 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights ratings API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ratings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns analyst ratings data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2.1/calendar/ratings",
+            "headers": [
+              {
+                "name": "accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return. Available fields: id, date, time, ticker, exchange, name, currency, action_pt, action_company, rating_current, pt_current, rating_prior, pt_prior, pt_pct_change, url, url_calendar, url_news, analyst, analyst_id, analyst_name, ratings_accuracy, importance, notes, updated. Use * for all fields including ratings_accuracy"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results returned. Limit 1000"
+              },
+              {
+                "name": "parameters[date]",
+                "value": "",
+                "type": "query",
+                "description": "Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest"
+              },
+              {
+                "name": "parameters[date_from]",
+                "value": "",
+                "type": "query",
+                "description": "Date to query from point in time"
+              },
+              {
+                "name": "parameters[date_to]",
+                "value": "",
+                "type": "query",
+                "description": "Date to query to point in time"
+              },
+              {
+                "name": "parameters[importance]",
+                "value": "",
+                "type": "query",
+                "description": "The importance level to filter by. Uses Greater Than or Equal To the importance indicated"
+              },
+              {
+                "name": "parameters[tickers]",
+                "value": "",
+                "type": "query",
+                "description": "One or more ticker symbols separated by a comma. Maximum 50 tickers"
+              },
+              {
+                "name": "parameters[updated]",
+                "value": "",
+                "type": "query",
+                "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+              },
+              {
+                "name": "parameters[analyst_id]",
+                "value": "",
+                "type": "query",
+                "description": "One or more analyst ids (analyst_id) separated by a comma"
+              },
+              {
+                "name": "parameters[firm_id]",
+                "value": "",
+                "type": "query",
+                "description": "One or more firm ids (firm_id) separated by a comma"
+              },
+              {
+                "name": "parameters[action]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by a specific action_company (action for rating). Note that all of these terms are precisely defined"
+              },
+              {
+                "name": "analyst",
+                "value": "",
+                "type": "query",
+                "description": "A comma separated list of analyst (person) ID's to bring back. Omitting will bring back all available analysts"
+              },
+              {
+                "name": "firm",
+                "value": "",
+                "type": "query",
+                "description": "A comma separated list of analyst firm ID's to bring back. Omitting will bring back all available firms"
+              },
+              {
+                "name": "simplify",
+                "value": "",
+                "type": "query",
+                "description": "Simplify the ratings to standardized categories"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Returns analyst ratings data including upgrades, downgrades, initiations, and price target changes from Wall Street analysts. Includes current and prior ratings, price targets, analyst information, and ratings accuracy metrics when available."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

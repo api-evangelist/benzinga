@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights consensus_ratings API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "consensus_ratings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns analyst ratings consensus data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v1/consensus-ratings",
+            "headers": [
+              {
+                "name": "accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results returned. Limit 1000"
+              },
+              {
+                "name": "parameters[date_from]",
+                "value": "",
+                "type": "query",
+                "description": "Date to query from point in time"
+              },
+              {
+                "name": "parameters[date_to]",
+                "value": "",
+                "type": "query",
+                "description": "Date to query to point in time"
+              },
+              {
+                "name": "parameters[tickers]",
+                "value": "",
+                "type": "query",
+                "description": "One ticker symbol to query the aggregate for. Maximum 1 ticker"
+              },
+              {
+                "name": "simplify",
+                "value": "",
+                "type": "query",
+                "description": "To simplify the aggregate ratings to only BUY, SELL, HOLD, default will return all ratings (STRONG_BUY, BUY, HOLD, SELL, STRONG_SELL)"
+              },
+              {
+                "name": "aggregate_type",
+                "value": "",
+                "type": "query",
+                "description": "To aggregate the ratings by either number or percentage"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Returns aggregated consensus analyst ratings data for a given ticker symbol. This endpoint provides consensus price targets, aggregate ratings distribution, and analyst counts based on recent analyst ratings."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

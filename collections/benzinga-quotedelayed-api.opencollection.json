@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights QuoteDelayed API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "QuoteDelayed",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get delayted quotes V1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v1/quoteDelayed",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols. At least one of symbols, isin, or cik is required."
+              },
+              {
+                "name": "isin",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of ISIN identifiers. Maximum 50. At least one of symbols, isin, or cik is required."
+              },
+              {
+                "name": "cik",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of CIK identifiers. At least one of symbols, isin, or cik is required."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Get delayed quotes for a list of symbols, ISINs, or CIKs"
+        },
+        {
+          "info": {
+            "name": "Get delayed quotes V2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2/quoteDelayed",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols. At least one of symbols, isin, or cik is required."
+              },
+              {
+                "name": "isin",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of ISIN identifiers. Maximum 50. At least one of symbols, isin, or cik is required."
+              },
+              {
+                "name": "cik",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of CIK identifiers. At least one of symbols, isin, or cik is required."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Get delayed quotes for a list of symbols"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,163 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights Press Releases API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Press Releases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Press Releases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2/news",
+            "headers": [
+              {
+                "name": "accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results returned. Maximum 100."
+              },
+              {
+                "name": "displayOutput",
+                "value": "",
+                "type": "query",
+                "description": "Specify headline only (headline), headline + teaser (abstract), or headline + full body (full) text"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "The date to query for news. Shorthand for dateFrom and dateTo if they are the same. Format: yyyy-mm-dd"
+              },
+              {
+                "name": "dateFrom",
+                "value": "",
+                "type": "query",
+                "description": "Date to query from point in time. Sorted by published date. Format: yyyy-mm-dd"
+              },
+              {
+                "name": "dateTo",
+                "value": "",
+                "type": "query",
+                "description": "Date to query to point in time. Sorted by published date. Format: yyyy-mm-dd"
+              },
+              {
+                "name": "updatedSince",
+                "value": "",
+                "type": "query",
+                "description": "The last updated Unix timestamp (UTC) to pull and sort by"
+              },
+              {
+                "name": "publishedSince",
+                "value": "",
+                "type": "query",
+                "description": "The last published Unix timestamp (UTC) to pull and sort by"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Allows control of results sorting. Default is created, DESC. Format: field:direction. Sort Fields: id, created, updated. Sort Order: asc (ascending), desc (descending)"
+              },
+              {
+                "name": "isin",
+                "value": "",
+                "type": "query",
+                "description": "One or more ISINs separated by a comma. Maximum 50. Format: csv"
+              },
+              {
+                "name": "cusips",
+                "value": "",
+                "type": "query",
+                "description": "One or more CUSIPs separated by a comma. Maximum 50. License agreement required. Format: csv"
+              },
+              {
+                "name": "tickers",
+                "value": "",
+                "type": "query",
+                "description": "One or more ticker symbols separated by a comma. Maximum 50. Format: csv"
+              },
+              {
+                "name": "primaryTickers",
+                "value": "",
+                "type": "query",
+                "description": "One or more primary ticker symbols separated by a comma. Filters by primary ticker association only. Format: csv"
+              },
+              {
+                "name": "channels",
+                "value": "",
+                "type": "query",
+                "description": "One or more channel names or IDs separated by a comma. Format: csv"
+              },
+              {
+                "name": "topics",
+                "value": "",
+                "type": "query",
+                "description": "One or more words/phrases separated by a comma; searches Title, Tags, and Body in order of priority. Format: csv"
+              },
+              {
+                "name": "topic_group_by",
+                "value": "",
+                "type": "query",
+                "description": "Logical operator for topics query. Use 'and' to require all topics, 'or' to require any topic"
+              },
+              {
+                "name": "authors",
+                "value": "",
+                "type": "query",
+                "description": "One or more authors separated by a comma. Format: csv"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Specify the desired format for the api response"
+              },
+              {
+                "name": "importance",
+                "value": "",
+                "type": "query",
+                "description": "Filter by importance level"
+              },
+              {
+                "name": "region",
+                "value": "",
+                "type": "query",
+                "description": "Filter by region (e.g., 'ca' or 'canada' for Canadian content)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "This REST API returns structured data for press releases. For optimal performance, limit the scope of the query using parameters such as tickers, date, and channels, or use updatedSince for deltas. Page offsets are limited from 0 - 100000."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

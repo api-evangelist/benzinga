@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Raw Text Analyst Insights Analyst Reports API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Analyst Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Analyst Research Reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/analyst/reports/raw-text",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination. Zero-indexed (0 = first page, 1 = second page, etc.). Default: 0"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page. Default: 100. Maximum: 100. Returns most recent reports first."
+              },
+              {
+                "name": "pdf_url",
+                "value": "",
+                "type": "query",
+                "description": "If true, includes a presigned pdf_url for each report. Default: false."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieves raw text content from professional analyst research reports. Returns full-text analyst reports, research notes, and investment recommendations from financial institutions. Includes report metadata, rating changes, price targets, and detailed analysis. Essential for accessing institutional research and analyst sentiment."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

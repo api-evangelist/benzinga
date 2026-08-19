@@ -1,0 +1,133 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights summaries API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "summaries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch summaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v1/transcripts/summaries",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number for pagination (starts at 1)"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to return per page"
+              },
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "query",
+                "description": "Filter by stock ticker symbol (e.g. AAPL)"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Filter summaries for calls starting on or after this date (RFC3339, e.g. 2024-01-01T00:00:00)"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "Filter summaries for calls starting on or before this date (RFC3339, e.g. 2024-12-31T23:59:59)"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by (e.g. created_at)"
+              },
+              {
+                "name": "share_class_figi",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Share Class FiGi identifier (e.g. BBG000B9XRY4)"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieve a list of summaries with optional filtering and pagination"
+        },
+        {
+          "info": {
+            "name": "Fetch summary by Call ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v1/transcripts/summaries/:call_id",
+            "params": [
+              {
+                "name": "call_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the call associated with the summary"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Retrieve summary details for a specific call ID"
+        },
+        {
+          "info": {
+            "name": "Update summary by Call ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.benzinga.com/api/v1/transcripts/summaries/:call_id",
+            "params": [
+              {
+                "name": "call_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the call"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Update summary details for a specific call ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

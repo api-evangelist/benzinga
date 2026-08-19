@@ -1,0 +1,432 @@
+{
+  "item": [
+    {
+      "id": "ca0f0f41-2332-47bb-a2a5-2c18f8f7b9a8",
+      "name": "Analyst Insights",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7e4e4d65-a3b4-419c-a2f1-34a437d9e5cd",
+          "name": "Analyst Insights V1",
+          "request": {
+            "name": "Analyst Insights V1",
+            "description": {
+              "content": "Returns analyst insights and research perspectives on securities, including detailed analysis and recommendations from financial analysts",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "analyst",
+                "insights"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "Number of results returned. Limit 1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<date>",
+                  "description": "Start date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<date>",
+                  "description": "End date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<csv>",
+                  "description": "One or more ticker symbols separated by a comma. Maximum 50 tickers"
+                },
+                {
+                  "disabled": false,
+                  "key": "analyst",
+                  "value": "<string>",
+                  "description": "Analyst"
+                },
+                {
+                  "disabled": false,
+                  "key": "rating_id",
+                  "value": "<string>",
+                  "description": "Rating ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "search_keys_type",
+                  "value": "<string>",
+                  "description": "Search keys type"
+                },
+                {
+                  "disabled": false,
+                  "key": "search_keys",
+                  "value": "<string>",
+                  "description": "Search keys"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Field to sort by, format: field:order (e.g., date:asc). Defaults to desc."
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[updated]",
+                  "value": "<integer>",
+                  "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b996c678-0bc7-4fa7-ad30-d83e1756c188",
+              "name": "Analyst Insights",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "analyst",
+                    "insights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "analyst",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rating_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"analyst-insights\": [\n    {\n      \"action\": \"Maintains\",\n      \"analyst_id\": \"60a7f5e8e4b0f5a3c8e9f5b8\",\n      \"analyst_insights\": \"Strong fundamentals support higher valuation\",\n      \"date\": \"2024-01-09\",\n      \"firm\": \"Goldman Sachs\",\n      \"firm_id\": \"60a7f5e8e4b0f5a3c8e9f5b7\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5b6\",\n      \"pt\": \"200.00\",\n      \"rating\": \"Buy\",\n      \"rating_id\": \"60a7f5e8e4b0f5a3c8e9f5b9\",\n      \"security\": {\n        \"cik\": \"320193\",\n        \"exchange\": \"NASDAQ\",\n        \"isin\": \"US0378331005\",\n        \"name\": \"Apple Inc.\",\n        \"symbol\": \"AAPL\"\n      },\n      \"updated\": 1704819600\n    },\n    {\n      \"action\": \"Maintains\",\n      \"analyst_id\": \"60a7f5e8e4b0f5a3c8e9f5b8\",\n      \"analyst_insights\": \"Strong fundamentals support higher valuation\",\n      \"date\": \"2024-01-09\",\n      \"firm\": \"Goldman Sachs\",\n      \"firm_id\": \"60a7f5e8e4b0f5a3c8e9f5b7\",\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5b6\",\n      \"pt\": \"200.00\",\n      \"rating\": \"Buy\",\n      \"rating_id\": \"60a7f5e8e4b0f5a3c8e9f5b9\",\n      \"security\": {\n        \"cik\": \"320193\",\n        \"exchange\": \"NASDAQ\",\n        \"isin\": \"US0378331005\",\n        \"name\": \"Apple Inc.\",\n        \"symbol\": \"AAPL\"\n      },\n      \"updated\": 1704819600\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "06d82bed-ebba-4787-b8b1-e1cdfc583e01",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "analyst",
+                    "insights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "analyst",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rating_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a398cd3b-2042-47bc-802c-16beea3c4f2a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "analyst",
+                    "insights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<csv>"
+                    },
+                    {
+                      "key": "analyst",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rating_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parameters[updated]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "da67697d-45a9-476a-8b1d-e7fdb0e02c61",
+    "name": "Analyst Reports Raw Text Analyst Insights API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

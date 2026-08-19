@@ -1,0 +1,576 @@
+{
+  "item": [
+    {
+      "id": "821ffff9-429f-4625-93ae-944a684af32a",
+      "name": "Earnings Call Transcripts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2b56d1d0-7bc4-434c-aa95-fbb2676f4252",
+          "name": "Earnings Call Transcripts",
+          "request": {
+            "name": "Earnings Call Transcripts",
+            "description": {
+              "content": "Retrieves earnings call transcripts for specified companies or call IDs. Returns full text transcripts of quarterly and annual earnings calls including Q&A sessions, speaker identification, and timestamps. Use date filters to retrieve transcripts from specific reporting periods or filter by ticker symbols for company-specific earnings discussions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "earnings-call-transcripts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tickers",
+                  "value": "<string>,<string>",
+                  "description": "Comma-separated list of stock ticker symbols to filter earnings call transcripts (e.g., AAPL,MSFT,GOOGL). Returns all transcripts for these companies."
+                },
+                {
+                  "disabled": false,
+                  "key": "call_id",
+                  "value": "<string>,<string>",
+                  "description": "Comma-separated list of specific call IDs to retrieve. Use this to fetch transcripts for known earnings call identifiers. Takes precedence over ticker filtering."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number for pagination. Zero-indexed (0 = first page, 1 = second page, etc.). Default: 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "<integer>",
+                  "description": "Number of results per page. Default: 5. Maximum: 1000. Use larger page sizes for bulk data retrieval."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<string>",
+                  "description": "Start date filter in YYYY-MM-DD format (e.g., 2024-01-01). Returns transcripts from earnings calls on or after this date."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<string>",
+                  "description": "End date filter in YYYY-MM-DD format (e.g., 2024-12-31). Returns transcripts from earnings calls on or before this date."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e331dceb-377c-4755-b21d-204f9d4b801a",
+              "name": "Array of earnings call transcript summaries with full text and metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "earnings-call-transcripts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tickers",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "call_id",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"call_id\": \"AAPL-Q4-2024\",\n    \"created\": 1704819600,\n    \"date\": \"2024-01-09\",\n    \"id\": \"507f1f77bcf86cd799439011\",\n    \"reviewed\": true,\n    \"security\": {\n      \"cik\": \"320193\",\n      \"company_name\": \"Apple Inc\",\n      \"exchange\": \"NASDAQ\",\n      \"isin\": \"US0378331005\",\n      \"ticker\": \"AAPL\"\n    },\n    \"start_time\": \"2024-01-09T16:30:00Z\",\n    \"summaries\": [\n      {\n        \"summary\": \"CEO discusses Q4 revenue growth of 15% YoY\",\n        \"time\": 123.45\n      },\n      {\n        \"summary\": \"CEO discusses Q4 revenue growth of 15% YoY\",\n        \"time\": 123.45\n      }\n    ],\n    \"summary_full\": \"string\",\n    \"title\": \"Apple Q4 2024 Earnings Call\",\n    \"transcript_full\": \"string\",\n    \"transcript_timestamped\": [\n      {\n        \"time\": 123.45,\n        \"transcript\": \"Thank you for joining us today...\"\n      },\n      {\n        \"time\": 123.45,\n        \"transcript\": \"Thank you for joining us today...\"\n      }\n    ],\n    \"updated\": 1704820200,\n    \"user_id\": 12345\n  },\n  {\n    \"call_id\": \"AAPL-Q4-2024\",\n    \"created\": 1704819600,\n    \"date\": \"2024-01-09\",\n    \"id\": \"507f1f77bcf86cd799439011\",\n    \"reviewed\": true,\n    \"security\": {\n      \"cik\": \"320193\",\n      \"company_name\": \"Apple Inc\",\n      \"exchange\": \"NASDAQ\",\n      \"isin\": \"US0378331005\",\n      \"ticker\": \"AAPL\"\n    },\n    \"start_time\": \"2024-01-09T16:30:00Z\",\n    \"summaries\": [\n      {\n        \"summary\": \"CEO discusses Q4 revenue growth of 15% YoY\",\n        \"time\": 123.45\n      },\n      {\n        \"summary\": \"CEO discusses Q4 revenue growth of 15% YoY\",\n        \"time\": 123.45\n      }\n    ],\n    \"summary_full\": \"string\",\n    \"title\": \"Apple Q4 2024 Earnings Call\",\n    \"transcript_full\": \"string\",\n    \"transcript_timestamped\": [\n      {\n        \"time\": 123.45,\n        \"transcript\": \"Thank you for joining us today...\"\n      },\n      {\n        \"time\": 123.45,\n        \"transcript\": \"Thank you for joining us today...\"\n      }\n    ],\n    \"updated\": 1704820200,\n    \"user_id\": 12345\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "159bca2a-25ad-4562-8409-dc1cbc469d12",
+              "name": "Bad request - invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "earnings-call-transcripts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tickers",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "call_id",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "414e28de-5253-43d9-b68d-696e7d650260",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "earnings-call-transcripts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tickers",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "call_id",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8c0fe84-ac81-443c-9b35-1bd7f4be6821",
+          "name": "Earnings Call Audio Files",
+          "request": {
+            "name": "Earnings Call Audio Files",
+            "description": {
+              "content": "Retrieves downloadable audio file URLs for earnings call recordings. Returns signed URLs for accessing full audio recordings of quarterly and annual earnings calls. Audio files include complete earnings presentations and Q&A sessions. URLs are time-limited and securely signed for authorized access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "earnings-call-transcripts",
+                "audio"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tickers",
+                  "value": "<string>,<string>",
+                  "description": "Comma-separated list of stock ticker symbols to filter audio files (e.g., AAPL,MSFT,GOOGL). Returns audio files for all earnings calls from these companies."
+                },
+                {
+                  "disabled": false,
+                  "key": "call_id",
+                  "value": "<string>,<string>",
+                  "description": "Comma-separated list of specific call IDs to retrieve audio files for. Use this to fetch audio for known earnings call identifiers."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number for pagination. Zero-indexed (0 = first page, 1 = second page, etc.). Default: 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "<integer>",
+                  "description": "Number of results per page. Default: 5. Maximum: 1000"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "56bc07b2-8a19-4a92-8c92-3c844af50eee",
+              "name": "Array of earnings call audio file metadata with signed download URLs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "earnings-call-transcripts",
+                    "audio"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tickers",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "call_id",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"audio_file\": {\n      \"file_url\": \"string\"\n    },\n    \"call_id\": \"string\",\n    \"created\": 9818,\n    \"date\": \"string\",\n    \"id\": \"string\",\n    \"security\": {\n      \"cik\": \"320193\",\n      \"company_name\": \"Apple Inc\",\n      \"exchange\": \"NASDAQ\",\n      \"isin\": \"US0378331005\",\n      \"ticker\": \"AAPL\"\n    },\n    \"start_time\": \"string\",\n    \"updated\": 6333\n  },\n  {\n    \"audio_file\": {\n      \"file_url\": \"string\"\n    },\n    \"call_id\": \"string\",\n    \"created\": 9380,\n    \"date\": \"string\",\n    \"id\": \"string\",\n    \"security\": {\n      \"cik\": \"320193\",\n      \"company_name\": \"Apple Inc\",\n      \"exchange\": \"NASDAQ\",\n      \"isin\": \"US0378331005\",\n      \"ticker\": \"AAPL\"\n    },\n    \"start_time\": \"string\",\n    \"updated\": 2923\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e23b6598-da05-4260-96ec-75fb4799d438",
+              "name": "Bad request - invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "earnings-call-transcripts",
+                    "audio"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tickers",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "call_id",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8fdcbd4-467e-479e-835a-4df0f7b78210",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "earnings-call-transcripts",
+                    "audio"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tickers",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "call_id",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cd453713-5cc9-44d7-97b7-ed1425a819f1",
+    "name": "Analyst Reports Raw Text Analyst Insights Earnings Call Transcripts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

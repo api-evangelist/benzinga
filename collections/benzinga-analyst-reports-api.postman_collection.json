@@ -1,0 +1,266 @@
+{
+  "item": [
+    {
+      "id": "ccc0e97f-4368-4768-a6bb-ae4ed8044aaf",
+      "name": "Analyst Reports",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f6a3dfe1-b8b4-4fee-87dd-0ea3a715b4e8",
+          "name": "Analyst Research Reports",
+          "request": {
+            "name": "Analyst Research Reports",
+            "description": {
+              "content": "Retrieves raw text content from professional analyst research reports. Returns full-text analyst reports, research notes, and investment recommendations from financial institutions. Includes report metadata, rating changes, price targets, and detailed analysis. Essential for accessing institutional research and analyst sentiment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "analyst",
+                "reports",
+                "raw-text"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number for pagination. Zero-indexed (0 = first page, 1 = second page, etc.). Default: 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "<integer>",
+                  "description": "Number of results per page. Default: 100. Maximum: 100. Returns most recent reports first."
+                },
+                {
+                  "disabled": false,
+                  "key": "pdf_url",
+                  "value": "<boolean>",
+                  "description": "If true, includes a presigned pdf_url for each report. Default: false."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9eb9dd54-980d-4887-8011-24b33644ab14",
+              "name": "Array of analyst reports with full text content and metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analyst",
+                    "reports",
+                    "raw-text"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pdf_url",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"date\": \"2024-01-09\",\n    \"exchange\": \"NASDAQ\",\n    \"extracted_paragraphs\": [\n      \"string\",\n      \"string\"\n    ],\n    \"firm_id\": \"GS-12345\",\n    \"id\": \"507f1f77bcf86cd799439011\",\n    \"pdf_url\": \"analyst_rating/AAPL/GS-12345/20240109.pdf\",\n    \"ticker\": \"AAPL\"\n  },\n  {\n    \"date\": \"2024-01-09\",\n    \"exchange\": \"NASDAQ\",\n    \"extracted_paragraphs\": [\n      \"string\",\n      \"string\"\n    ],\n    \"firm_id\": \"GS-12345\",\n    \"id\": \"507f1f77bcf86cd799439011\",\n    \"pdf_url\": \"analyst_rating/AAPL/GS-12345/20240109.pdf\",\n    \"ticker\": \"AAPL\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e006ff9-99d2-4a56-8032-0f34c1ed3355",
+              "name": "Bad request - invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analyst",
+                    "reports",
+                    "raw-text"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pdf_url",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7ea747b4-c0b7-4be6-87d5-a962353b7be3",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analyst",
+                    "reports",
+                    "raw-text"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pdf_url",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cd8afceb-b5e2-417f-887e-59909c05dff1",
+    "name": "Raw Text Analyst Insights Analyst Reports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

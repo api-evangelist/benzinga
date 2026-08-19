@@ -1,0 +1,408 @@
+{
+  "item": [
+    {
+      "id": "42492653-761b-4559-9815-01ae8a72f0df",
+      "name": "Government Trade Reports",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bb5dde1c-5616-4f73-ac1f-e3f063f02386",
+          "name": "Government Trade Reports",
+          "request": {
+            "name": "Government Trade Reports",
+            "description": {
+              "content": "Returns detailed government trade disclosure reports including periodic transaction reports filed by congressional members",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "gov",
+                "usa",
+                "congress",
+                "trades",
+                "reports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<long>",
+                  "description": "Date from"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<long>",
+                  "description": "Date to"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_since",
+                  "value": "<long>",
+                  "description": "Updated since"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<long>",
+                  "description": "Date"
+                },
+                {
+                  "disabled": false,
+                  "key": "chamber",
+                  "value": "<string>",
+                  "description": "Chamber"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Fields"
+                },
+                {
+                  "disabled": false,
+                  "key": "search_keys_type",
+                  "value": "<string>",
+                  "description": "Search keys type"
+                },
+                {
+                  "disabled": false,
+                  "key": "search_keys",
+                  "value": "<string>",
+                  "description": "Search keys"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "046e5b99-6115-4965-bfda-51769ea48e0a",
+              "name": "Government Trade Reports",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "gov",
+                    "usa",
+                    "congress",
+                    "trades",
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "chamber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"amendment_number\": 0,\n      \"disclosure_url\": \"https://disclosurespreview.house.gov/ld/ldxmlrelease/2024/RR/123456.xml\",\n      \"filer_info\": {\n        \"chamber\": \"House\",\n        \"committees\": {\n          \"key_0\": \"string\"\n        },\n        \"display_name\": \"Pelosi, Nancy\",\n        \"district\": \"11\",\n        \"headshot\": \"https://example.com/headshots/pelosi.jpg\",\n        \"id\": \"60a7f5e8e4b0f5a3c8e9f5c3\",\n        \"leadership_positions\": [\n          \"Speaker Emerita\"\n        ],\n        \"member_id\": \"P000197\",\n        \"member_name\": \"Nancy Pelosi\",\n        \"party\": \"Democrat\",\n        \"state\": \"CA\",\n        \"status\": \"Active\",\n        \"updated\": 1704819600,\n        \"website\": \"https://pelosi.house.gov\"\n      },\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5c4\",\n      \"latest\": true,\n      \"report_date\": \"2024-01-09\",\n      \"report_id\": \"RPT-2024-5678\",\n      \"transactions\": [\n        {\n          \"amendment_number\": 0,\n          \"amount\": \"$15,001 - $50,000\",\n          \"chamber\": \"Senate\",\n          \"description\": \"Common Stock\",\n          \"disclosure_url\": \"https://disclosurespreview.house.gov/ld/ldxmlrelease/2024/RR/123456.xml\",\n          \"id\": \"60a7f5e8e4b0f5a3c8e9f5c5\",\n          \"notification_date\": \"2024-01-15\",\n          \"ownership\": \"Joint\",\n          \"report_date\": \"2024-01-09\",\n          \"report_id\": \"RPT-2024-5678\",\n          \"security\": {\n            \"name\": \"Apple Inc. - Common Stock\",\n            \"ticker\": \"AAPL\",\n            \"type\": \"Stock\"\n          },\n          \"transaction_date\": \"2024-01-05\",\n          \"transaction_id\": \"TXN-2024-001234\",\n          \"transaction_type\": \"Purchase\",\n          \"updated\": 1704819600\n        },\n        {\n          \"amendment_number\": 0,\n          \"amount\": \"$15,001 - $50,000\",\n          \"chamber\": \"Senate\",\n          \"description\": \"Common Stock\",\n          \"disclosure_url\": \"https://disclosurespreview.house.gov/ld/ldxmlrelease/2024/RR/123456.xml\",\n          \"id\": \"60a7f5e8e4b0f5a3c8e9f5c5\",\n          \"notification_date\": \"2024-01-15\",\n          \"ownership\": \"Joint\",\n          \"report_date\": \"2024-01-09\",\n          \"report_id\": \"RPT-2024-5678\",\n          \"security\": {\n            \"name\": \"Apple Inc. - Common Stock\",\n            \"ticker\": \"AAPL\",\n            \"type\": \"Stock\"\n          },\n          \"transaction_date\": \"2024-01-05\",\n          \"transaction_id\": \"TXN-2024-001234\",\n          \"transaction_type\": \"Purchase\",\n          \"updated\": 1704819600\n        }\n      ],\n      \"updated\": 1704819600\n    },\n    {\n      \"amendment_number\": 0,\n      \"disclosure_url\": \"https://disclosurespreview.house.gov/ld/ldxmlrelease/2024/RR/123456.xml\",\n      \"filer_info\": {\n        \"chamber\": \"House\",\n        \"committees\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"display_name\": \"Pelosi, Nancy\",\n        \"district\": \"11\",\n        \"headshot\": \"https://example.com/headshots/pelosi.jpg\",\n        \"id\": \"60a7f5e8e4b0f5a3c8e9f5c3\",\n        \"leadership_positions\": [\n          \"Speaker Emerita\"\n        ],\n        \"member_id\": \"P000197\",\n        \"member_name\": \"Nancy Pelosi\",\n        \"party\": \"Democrat\",\n        \"state\": \"CA\",\n        \"status\": \"Active\",\n        \"updated\": 1704819600,\n        \"website\": \"https://pelosi.house.gov\"\n      },\n      \"id\": \"60a7f5e8e4b0f5a3c8e9f5c4\",\n      \"latest\": true,\n      \"report_date\": \"2024-01-09\",\n      \"report_id\": \"RPT-2024-5678\",\n      \"transactions\": [\n        {\n          \"amendment_number\": 0,\n          \"amount\": \"$15,001 - $50,000\",\n          \"chamber\": \"Senate\",\n          \"description\": \"Common Stock\",\n          \"disclosure_url\": \"https://disclosurespreview.house.gov/ld/ldxmlrelease/2024/RR/123456.xml\",\n          \"id\": \"60a7f5e8e4b0f5a3c8e9f5c5\",\n          \"notification_date\": \"2024-01-15\",\n          \"ownership\": \"Joint\",\n          \"report_date\": \"2024-01-09\",\n          \"report_id\": \"RPT-2024-5678\",\n          \"security\": {\n            \"name\": \"Apple Inc. - Common Stock\",\n            \"ticker\": \"AAPL\",\n            \"type\": \"Stock\"\n          },\n          \"transaction_date\": \"2024-01-05\",\n          \"transaction_id\": \"TXN-2024-001234\",\n          \"transaction_type\": \"Purchase\",\n          \"updated\": 1704819600\n        },\n        {\n          \"amendment_number\": 0,\n          \"amount\": \"$15,001 - $50,000\",\n          \"chamber\": \"Senate\",\n          \"description\": \"Common Stock\",\n          \"disclosure_url\": \"https://disclosurespreview.house.gov/ld/ldxmlrelease/2024/RR/123456.xml\",\n          \"id\": \"60a7f5e8e4b0f5a3c8e9f5c5\",\n          \"notification_date\": \"2024-01-15\",\n          \"ownership\": \"Joint\",\n          \"report_date\": \"2024-01-09\",\n          \"report_id\": \"RPT-2024-5678\",\n          \"security\": {\n            \"name\": \"Apple Inc. - Common Stock\",\n            \"ticker\": \"AAPL\",\n            \"type\": \"Stock\"\n          },\n          \"transaction_date\": \"2024-01-05\",\n          \"transaction_id\": \"TXN-2024-001234\",\n          \"transaction_type\": \"Purchase\",\n          \"updated\": 1704819600\n        }\n      ],\n      \"updated\": 1704819600\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e0a3646-7a7b-4b06-b592-b46a4ffce17d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "gov",
+                    "usa",
+                    "congress",
+                    "trades",
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "chamber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6995bb9-bd10-404a-b7f6-ae9c39352340",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "gov",
+                    "usa",
+                    "congress",
+                    "trades",
+                    "reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "chamber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a6936d30-41fa-4f98-91fe-5f641749cea9",
+    "name": "Analyst Reports Raw Text Analyst Insights Government Trade Reports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

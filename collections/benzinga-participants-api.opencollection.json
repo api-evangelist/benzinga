@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights participants API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "participants",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Update participant by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.benzinga.com/api/v1/transcripts/participants/:participant_id",
+            "params": [
+              {
+                "name": "participant_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the participant"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Update details of a specific participant by their ID"
+        },
+        {
+          "info": {
+            "name": "Delete participant by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.benzinga.com/api/v1/transcripts/participants/:participant_id",
+            "params": [
+              {
+                "name": "participant_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the participant"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Delete a specific participant by their ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

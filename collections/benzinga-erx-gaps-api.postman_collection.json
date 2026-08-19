@@ -1,0 +1,320 @@
+{
+  "item": [
+    {
+      "id": "51aa581a-7da3-42c7-a6d1-ff488798a944",
+      "name": "ERx Gaps",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8dceb70e-6be4-477d-b15f-4fe54fad5429",
+          "name": "ERx Gaps",
+          "request": {
+            "name": "ERx Gaps",
+            "description": {
+              "content": "Returns earnings reaction gap data, which tracks significant price gaps following earnings announcements",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "erx_gaps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "100",
+                  "description": "Number of results returned. Limit 1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date]",
+                  "value": "<date>",
+                  "description": "Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_from]",
+                  "value": "<date>",
+                  "description": "Start date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "key": "parameters[date_to]",
+                  "value": "<date>",
+                  "description": "End date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated",
+                  "value": "<integer>",
+                  "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fee7ac66-4e15-47b0-a957-e1dbcc02995f",
+              "name": "ERx Gaps",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "erx_gaps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "updated",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"closing_range_alerts\": [\n    {\n      \"alert_date\": \"2024-01-09\",\n      \"alert_type\": \"Upper Third Close\",\n      \"closing_id\": 4001,\n      \"closing_range_percentage\": 85.5,\n      \"day_high\": 157.5,\n      \"day_low\": 153.25,\n      \"description\": \"Stock closed in the upper third of the day's range\",\n      \"gap_id\": 500,\n      \"symbol\": \"AAPL\",\n      \"title\": \"Upper Third Close\"\n    },\n    {\n      \"alert_date\": \"2024-01-09\",\n      \"alert_type\": \"Upper Third Close\",\n      \"closing_id\": 4001,\n      \"closing_range_percentage\": 85.5,\n      \"day_high\": 157.5,\n      \"day_low\": 153.25,\n      \"description\": \"Stock closed in the upper third of the day's range\",\n      \"gap_id\": 500,\n      \"symbol\": \"AAPL\",\n      \"title\": \"Upper Third Close\"\n    }\n  ],\n  \"day\": 5,\n  \"day_alerts\": [\n    {\n      \"alert_date\": \"string\",\n      \"alert_type\": \"string\",\n      \"day\": 805,\n      \"day_alert_id\": 1326,\n      \"description\": \"string\",\n      \"gap_id\": 2591,\n      \"price\": 8114.776494070277,\n      \"price_type\": \"string\",\n      \"title\": \"string\"\n    },\n    {\n      \"alert_date\": \"string\",\n      \"alert_type\": \"string\",\n      \"day\": 942,\n      \"day_alert_id\": 7523,\n      \"description\": \"string\",\n      \"gap_id\": 4011,\n      \"price\": 1848.8510418326575,\n      \"price_type\": \"string\",\n      \"title\": \"string\"\n    }\n  ],\n  \"day1_valid\": true,\n  \"earnings_surprise\": 0.15,\n  \"ema_crossovers\": [\n    {\n      \"crossover_date\": \"2024-01-12\",\n      \"crossover_id\": 6001,\n      \"crossover_price\": 154.75,\n      \"crossover_type\": \"EMA21\",\n      \"days_from_gap\": \"3\",\n      \"description\": \"Price crossed above EMA21\",\n      \"gap_id\": 500,\n      \"title\": \"EMA21 Crossover\"\n    },\n    {\n      \"crossover_date\": \"2024-01-12\",\n      \"crossover_id\": 6001,\n      \"crossover_price\": 154.75,\n      \"crossover_type\": \"EMA21\",\n      \"days_from_gap\": \"3\",\n      \"description\": \"Price crossed above EMA21\",\n      \"gap_id\": 500,\n      \"title\": \"EMA21 Crossover\"\n    }\n  ],\n  \"ema_status\": \"Above EMA21\",\n  \"ema_status_updated\": \"2024-01-09T10:30:00Z\",\n  \"fibonacci_alerts\": [\n    {\n      \"alert_date\": \"2024-01-09\",\n      \"alert_type\": \"Fibonacci Retracement\",\n      \"description\": \"Price reached 50% Fibonacci retracement level\",\n      \"fib_id\": 2001,\n      \"fibonacci_level\": \"50%\",\n      \"gap_id\": 500,\n      \"level_price\": 153.5,\n      \"open\": 154.5,\n      \"prev_close\": 150.25,\n      \"symbol\": \"AAPL\",\n      \"title\": \"50% Fibonacci Retracement\"\n    },\n    {\n      \"alert_date\": \"2024-01-09\",\n      \"alert_type\": \"Fibonacci Retracement\",\n      \"description\": \"Price reached 50% Fibonacci retracement level\",\n      \"fib_id\": 2001,\n      \"fibonacci_level\": \"50%\",\n      \"gap_id\": 500,\n      \"level_price\": 153.5,\n      \"open\": 154.5,\n      \"prev_close\": 150.25,\n      \"symbol\": \"AAPL\",\n      \"title\": \"50% Fibonacci Retracement\"\n    }\n  ],\n  \"fibonacci_status\": \"Above 50%\",\n  \"fibonacci_status_updated\": \"2024-01-09T10:30:00Z\",\n  \"first_13min_close\": 155.75,\n  \"gap_date\": \"2024-01-09\",\n  \"gap_day_high\": 157.5,\n  \"gap_day_low\": 153.25,\n  \"gap_percentage\": 3.75,\n  \"hvc_price\": 156,\n  \"hvc_undercut\": 155.5,\n  \"id\": \"64a1b2c3d4e5f6789012345\",\n  \"market_session_alerts\": [\n    {\n      \"description\": \"Price broke above first 15-minute high\",\n      \"first_5min_close\": 155.25,\n      \"first_5min_high\": 155.5,\n      \"first_15min_close\": 155.75,\n      \"first_15min_high\": 156,\n      \"gap_id\": 500,\n      \"session_date\": \"2024-01-09\",\n      \"session_high\": 157.5,\n      \"session_id\": 5001,\n      \"session_type\": \"Regular\",\n      \"session_volume\": 12500000,\n      \"symbol\": \"AAPL\",\n      \"title\": \"First 15 Min Breakout\"\n    },\n    {\n      \"description\": \"Price broke above first 15-minute high\",\n      \"first_5min_close\": 155.25,\n      \"first_5min_high\": 155.5,\n      \"first_15min_close\": 155.75,\n      \"first_15min_high\": 156,\n      \"gap_id\": 500,\n      \"session_date\": \"2024-01-09\",\n      \"session_high\": 157.5,\n      \"session_id\": 5001,\n      \"session_type\": \"Regular\",\n      \"session_volume\": 12500000,\n      \"symbol\": \"AAPL\",\n      \"title\": \"First 15 Min Breakout\"\n    }\n  ],\n  \"milestone_measurements\": [\n    {\n      \"above_hvc_pct\": 1.6,\n      \"above_milestone_avg_pct\": 0.79,\n      \"alert_type\": \"Milestone Day 10\",\n      \"close_price\": 158.5,\n      \"description\": \"Stock held above HVC on Day 10\",\n      \"gap_id\": 500,\n      \"milestone_avg\": 157.25,\n      \"milestone_date\": \"2024-01-19\",\n      \"milestone_day\": 10,\n      \"milestone_id\": 7001,\n      \"price_type\": \"Close\",\n      \"title\": \"Day 10 Milestone\"\n    },\n    {\n      \"above_hvc_pct\": 1.6,\n      \"above_milestone_avg_pct\": 0.79,\n      \"alert_type\": \"Milestone Day 10\",\n      \"close_price\": 158.5,\n      \"description\": \"Stock held above HVC on Day 10\",\n      \"gap_id\": 500,\n      \"milestone_avg\": 157.25,\n      \"milestone_date\": \"2024-01-19\",\n      \"milestone_day\": 10,\n      \"milestone_id\": 7001,\n      \"price_type\": \"Close\",\n      \"title\": \"Day 10 Milestone\"\n    }\n  ],\n  \"monster_gap\": true,\n  \"monster_power_earning_gap\": false,\n  \"next_ms_date\": \"2024-01-19\",\n  \"next_ms_day\": 10,\n  \"oel_gap\": true,\n  \"open\": 154.5,\n  \"power_earning_gap\": true,\n  \"previous_close\": 150.25,\n  \"price\": 156.25,\n  \"price_alerts\": [\n    {\n      \"description\": \"Price moved above High Volume Close level\",\n      \"direction\": \"Above\",\n      \"gap_id\": 500,\n      \"level_name\": \"HVC\",\n      \"level_price\": 156,\n      \"price\": 156.25,\n      \"price_alert_id\": 3001,\n      \"title\": \"Price Above HVC\"\n    },\n    {\n      \"description\": \"Price moved above High Volume Close level\",\n      \"direction\": \"Above\",\n      \"gap_id\": 500,\n      \"level_name\": \"HVC\",\n      \"level_price\": 156,\n      \"price\": 156.25,\n      \"price_alert_id\": 3001,\n      \"title\": \"Price Above HVC\"\n    }\n  ],\n  \"status\": true,\n  \"symbol\": \"AAPL\",\n  \"triggered_date\": \"2024-01-09\",\n  \"updated\": 1704758400,\n  \"volume\": 12500000,\n  \"volume_50d\": 8500000,\n  \"volume_alerts\": [\n    {\n      \"alert_date\": \"2024-01-09\",\n      \"alert_id\": 1001,\n      \"alert_type\": \"High Volume\",\n      \"average_volume_50d\": 8500000,\n      \"description\": \"Volume exceeded 1.5x the 50-day average\",\n      \"gap_id\": 500,\n      \"symbol\": \"AAPL\",\n      \"title\": \"Volume Spike Alert\",\n      \"volume\": 15000000,\n      \"volume_ratio\": 1.76\n    },\n    {\n      \"alert_date\": \"2024-01-09\",\n      \"alert_id\": 1001,\n      \"alert_type\": \"High Volume\",\n      \"average_volume_50d\": 8500000,\n      \"description\": \"Volume exceeded 1.5x the 50-day average\",\n      \"gap_id\": 500,\n      \"symbol\": \"AAPL\",\n      \"title\": \"Volume Spike Alert\",\n      \"volume\": 15000000,\n      \"volume_ratio\": 1.76\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c075b7a4-6cd3-45ac-bff4-5a9a6fb36efd",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "erx_gaps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "updated",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "30670880-18ca-472e-8897-c60379cde0ed",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "erx_gaps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "parameters[date]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "parameters[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "updated",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8645eb7b-aaf3-4c60-87bd-58f8a00e0d48",
+    "name": "Analyst Reports Raw Text Analyst Insights ERx Gaps API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

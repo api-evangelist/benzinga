@@ -1,0 +1,5112 @@
+{
+  "item": [
+    {
+      "id": "32ddf84e-175b-4ff8-90ad-aad9725e9acb",
+      "name": "Fundamentals",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7f52c05a-bb75-45d8-8487-7c879bd16348",
+          "name": "Company Fundamentals V2.1",
+          "request": {
+            "name": "Company Fundamentals V2.1",
+            "description": {
+              "content": "Retrieves enhanced financial fundamentals data for specified securities. This is an improved version of the V2 endpoint with additional data fields and better performance. Returns comprehensive financial metrics, ratios, and company information from updated data sources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "fundamentals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,GOOGL). Required."
+                },
+                {
+                  "disabled": false,
+                  "key": "asOf",
+                  "value": "<string>",
+                  "description": "Filter results for dates on or after this date. Format: YYYY-MM-DD (e.g., 2024-01-01)"
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "Time period filter for financial reporting periods. Supported values: Q1 (first quarter), Q2 (second quarter), Q3 (third quarter), Q4 (fourth quarter), FY (fiscal year), TTM (trailing twelve months)"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportType",
+                  "value": "<string>",
+                  "description": "Type of financial report to retrieve. Supported values: TTM (trailing twelve months), A (as originally reported), R (restated values), P (preliminary announcements)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ac668658-c886-4e01-af80-54d7fb086f2e",
+              "name": "Enhanced fundamentals data with additional metrics and ratios",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a3ceb8a-affa-4921-af79-a606c731ba3a",
+              "name": "Bad request - missing or invalid symbols parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"upstream_api_error\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"auth_failed\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4481658-7cfa-4df7-995a-a42dbe139f21",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "198d4cda-2c87-470c-8b97-a9ae15a6127a",
+          "name": "Get Alpha Beta V2.1",
+          "request": {
+            "name": "Get Alpha Beta V2.1",
+            "description": {
+              "content": "Retrieve Alpha and Beta metrics for specified symbols. These metrics indicate volatility and performance relative to the market.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "fundamentals",
+                "alphaBeta"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma separated list of symbols (e.g., AAPL, MSFT)"
+                },
+                {
+                  "disabled": false,
+                  "key": "asOf",
+                  "value": "<string>",
+                  "description": "Return results for dates greater than or equal date specified in this parameter (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "Specifies the time period of the returned results (e.g., Q1, 2023)"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportType",
+                  "value": "<string>",
+                  "description": "Report type: TTM (Trailing Twelve Months), A (As originally reported), R (Restated), P (Preliminary)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b4be371b-709f-43d1-bb54-f55ad62876aa",
+              "name": "Alpha Beta data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "alphaBeta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c8995b80-23ed-4f10-a516-ee38ba179b8d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "alphaBeta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15b9cb46-332c-4046-9dbb-c5188d54e212",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "alphaBeta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "53f87a12-a932-4065-8155-232d5af4a67d",
+          "name": "Get Asset Classification V2.1",
+          "request": {
+            "name": "Get Asset Classification V2.1",
+            "description": {
+              "content": "Retrieve asset classification details for specified symbols, including sector, industry, and other classification metadata. Useful for portfolio categorization and analysis.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "fundamentals",
+                "assetClassification"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma separated list of symbols (e.g., AAPL, MSFT)"
+                },
+                {
+                  "disabled": false,
+                  "key": "asOf",
+                  "value": "<string>",
+                  "description": "Return results for dates greater than or equal date specified in this parameter (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "Specifies the time period of the returned results (e.g., Q1, 2023)"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportType",
+                  "value": "<string>",
+                  "description": "Report type: TTM (Trailing Twelve Months), A (As originally reported), R (Restated), P (Preliminary)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0ea07c55-4c7e-4366-b82d-69cf33522011",
+              "name": "Asset classification data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "assetClassification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1fc60c92-4b3f-4a24-a9bc-49677ab5c3b7",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "assetClassification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a9b1bcd9-ae9a-4e8c-918e-1f80643843fe",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "assetClassification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8eefd999-c661-485c-bdb5-746e28566406",
+          "name": "Company Financial Data V2.1",
+          "request": {
+            "name": "Company Financial Data V2.1",
+            "description": {
+              "content": "Retrieves detailed company-specific financial data including key metrics, operational statistics, and historical financial performance. Provides a comprehensive view of company financials beyond basic fundamentals.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "fundamentals",
+                "company"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,GOOGL). Required."
+                },
+                {
+                  "disabled": false,
+                  "key": "asOf",
+                  "value": "<string>",
+                  "description": "Filter results for dates on or after this date. Format: YYYY-MM-DD (e.g., 2024-01-01)"
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "Time period filter for financial reporting periods. Supported values: Q1, Q2, Q3, Q4 (quarters), FY (fiscal year), TTM (trailing twelve months)"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportType",
+                  "value": "<string>",
+                  "description": "Type of financial report. Supported values: TTM (trailing twelve months), A (as originally reported), R (restated values), P (preliminary announcements)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1519d1a2-97f9-4617-ba4e-7010eb48acf1",
+              "name": "Company financial data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d41d2a9-6d2d-4722-a9a6-472a2657b990",
+              "name": "Bad request - missing or invalid symbols parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "033fd40c-8250-42fb-bf8a-8c78b51d372b",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b8f61c8-82be-47e0-9738-9031da17784a",
+          "name": "Company Profile Information V2.1",
+          "request": {
+            "name": "Company Profile Information V2.1",
+            "description": {
+              "content": "Retrieves comprehensive company profile information including business description, industry classification, sector details, headquarters location, key executives, and other corporate metadata. Essential for understanding company background and organizational structure.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "fundamentals",
+                "companyProfile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,GOOGL). Required."
+                },
+                {
+                  "disabled": false,
+                  "key": "asOf",
+                  "value": "<string>",
+                  "description": "Filter results for dates on or after this date. Format: YYYY-MM-DD (e.g., 2024-01-01)"
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "Time period filter for financial reporting periods. Supported values: Q1, Q2, Q3, Q4 (quarters), FY (fiscal year), TTM (trailing twelve months)"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportType",
+                  "value": "<string>",
+                  "description": "Type of financial report. Supported values: TTM (trailing twelve months), A (as originally reported), R (restated values), P (preliminary announcements)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4c743885-8d08-4f78-a25c-6c2aa7381286",
+              "name": "Company profile data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "companyProfile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e20b8958-68c4-46a8-b88a-a003a746bd09",
+              "name": "Bad request - missing or invalid symbols parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "companyProfile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1c7865b-80c7-4ee8-af73-edced7f0ee0f",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "companyProfile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16e05d87-1d3c-4cd2-96b8-68e461896e73",
+          "name": "Get Earning Ratios V2.1",
+          "request": {
+            "name": "Get Earning Ratios V2.1",
+            "description": {
+              "content": "Retrieve earning ratios for a list of symbols. Includes metrics like P/E ratio, EPS, and other earnings-related ratios.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "fundamentals",
+                "earningRatios"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma separated list of symbols (e.g., AAPL, MSFT)"
+                },
+                {
+                  "disabled": false,
+                  "key": "asOf",
+                  "value": "<string>",
+                  "description": "Return results for dates greater than or equal date specified in this parameter (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "Specifies the time period of the returned results (e.g., Q1, 2023)"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportType",
+                  "value": "<string>",
+                  "description": "Report type: TTM (Trailing Twelve Months), A (As originally reported), R (Restated), P (Preliminary)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0064c64a-4555-4ac3-b87e-74a02847ed31",
+              "name": "Earning ratios data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "earningRatios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f4b3e4e-0c5e-4828-9cd9-c7169ac3313a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "earningRatios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51d196ec-e22a-4c7a-b23f-9acf657856e9",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "earningRatios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de6d665a-46fc-40e8-a795-b8284e3b21d8",
+          "name": "Quarterly and Annual Earnings Reports V2.1",
+          "request": {
+            "name": "Quarterly and Annual Earnings Reports V2.1",
+            "description": {
+              "content": "Retrieves detailed earnings reports for specified securities including revenue, earnings per share (EPS), EBITDA, net income, and other key financial results from quarterly and annual reports. Essential for analyzing company financial performance and earnings trends over time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "fundamentals",
+                "earningReports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,GOOGL). Required."
+                },
+                {
+                  "disabled": false,
+                  "key": "asOf",
+                  "value": "<string>",
+                  "description": "Filter results for dates on or after this date. Format: YYYY-MM-DD (e.g., 2024-01-01)"
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "Time period filter for financial reporting periods. Supported values: Q1, Q2, Q3, Q4 (quarters), FY (fiscal year), TTM (trailing twelve months)"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportType",
+                  "value": "<string>",
+                  "description": "Type of financial report. Supported values: TTM (trailing twelve months), A (as originally reported), R (restated values), P (preliminary announcements)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f12b97a2-940a-4cbb-8a74-ed109e93ca9c",
+              "name": "Earnings report data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "earningReports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "219da0e6-bb1e-471b-ad4e-6763fc23b64b",
+              "name": "Bad request - missing or invalid symbols parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "earningReports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0c7fa97a-d592-4469-9c31-b4b69eafc19f",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "earningReports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf40a2ae-d864-482f-a523-b8942a63b5da",
+          "name": "Get Financials V2.1",
+          "request": {
+            "name": "Get Financials V2.1",
+            "description": {
+              "content": "Retrieve financial statements for specified symbols. Includes data from balance sheets, income statements, and cash flow statements.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "fundamentals",
+                "financials"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma separated list of symbols (e.g., AAPL, MSFT)"
+                },
+                {
+                  "disabled": false,
+                  "key": "asOf",
+                  "value": "<string>",
+                  "description": "Return results for dates greater than or equal date specified in this parameter (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "Specifies the time period of the returned results (e.g., Q1, 2023)"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportType",
+                  "value": "<string>",
+                  "description": "Report type: TTM (Trailing Twelve Months), A (As originally reported), R (Restated), P (Preliminary)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "81a1d39e-09b0-4c82-87e3-d1f51236ecee",
+              "name": "Financial statements data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "financials"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb7598f3-3418-412b-9173-b9847c3534cd",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "financials"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a9fb14e1-3b5d-469a-9620-0fd85909ca99",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "financials"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7b7b22a-73fd-4c54-8d42-38668336c80f",
+          "name": "Get Operation Ratios V2.1",
+          "request": {
+            "name": "Get Operation Ratios V2.1",
+            "description": {
+              "content": "Retrieve operation ratios for a list of symbols. Includes metrics like operating margin, profit margin, ROA, ROE, and others.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "fundamentals",
+                "operationRatios"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma separated list of symbols (e.g., AAPL, MSFT)"
+                },
+                {
+                  "disabled": false,
+                  "key": "asOf",
+                  "value": "<string>",
+                  "description": "Return results for dates greater than or equal date specified in this parameter (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "Specifies the time period of the returned results (e.g., Q1, 2023)"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportType",
+                  "value": "<string>",
+                  "description": "Report type: TTM (Trailing Twelve Months), A (As originally reported), R (Restated), P (Preliminary)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4546827b-39cc-4355-af3c-36a1801b4650",
+              "name": "Operation ratios data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "operationRatios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d91c62f-e926-47a5-a278-2f4af23a5817",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "operationRatios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "861966c3-4849-4e61-bd02-56c16ab94de0",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "operationRatios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e1d903d-5480-4a52-9ce1-faab2ecbe2c4",
+          "name": "Get Share Class V2.1",
+          "request": {
+            "name": "Get Share Class V2.1",
+            "description": {
+              "content": "Retrieve share class information for specific symbols. Returns detailed share structure data including share class IDs, currency, and other related metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "fundamentals",
+                "shareClass"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma separated list of symbols (e.g., AAPL, MSFT)"
+                },
+                {
+                  "disabled": false,
+                  "key": "asOf",
+                  "value": "<string>",
+                  "description": "Return results for dates greater than or equal date specified in this parameter (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "Specifies the time period of the returned results (e.g., Q1, 2023)"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportType",
+                  "value": "<string>",
+                  "description": "Report type: TTM (Trailing Twelve Months), A (As originally reported), R (Restated), P (Preliminary)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dd53bc76-9088-49d1-b91f-b7f4ed455cb9",
+              "name": "Share class data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "shareClass"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "73b68207-d36d-401b-8511-c89b8a0f513d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "shareClass"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8b0caef-d381-4d36-b419-6ed864aeaa93",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "shareClass"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a2e9e63-513d-470a-8c3f-6aab36da1256",
+          "name": "Get Share Class Profile V2.1",
+          "request": {
+            "name": "Get Share Class Profile V2.1",
+            "description": {
+              "content": "Retrieve profile information for share classes, providing details about the share class characteristics and associated metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "fundamentals",
+                "shareClassProfile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma separated list of symbols (e.g., AAPL, MSFT)"
+                },
+                {
+                  "disabled": false,
+                  "key": "asOf",
+                  "value": "<string>",
+                  "description": "Return results for dates greater than or equal date specified in this parameter (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "Specifies the time period of the returned results (e.g., Q1, 2023)"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportType",
+                  "value": "<string>",
+                  "description": "Report type: TTM (Trailing Twelve Months), A (As originally reported), R (Restated), P (Preliminary)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bdecb508-14c9-47f3-b8a3-b13af24f1093",
+              "name": "Share class profile data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "shareClassProfile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb69759d-a113-4644-ab44-f104b4f466df",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "shareClassProfile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dec83274-596a-438f-9183-f1ee0421375f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "shareClassProfile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6bbb8e6-d960-44b4-8e88-547fdc6eea91",
+          "name": "Get Valuation Ratios V2.1",
+          "request": {
+            "name": "Get Valuation Ratios V2.1",
+            "description": {
+              "content": "Retrieve valuation ratios for a list of symbols. Includes metrics like P/E, P/B, P/S, and other valuation metrics essential for investment analysis.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2.1",
+                "fundamentals",
+                "valuationRatios"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma separated list of symbols (e.g., AAPL, MSFT)"
+                },
+                {
+                  "disabled": false,
+                  "key": "asOf",
+                  "value": "<string>",
+                  "description": "Return results for dates greater than or equal date specified in this parameter (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "Specifies the time period of the returned results (e.g., Q1, 2023)"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportType",
+                  "value": "<string>",
+                  "description": "Report type: TTM (Trailing Twelve Months), A (As originally reported), R (Restated), P (Preliminary)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "221ef7d2-b421-42c3-8003-ae6813fb8fac",
+              "name": "Valuation ratios data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "valuationRatios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cea00e0e-0439-4d81-9231-e94e176bee98",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "valuationRatios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "856c690d-ce65-4ad1-8659-bd4cde01431f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2.1",
+                    "fundamentals",
+                    "valuationRatios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "557e9cf2-5d3c-44cf-8db1-80f5a94fe821",
+          "name": "Company Fundamentals V2",
+          "request": {
+            "name": "Company Fundamentals V2",
+            "description": {
+              "content": "Retrieves comprehensive financial fundamentals data for specified securities. Returns key financial metrics, ratios, and company information from MorningStar data sources. Use this endpoint to access income statement, balance sheet, and cash flow statement data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "fundamentals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,GOOGL). Required."
+                },
+                {
+                  "disabled": false,
+                  "key": "asOf",
+                  "value": "<string>",
+                  "description": "Filter results for dates on or after this date. Format: YYYY-MM-DD (e.g., 2024-01-01)"
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "Time period filter for financial reporting periods. Supported values: Q1 (first quarter), Q2 (second quarter), Q3 (third quarter), Q4 (fourth quarter), FY (fiscal year), TTM (trailing twelve months)"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportType",
+                  "value": "<string>",
+                  "description": "Type of financial report to retrieve. Supported values: TTM (trailing twelve months), A (as originally reported), R (restated values), P (preliminary announcements)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3604ddb0-9b62-48b5-a670-320287055e45",
+              "name": "Fundamentals data including financial statements and metrics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "fundamentals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d74d85ca-1cd4-4d5c-8785-3c047d0f0734",
+              "name": "Bad request - missing or invalid symbols parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "fundamentals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5b35367c-0288-4a06-90ca-6333f6eba9e2",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "fundamentals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d42c01a-060d-4257-bdcc-bc0fc64ea42d",
+          "name": "Operational Efficiency Ratios V2",
+          "request": {
+            "name": "Operational Efficiency Ratios V2",
+            "description": {
+              "content": "Retrieves operational efficiency ratios and metrics for specified securities. Includes key performance indicators such as asset turnover, inventory turnover, receivables turnover, payables period, and other operational metrics that measure how effectively a company utilizes its assets and manages operations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "fundamentals",
+                "operationRatios"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,GOOGL). Required."
+                },
+                {
+                  "disabled": false,
+                  "key": "asOf",
+                  "value": "<string>",
+                  "description": "Filter results for dates on or after this date. Format: YYYY-MM-DD (e.g., 2024-01-01)"
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "Time period filter for financial reporting periods. Supported values: Q1, Q2, Q3, Q4 (quarters), FY (fiscal year), TTM (trailing twelve months)"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportType",
+                  "value": "<string>",
+                  "description": "Type of financial report. Supported values: TTM (trailing twelve months), A (as originally reported), R (restated values), P (preliminary announcements)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4f30ff78-a8ad-4cff-9fe9-f7613c81d5c6",
+              "name": "Operational efficiency ratios and metrics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "fundamentals",
+                    "operationRatios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e3e57b02-17ba-4106-a1f1-9ca7a758d4b1",
+              "name": "Bad request - missing or invalid symbols parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "fundamentals",
+                    "operationRatios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5564e7d-ca47-4841-b8e6-62d20f763833",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "fundamentals",
+                    "operationRatios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "asOf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "47dcf18f-5936-4ab7-9eb8-721705bfbb5a",
+          "name": "Company Fundamentals V3",
+          "request": {
+            "name": "Company Fundamentals V3",
+            "description": {
+              "content": "Retrieves the latest generation of financial fundamentals data powered by Benzinga's enhanced data pipeline. Provides comprehensive financial statements, metrics, and ratios with improved data quality and coverage. Supports flexible date range queries and relative date specifications.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "fundamentals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,GOOGL). Required."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "Start date for query. Supports multiple formats: YYYY-MM-DD (e.g., 2024-01-01), YTD (year-to-date from Jan 1), or relative dates like 1MONTH/1m/1M (1 month ago), 1WEEK/1w/1W (1 week ago), 1DAY/1d/1D (1 day ago)"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "End date for query. Format: YYYY-MM-DD (e.g., 2024-12-31). Returns data up to and including this date. Defaults to current date if not specified."
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "Report type filter for financial statements. Supported values: TTM (trailing twelve months), A (as originally reported), R (restated values), P (preliminary announcements)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "50c759fa-d0eb-4607-8f5a-9c46aca8bf43",
+              "name": "Latest fundamentals data with enhanced coverage and quality",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "fundamentals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "95835a5c-d103-47f8-8446-1c3cbf1f7386",
+              "name": "Bad request - missing or invalid symbols parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "fundamentals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fce8b5d9-fb4d-4b30-b146-59fb802cc944",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "fundamentals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09dd128c-f955-46ca-be13-acb5b1baab0f",
+          "name": "Get Balance Sheet V3",
+          "request": {
+            "name": "Get Balance Sheet V3",
+            "description": {
+              "content": "Retrieve balance sheet data for specified symbols. Includes assets, liabilities, and equity details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "fundamentals",
+                "balance-sheet"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of stock ticker symbols (e.g., AAPL, MSFT)"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "Start date for query in YYYY-MM-DD format. Supports: YYYY-MM-DD, YTD (year-to-date), 1MONTH/1m/1M (1 month ago)"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "End date for query in YYYY-MM-DD format. Returns data up to and including this date."
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "Report type filter. Values: TTM (trailing twelve months), A (as reported), R (restated), P (preliminary)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fc9664a4-fa4d-4ace-96da-434986711690",
+              "name": "Balance sheet data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "fundamentals",
+                    "balance-sheet"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fbdacaed-b743-4025-92b6-d4edc7064715",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "fundamentals",
+                    "balance-sheet"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "73ab3a64-b135-49b5-a4bf-243bd3d1b6eb",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "fundamentals",
+                    "balance-sheet"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8af7975-9222-4c17-aeba-897bdb4a96f2",
+          "name": "Get Cash Flow V3",
+          "request": {
+            "name": "Get Cash Flow V3",
+            "description": {
+              "content": "Retrieve detailed cash flow statement data for specified symbols. Includes operating, investing, and financing cash flows.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "fundamentals",
+                "cash-flow"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma separated list of symbols (e.g., AAPL, MSFT)"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "Start date for query in YYYY-MM-DD format. Supports: YYYY-MM-DD, YTD (year-to-date), 1MONTH/1m/1M (1 month ago)"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "End date for query in YYYY-MM-DD format. Returns data up to and including this date."
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "Report type filter. Values: TTM (trailing twelve months), A (as reported), R (restated), P (preliminary)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b5b09509-ebba-4d17-9ac4-23452f38e41a",
+              "name": "Cash flow statement data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "fundamentals",
+                    "cash-flow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a53af13-5dae-4dc0-b238-adcfdf38bfdd",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "fundamentals",
+                    "cash-flow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "17982deb-8d39-4d9c-9017-fc2ab8f9591b",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "fundamentals",
+                    "cash-flow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c875aa0c-06ee-45df-af86-8fe57e3b67bc",
+          "name": "Get Derived Figures and Ratios V3",
+          "request": {
+            "name": "Get Derived Figures and Ratios V3",
+            "description": {
+              "content": "Retrieve derived financial figures and ratios for a list of symbols. Includes calculated metrics essential for financial analysis.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "fundamentals",
+                "derived"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma separated list of symbols (e.g., AAPL, MSFT)"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "Start date for query in YYYY-MM-DD format. Supports: YYYY-MM-DD, YTD (year-to-date), 1MONTH/1m/1M (1 month ago)"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "End date for query in YYYY-MM-DD format. Returns data up to and including this date."
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "Report type filter. Values: TTM (trailing twelve months), A (as reported), R (restated), P (preliminary)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f318fe18-0050-4dfb-9b45-5b1a7f4cae7b",
+              "name": "Derived figures and ratios data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "fundamentals",
+                    "derived"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc2ee664-22de-4c21-8515-95f99ee8c1c2",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "fundamentals",
+                    "derived"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4e524135-bebb-421a-9a79-52e5b9e826ce",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "fundamentals",
+                    "derived"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5174fdde-1aa2-4c92-b9c0-424187596cd6",
+          "name": "Income Statement Data V3",
+          "request": {
+            "name": "Income Statement Data V3",
+            "description": {
+              "content": "Retrieves comprehensive income statement data for specified securities. Includes revenue, cost of goods sold, operating expenses, operating income, interest expense, taxes, net income, and earnings per share. Essential for analyzing company profitability and operational performance over time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "fundamentals",
+                "income-statement"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,GOOGL). Required."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "Start date for query. Supports multiple formats: YYYY-MM-DD (e.g., 2024-01-01), YTD (year-to-date from Jan 1), or relative dates like 1MONTH/1m/1M (1 month ago)"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "End date for query. Format: YYYY-MM-DD (e.g., 2024-12-31). Returns data up to and including this date."
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "Report type filter for financial statements. Supported values: TTM (trailing twelve months), A (as originally reported), R (restated values), P (preliminary announcements)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cccf6472-3dbd-4941-bf57-4c0d393f6295",
+              "name": "Income statement data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "fundamentals",
+                    "income-statement"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a6879c46-7f87-42f8-8ee2-23c95436fd13",
+              "name": "Bad request - missing or invalid symbols parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "fundamentals",
+                    "income-statement"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "859047bd-f47f-48fb-8f55-27c12f368f9c",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "fundamentals",
+                    "income-statement"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8934d3b2-ba2e-4cf1-a7d8-88e6896f460e",
+          "name": "Get Share Price Ratios V3",
+          "request": {
+            "name": "Get Share Price Ratios V3",
+            "description": {
+              "content": "Retrieve share price ratios for specified symbols. Includes metrics like price-to-earnings, price-to-sales, and other price-based ratios.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "fundamentals",
+                "share-price-ratios"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of stock ticker symbols (e.g., AAPL, MSFT)"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "Start date for query in YYYY-MM-DD format. Supports: YYYY-MM-DD, YTD (year-to-date), 1MONTH/1m/1M (1 month ago)"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "End date for query in YYYY-MM-DD format. Returns data up to and including this date."
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "Report type filter. Values: TTM (trailing twelve months), A (as reported), R (restated), P (preliminary)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d8ad535d-764c-4026-ac6d-c5a9ec31cd51",
+              "name": "Share price ratios data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "fundamentals",
+                    "share-price-ratios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3e0ada84-6264-4cd8-92da-94b5835531b8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "fundamentals",
+                    "share-price-ratios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7386d4e5-eecf-429a-9450-a6671c4e1be4",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "fundamentals",
+                    "share-price-ratios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": false,\n    \"key_1\": true,\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"code\": \"forbidden\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"code\": \"bad_request\",\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ],\n  \"ok\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9f6412e3-37f8-4479-a790-faf1fb653488",
+    "name": "Analyst Reports Raw Text Analyst Insights Fundamentals API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

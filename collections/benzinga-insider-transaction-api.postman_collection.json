@@ -1,0 +1,836 @@
+{
+  "item": [
+    {
+      "id": "4de6dd0f-b827-4970-b94c-057fe36c9bb9",
+      "name": "Insider Transaction",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "008059bc-0d70-4720-b4cc-7269a94e1953",
+          "name": "Insider Transactions",
+          "request": {
+            "name": "Insider Transactions",
+            "description": {
+              "content": "Returns insider transaction data from SEC Form 4 filings. Use /filings endpoint for grouped filing view (transactions nested under each filing) or /transactions endpoint for flattened individual transaction view. Both endpoints support the same query parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sec",
+                "insider_transactions",
+                ":view_type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "100",
+                  "description": "Number of results returned. Limit 1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<date>",
+                  "description": "Start date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<date>",
+                  "description": "End date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_since",
+                  "value": "<integer>",
+                  "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "Date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "key": "chamber",
+                  "value": "<string>",
+                  "description": "Chamber"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Fields"
+                },
+                {
+                  "disabled": false,
+                  "key": "search_keys_type",
+                  "value": "<string>",
+                  "description": "Search keys type"
+                },
+                {
+                  "disabled": false,
+                  "key": "search_keys",
+                  "value": "<string>",
+                  "description": "Search keys"
+                },
+                {
+                  "disabled": false,
+                  "key": "display",
+                  "value": "<string>",
+                  "description": "Display"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "view_type",
+                  "description": "(Required) Response format: 'filings' returns grouped filing view with transactions nested, 'transactions' returns flattened individual transaction view"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "278554b1-3199-42ea-9e0b-6457bab7df59",
+              "name": "Insider Transaction data. Response structure varies by endpoint: /filings returns nested filing data, /transactions returns flattened transaction data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sec",
+                    "insider_transactions",
+                    ":view_type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "chamber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "display",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "view_type",
+                      "description": "(Required) Response format: 'filings' returns grouped filing view with transactions nested, 'transactions' returns flattened individual transaction view"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"accession_number\": \"0001127602-24-000123\",\n      \"company_cik\": \"string\",\n      \"company_name\": \"Apple Inc.\",\n      \"company_symbol\": \"AAPL\",\n      \"filing_date\": \"2024-01-09T00:00:00Z\",\n      \"footnotes\": [\n        {\n          \"id\": \"F1\",\n          \"text\": \"Shares were sold pursuant to a Rule 10b5-1 trading plan\"\n        },\n        {\n          \"id\": \"F1\",\n          \"text\": \"Shares were sold pursuant to a Rule 10b5-1 trading plan\"\n        }\n      ],\n      \"form_type\": \"4\",\n      \"html_url\": \"https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000320193\",\n      \"id\": \"64a1b2c3d4e5f6789012345\",\n      \"is_10b5\": true,\n      \"owner\": {\n        \"insider_cik\": \"0001234567\",\n        \"insider_name\": \"Tim Cook\",\n        \"insider_title\": \"Chief Executive Officer\",\n        \"is_director\": true,\n        \"is_officer\": true,\n        \"is_ten_percent_owner\": false,\n        \"raw_signature\": \"/s/ Tim Cook\"\n      },\n      \"remaining_shares\": \"125000\",\n      \"remaining_underlying_shares\": \"50000\",\n      \"traded_percentage\": \"15.5\",\n      \"transactions\": [\n        {\n          \"acquired_or_disposed\": \"D\",\n          \"conversion_exercise_price_derivative\": \"150.25\",\n          \"date_deemed_execution\": \"2024-01-09T00:00:00Z\",\n          \"date_exercisable\": \"2024-01-09T00:00:00Z\",\n          \"date_expiration\": \"2025-01-09T00:00:00Z\",\n          \"date_transaction\": \"2024-01-09T00:00:00Z\",\n          \"is_derivative\": false,\n          \"ownership\": \"Direct\",\n          \"post_transaction_quantity\": \"250000\",\n          \"price_per_share\": \"150.25\",\n          \"remaining_underlying_shares\": \"50000\",\n          \"security_title\": \"Common Stock\",\n          \"shares\": \"10000\",\n          \"transaction_code\": \"S\",\n          \"transaction_id\": \"TXN-20240109-001\",\n          \"underlying_security_title\": \"Common Stock\",\n          \"underlying_shares\": \"10000\",\n          \"voluntarily_reported\": false\n        },\n        {\n          \"acquired_or_disposed\": \"D\",\n          \"conversion_exercise_price_derivative\": \"150.25\",\n          \"date_deemed_execution\": \"2024-01-09T00:00:00Z\",\n          \"date_exercisable\": \"2024-01-09T00:00:00Z\",\n          \"date_expiration\": \"2025-01-09T00:00:00Z\",\n          \"date_transaction\": \"2024-01-09T00:00:00Z\",\n          \"is_derivative\": false,\n          \"ownership\": \"Direct\",\n          \"post_transaction_quantity\": \"250000\",\n          \"price_per_share\": \"150.25\",\n          \"remaining_underlying_shares\": \"50000\",\n          \"security_title\": \"Common Stock\",\n          \"shares\": \"10000\",\n          \"transaction_code\": \"S\",\n          \"transaction_id\": \"TXN-20240109-001\",\n          \"underlying_security_title\": \"Common Stock\",\n          \"underlying_shares\": \"10000\",\n          \"voluntarily_reported\": false\n        }\n      ],\n      \"updated\": 1704758400\n    },\n    {\n      \"accession_number\": \"0001127602-24-000123\",\n      \"company_cik\": \"string\",\n      \"company_name\": \"Apple Inc.\",\n      \"company_symbol\": \"AAPL\",\n      \"filing_date\": \"2024-01-09T00:00:00Z\",\n      \"footnotes\": [\n        {\n          \"id\": \"F1\",\n          \"text\": \"Shares were sold pursuant to a Rule 10b5-1 trading plan\"\n        },\n        {\n          \"id\": \"F1\",\n          \"text\": \"Shares were sold pursuant to a Rule 10b5-1 trading plan\"\n        }\n      ],\n      \"form_type\": \"4\",\n      \"html_url\": \"https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000320193\",\n      \"id\": \"64a1b2c3d4e5f6789012345\",\n      \"is_10b5\": true,\n      \"owner\": {\n        \"insider_cik\": \"0001234567\",\n        \"insider_name\": \"Tim Cook\",\n        \"insider_title\": \"Chief Executive Officer\",\n        \"is_director\": true,\n        \"is_officer\": true,\n        \"is_ten_percent_owner\": false,\n        \"raw_signature\": \"/s/ Tim Cook\"\n      },\n      \"remaining_shares\": \"125000\",\n      \"remaining_underlying_shares\": \"50000\",\n      \"traded_percentage\": \"15.5\",\n      \"transactions\": [\n        {\n          \"acquired_or_disposed\": \"D\",\n          \"conversion_exercise_price_derivative\": \"150.25\",\n          \"date_deemed_execution\": \"2024-01-09T00:00:00Z\",\n          \"date_exercisable\": \"2024-01-09T00:00:00Z\",\n          \"date_expiration\": \"2025-01-09T00:00:00Z\",\n          \"date_transaction\": \"2024-01-09T00:00:00Z\",\n          \"is_derivative\": false,\n          \"ownership\": \"Direct\",\n          \"post_transaction_quantity\": \"250000\",\n          \"price_per_share\": \"150.25\",\n          \"remaining_underlying_shares\": \"50000\",\n          \"security_title\": \"Common Stock\",\n          \"shares\": \"10000\",\n          \"transaction_code\": \"S\",\n          \"transaction_id\": \"TXN-20240109-001\",\n          \"underlying_security_title\": \"Common Stock\",\n          \"underlying_shares\": \"10000\",\n          \"voluntarily_reported\": false\n        },\n        {\n          \"acquired_or_disposed\": \"D\",\n          \"conversion_exercise_price_derivative\": \"150.25\",\n          \"date_deemed_execution\": \"2024-01-09T00:00:00Z\",\n          \"date_exercisable\": \"2024-01-09T00:00:00Z\",\n          \"date_expiration\": \"2025-01-09T00:00:00Z\",\n          \"date_transaction\": \"2024-01-09T00:00:00Z\",\n          \"is_derivative\": false,\n          \"ownership\": \"Direct\",\n          \"post_transaction_quantity\": \"250000\",\n          \"price_per_share\": \"150.25\",\n          \"remaining_underlying_shares\": \"50000\",\n          \"security_title\": \"Common Stock\",\n          \"shares\": \"10000\",\n          \"transaction_code\": \"S\",\n          \"transaction_id\": \"TXN-20240109-001\",\n          \"underlying_security_title\": \"Common Stock\",\n          \"underlying_shares\": \"10000\",\n          \"voluntarily_reported\": false\n        }\n      ],\n      \"updated\": 1704758400\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "764fb064-2075-41ea-9098-215cdbb8ae85",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sec",
+                    "insider_transactions",
+                    ":view_type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "chamber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "display",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "view_type",
+                      "description": "(Required) Response format: 'filings' returns grouped filing view with transactions nested, 'transactions' returns flattened individual transaction view"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f651bf74-1db9-48e7-b050-34501ae86ee0",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sec",
+                    "insider_transactions",
+                    ":view_type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "chamber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "display",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "view_type",
+                      "description": "(Required) Response format: 'filings' returns grouped filing view with transactions nested, 'transactions' returns flattened individual transaction view"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "85d6fb00-5d31-4461-9ed2-945f74ddeee4",
+          "name": "Insider Transaction Owner",
+          "request": {
+            "name": "Insider Transaction Owner",
+            "description": {
+              "content": "Returns information about insider transaction owners, including company officers, directors, and beneficial owners",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sec",
+                "insider_transactions",
+                "owners"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date. Default is 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagesize",
+                  "value": "100",
+                  "description": "Number of results returned. Limit 1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<date>",
+                  "description": "Start date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<date>",
+                  "description": "End date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_since",
+                  "value": "<integer>",
+                  "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "Date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "key": "chamber",
+                  "value": "<string>",
+                  "description": "Chamber"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Fields"
+                },
+                {
+                  "disabled": false,
+                  "key": "search_keys_type",
+                  "value": "<string>",
+                  "description": "Search keys type"
+                },
+                {
+                  "disabled": false,
+                  "key": "search_keys",
+                  "value": "<string>",
+                  "description": "Search keys"
+                },
+                {
+                  "disabled": false,
+                  "key": "display",
+                  "value": "<string>",
+                  "description": "Display"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "query"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "76af7349-ff78-490a-8a97-d5e3959ef85f",
+              "name": "Insider Transaction Owner",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sec",
+                    "insider_transactions",
+                    "owners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "chamber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "display",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"accession_number\": \"0001127602-24-000123\",\n      \"company_cik\": \"string\",\n      \"company_name\": \"Apple Inc.\",\n      \"company_symbol\": \"AAPL\",\n      \"filing_date\": \"2024-01-09T00:00:00Z\",\n      \"footnotes\": [\n        {\n          \"id\": \"F1\",\n          \"text\": \"Shares were sold pursuant to a Rule 10b5-1 trading plan\"\n        },\n        {\n          \"id\": \"F1\",\n          \"text\": \"Shares were sold pursuant to a Rule 10b5-1 trading plan\"\n        }\n      ],\n      \"form_type\": \"4\",\n      \"html_url\": \"https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000320193\",\n      \"id\": \"64a1b2c3d4e5f6789012345\",\n      \"is_10b5\": true,\n      \"owner\": {\n        \"insider_cik\": \"0001234567\",\n        \"insider_name\": \"Tim Cook\",\n        \"insider_title\": \"Chief Executive Officer\",\n        \"is_director\": true,\n        \"is_officer\": true,\n        \"is_ten_percent_owner\": false,\n        \"raw_signature\": \"/s/ Tim Cook\"\n      },\n      \"remaining_shares\": \"125000\",\n      \"remaining_underlying_shares\": \"50000\",\n      \"traded_percentage\": \"15.5\",\n      \"transactions\": [\n        {\n          \"acquired_or_disposed\": \"D\",\n          \"conversion_exercise_price_derivative\": \"150.25\",\n          \"date_deemed_execution\": \"2024-01-09T00:00:00Z\",\n          \"date_exercisable\": \"2024-01-09T00:00:00Z\",\n          \"date_expiration\": \"2025-01-09T00:00:00Z\",\n          \"date_transaction\": \"2024-01-09T00:00:00Z\",\n          \"is_derivative\": false,\n          \"ownership\": \"Direct\",\n          \"post_transaction_quantity\": \"250000\",\n          \"price_per_share\": \"150.25\",\n          \"remaining_underlying_shares\": \"50000\",\n          \"security_title\": \"Common Stock\",\n          \"shares\": \"10000\",\n          \"transaction_code\": \"S\",\n          \"transaction_id\": \"TXN-20240109-001\",\n          \"underlying_security_title\": \"Common Stock\",\n          \"underlying_shares\": \"10000\",\n          \"voluntarily_reported\": false\n        },\n        {\n          \"acquired_or_disposed\": \"D\",\n          \"conversion_exercise_price_derivative\": \"150.25\",\n          \"date_deemed_execution\": \"2024-01-09T00:00:00Z\",\n          \"date_exercisable\": \"2024-01-09T00:00:00Z\",\n          \"date_expiration\": \"2025-01-09T00:00:00Z\",\n          \"date_transaction\": \"2024-01-09T00:00:00Z\",\n          \"is_derivative\": false,\n          \"ownership\": \"Direct\",\n          \"post_transaction_quantity\": \"250000\",\n          \"price_per_share\": \"150.25\",\n          \"remaining_underlying_shares\": \"50000\",\n          \"security_title\": \"Common Stock\",\n          \"shares\": \"10000\",\n          \"transaction_code\": \"S\",\n          \"transaction_id\": \"TXN-20240109-001\",\n          \"underlying_security_title\": \"Common Stock\",\n          \"underlying_shares\": \"10000\",\n          \"voluntarily_reported\": false\n        }\n      ],\n      \"updated\": 1704758400\n    },\n    {\n      \"accession_number\": \"0001127602-24-000123\",\n      \"company_cik\": \"string\",\n      \"company_name\": \"Apple Inc.\",\n      \"company_symbol\": \"AAPL\",\n      \"filing_date\": \"2024-01-09T00:00:00Z\",\n      \"footnotes\": [\n        {\n          \"id\": \"F1\",\n          \"text\": \"Shares were sold pursuant to a Rule 10b5-1 trading plan\"\n        },\n        {\n          \"id\": \"F1\",\n          \"text\": \"Shares were sold pursuant to a Rule 10b5-1 trading plan\"\n        }\n      ],\n      \"form_type\": \"4\",\n      \"html_url\": \"https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000320193\",\n      \"id\": \"64a1b2c3d4e5f6789012345\",\n      \"is_10b5\": true,\n      \"owner\": {\n        \"insider_cik\": \"0001234567\",\n        \"insider_name\": \"Tim Cook\",\n        \"insider_title\": \"Chief Executive Officer\",\n        \"is_director\": true,\n        \"is_officer\": true,\n        \"is_ten_percent_owner\": false,\n        \"raw_signature\": \"/s/ Tim Cook\"\n      },\n      \"remaining_shares\": \"125000\",\n      \"remaining_underlying_shares\": \"50000\",\n      \"traded_percentage\": \"15.5\",\n      \"transactions\": [\n        {\n          \"acquired_or_disposed\": \"D\",\n          \"conversion_exercise_price_derivative\": \"150.25\",\n          \"date_deemed_execution\": \"2024-01-09T00:00:00Z\",\n          \"date_exercisable\": \"2024-01-09T00:00:00Z\",\n          \"date_expiration\": \"2025-01-09T00:00:00Z\",\n          \"date_transaction\": \"2024-01-09T00:00:00Z\",\n          \"is_derivative\": false,\n          \"ownership\": \"Direct\",\n          \"post_transaction_quantity\": \"250000\",\n          \"price_per_share\": \"150.25\",\n          \"remaining_underlying_shares\": \"50000\",\n          \"security_title\": \"Common Stock\",\n          \"shares\": \"10000\",\n          \"transaction_code\": \"S\",\n          \"transaction_id\": \"TXN-20240109-001\",\n          \"underlying_security_title\": \"Common Stock\",\n          \"underlying_shares\": \"10000\",\n          \"voluntarily_reported\": false\n        },\n        {\n          \"acquired_or_disposed\": \"D\",\n          \"conversion_exercise_price_derivative\": \"150.25\",\n          \"date_deemed_execution\": \"2024-01-09T00:00:00Z\",\n          \"date_exercisable\": \"2024-01-09T00:00:00Z\",\n          \"date_expiration\": \"2025-01-09T00:00:00Z\",\n          \"date_transaction\": \"2024-01-09T00:00:00Z\",\n          \"is_derivative\": false,\n          \"ownership\": \"Direct\",\n          \"post_transaction_quantity\": \"250000\",\n          \"price_per_share\": \"150.25\",\n          \"remaining_underlying_shares\": \"50000\",\n          \"security_title\": \"Common Stock\",\n          \"shares\": \"10000\",\n          \"transaction_code\": \"S\",\n          \"transaction_id\": \"TXN-20240109-001\",\n          \"underlying_security_title\": \"Common Stock\",\n          \"underlying_shares\": \"10000\",\n          \"voluntarily_reported\": false\n        }\n      ],\n      \"updated\": 1704758400\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e423f82-09f5-4fd0-ab34-f949b0fcd5dd",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sec",
+                    "insider_transactions",
+                    "owners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "chamber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "display",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6da96d3a-c0a0-440c-a32a-5ad632a7a811",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sec",
+                    "insider_transactions",
+                    "owners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pagesize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "updated_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "chamber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_keys",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "display",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.benzinga.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2d3a1c25-fb1f-4455-935f-91c862a07bd1",
+    "name": "Analyst Reports Raw Text Analyst Insights Insider Transaction API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This REST API provides endpoints to get analyst report details.",
+      "type": "text/plain"
+    }
+  }
+}

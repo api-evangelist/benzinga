@@ -1,0 +1,164 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analyst Reports Raw Text Analyst Insights ipos API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ipos",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "IPOs V2.1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2.1/calendar/ipos",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              },
+              {
+                "name": "ipo_date",
+                "value": "",
+                "type": "query",
+                "description": "Date of IPO in YYYY-MM-DD format (new preferred parameter)"
+              },
+              {
+                "name": "parameters[ipo_date]",
+                "value": "",
+                "type": "query",
+                "description": "Date of IPO in YYYY-MM-DD format (deprecated)"
+              },
+              {
+                "name": "parameters[date_from]",
+                "value": "",
+                "type": "query",
+                "description": "Start date in YYYY-MM-DD format"
+              },
+              {
+                "name": "parameters[date_to]",
+                "value": "",
+                "type": "query",
+                "description": "End date in YYYY-MM-DD format"
+              },
+              {
+                "name": "parameters[tickers]",
+                "value": "",
+                "type": "query",
+                "description": "Tickers"
+              },
+              {
+                "name": "parameters[ipo_type]",
+                "value": "",
+                "type": "query",
+                "description": "IPO type"
+              },
+              {
+                "name": "parameters[updated]",
+                "value": "",
+                "type": "query",
+                "description": "Updated time in Unix format"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Returns Initial Public Offering (IPO) data including pricing information, underwriters, deal status, and offering details"
+        },
+        {
+          "info": {
+            "name": "Returns ipo data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.benzinga.com/api/v2/calendar/ipos",
+            "headers": [
+              {
+                "name": "accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page offset. For optimization, performance and technical reasons, page offsets are limited from 0 - 100000. Limit the query results by other parameters such as date"
+              },
+              {
+                "name": "pagesize",
+                "value": "",
+                "type": "query",
+                "description": "Number of results returned. Limit 1000"
+              },
+              {
+                "name": "parameters[date]",
+                "value": "",
+                "type": "query",
+                "description": "Date to query for calendar data. Shorthand for date_from and date_to if they are the same. Defaults for latest"
+              },
+              {
+                "name": "parameters[date_from]",
+                "value": "",
+                "type": "query",
+                "description": "Date to query from point in time"
+              },
+              {
+                "name": "parameters[date_to]",
+                "value": "",
+                "type": "query",
+                "description": "Date to query to point in time"
+              },
+              {
+                "name": "parameters[tickers]",
+                "value": "",
+                "type": "query",
+                "description": "One or more ticker symbols separated by a comma. Maximum 50 tickers. Note that new tickers may not return results right away"
+              },
+              {
+                "name": "parameters[ipo_type]",
+                "value": "",
+                "type": "query",
+                "description": "One or more IPO types separated by a comma. Example: Ordinary Shares,SPAC"
+              },
+              {
+                "name": "parameters[updated]",
+                "value": "",
+                "type": "query",
+                "description": "Records last Updated Unix timestamp (UTC). This will force the sort order to be Greater Than or Equal to the timestamp indicated"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "query"
+            }
+          },
+          "docs": "Returns Initial Public Offering (IPO) data including pricing information, underwriters, deal status, and offering details. IPOs represent when a private company first offers shares to the public. Note that for the IPOs endpoint, new tickers may not return results right away as they are not automatically linked to the underlying company's data. To obtain the most recent rows, send queries without the tickers parameter specified."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
