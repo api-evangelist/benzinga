@@ -36,7 +36,7 @@ tags:
 - Streaming
 created: '2026-07-21'
 modified: '2026-07-22'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: benzinga:benzinga-newsfeed-api
   name: Benzinga Newsfeed & Why Is It Moving API
