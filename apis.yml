@@ -42,6 +42,10 @@ apis:
   name: Benzinga Newsfeed & Why Is It Moving API
   tags:
   - News
+  - News Feed
+  - WIIM
+  tags_raw:
+  - News
   - Newsfeed
   - WIIM
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
@@ -122,6 +126,9 @@ apis:
 - aid: benzinga:benzinga-webhook-api
   name: Benzinga Data Webhook Engine
   tags:
+  - Webhook
+  - Push Delivery
+  tags_raw:
   - Webhooks
   - Push Delivery
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
@@ -354,6 +361,8 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
+  - Calls
+  tags_raw:
   - calls
   properties:
   - type: OpenAPI
@@ -433,7 +442,8 @@ apis:
   description: The conference_calls API from Benzinga — 1 operation(s) for conference_calls.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
-  tags:
+  tags: []
+  tags_raw:
   - conference_calls
   properties:
   - type: OpenAPI
@@ -473,7 +483,8 @@ apis:
   description: The consensus_ratings API from Benzinga — 1 operation(s) for consensus_ratings.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
-  tags:
+  tags: []
+  tags_raw:
   - consensus_ratings
   properties:
   - type: OpenAPI
@@ -554,6 +565,8 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
+  - Earnings
+  tags_raw:
   - earnings
   properties:
   - type: OpenAPI
@@ -594,6 +607,8 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
+  - Economics
+  tags_raw:
   - economics
   properties:
   - type: OpenAPI
@@ -674,6 +689,8 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
+  - Event
+  tags_raw:
   - events
   properties:
   - type: OpenAPI
@@ -714,6 +731,8 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
+  - FDA
+  tags_raw:
   - fda
   properties:
   - type: OpenAPI
@@ -874,6 +893,8 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
+  - Guidance
+  tags_raw:
   - guidance
   properties:
   - type: OpenAPI
@@ -994,6 +1015,8 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
+  - IPOs
+  tags_raw:
   - ipos
   properties:
   - type: OpenAPI
@@ -1034,6 +1057,8 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
+  - Logos
+  tags_raw:
   - logos
   properties:
   - type: OpenAPI
@@ -1194,6 +1219,8 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
+  - Offerings
+  tags_raw:
   - offerings
   properties:
   - type: OpenAPI
@@ -1274,6 +1301,8 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
+  - Participants
+  tags_raw:
   - participants
   properties:
   - type: OpenAPI
@@ -1353,7 +1382,8 @@ apis:
   description: The ratings_analysts API from Benzinga — 1 operation(s) for ratings_analysts.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
-  tags:
+  tags: []
+  tags_raw:
   - ratings_analysts
   properties:
   - type: OpenAPI
@@ -1394,6 +1424,8 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
+  - Ratings
+  tags_raw:
   - ratings
   properties:
   - type: OpenAPI
@@ -1433,7 +1465,8 @@ apis:
   description: The ratings_firms API from Benzinga — 1 operation(s) for ratings_firms.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
-  tags:
+  tags: []
+  tags_raw:
   - ratings_firms
   properties:
   - type: OpenAPI
@@ -1474,6 +1507,8 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
+  - Removed
+  tags_raw:
   - removed
   properties:
   - type: OpenAPI
@@ -1514,6 +1549,8 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
+  - Split
+  tags_raw:
   - splits
   properties:
   - type: OpenAPI
@@ -1554,6 +1591,8 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
+  - Status
+  tags_raw:
   - status
   properties:
   - type: OpenAPI
@@ -1594,6 +1633,8 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
+  - Summary
+  tags_raw:
   - summaries
   properties:
   - type: OpenAPI
@@ -1634,6 +1675,8 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
+  - Transcripts
+  tags_raw:
   - transcripts
   properties:
   - type: OpenAPI
