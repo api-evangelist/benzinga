@@ -54,7 +54,7 @@ apis:
   name: Benzinga Newsfeed & Why Is It Moving API
   tags:
   - News
-  - Newsfeed
+  - News Feed
   - WIIM
   tags_raw:
   - News
@@ -577,7 +577,7 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
-  - earnings
+  - Earnings
   tags_raw:
   - earnings
   properties:
@@ -619,7 +619,7 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
-  - economics
+  - Economics
   tags_raw:
   - economics
   properties:
@@ -743,7 +743,7 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
-  - fda
+  - FDA
   tags_raw:
   - fda
   properties:
@@ -905,7 +905,7 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
-  - guidance
+  - Guidance
   tags_raw:
   - guidance
   properties:
@@ -1027,7 +1027,7 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
-  - ipos
+  - IPOs
   tags_raw:
   - ipos
   properties:
@@ -1069,7 +1069,7 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
-  - logos
+  - Logos
   tags_raw:
   - logos
   properties:
@@ -1231,7 +1231,7 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
-  - offerings
+  - Offerings
   tags_raw:
   - offerings
   properties:
@@ -1313,7 +1313,7 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
-  - participants
+  - Participants
   tags_raw:
   - participants
   properties:
@@ -1436,7 +1436,7 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
-  - ratings
+  - Ratings
   tags_raw:
   - ratings
   properties:
@@ -1561,7 +1561,7 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
-  - splits
+  - Split
   tags_raw:
   - splits
   properties:
@@ -1645,7 +1645,7 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
-  - summaries
+  - Summary
   tags_raw:
   - summaries
   properties:
