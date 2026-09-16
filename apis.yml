@@ -72,28 +72,10 @@ apis:
     type: OpenAPI
   - type: Overlay
     url: overlays/benzinga-news-api-overlay.yaml
-  description: Structured real-time and historical financial news from the Benzinga newsroom, with channel
-    filters, removed-news deltas, and Why Is It Moving (WIIM) one-line explanations of price action, queried
-    by tickers, date, and channels.
-- aid: benzinga:benzinga-press-releases-api
-  name: Benzinga Press Releases API
-  tags:
-  - Press Releases
-  - News
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.benzinga.com/api-reference/news-api/press-releases/overview
-  baseURL: https://api.benzinga.com
-  properties:
-  - url: https://docs.benzinga.com/api-reference/news-api/press-releases/overview
-    type: Documentation
-  - url: https://docs.benzinga.com/api-reference/news-api/press-releases/get-press-releases
-    type: APIReference
-  - url: openapi/benzinga-press-releases-api-openapi.yml
-    type: OpenAPI
-  - type: Overlay
-    url: overlays/benzinga-press-releases-api-overlay.yaml
-  description: Structured corporate press release content with ticker, date, and channel filtering plus
-    updatedSince delta queries.
+  description: >-
+    Structured real-time and historical financial news from the Benzinga newsroom, with channel filters,
+    removed-news deltas, and Why Is It Moving (WIIM) one-line explanations of price action, queried by
+    tickers, date, and channels.
 - aid: benzinga:benzinga-ticker-trends-api
   name: Benzinga Ticker Trends API
   tags:
@@ -111,8 +93,9 @@ apis:
     type: OpenAPI
   - type: Overlay
     url: overlays/benzinga-ticker-trends-api-overlay.yaml
-  description: Trending-ticker rankings and per-ticker trend scores aggregated across time intervals from
-    Benzinga audience activity.
+  description: >-
+    Trending-ticker rankings and per-ticker trend scores aggregated across time intervals from Benzinga
+    audience activity.
 - aid: benzinga:benzinga-earnings-call-transcripts-api
   name: Benzinga Earnings Call Transcripts API
   tags:
@@ -133,8 +116,9 @@ apis:
     type: OpenAPI
   - type: Overlay
     url: overlays/benzinga-earnings-call-transcripts-api-overlay.yaml
-  description: Real-time and historical conference-call transcripts, audio, AI-generated summaries, and
-    speaker data, fetched by call ID or filtered lists.
+  description: >-
+    Real-time and historical conference-call transcripts, audio, AI-generated summaries, and speaker data,
+    fetched by call ID or filtered lists.
 - aid: benzinga:benzinga-webhook-api
   name: Benzinga Data Webhook Engine
   tags:
@@ -155,8 +139,9 @@ apis:
     type: OpenAPI
   - type: Overlay
     url: overlays/benzinga-webhook-api-overlay.yaml
-  description: Push delivery of Benzinga calendar, signal, and sentiment data to customer endpoints with
-    filterable, resilient webhooks and a test-delivery endpoint.
+  description: >-
+    Push delivery of Benzinga calendar, signal, and sentiment data to customer endpoints with filterable,
+    resilient webhooks and a test-delivery endpoint.
 - aid: benzinga:benzinga-websocket-streaming-api
   name: Benzinga WebSocket Streaming API
   tags:
@@ -185,8 +170,9 @@ apis:
     type: AsyncAPI
   - url: asyncapi/benzinga-transcripts-stream-asyncapi.yml
     type: AsyncAPI
-  description: Real-time WebSocket streams over wss://api.benzinga.com for news, earnings, analyst ratings,
-    consensus ratings, analyst insights, bulls/bears cases, and sentence-by-sentence earnings-call transcripts,
+  description: >-
+    Real-time WebSocket streams over wss://api.benzinga.com for news, earnings, analyst ratings, consensus
+    ratings, analyst insights, bulls/bears cases, and sentence-by-sentence earnings-call transcripts,
     with session replay actions and token auth.
 - aid: benzinga:benzinga-tcp-streaming-service
   name: Benzinga TCP Streaming Service
@@ -204,9 +190,10 @@ apis:
     type: APIReference
   - url: https://docs.benzinga.com/tcp-reference/go-client
     type: SDK
-  description: Low-latency persistent TCP stream (tcp-v1.benzinga.io port 11337, optional TLS) delivering
-    real-time news, option alerts, and market events as JSON messages, authenticated with username plus
-    API key, with official Go and Python client libraries.
+  description: >-
+    Low-latency persistent TCP stream (tcp-v1.benzinga.io port 11337, optional TLS) delivering real-time
+    news, option alerts, and market events as JSON messages, authenticated with username plus API key,
+    with official Go and Python client libraries.
 - aid: benzinga:benzinga-analyst-insights-api
   name: Benzinga Analyst Insights API
   description: The Analyst Insights API from Benzinga — 1 operation(s) for analyst insights.
@@ -821,7 +808,8 @@ apis:
     url: overlays/benzinga-fundamentals-api-overlay.yaml
 - aid: benzinga:benzinga-government-trade-reports-api
   name: Benzinga Government Trade Reports API
-  description: The Government Trade Reports API from Benzinga — 1 operation(s) for government trade reports.
+  description: >-
+    The Government Trade Reports API from Benzinga — 1 operation(s) for government trade reports.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
@@ -1724,6 +1712,8 @@ apis:
   - type: Overlay
     url: overlays/benzinga-transcripts-api-overlay.yaml
 common:
+- type: Overlay
+  url: overlays/benzinga-press-releases-api-overlay.yaml
 - type: VulnerabilityDisclosure
   url: security/benzinga-vulnerability-disclosure.yml
 - type: DomainSecurity
