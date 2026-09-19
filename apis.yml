@@ -1057,7 +1057,7 @@ apis:
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
   tags:
-  - Logos
+  - Logo
   tags_raw:
   - logos
   properties:
