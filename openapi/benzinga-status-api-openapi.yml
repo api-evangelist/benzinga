@@ -1,15 +1,15 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   contact: {}
-  description: This REST API provides endpoints to get analyst report details.
+  description: This REST API provides endpoints to fetch conference calls and summaries.
   termsOfService: http://swagger.io/terms/
-  title: Analyst Reports Raw Text Analyst Insights status API
-  version: 1.0.0
+  title: Conference call transcripts Status API
+  version: 2.1.0
 servers:
 - url: https://api.benzinga.com
   description: PROD
 tags:
-- name: status
+- name: Status
 paths:
   /api/v1/transcripts/status:
     get:
@@ -71,7 +71,7 @@ paths:
       - ApiKeyAuth: []
       summary: Query status view
       tags:
-      - status
+      - Status
     post:
       description: Query a specific view with filters and pagination. Supports both GET (query params) and POST (JSON body).
       operationId: query-status-view
@@ -131,8 +131,11 @@ paths:
       - ApiKeyAuth: []
       summary: Query status view
       tags:
-      - status
+      - Status
 components:
+  schemas:
+    api.QueryRequest:
+      type: object
   requestBodies:
     api.QueryRequest:
       content:
@@ -140,9 +143,6 @@ components:
           schema:
             $ref: '#/components/schemas/api.QueryRequest'
       description: Query details (for POST)
-  schemas:
-    api.QueryRequest:
-      type: object
   securitySchemes:
     ApiKeyAuth:
       in: query

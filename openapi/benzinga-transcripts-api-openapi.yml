@@ -1,15 +1,15 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   contact: {}
-  description: This REST API provides endpoints to get analyst report details.
+  description: This REST API provides endpoints to fetch conference calls and summaries.
   termsOfService: http://swagger.io/terms/
-  title: Analyst Reports Raw Text Analyst Insights transcripts API
-  version: 1.0.0
+  title: Conference call Transcripts API
+  version: 2.1.0
 servers:
 - url: https://api.benzinga.com
   description: PROD
 tags:
-- name: transcripts
+- name: Transcripts
 paths:
   /api/v1/transcripts/transcripts/{transcript_id}/segment/{segment_id}:
     delete:
@@ -57,7 +57,7 @@ paths:
       - ApiKeyAuth: []
       summary: Delete transcript segment by ID
       tags:
-      - transcripts
+      - Transcripts
     put:
       description: Update specific transcript segment details
       operationId: update-transcript-segments-by-id
@@ -110,7 +110,7 @@ paths:
       - ApiKeyAuth: []
       summary: Update transcript segment by ID
       tags:
-      - transcripts
+      - Transcripts
   /api/v1/transcripts/transcripts/{transcript_id}/speaker:
     put:
       description: Rename a speaker (and optionally set its role) everywhere it appears in a transcript. Locates segments + participant by the speaker's current name, relabels every matching segment, and upserts the participant entry. Renaming into an existing name merges the two speakers.
@@ -157,7 +157,7 @@ paths:
       - ApiKeyAuth: []
       summary: Update a speaker across a transcript
       tags:
-      - transcripts
+      - Transcripts
 components:
   schemas:
     domain.UpdateTranscriptSegmentsReq:

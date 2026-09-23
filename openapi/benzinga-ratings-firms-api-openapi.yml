@@ -1,10 +1,10 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   contact: {}
-  description: This REST API provides endpoints to get analyst report details.
+  description: This REST API returns structured data for conference calls, dividends, earnings (and future earnings dates), economics, pharmaceutical announcements, guidance, IPOs, secondary offerings, ratings, M&A activity, and splits.
   termsOfService: http://swagger.io/terms/
-  title: Analyst Reports Raw Text Analyst Insights ratings_firms API
-  version: 1.0.0
+  title: Calendar Ratings Firms API
+  version: 2.1.0
 servers:
 - url: https://api.benzinga.com
   description: PROD

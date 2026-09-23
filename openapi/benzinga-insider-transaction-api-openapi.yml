@@ -1,10 +1,10 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   contact: {}
-  description: This REST API provides endpoints to get analyst report details.
+  description: This REST API returns structured data for conference calls, dividends, earnings (and future earnings dates), economics, pharmaceutical announcements, guidance, IPOs, secondary offerings, ratings, M&A activity, and splits.
   termsOfService: http://swagger.io/terms/
-  title: Analyst Reports Raw Text Analyst Insights Insider Transaction API
-  version: 1.0.0
+  title: Calendar Insider Transaction API
+  version: 2.1.0
 servers:
 - url: https://api.benzinga.com
   description: PROD
@@ -222,85 +222,20 @@ paths:
       - Insider Transaction
 components:
   schemas:
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.InsiderTransaction:
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.InsiderTransactionFilingDoc:
       properties:
-        accession_number:
-          example: 0001127602-24-000123
-          type: string
-        company_cik:
-          example: 0000320193
-          type: string
-        company_name:
-          example: Apple Inc.
-          type: string
-        company_symbol:
-          example: AAPL
-          type: string
-        filing_date:
-          example: '2024-01-09T00:00:00Z'
-          type: string
-        footnotes:
+        data:
           items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.SECFootnotes'
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.InsiderTransaction'
           type: array
-        form_type:
-          example: '4'
-          type: string
-        html_url:
-          example: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000320193
-          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.SECFootnotes:
+      properties:
         id:
-          example: 64a1b2c3d4e5f6789012345
+          example: F1
           type: string
-        is_10b5:
-          example: true
-          type: boolean
-        owner:
-          $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Owner'
-        remaining_shares:
-          example: '125000'
-          type: string
-        remaining_underlying_shares:
-          example: '50000'
-          type: string
-        traded_percentage:
-          example: '15.5'
-          type: string
-        transactions:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Transaction'
-          type: array
-        updated:
-          example: 1704758400
-          type: integer
-      type: object
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Owner:
-      properties:
-        insider_cik:
-          example: '0001234567'
-          type: string
-        insider_name:
-          example: Tim Cook
-          type: string
-        insider_title:
-          example: Chief Executive Officer
-          type: string
-        is_director:
-          example: true
-          type: boolean
-        is_officer:
-          example: true
-          type: boolean
-        is_ten_percent_owner:
-          example: false
-          type: boolean
-        raw_signature:
-          example: /s/ Tim Cook
-          type: string
-      type: object
-    api.ErrorResponse:
-      properties:
         text:
+          example: Shares were sold pursuant to a Rule 10b5-1 trading plan
           type: string
       type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Transaction:
@@ -360,21 +295,86 @@ components:
           example: false
           type: boolean
       type: object
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.SECFootnotes:
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Owner:
       properties:
-        id:
-          example: F1
+        insider_cik:
+          example: '0001234567'
           type: string
-        text:
-          example: Shares were sold pursuant to a Rule 10b5-1 trading plan
+        insider_name:
+          example: Tim Cook
+          type: string
+        insider_title:
+          example: Chief Executive Officer
+          type: string
+        is_director:
+          example: true
+          type: boolean
+        is_officer:
+          example: true
+          type: boolean
+        is_ten_percent_owner:
+          example: false
+          type: boolean
+        raw_signature:
+          example: /s/ Tim Cook
           type: string
       type: object
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.InsiderTransactionFilingDoc:
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.InsiderTransaction:
       properties:
-        data:
+        accession_number:
+          example: 0001127602-24-000123
+          type: string
+        company_cik:
+          example: 0000320193
+          type: string
+        company_name:
+          example: Apple Inc.
+          type: string
+        company_symbol:
+          example: AAPL
+          type: string
+        filing_date:
+          example: '2024-01-09T00:00:00Z'
+          type: string
+        footnotes:
           items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.InsiderTransaction'
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.SECFootnotes'
           type: array
+        form_type:
+          example: '4'
+          type: string
+        html_url:
+          example: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000320193
+          type: string
+        id:
+          example: 64a1b2c3d4e5f6789012345
+          type: string
+        is_10b5:
+          example: true
+          type: boolean
+        owner:
+          $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Owner'
+        remaining_shares:
+          example: '125000'
+          type: string
+        remaining_underlying_shares:
+          example: '50000'
+          type: string
+        traded_percentage:
+          example: '15.5'
+          type: string
+        transactions:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Transaction'
+          type: array
+        updated:
+          example: 1704758400
+          type: integer
+      type: object
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
       type: object
   securitySchemes:
     ApiKeyAuth:

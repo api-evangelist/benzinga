@@ -1,15 +1,15 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   contact: {}
-  description: This REST API provides endpoints to get analyst report details.
+  description: This REST API provides endpoints to fetch conference calls and summaries.
   termsOfService: http://swagger.io/terms/
-  title: Analyst Reports Raw Text Analyst Insights summaries API
-  version: 1.0.0
+  title: Conference call transcripts Summaries API
+  version: 2.1.0
 servers:
 - url: https://api.benzinga.com
   description: PROD
 tags:
-- name: summaries
+- name: Summaries
 paths:
   /api/v1/transcripts/summaries:
     get:
@@ -81,7 +81,7 @@ paths:
       - ApiKeyAuth: []
       summary: Fetch summaries
       tags:
-      - summaries
+      - Summaries
   /api/v1/transcripts/summaries/{call_id}:
     get:
       description: Retrieve summary details for a specific call ID
@@ -120,7 +120,7 @@ paths:
       - ApiKeyAuth: []
       summary: Fetch summary by Call ID
       tags:
-      - summaries
+      - Summaries
     put:
       description: Update summary details for a specific call ID
       operationId: update-summary-by-call-id
@@ -167,21 +167,9 @@ paths:
       - ApiKeyAuth: []
       summary: Update summary by Call ID
       tags:
-      - summaries
+      - Summaries
 components:
   schemas:
-    domain.UpdateSummaryReq:
-      properties:
-        language:
-          example: en
-          type: string
-        summary:
-          example: Overall, the quarter was strong with 5% revenue growth...
-          type: string
-        symbol:
-          example: AAPL
-          type: string
-      type: object
     domain.Summaries:
       properties:
         call_id:
@@ -210,6 +198,18 @@ components:
           example: 660e8400-e29b-41d4-a716-446655440000
           type: string
         updated_at:
+          type: string
+      type: object
+    domain.UpdateSummaryReq:
+      properties:
+        language:
+          example: en
+          type: string
+        summary:
+          example: Overall, the quarter was strong with 5% revenue growth...
+          type: string
+        symbol:
+          example: AAPL
           type: string
       type: object
   securitySchemes:

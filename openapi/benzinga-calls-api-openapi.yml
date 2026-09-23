@@ -1,15 +1,15 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   contact: {}
-  description: This REST API provides endpoints to get analyst report details.
+  description: This REST API provides endpoints to fetch conference calls and summaries.
   termsOfService: http://swagger.io/terms/
-  title: Analyst Reports Raw Text Analyst Insights calls API
-  version: 1.0.0
+  title: Conference call transcripts Calls API
+  version: 2.1.0
 servers:
 - url: https://api.benzinga.com
   description: PROD
 tags:
-- name: calls
+- name: Calls
 paths:
   /api/v1/transcripts/calls:
     get:
@@ -102,7 +102,7 @@ paths:
       - ApiKeyAuth: []
       summary: Fetch all calls
       tags:
-      - calls
+      - Calls
   /api/v1/transcripts/calls/{call_id}:
     delete:
       description: Delete a specific call by its ID
@@ -143,7 +143,7 @@ paths:
       - ApiKeyAuth: []
       summary: Delete call by ID
       tags:
-      - calls
+      - Calls
     get:
       description: Retrieve detailed information about a specific call by its ID
       operationId: get-conference-call-by-id
@@ -214,7 +214,7 @@ paths:
       - ApiKeyAuth: []
       summary: Fetch call by ID
       tags:
-      - calls
+      - Calls
     put:
       description: Update details of a specific call by its ID
       operationId: update-conference-call-by-id
@@ -261,9 +261,118 @@ paths:
       - ApiKeyAuth: []
       summary: Update call by ID
       tags:
-      - calls
+      - Calls
 components:
   schemas:
+    domain.Summaries:
+      properties:
+        call_id:
+          example: 770e8400-e29b-41d4-a716-446655440000
+          type: string
+        created_at:
+          type: string
+        deleted_at:
+          type: string
+        language:
+          example: en
+          type: string
+        sentiment:
+          example: 0.85
+          type: number
+        summary:
+          example: The company reported positive growth...
+          type: string
+        summary_id:
+          example: 550e8400-e29b-41d4-a716-446655440000
+          type: string
+        symbol:
+          example: MSFT
+          type: string
+        transcript_id:
+          example: 660e8400-e29b-41d4-a716-446655440000
+          type: string
+        updated_at:
+          type: string
+      type: object
+    domain.TranscriptSegments:
+      properties:
+        confidence:
+          type: number
+        end_time:
+          type: string
+        segment_id:
+          type: integer
+        sentiment:
+          type: number
+        speaker:
+          type: string
+        start_time:
+          type: string
+        text:
+          type: string
+      type: object
+    pgtype.JSONB:
+      properties:
+        bytes:
+          items:
+            type: integer
+          type: array
+        status:
+          $ref: '#/components/schemas/pgtype.Status'
+      type: object
+    domain.Transcripts:
+      properties:
+        confidence_score:
+          type: number
+        language:
+          type: string
+        segments:
+          items:
+            $ref: '#/components/schemas/domain.TranscriptSegments'
+          type: array
+        text:
+          type: string
+        transcript_id:
+          type: string
+        type:
+          $ref: '#/components/schemas/domain.TranscriptsType'
+      type: object
+    domain.UpdateCallReq:
+      properties:
+        call_title:
+          example: Q3 2023 Earnings Call
+          type: string
+        cusip:
+          example: 037833100
+          type: string
+        duration:
+          example: 60
+          type: integer
+        end_time:
+          example: '2023-10-25T15:00:00Z'
+          type: string
+        exchange:
+          example: NASDAQ
+          type: string
+        headline:
+          example: Company X Reports Strong Q3 Results
+          type: string
+        isin:
+          example: US0378331005
+          type: string
+        name:
+          example: Apple Inc.
+          type: string
+        start_time:
+          example: '2023-10-25T14:00:00Z'
+          type: string
+        status:
+          example: completed
+          type: string
+        symbol:
+          example: AAPL
+          type: string
+      type: object
     domain.Participants:
       properties:
         call_id:
@@ -283,23 +392,47 @@ components:
         role:
           type: string
       type: object
-    domain.Transcripts:
+    pgtype.Status:
+      enum:
+      - 0
+      - 1
+      - 2
+      type: integer
+      x-enum-varnames:
+      - Undefined
+      - 'Null'
+      - Present
+    domain.Recordings:
       properties:
-        confidence_score:
-          type: number
+        bucket:
+          type: string
+        created_at:
+          type: string
+        duration:
+          type: integer
+        formats:
+          $ref: '#/components/schemas/pgtype.JSONB'
         language:
           type: string
-        segments:
-          items:
-            $ref: '#/components/schemas/domain.TranscriptSegments'
-          type: array
-        text:
+        location:
           type: string
-        transcript_id:
+        recording_id:
           type: string
-        type:
-          $ref: '#/components/schemas/domain.TranscriptsType'
+        total_files:
+          type: integer
+        total_size:
+          type: integer
+        updated_at:
+          type: string
       type: object
+    domain.TranscriptsType:
+      enum:
+      - LIVE
+      - NON_LIVE
+      type: string
+      x-enum-varnames:
+      - LiveTranscripts
+      - NonLiveTranscripts
     domain.Calls:
       properties:
         call_id:
@@ -373,139 +506,6 @@ components:
           example: 2023
           type: integer
       type: object
-    domain.TranscriptSegments:
-      properties:
-        confidence:
-          type: number
-        end_time:
-          type: string
-        segment_id:
-          type: integer
-        sentiment:
-          type: number
-        speaker:
-          type: string
-        start_time:
-          type: string
-        text:
-          type: string
-      type: object
-    pgtype.Status:
-      enum:
-      - 0
-      - 1
-      - 2
-      type: integer
-      x-enum-varnames:
-      - Undefined
-      - 'Null'
-      - Present
-    pgtype.JSONB:
-      properties:
-        bytes:
-          items:
-            type: integer
-          type: array
-        status:
-          $ref: '#/components/schemas/pgtype.Status'
-      type: object
-    domain.Recordings:
-      properties:
-        bucket:
-          type: string
-        created_at:
-          type: string
-        duration:
-          type: integer
-        formats:
-          $ref: '#/components/schemas/pgtype.JSONB'
-        language:
-          type: string
-        location:
-          type: string
-        recording_id:
-          type: string
-        total_files:
-          type: integer
-        total_size:
-          type: integer
-        updated_at:
-          type: string
-      type: object
-    domain.UpdateCallReq:
-      properties:
-        call_title:
-          example: Q3 2023 Earnings Call
-          type: string
-        cusip:
-          example: 037833100
-          type: string
-        duration:
-          example: 60
-          type: integer
-        end_time:
-          example: '2023-10-25T15:00:00Z'
-          type: string
-        exchange:
-          example: NASDAQ
-          type: string
-        headline:
-          example: Company X Reports Strong Q3 Results
-          type: string
-        isin:
-          example: US0378331005
-          type: string
-        name:
-          example: Apple Inc.
-          type: string
-        start_time:
-          example: '2023-10-25T14:00:00Z'
-          type: string
-        status:
-          example: completed
-          type: string
-        symbol:
-          example: AAPL
-          type: string
-      type: object
-    domain.Summaries:
-      properties:
-        call_id:
-          example: 770e8400-e29b-41d4-a716-446655440000
-          type: string
-        created_at:
-          type: string
-        deleted_at:
-          type: string
-        language:
-          example: en
-          type: string
-        sentiment:
-          example: 0.85
-          type: number
-        summary:
-          example: The company reported positive growth...
-          type: string
-        summary_id:
-          example: 550e8400-e29b-41d4-a716-446655440000
-          type: string
-        symbol:
-          example: MSFT
-          type: string
-        transcript_id:
-          example: 660e8400-e29b-41d4-a716-446655440000
-          type: string
-        updated_at:
-          type: string
-      type: object
-    domain.TranscriptsType:
-      enum:
-      - LIVE
-      - NON_LIVE
-      type: string
-      x-enum-varnames:
-      - LiveTranscripts
-      - NonLiveTranscripts
   securitySchemes:
     ApiKeyAuth:
       in: query

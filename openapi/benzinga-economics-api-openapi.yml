@@ -1,15 +1,15 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   contact: {}
-  description: This REST API provides endpoints to get analyst report details.
+  description: This REST API returns structured data for conference calls, dividends, earnings (and future earnings dates), economics, pharmaceutical announcements, guidance, IPOs, secondary offerings, ratings, M&A activity, and splits.
   termsOfService: http://swagger.io/terms/
-  title: Analyst Reports Raw Text Analyst Insights economics API
-  version: 1.0.0
+  title: Calendar Economics API
+  version: 2.1.0
 servers:
 - url: https://api.benzinga.com
   description: PROD
 tags:
-- name: economics
+- name: Economics
 paths:
   /api/v2.1/calendar/economics:
     get:
@@ -119,13 +119,16 @@ paths:
       - ApiKeyAuth: []
       summary: Returns the economic calendar data
       tags:
-      - economics
+      - Economics
 components:
   schemas:
-    api.ErrorResponse:
+    api.EconomicResponse:
+      description: API response containing an array of economic event records
       properties:
-        text:
-          type: string
+        economics:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Economic'
+          type: array
       type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Economic:
       properties:
@@ -188,13 +191,10 @@ components:
           example: 1704819600
           type: integer
       type: object
-    api.EconomicResponse:
-      description: API response containing an array of economic event records
+    api.ErrorResponse:
       properties:
-        economics:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Economic'
-          type: array
+        text:
+          type: string
       type: object
   securitySchemes:
     ApiKeyAuth:

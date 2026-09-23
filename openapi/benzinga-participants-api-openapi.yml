@@ -1,15 +1,15 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   contact: {}
-  description: This REST API provides endpoints to get analyst report details.
+  description: This REST API provides endpoints to fetch conference calls and summaries.
   termsOfService: http://swagger.io/terms/
-  title: Analyst Reports Raw Text Analyst Insights participants API
-  version: 1.0.0
+  title: Conference call transcripts Participants API
+  version: 2.1.0
 servers:
 - url: https://api.benzinga.com
   description: PROD
 tags:
-- name: participants
+- name: Participants
 paths:
   /api/v1/transcripts/participants/{participant_id}:
     delete:
@@ -51,7 +51,7 @@ paths:
       - ApiKeyAuth: []
       summary: Delete participant by ID
       tags:
-      - participants
+      - Participants
     put:
       description: Update details of a specific participant by their ID
       operationId: update-participant-by-id
@@ -98,7 +98,7 @@ paths:
       - ApiKeyAuth: []
       summary: Update participant by ID
       tags:
-      - participants
+      - Participants
 components:
   schemas:
     domain.UpdateParticipantReq:

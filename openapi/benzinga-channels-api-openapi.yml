@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   contact: {}
   description: This REST API provides endpoints to get analyst report details.

@@ -1,10 +1,10 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   contact: {}
-  description: This REST API provides endpoints to get analyst report details.
+  description: This REST API provides endpoints to search for fundamentals and get fundamental details.
   termsOfService: http://swagger.io/terms/
-  title: Analyst Reports Raw Text Analyst Insights Market Data API
-  version: 1.0.0
+  title: Data API Proxy Market Data API
+  version: 2.0.0
 servers:
 - url: https://api.benzinga.com
   description: PROD
@@ -216,6 +216,27 @@ components:
         symbol:
           type: string
       type: object
+    bzhttp.Error:
+      properties:
+        code:
+          $ref: '#/components/schemas/bzhttp.ErrorCode'
+        id:
+          type: string
+        value:
+          type: string
+      type: object
+    bzhttp.Resp:
+      properties:
+        data:
+          additionalProperties: true
+          type: object
+        errors:
+          items:
+            $ref: '#/components/schemas/bzhttp.Error'
+          type: array
+        ok:
+          type: boolean
+      type: object
     bzhttp.ErrorCode:
       enum:
       - json_unmarshaling_error
@@ -246,27 +267,6 @@ components:
       - ErrorUpstreamAPIError
       - ErrorUnsupportedMessageType
       - ErrorDBQueryError
-    bzhttp.Error:
-      properties:
-        code:
-          $ref: '#/components/schemas/bzhttp.ErrorCode'
-        id:
-          type: string
-        value:
-          type: string
-      type: object
-    bzhttp.Resp:
-      properties:
-        data:
-          additionalProperties: true
-          type: object
-        errors:
-          items:
-            $ref: '#/components/schemas/bzhttp.Error'
-          type: array
-        ok:
-          type: boolean
-      type: object
   securitySchemes:
     ApiKeyAuth:
       in: query

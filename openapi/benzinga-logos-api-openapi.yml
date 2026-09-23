@@ -1,15 +1,15 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   contact: {}
-  description: This REST API provides endpoints to get analyst report details.
+  description: This REST API provides endpoints to search for logos and get logo details.
   termsOfService: http://swagger.io/terms/
-  title: Analyst Reports Raw Text Analyst Insights logos API
-  version: 1.0.0
+  title: Logos API
+  version: 2.1.0
 servers:
 - url: https://api.benzinga.com
   description: PROD
 tags:
-- name: logos
+- name: Logos
 paths:
   /api/v2.1/logos/sync:
     get:
@@ -90,10 +90,9 @@ paths:
       - ApiKeyAuth: []
       summary: Bulk logos sync
       tags:
-      - logos
+      - Logos
   /api/v2/logos/search:
     get:
-      description: Search Logos
       operationId: get-search-logos
       parameters:
       - description: Comma-separated list of security identifiers. Maximum 100 identifiers. Type depends on search_keys_type parameter.
@@ -167,9 +166,30 @@ paths:
       - ApiKeyAuth: []
       summary: Search Logos
       tags:
-      - logos
+      - Logos
 components:
   schemas:
+    bzhttp.Error:
+      properties:
+        code:
+          $ref: '#/components/schemas/bzhttp.ErrorCode'
+        id:
+          type: string
+        value:
+          type: string
+      type: object
+    bzhttp.Resp:
+      properties:
+        data:
+          additionalProperties: true
+          type: object
+        errors:
+          items:
+            $ref: '#/components/schemas/bzhttp.Error'
+          type: array
+        ok:
+          type: boolean
+      type: object
     bzhttp.ErrorCode:
       enum:
       - json_unmarshaling_error
@@ -200,27 +220,6 @@ components:
       - ErrorUpstreamAPIError
       - ErrorUnsupportedMessageType
       - ErrorDBQueryError
-    bzhttp.Error:
-      properties:
-        code:
-          $ref: '#/components/schemas/bzhttp.ErrorCode'
-        id:
-          type: string
-        value:
-          type: string
-      type: object
-    bzhttp.Resp:
-      properties:
-        data:
-          additionalProperties: true
-          type: object
-        errors:
-          items:
-            $ref: '#/components/schemas/bzhttp.Error'
-          type: array
-        ok:
-          type: boolean
-      type: object
   securitySchemes:
     ApiKeyAuth:
       in: query
