@@ -115,22 +115,6 @@ paths:
       - fda
 components:
   schemas:
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Company:
-      properties:
-        cik:
-          example: '1682852'
-          type: string
-        id:
-          example: 60a7f5e8e4b0f5a3c8e9f5be
-          type: string
-        name:
-          example: Moderna Inc.
-          type: string
-        securities:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Security'
-          type: array
-      type: object
     api.FDAResponse:
       description: API response containing an array of FDA event records
       properties:
@@ -138,6 +122,33 @@ components:
           items:
             $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.FDA'
           type: array
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Security:
+      properties:
+        exchange:
+          example: NASDAQ
+          type: string
+        symbol:
+          example: MRNA
+          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Drug:
+      properties:
+        generic:
+          example: false
+          type: boolean
+        id:
+          example: 60a7f5e8e4b0f5a3c8e9f5bf
+          type: string
+        indication_symptom:
+          example:
+          - '["COVID-19"]'
+          items:
+            type: string
+          type: array
+        name:
+          example: Spikevax
+          type: string
       type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.FDA:
       properties:
@@ -194,32 +205,21 @@ components:
           example: 1704819600
           type: integer
       type: object
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Drug:
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Company:
       properties:
-        generic:
-          example: false
-          type: boolean
+        cik:
+          example: '1682852'
+          type: string
         id:
-          example: 60a7f5e8e4b0f5a3c8e9f5bf
+          example: 60a7f5e8e4b0f5a3c8e9f5be
           type: string
-        indication_symptom:
-          example:
-          - '["COVID-19"]'
-          items:
-            type: string
-          type: array
         name:
-          example: Spikevax
+          example: Moderna Inc.
           type: string
-      type: object
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Security:
-      properties:
-        exchange:
-          example: NASDAQ
-          type: string
-        symbol:
-          example: MRNA
-          type: string
+        securities:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Security'
+          type: array
       type: object
     api.ErrorResponse:
       properties:

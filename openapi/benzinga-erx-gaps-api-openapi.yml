@@ -86,6 +86,33 @@ paths:
       - ERx Gaps
 components:
   schemas:
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.PriceAlert:
+      properties:
+        description:
+          example: Price moved above High Volume Close level
+          type: string
+        direction:
+          example: Above
+          type: string
+        gap_id:
+          example: 500
+          type: integer
+        level_name:
+          example: HVC
+          type: string
+        level_price:
+          example: 156
+          type: number
+        price:
+          example: 156.25
+          type: number
+        price_alert_id:
+          example: 3001
+          type: integer
+        title:
+          example: Price Above HVC
+          type: string
+      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.MilestoneMeasurement:
       properties:
         above_hvc_pct:
@@ -125,11 +152,6 @@ components:
           example: Day 10 Milestone
           type: string
       type: object
-    api.ErrorResponse:
-      properties:
-        text:
-          type: string
-      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.FibonacciAlert:
       properties:
         alert_date:
@@ -164,75 +186,6 @@ components:
           type: string
         title:
           example: 50% Fibonacci Retracement
-          type: string
-      type: object
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.MarketSessionAlert:
-      properties:
-        description:
-          example: Price broke above first 15-minute high
-          type: string
-        first_5min_close:
-          example: 155.25
-          type: number
-        first_5min_high:
-          example: 155.5
-          type: number
-        first_15min_close:
-          example: 155.75
-          type: number
-        first_15min_high:
-          example: 156
-          type: number
-        gap_id:
-          example: 500
-          type: integer
-        session_date:
-          example: '2024-01-09'
-          type: string
-        session_high:
-          example: 157.5
-          type: number
-        session_id:
-          example: 5001
-          type: integer
-        session_type:
-          example: Regular
-          type: string
-        session_volume:
-          example: 12500000
-          type: integer
-        symbol:
-          example: AAPL
-          type: string
-        title:
-          example: First 15 Min Breakout
-          type: string
-      type: object
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.PriceAlert:
-      properties:
-        description:
-          example: Price moved above High Volume Close level
-          type: string
-        direction:
-          example: Above
-          type: string
-        gap_id:
-          example: 500
-          type: integer
-        level_name:
-          example: HVC
-          type: string
-        level_price:
-          example: 156
-          type: number
-        price:
-          example: 156.25
-          type: number
-        price_alert_id:
-          example: 3001
-          type: integer
-        title:
-          example: Price Above HVC
           type: string
       type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.ErxGaps:
@@ -393,27 +346,6 @@ components:
           example: 1.76
           type: number
       type: object
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.DayAlert:
-      properties:
-        alert_date:
-          type: string
-        alert_type:
-          type: string
-        day:
-          type: integer
-        day_alert_id:
-          type: integer
-        description:
-          type: string
-        gap_id:
-          type: integer
-        price:
-          type: number
-        price_type:
-          type: string
-        title:
-          type: string
-      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.ClosingRangeAlert:
       properties:
         alert_date:
@@ -447,6 +379,48 @@ components:
           example: Upper Third Close
           type: string
       type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.MarketSessionAlert:
+      properties:
+        description:
+          example: Price broke above first 15-minute high
+          type: string
+        first_5min_close:
+          example: 155.25
+          type: number
+        first_5min_high:
+          example: 155.5
+          type: number
+        first_15min_close:
+          example: 155.75
+          type: number
+        first_15min_high:
+          example: 156
+          type: number
+        gap_id:
+          example: 500
+          type: integer
+        session_date:
+          example: '2024-01-09'
+          type: string
+        session_high:
+          example: 157.5
+          type: number
+        session_id:
+          example: 5001
+          type: integer
+        session_type:
+          example: Regular
+          type: string
+        session_volume:
+          example: 12500000
+          type: integer
+        symbol:
+          example: AAPL
+          type: string
+        title:
+          example: First 15 Min Breakout
+          type: string
+      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.EmaCrossover:
       properties:
         crossover_date:
@@ -472,6 +446,32 @@ components:
           type: integer
         title:
           example: EMA21 Crossover
+          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.DayAlert:
+      properties:
+        alert_date:
+          type: string
+        alert_type:
+          type: string
+        day:
+          type: integer
+        day_alert_id:
+          type: integer
+        description:
+          type: string
+        gap_id:
+          type: integer
+        price:
+          type: number
+        price_type:
+          type: string
+        title:
+          type: string
+      type: object
+    api.ErrorResponse:
+      properties:
+        text:
           type: string
       type: object
   securitySchemes:

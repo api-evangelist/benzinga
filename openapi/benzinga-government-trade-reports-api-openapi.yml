@@ -114,6 +114,14 @@ components:
           example: Stock
           type: string
       type: object
+    api.GovernmentTradeReportsResponse:
+      description: API response containing an array of government trade report records
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/api.SwaggerGovtTradeReport'
+          type: array
+      type: object
     api.SwaggerGovtTradeReportTransaction:
       properties:
         amendment_number:
@@ -239,14 +247,6 @@ components:
         updated:
           example: 1704819600
           type: integer
-      type: object
-    api.GovernmentTradeReportsResponse:
-      description: API response containing an array of government trade report records
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/api.SwaggerGovtTradeReport'
-          type: array
       type: object
     api.ErrorResponse:
       properties:

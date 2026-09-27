@@ -75,13 +75,6 @@ paths:
       - removed
 components:
   schemas:
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.RemovedJSON:
-      properties:
-        removed:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Removed'
-          type: array
-      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Removed:
       properties:
         id:
@@ -90,6 +83,13 @@ components:
           type: string
         updated:
           type: integer
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.RemovedJSON:
+      properties:
+        removed:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Removed'
+          type: array
       type: object
     api.ErrorResponse:
       properties:

@@ -74,7 +74,7 @@ paths:
       - Status
     post:
       description: Query a specific view with filters and pagination. Supports both GET (query params) and POST (JSON body).
-      operationId: query-status-view
+      operationId: postApiV1TranscriptsStatus
       parameters:
       - description: View name (for GET)
         in: query
@@ -132,6 +132,8 @@ paths:
       summary: Query status view
       tags:
       - Status
+      x-operation-id-source: normalized
+      x-operation-id-original: query-status-view
 components:
   schemas:
     api.QueryRequest:

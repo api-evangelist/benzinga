@@ -40,6 +40,17 @@ x-docs-platform-confidence: medium
 x-docs-platform-checked: 2026-09-20
 x-docs-hosting: vercel
 tags:
+- Finance
+- Market Data
+- Stocks
+- News
+- Real-Time
+- Sentiment
+- Analyst Ratings
+- Earnings
+- Options
+- Streaming
+tags_raw:
 - Financial
 - Market Data
 - Stocks
@@ -359,7 +370,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-bulls-say-bears-say-api-overlay.yaml
 - aid: benzinga:benzinga-calls-api
-  name: Benzinga calls API
+  name: Benzinga Calls API
   description: The calls API from Benzinga — 2 operation(s) for calls.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
@@ -441,7 +452,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-channels-api-overlay.yaml
 - aid: benzinga:benzinga-conference-calls-api
-  name: Benzinga conference_calls API
+  name: Benzinga Conference Calls API
   description: The conference_calls API from Benzinga — 1 operation(s) for conference_calls.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
@@ -482,7 +493,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-conference-calls-api-overlay.yaml
 - aid: benzinga:benzinga-consensus-ratings-api
-  name: Benzinga consensus_ratings API
+  name: Benzinga Consensus Ratings API
   description: The consensus_ratings API from Benzinga — 1 operation(s) for consensus_ratings.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
@@ -563,7 +574,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-dividends-api-overlay.yaml
 - aid: benzinga:benzinga-earnings-api
-  name: Benzinga earnings API
+  name: Benzinga Earnings API
   description: The earnings API from Benzinga — 1 operation(s) for earnings.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
@@ -605,7 +616,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-earnings-api-overlay.yaml
 - aid: benzinga:benzinga-economics-api
-  name: Benzinga economics API
+  name: Benzinga Economics API
   description: The economics API from Benzinga — 1 operation(s) for economics.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
@@ -687,7 +698,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-erx-gaps-api-overlay.yaml
 - aid: benzinga:benzinga-events-api
-  name: Benzinga events API
+  name: Benzinga Events API
   description: The events API from Benzinga — 1 operation(s) for events.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
@@ -729,7 +740,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-events-api-overlay.yaml
 - aid: benzinga:benzinga-fda-api
-  name: Benzinga fda API
+  name: Benzinga Fda API
   description: The fda API from Benzinga — 1 operation(s) for fda.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
@@ -892,7 +903,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-government-trades-api-overlay.yaml
 - aid: benzinga:benzinga-guidance-api
-  name: Benzinga guidance API
+  name: Benzinga Guidance API
   description: The guidance API from Benzinga — 1 operation(s) for guidance.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
@@ -1014,7 +1025,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-insider-transaction-api-overlay.yaml
 - aid: benzinga:benzinga-ipos-api
-  name: Benzinga ipos API
+  name: Benzinga Ipos API
   description: The ipos API from Benzinga — 2 operation(s) for ipos.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
@@ -1056,7 +1067,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-ipos-api-overlay.yaml
 - aid: benzinga:benzinga-logos-api
-  name: Benzinga logos API
+  name: Benzinga Logos API
   description: The logos API from Benzinga — 2 operation(s) for logos.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
@@ -1098,7 +1109,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-logos-api-overlay.yaml
 - aid: benzinga:benzinga-ma-api
-  name: Benzinga ma API
+  name: Benzinga Ma API
   description: The ma API from Benzinga — 1 operation(s) for ma.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
@@ -1218,7 +1229,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-news-analytics-api-overlay.yaml
 - aid: benzinga:benzinga-offerings-api
-  name: Benzinga offerings API
+  name: Benzinga Offerings API
   description: The offerings API from Benzinga — 1 operation(s) for offerings.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
@@ -1300,7 +1311,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-option-activity-api-overlay.yaml
 - aid: benzinga:benzinga-participants-api
-  name: Benzinga participants API
+  name: Benzinga Participants API
   description: The participants API from Benzinga — 1 operation(s) for participants.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
@@ -1382,7 +1393,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-quotedelayed-api-overlay.yaml
 - aid: benzinga:benzinga-ratings-analysts-api
-  name: Benzinga ratings_analysts API
+  name: Benzinga Ratings Analysts API
   description: The ratings_analysts API from Benzinga — 1 operation(s) for ratings_analysts.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
@@ -1423,7 +1434,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-ratings-analysts-api-overlay.yaml
 - aid: benzinga:benzinga-ratings-api
-  name: Benzinga ratings API
+  name: Benzinga Ratings API
   description: The ratings API from Benzinga — 1 operation(s) for ratings.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
@@ -1465,7 +1476,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-ratings-api-overlay.yaml
 - aid: benzinga:benzinga-ratings-firms-api
-  name: Benzinga ratings_firms API
+  name: Benzinga Ratings Firms API
   description: The ratings_firms API from Benzinga — 1 operation(s) for ratings_firms.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
@@ -1506,7 +1517,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-ratings-firms-api-overlay.yaml
 - aid: benzinga:benzinga-removed-api
-  name: Benzinga removed API
+  name: Benzinga Removed API
   description: The removed API from Benzinga — 1 operation(s) for removed.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
@@ -1548,7 +1559,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-removed-api-overlay.yaml
 - aid: benzinga:benzinga-splits-api
-  name: Benzinga splits API
+  name: Benzinga Splits API
   description: The splits API from Benzinga — 1 operation(s) for splits.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
@@ -1590,7 +1601,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-splits-api-overlay.yaml
 - aid: benzinga:benzinga-status-api
-  name: Benzinga status API
+  name: Benzinga Status API
   description: The status API from Benzinga — 1 operation(s) for status.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
@@ -1632,7 +1643,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-status-api-overlay.yaml
 - aid: benzinga:benzinga-summaries-api
-  name: Benzinga summaries API
+  name: Benzinga Summaries API
   description: The summaries API from Benzinga — 2 operation(s) for summaries.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com
@@ -1674,7 +1685,7 @@ apis:
   - type: Overlay
     url: overlays/benzinga-summaries-api-overlay.yaml
 - aid: benzinga:benzinga-transcripts-api
-  name: Benzinga transcripts API
+  name: Benzinga Transcripts API
   description: The transcripts API from Benzinga — 2 operation(s) for transcripts.
   humanURL: https://docs.benzinga.com/api-reference/news-api/overview
   baseURL: https://api.benzinga.com

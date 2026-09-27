@@ -116,14 +116,6 @@ paths:
       - Events
 components:
   schemas:
-    api.EventsResponse:
-      description: API response containing an array of event records
-      properties:
-        events:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Events'
-          type: array
-      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Events:
       properties:
         date_end:
@@ -177,6 +169,19 @@ components:
           example: https://webcast.example.com/event123
           type: string
       type: object
+    api.EventsResponse:
+      description: API response containing an array of event records
+      properties:
+        events:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Events'
+          type: array
+      type: object
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Securities:
       properties:
         country:
@@ -193,11 +198,6 @@ components:
           type: string
         symbol:
           example: AAPL
-          type: string
-      type: object
-    api.ErrorResponse:
-      properties:
-        text:
           type: string
       type: object
   securitySchemes:

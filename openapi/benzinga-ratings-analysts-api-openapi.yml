@@ -102,6 +102,49 @@ components:
           example: 500
           type: integer
       type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.RatingsAnalyst:
+      properties:
+        firm_id:
+          example: FIRM-123456
+          type: string
+        firm_name:
+          example: Goldman Sachs
+          type: string
+        id:
+          example: 64a1b2c3d4e5f6789012345
+          type: string
+        name_first:
+          example: John
+          type: string
+        name_full:
+          example: John Smith
+          type: string
+        name_last:
+          example: Smith
+          type: string
+        rank:
+          properties:
+            1m_smart_score_rank:
+              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
+            1y_smart_score_rank:
+              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
+            2y_smart_score_rank:
+              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
+            3m_smart_score_rank:
+              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
+            3y_smart_score_rank:
+              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
+            9m_smart_score_rank:
+              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
+            overall_smart_score_rank:
+              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
+          type: object
+        ratings_accuracy:
+          $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.RatingsAccuracy'
+        updated:
+          example: 1704758400
+          type: integer
+      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.RatingsAccuracy:
       properties:
         1m_average_return:
@@ -239,49 +282,6 @@ components:
         total_ratings_percentile:
           example: '85.0'
           type: string
-        updated:
-          example: 1704758400
-          type: integer
-      type: object
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.RatingsAnalyst:
-      properties:
-        firm_id:
-          example: FIRM-123456
-          type: string
-        firm_name:
-          example: Goldman Sachs
-          type: string
-        id:
-          example: 64a1b2c3d4e5f6789012345
-          type: string
-        name_first:
-          example: John
-          type: string
-        name_full:
-          example: John Smith
-          type: string
-        name_last:
-          example: Smith
-          type: string
-        rank:
-          properties:
-            1m_smart_score_rank:
-              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
-            1y_smart_score_rank:
-              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
-            2y_smart_score_rank:
-              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
-            3m_smart_score_rank:
-              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
-            3y_smart_score_rank:
-              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
-            9m_smart_score_rank:
-              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
-            overall_smart_score_rank:
-              $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank'
-          type: object
-        ratings_accuracy:
-          $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.RatingsAccuracy'
         updated:
           example: 1704758400
           type: integer

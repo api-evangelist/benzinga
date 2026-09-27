@@ -264,6 +264,63 @@ paths:
       - Calls
 components:
   schemas:
+    pgtype.JSONB:
+      properties:
+        bytes:
+          items:
+            type: integer
+          type: array
+        status:
+          $ref: '#/components/schemas/pgtype.Status'
+      type: object
+    domain.Recordings:
+      properties:
+        bucket:
+          type: string
+        created_at:
+          type: string
+        duration:
+          type: integer
+        formats:
+          $ref: '#/components/schemas/pgtype.JSONB'
+        language:
+          type: string
+        location:
+          type: string
+        recording_id:
+          type: string
+        total_files:
+          type: integer
+        total_size:
+          type: integer
+        updated_at:
+          type: string
+      type: object
+    domain.Transcripts:
+      properties:
+        confidence_score:
+          type: number
+        language:
+          type: string
+        segments:
+          items:
+            $ref: '#/components/schemas/domain.TranscriptSegments'
+          type: array
+        text:
+          type: string
+        transcript_id:
+          type: string
+        type:
+          $ref: '#/components/schemas/domain.TranscriptsType'
+      type: object
+    domain.TranscriptsType:
+      enum:
+      - LIVE
+      - NON_LIVE
+      type: string
+      x-enum-varnames:
+      - LiveTranscripts
+      - NonLiveTranscripts
     domain.Summaries:
       properties:
         call_id:
@@ -310,32 +367,6 @@ components:
           type: string
         text:
           type: string
-      type: object
-    pgtype.JSONB:
-      properties:
-        bytes:
-          items:
-            type: integer
-          type: array
-        status:
-          $ref: '#/components/schemas/pgtype.Status'
-      type: object
-    domain.Transcripts:
-      properties:
-        confidence_score:
-          type: number
-        language:
-          type: string
-        segments:
-          items:
-            $ref: '#/components/schemas/domain.TranscriptSegments'
-          type: array
-        text:
-          type: string
-        transcript_id:
-          type: string
-        type:
-          $ref: '#/components/schemas/domain.TranscriptsType'
       type: object
     domain.UpdateCallReq:
       properties:
@@ -402,37 +433,6 @@ components:
       - Undefined
       - 'Null'
       - Present
-    domain.Recordings:
-      properties:
-        bucket:
-          type: string
-        created_at:
-          type: string
-        duration:
-          type: integer
-        formats:
-          $ref: '#/components/schemas/pgtype.JSONB'
-        language:
-          type: string
-        location:
-          type: string
-        recording_id:
-          type: string
-        total_files:
-          type: integer
-        total_size:
-          type: integer
-        updated_at:
-          type: string
-      type: object
-    domain.TranscriptsType:
-      enum:
-      - LIVE
-      - NON_LIVE
-      type: string
-      x-enum-varnames:
-      - LiveTranscripts
-      - NonLiveTranscripts
     domain.Calls:
       properties:
         call_id:

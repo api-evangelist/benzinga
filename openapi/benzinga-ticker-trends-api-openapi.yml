@@ -156,16 +156,6 @@ paths:
       - Ticker Trends
 components:
   schemas:
-    api_httpapi.tickerTrendAPIResponse:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/api_httpapi.tickerTrendData'
-          type: array
-        ok:
-          example: true
-          type: boolean
-      type: object
     models.TrendingTickersListData:
       properties:
         count:
@@ -177,18 +167,6 @@ components:
         security:
           $ref: '#/components/schemas/models.Security'
       type: object
-    bzhttp.Resp:
-      properties:
-        data:
-          additionalProperties: true
-          type: object
-        errors:
-          items:
-            $ref: '#/components/schemas/bzhttp.Error'
-          type: array
-        ok:
-          type: boolean
-      type: object
     models.Security:
       properties:
         exchange:
@@ -199,15 +177,6 @@ components:
           type: string
         ticker:
           example: AAPL
-          type: string
-      type: object
-    bzhttp.Error:
-      properties:
-        code:
-          $ref: '#/components/schemas/bzhttp.ErrorCode'
-        id:
-          type: string
-        value:
           type: string
       type: object
     bzhttp.ErrorCode:
@@ -240,18 +209,36 @@ components:
       - ErrorUpstreamAPIError
       - ErrorUnsupportedMessageType
       - ErrorDBQueryError
-    api_httpapi.tickerTrendData:
+    bzhttp.Error:
       properties:
-        exchange:
-          example: NASDAQ
+        code:
+          $ref: '#/components/schemas/bzhttp.ErrorCode'
+        id:
           type: string
-        metrics:
+        value:
+          type: string
+      type: object
+    api_httpapi.tickerTrendAPIResponse:
+      properties:
+        data:
           items:
-            $ref: '#/components/schemas/api_httpapi.tickerTrendMetrics'
+            $ref: '#/components/schemas/api_httpapi.tickerTrendData'
           type: array
-        ticker:
-          example: AAPL
-          type: string
+        ok:
+          example: true
+          type: boolean
+      type: object
+    bzhttp.Resp:
+      properties:
+        data:
+          additionalProperties: true
+          type: object
+        errors:
+          items:
+            $ref: '#/components/schemas/bzhttp.Error'
+          type: array
+        ok:
+          type: boolean
       type: object
     api_httpapi.tickerTrendMetrics:
       properties:
@@ -272,6 +259,19 @@ components:
           type: number
         time_bucket:
           example: '2024-01-09T10:00:00Z'
+          type: string
+      type: object
+    api_httpapi.tickerTrendData:
+      properties:
+        exchange:
+          example: NASDAQ
+          type: string
+        metrics:
+          items:
+            $ref: '#/components/schemas/api_httpapi.tickerTrendMetrics'
+          type: array
+        ticker:
+          example: AAPL
           type: string
       type: object
     models.TrendingTickersListAPIResponse:

@@ -77,14 +77,6 @@ paths:
       - Block Trade
 components:
   schemas:
-    api.BlockTradeResponse:
-      description: API response containing an array of block trade records
-      properties:
-        block-trade:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.BlockTrade'
-          type: array
-      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.BlockTrade:
       properties:
         ask:
@@ -142,6 +134,14 @@ components:
         updated:
           example: 1704819600
           type: integer
+      type: object
+    api.BlockTradeResponse:
+      description: API response containing an array of block trade records
+      properties:
+        block-trade:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.BlockTrade'
+          type: array
       type: object
     api.ErrorResponse:
       properties:

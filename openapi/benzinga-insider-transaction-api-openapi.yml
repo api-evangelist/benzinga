@@ -222,20 +222,28 @@ paths:
       - Insider Transaction
 components:
   schemas:
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.InsiderTransactionFilingDoc:
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Owner:
       properties:
-        data:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.InsiderTransaction'
-          type: array
-      type: object
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.SECFootnotes:
-      properties:
-        id:
-          example: F1
+        insider_cik:
+          example: '0001234567'
           type: string
-        text:
-          example: Shares were sold pursuant to a Rule 10b5-1 trading plan
+        insider_name:
+          example: Tim Cook
+          type: string
+        insider_title:
+          example: Chief Executive Officer
+          type: string
+        is_director:
+          example: true
+          type: boolean
+        is_officer:
+          example: true
+          type: boolean
+        is_ten_percent_owner:
+          example: false
+          type: boolean
+        raw_signature:
+          example: /s/ Tim Cook
           type: string
       type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Transaction:
@@ -295,29 +303,12 @@ components:
           example: false
           type: boolean
       type: object
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Owner:
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.InsiderTransactionFilingDoc:
       properties:
-        insider_cik:
-          example: '0001234567'
-          type: string
-        insider_name:
-          example: Tim Cook
-          type: string
-        insider_title:
-          example: Chief Executive Officer
-          type: string
-        is_director:
-          example: true
-          type: boolean
-        is_officer:
-          example: true
-          type: boolean
-        is_ten_percent_owner:
-          example: false
-          type: boolean
-        raw_signature:
-          example: /s/ Tim Cook
-          type: string
+        data:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.InsiderTransaction'
+          type: array
       type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.InsiderTransaction:
       properties:
@@ -370,6 +361,15 @@ components:
         updated:
           example: 1704758400
           type: integer
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.SECFootnotes:
+      properties:
+        id:
+          example: F1
+          type: string
+        text:
+          example: Shares were sold pursuant to a Rule 10b5-1 trading plan
+          type: string
       type: object
     api.ErrorResponse:
       properties:

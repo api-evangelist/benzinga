@@ -190,53 +190,6 @@ paths:
       - Market Data
 components:
   schemas:
-    api_httpapi.Chart:
-      properties:
-        candles:
-          items:
-            properties:
-              close:
-                type: number
-              dateTime:
-                type: string
-              high:
-                type: number
-              low:
-                type: number
-              open:
-                type: number
-              time:
-                type: string
-              volume:
-                type: string
-            type: object
-          type: array
-        interval:
-          type: integer
-        symbol:
-          type: string
-      type: object
-    bzhttp.Error:
-      properties:
-        code:
-          $ref: '#/components/schemas/bzhttp.ErrorCode'
-        id:
-          type: string
-        value:
-          type: string
-      type: object
-    bzhttp.Resp:
-      properties:
-        data:
-          additionalProperties: true
-          type: object
-        errors:
-          items:
-            $ref: '#/components/schemas/bzhttp.Error'
-          type: array
-        ok:
-          type: boolean
-      type: object
     bzhttp.ErrorCode:
       enum:
       - json_unmarshaling_error
@@ -267,6 +220,53 @@ components:
       - ErrorUpstreamAPIError
       - ErrorUnsupportedMessageType
       - ErrorDBQueryError
+    bzhttp.Error:
+      properties:
+        code:
+          $ref: '#/components/schemas/bzhttp.ErrorCode'
+        id:
+          type: string
+        value:
+          type: string
+      type: object
+    bzhttp.Resp:
+      properties:
+        data:
+          additionalProperties: true
+          type: object
+        errors:
+          items:
+            $ref: '#/components/schemas/bzhttp.Error'
+          type: array
+        ok:
+          type: boolean
+      type: object
+    api_httpapi.Chart:
+      properties:
+        candles:
+          items:
+            properties:
+              close:
+                type: number
+              dateTime:
+                type: string
+              high:
+                type: number
+              low:
+                type: number
+              open:
+                type: number
+              time:
+                type: string
+              volume:
+                type: string
+            type: object
+          type: array
+        interval:
+          type: integer
+        symbol:
+          type: string
+      type: object
   securitySchemes:
     ApiKeyAuth:
       in: query
