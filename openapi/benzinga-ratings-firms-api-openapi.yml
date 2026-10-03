@@ -78,6 +78,11 @@ paths:
       - ratings_firms
 components:
   schemas:
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.RatingsFirm:
       properties:
         currency:
@@ -95,11 +100,6 @@ components:
         updated:
           example: 1704819600
           type: integer
-      type: object
-    api.ErrorResponse:
-      properties:
-        text:
-          type: string
       type: object
   securitySchemes:
     ApiKeyAuth:

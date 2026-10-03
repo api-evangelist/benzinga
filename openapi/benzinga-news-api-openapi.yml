@@ -318,6 +318,16 @@ components:
           example: https://www.benzinga.com/news/123456
           type: string
       type: object
+    api.NewsRemovedItem:
+      description: Removed news article with ID and update timestamp
+      properties:
+        id:
+          example: 123456
+          type: integer
+        updated:
+          example: Wed, 17 May 2017 14:20:15 -0400
+          type: string
+      type: object
     api.ChannelTag:
       description: Channel or tag name
       properties:
@@ -361,16 +371,6 @@ components:
           type: string
         url:
           example: https://cdn.benzinga.com/files/images/story/2024/example.jpg
-          type: string
-      type: object
-    api.NewsRemovedItem:
-      description: Removed news article with ID and update timestamp
-      properties:
-        id:
-          example: 123456
-          type: integer
-        updated:
-          example: Wed, 17 May 2017 14:20:15 -0400
           type: string
       type: object
   securitySchemes:

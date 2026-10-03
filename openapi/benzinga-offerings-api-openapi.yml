@@ -112,6 +112,14 @@ paths:
       - Offerings
 components:
   schemas:
+    api.OfferingResponse:
+      description: API response containing an array of offering records
+      properties:
+        offerings:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Offering'
+          type: array
+      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Offering:
       properties:
         currency:
@@ -169,14 +177,6 @@ components:
         url:
           example: https://www.benzinga.com/offering/123456
           type: string
-      type: object
-    api.OfferingResponse:
-      description: API response containing an array of offering records
-      properties:
-        offerings:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Offering'
-          type: array
       type: object
     api.ErrorResponse:
       properties:

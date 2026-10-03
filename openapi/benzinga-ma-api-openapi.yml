@@ -121,14 +121,6 @@ paths:
       - ma
 components:
   schemas:
-    api.AcquisitionResponse:
-      description: API response containing an array of M&A records
-      properties:
-        ma:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Acquisition'
-          type: array
-      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Acquisition:
       properties:
         acquirer_cusip:
@@ -205,6 +197,14 @@ components:
       properties:
         text:
           type: string
+      type: object
+    api.AcquisitionResponse:
+      description: API response containing an array of M&A records
+      properties:
+        ma:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Acquisition'
+          type: array
       type: object
   securitySchemes:
     ApiKeyAuth:

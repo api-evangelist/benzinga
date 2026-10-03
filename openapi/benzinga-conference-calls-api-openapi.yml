@@ -100,6 +100,14 @@ paths:
       - conference_calls
 components:
   schemas:
+    api.ConferenceResponse:
+      description: API response containing an array of conference call records
+      properties:
+        conference-calls:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Conference'
+          type: array
+      type: object
     api.ErrorResponse:
       properties:
         text:
@@ -168,14 +176,6 @@ components:
         webcast_url:
           example: https://event.webcasts.com/example
           type: string
-      type: object
-    api.ConferenceResponse:
-      description: API response containing an array of conference call records
-      properties:
-        conference-calls:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Conference'
-          type: array
       type: object
   securitySchemes:
     ApiKeyAuth:

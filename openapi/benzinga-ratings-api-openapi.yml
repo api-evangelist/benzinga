@@ -165,14 +165,6 @@ paths:
       - Ratings
 components:
   schemas:
-    api.RatingResponse:
-      description: API response containing an array of analyst ratings
-      properties:
-        ratings:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rating'
-          type: array
-      type: object
     api.ErrorResponse:
       properties:
         text:
@@ -262,6 +254,14 @@ components:
         url_news:
           example: https://www.benzinga.com/news/123456
           type: string
+      type: object
+    api.RatingResponse:
+      description: API response containing an array of analyst ratings
+      properties:
+        ratings:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rating'
+          type: array
       type: object
   securitySchemes:
     ApiKeyAuth:

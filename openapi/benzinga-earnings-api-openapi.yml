@@ -119,14 +119,6 @@ paths:
       - Earnings
 components:
   schemas:
-    api.EarningResponse:
-      description: API response containing an array of earnings records
-      properties:
-        earnings:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Earning'
-          type: array
-      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Earning:
       properties:
         currency:
@@ -215,6 +207,14 @@ components:
       properties:
         text:
           type: string
+      type: object
+    api.EarningResponse:
+      description: API response containing an array of earnings records
+      properties:
+        earnings:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Earning'
+          type: array
       type: object
   securitySchemes:
     ApiKeyAuth:

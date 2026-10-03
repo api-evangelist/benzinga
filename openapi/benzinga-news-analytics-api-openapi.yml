@@ -89,6 +89,27 @@ paths:
       - News Analytics
 components:
   schemas:
+    bzhttp.Resp:
+      properties:
+        data:
+          additionalProperties: true
+          type: object
+        errors:
+          items:
+            $ref: '#/components/schemas/bzhttp.Error'
+          type: array
+        ok:
+          type: boolean
+      type: object
+    bzhttp.Error:
+      properties:
+        code:
+          $ref: '#/components/schemas/bzhttp.ErrorCode'
+        id:
+          type: string
+        value:
+          type: string
+      type: object
     models.Newsquantified:
       properties:
         _id:
@@ -410,27 +431,6 @@ components:
       - ErrorFailedDependency
       - ErrorServiceUnavailable
       - ErrorUpstreamAPIError
-    bzhttp.Error:
-      properties:
-        code:
-          $ref: '#/components/schemas/bzhttp.ErrorCode'
-        id:
-          type: string
-        value:
-          type: string
-      type: object
-    bzhttp.Resp:
-      properties:
-        data:
-          additionalProperties: true
-          type: object
-        errors:
-          items:
-            $ref: '#/components/schemas/bzhttp.Error'
-          type: array
-        ok:
-          type: boolean
-      type: object
   securitySchemes:
     ApiKeyAuth:
       in: header

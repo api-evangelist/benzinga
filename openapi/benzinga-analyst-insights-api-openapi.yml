@@ -115,24 +115,6 @@ paths:
       - Analyst Insights
 components:
   schemas:
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.AnalystInsightsSecurity:
-      properties:
-        cik:
-          example: '320193'
-          type: string
-        exchange:
-          example: NASDAQ
-          type: string
-        isin:
-          example: US0378331005
-          type: string
-        name:
-          example: Apple Inc.
-          type: string
-        symbol:
-          example: AAPL
-          type: string
-      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.AnalystInsights:
       properties:
         action:
@@ -171,11 +153,6 @@ components:
           example: 1704819600
           type: integer
       type: object
-    api.ErrorResponse:
-      properties:
-        text:
-          type: string
-      type: object
     api.AnalystInsightsResponse:
       description: API response containing an array of analyst insights
       properties:
@@ -183,6 +160,29 @@ components:
           items:
             $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.AnalystInsights'
           type: array
+      type: object
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.AnalystInsightsSecurity:
+      properties:
+        cik:
+          example: '320193'
+          type: string
+        exchange:
+          example: NASDAQ
+          type: string
+        isin:
+          example: US0378331005
+          type: string
+        name:
+          example: Apple Inc.
+          type: string
+        symbol:
+          example: AAPL
+          type: string
       type: object
   securitySchemes:
     ApiKeyAuth:

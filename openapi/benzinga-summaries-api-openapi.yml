@@ -170,6 +170,18 @@ paths:
       - Summaries
 components:
   schemas:
+    domain.UpdateSummaryReq:
+      properties:
+        language:
+          example: en
+          type: string
+        summary:
+          example: Overall, the quarter was strong with 5% revenue growth...
+          type: string
+        symbol:
+          example: AAPL
+          type: string
+      type: object
     domain.Summaries:
       properties:
         call_id:
@@ -198,18 +210,6 @@ components:
           example: 660e8400-e29b-41d4-a716-446655440000
           type: string
         updated_at:
-          type: string
-      type: object
-    domain.UpdateSummaryReq:
-      properties:
-        language:
-          example: en
-          type: string
-        summary:
-          example: Overall, the quarter was strong with 5% revenue growth...
-          type: string
-        symbol:
-          example: AAPL
           type: string
       type: object
   securitySchemes:

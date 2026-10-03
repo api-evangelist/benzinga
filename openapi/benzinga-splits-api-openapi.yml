@@ -121,14 +121,6 @@ paths:
       - Splits
 components:
   schemas:
-    api.SplitResponse:
-      description: API response containing an array of stock split records
-      properties:
-        splits:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Split'
-          type: array
-      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Split:
       properties:
         cusip:
@@ -176,6 +168,14 @@ components:
         updated:
           example: 1704819600
           type: integer
+      type: object
+    api.SplitResponse:
+      description: API response containing an array of stock split records
+      properties:
+        splits:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Split'
+          type: array
       type: object
     api.ErrorResponse:
       properties:

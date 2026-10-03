@@ -122,6 +122,11 @@ paths:
       - Economics
 components:
   schemas:
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
     api.EconomicResponse:
       description: API response containing an array of economic event records
       properties:
@@ -190,11 +195,6 @@ components:
         updated:
           example: 1704819600
           type: integer
-      type: object
-    api.ErrorResponse:
-      properties:
-        text:
-          type: string
       type: object
   securitySchemes:
     ApiKeyAuth:

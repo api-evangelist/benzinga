@@ -94,6 +94,29 @@ paths:
       - consensus_ratings
 components:
   schemas:
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.AggregateRating:
+      properties:
+        buy:
+          example: 10
+          type: integer
+        hold:
+          example: 3
+          type: integer
+        sell:
+          example: 1
+          type: integer
+        strong_buy:
+          example: 5
+          type: integer
+        strong_sell:
+          example: 0
+          type: integer
+      type: object
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.ConsensusRating:
       properties:
         aggregate_ratings:
@@ -125,29 +148,6 @@ components:
         updated_at:
           example: '2024-01-09T16:00:00Z'
           type: string
-      type: object
-    api.ErrorResponse:
-      properties:
-        text:
-          type: string
-      type: object
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.AggregateRating:
-      properties:
-        buy:
-          example: 10
-          type: integer
-        hold:
-          example: 3
-          type: integer
-        sell:
-          example: 1
-          type: integer
-        strong_buy:
-          example: 5
-          type: integer
-        strong_sell:
-          example: 0
-          type: integer
       type: object
   securitySchemes:
     ApiKeyAuth:

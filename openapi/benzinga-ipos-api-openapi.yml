@@ -194,6 +194,19 @@ paths:
       - ipos
 components:
   schemas:
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
+    api.IPOResponse:
+      description: API response containing an array of IPO records
+      properties:
+        ipos:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.IPO'
+          type: array
+      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.IPO:
       properties:
         currency:
@@ -329,19 +342,6 @@ components:
         updated:
           example: 1704819600
           type: integer
-      type: object
-    api.IPOResponse:
-      description: API response containing an array of IPO records
-      properties:
-        ipos:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.IPO'
-          type: array
-      type: object
-    api.ErrorResponse:
-      properties:
-        text:
-          type: string
       type: object
   securitySchemes:
     ApiKeyAuth:

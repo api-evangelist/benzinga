@@ -3,7 +3,7 @@ info:
   contact: {}
   description: This REST API provides endpoints to get analyst report details.
   termsOfService: http://swagger.io/terms/
-  title: Analyst Reports Raw Text Analyst Insights Earnings Call………
+  title: Analyst Reports Raw Text Analyst Insights Earnings Call…………
   version: 1.0.0
 servers:
 - url: https://api.benzinga.com
@@ -158,14 +158,10 @@ components:
           example: Thank you for joining us today...
           type: string
       type: object
-    models.Summary:
+    models.TranscriptAudioFile:
       properties:
-        summary:
-          example: CEO discusses Q4 revenue growth of 15% YoY
+        file_url:
           type: string
-        time:
-          example: 123.45
-          type: number
       type: object
     models.TranscriptSummary:
       properties:
@@ -211,29 +207,6 @@ components:
           example: 12345
           type: integer
       type: object
-    models.TranscriptAudioFile:
-      properties:
-        file_url:
-          type: string
-      type: object
-    models.Security:
-      properties:
-        cik:
-          example: '320193'
-          type: string
-        company_name:
-          example: Apple Inc
-          type: string
-        exchange:
-          example: NASDAQ
-          type: string
-        isin:
-          example: US0378331005
-          type: string
-        ticker:
-          example: AAPL
-          type: string
-      type: object
     models.TranscriptSummaryAudio:
       properties:
         audio_file:
@@ -252,6 +225,33 @@ components:
           type: string
         updated:
           type: integer
+      type: object
+    models.Summary:
+      properties:
+        summary:
+          example: CEO discusses Q4 revenue growth of 15% YoY
+          type: string
+        time:
+          example: 123.45
+          type: number
+      type: object
+    models.Security:
+      properties:
+        cik:
+          example: '320193'
+          type: string
+        company_name:
+          example: Apple Inc
+          type: string
+        exchange:
+          example: NASDAQ
+          type: string
+        isin:
+          example: US0378331005
+          type: string
+        ticker:
+          example: AAPL
+          type: string
       type: object
   securitySchemes:
     ApiKeyAuth:

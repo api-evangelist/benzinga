@@ -190,6 +190,27 @@ paths:
       - Market Data
 components:
   schemas:
+    bzhttp.Resp:
+      properties:
+        data:
+          additionalProperties: true
+          type: object
+        errors:
+          items:
+            $ref: '#/components/schemas/bzhttp.Error'
+          type: array
+        ok:
+          type: boolean
+      type: object
+    bzhttp.Error:
+      properties:
+        code:
+          $ref: '#/components/schemas/bzhttp.ErrorCode'
+        id:
+          type: string
+        value:
+          type: string
+      type: object
     bzhttp.ErrorCode:
       enum:
       - json_unmarshaling_error
@@ -220,27 +241,6 @@ components:
       - ErrorUpstreamAPIError
       - ErrorUnsupportedMessageType
       - ErrorDBQueryError
-    bzhttp.Error:
-      properties:
-        code:
-          $ref: '#/components/schemas/bzhttp.ErrorCode'
-        id:
-          type: string
-        value:
-          type: string
-      type: object
-    bzhttp.Resp:
-      properties:
-        data:
-          additionalProperties: true
-          type: object
-        errors:
-          items:
-            $ref: '#/components/schemas/bzhttp.Error'
-          type: array
-        ok:
-          type: boolean
-      type: object
     api_httpapi.Chart:
       properties:
         candles:
