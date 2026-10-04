@@ -78,6 +78,11 @@ paths:
       - Bulls Say Bears Say
 components:
   schemas:
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.BullsSayBearsSay:
       properties:
         analyst_firms_referenced:
@@ -127,11 +132,6 @@ components:
         updated:
           example: 1704819600
           type: integer
-      type: object
-    api.ErrorResponse:
-      properties:
-        text:
-          type: string
       type: object
     api.BullsSayBearsSayResponse:
       description: API response containing an array of bulls say bears say records

@@ -160,18 +160,6 @@ paths:
       - Transcripts
 components:
   schemas:
-    domain.UpdateTranscriptSpeakerReq:
-      properties:
-        current_name:
-          example: Speaker 1
-          type: string
-        name:
-          example: John Doe
-          type: string
-        role:
-          example: Chief Executive Officer
-          type: string
-      type: object
     domain.UpdateTranscriptSegmentsReq:
       properties:
         end_time:
@@ -185,6 +173,18 @@ components:
           type: string
         text:
           example: Welcome everyone to the Q3 earnings call.
+          type: string
+      type: object
+    domain.UpdateTranscriptSpeakerReq:
+      properties:
+        current_name:
+          example: Speaker 1
+          type: string
+        name:
+          example: John Doe
+          type: string
+        role:
+          example: Chief Executive Officer
           type: string
       type: object
   securitySchemes:

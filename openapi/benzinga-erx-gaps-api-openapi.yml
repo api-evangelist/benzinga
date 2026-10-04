@@ -86,48 +86,6 @@ paths:
       - ERx Gaps
 components:
   schemas:
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.MarketSessionAlert:
-      properties:
-        description:
-          example: Price broke above first 15-minute high
-          type: string
-        first_5min_close:
-          example: 155.25
-          type: number
-        first_5min_high:
-          example: 155.5
-          type: number
-        first_15min_close:
-          example: 155.75
-          type: number
-        first_15min_high:
-          example: 156
-          type: number
-        gap_id:
-          example: 500
-          type: integer
-        session_date:
-          example: '2024-01-09'
-          type: string
-        session_high:
-          example: 157.5
-          type: number
-        session_id:
-          example: 5001
-          type: integer
-        session_type:
-          example: Regular
-          type: string
-        session_volume:
-          example: 12500000
-          type: integer
-        symbol:
-          example: AAPL
-          type: string
-        title:
-          example: First 15 Min Breakout
-          type: string
-      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.PriceAlert:
       properties:
         description:
@@ -280,37 +238,59 @@ components:
             $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.VolumeAlert'
           type: array
       type: object
-    api.ErrorResponse:
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.DayAlert:
       properties:
-        text:
+        alert_date:
+          type: string
+        alert_type:
+          type: string
+        day:
+          type: integer
+        day_alert_id:
+          type: integer
+        description:
+          type: string
+        gap_id:
+          type: integer
+        price:
+          type: number
+        price_type:
+          type: string
+        title:
           type: string
       type: object
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.EmaCrossover:
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.VolumeAlert:
       properties:
-        crossover_date:
-          example: '2024-01-12'
+        alert_date:
+          example: '2024-01-09'
           type: string
-        crossover_id:
-          example: 6001
+        alert_id:
+          example: 1001
           type: integer
-        crossover_price:
-          example: 154.75
-          type: number
-        crossover_type:
-          example: EMA21
+        alert_type:
+          example: High Volume
           type: string
-        days_from_gap:
-          example: '3'
-          type: string
+        average_volume_50d:
+          example: 8500000
+          type: integer
         description:
-          example: Price crossed above EMA21
+          example: Volume exceeded 1.5x the 50-day average
           type: string
         gap_id:
           example: 500
           type: integer
-        title:
-          example: EMA21 Crossover
+        symbol:
+          example: AAPL
           type: string
+        title:
+          example: Volume Spike Alert
+          type: string
+        volume:
+          example: 15000000
+          type: integer
+        volume_ratio:
+          example: 1.76
+          type: number
       type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.MilestoneMeasurement:
       properties:
@@ -351,6 +331,44 @@ components:
           example: Day 10 Milestone
           type: string
       type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.ClosingRangeAlert:
+      properties:
+        alert_date:
+          example: '2024-01-09'
+          type: string
+        alert_type:
+          example: Upper Third Close
+          type: string
+        closing_id:
+          example: 4001
+          type: integer
+        closing_range_percentage:
+          example: 85.5
+          type: number
+        day_high:
+          example: 157.5
+          type: number
+        day_low:
+          example: 153.25
+          type: number
+        description:
+          example: Stock closed in the upper third of the day's range
+          type: string
+        gap_id:
+          example: 500
+          type: integer
+        symbol:
+          example: AAPL
+          type: string
+        title:
+          example: Upper Third Close
+          type: string
+      type: object
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.FibonacciAlert:
       properties:
         alert_date:
@@ -387,91 +405,73 @@ components:
           example: 50% Fibonacci Retracement
           type: string
       type: object
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.VolumeAlert:
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.MarketSessionAlert:
       properties:
-        alert_date:
-          example: '2024-01-09'
-          type: string
-        alert_id:
-          example: 1001
-          type: integer
-        alert_type:
-          example: High Volume
-          type: string
-        average_volume_50d:
-          example: 8500000
-          type: integer
         description:
-          example: Volume exceeded 1.5x the 50-day average
+          example: Price broke above first 15-minute high
           type: string
+        first_5min_close:
+          example: 155.25
+          type: number
+        first_5min_high:
+          example: 155.5
+          type: number
+        first_15min_close:
+          example: 155.75
+          type: number
+        first_15min_high:
+          example: 156
+          type: number
         gap_id:
           example: 500
           type: integer
-        symbol:
-          example: AAPL
-          type: string
-        title:
-          example: Volume Spike Alert
-          type: string
-        volume:
-          example: 15000000
-          type: integer
-        volume_ratio:
-          example: 1.76
-          type: number
-      type: object
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.ClosingRangeAlert:
-      properties:
-        alert_date:
+        session_date:
           example: '2024-01-09'
           type: string
-        alert_type:
-          example: Upper Third Close
-          type: string
-        closing_id:
-          example: 4001
-          type: integer
-        closing_range_percentage:
-          example: 85.5
-          type: number
-        day_high:
+        session_high:
           example: 157.5
           type: number
-        day_low:
-          example: 153.25
-          type: number
-        description:
-          example: Stock closed in the upper third of the day's range
+        session_id:
+          example: 5001
+          type: integer
+        session_type:
+          example: Regular
           type: string
-        gap_id:
-          example: 500
+        session_volume:
+          example: 12500000
           type: integer
         symbol:
           example: AAPL
           type: string
         title:
-          example: Upper Third Close
+          example: First 15 Min Breakout
           type: string
       type: object
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.DayAlert:
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.EmaCrossover:
       properties:
-        alert_date:
+        crossover_date:
+          example: '2024-01-12'
           type: string
-        alert_type:
+        crossover_id:
+          example: 6001
+          type: integer
+        crossover_price:
+          example: 154.75
+          type: number
+        crossover_type:
+          example: EMA21
           type: string
-        day:
-          type: integer
-        day_alert_id:
-          type: integer
+        days_from_gap:
+          example: '3'
+          type: string
         description:
+          example: Price crossed above EMA21
           type: string
         gap_id:
+          example: 500
           type: integer
-        price:
-          type: number
-        price_type:
-          type: string
         title:
+          example: EMA21 Crossover
           type: string
       type: object
   securitySchemes:

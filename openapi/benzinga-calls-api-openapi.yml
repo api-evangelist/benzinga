@@ -264,35 +264,32 @@ paths:
       - Calls
 components:
   schemas:
-    domain.Participants:
+    domain.TranscriptSegments:
       properties:
-        call_id:
+        confidence:
+          type: number
+        end_time:
           type: string
-        deleted_at:
-          type: string
-        human_verified:
-          type: boolean
-        mentions:
+        segment_id:
           type: integer
-        name:
+        sentiment:
+          type: number
+        speaker:
           type: string
-        organization:
+        start_time:
           type: string
-        participant_id:
-          type: string
-        role:
+        text:
           type: string
       type: object
-    pgtype.Status:
-      enum:
-      - 0
-      - 1
-      - 2
-      type: integer
-      x-enum-varnames:
-      - Undefined
-      - 'Null'
-      - Present
+    pgtype.JSONB:
+      properties:
+        bytes:
+          items:
+            type: integer
+          type: array
+        status:
+          $ref: '#/components/schemas/pgtype.Status'
+      type: object
     domain.Calls:
       properties:
         call_id:
@@ -366,53 +363,6 @@ components:
           example: 2023
           type: integer
       type: object
-    domain.Summaries:
-      properties:
-        call_id:
-          example: 770e8400-e29b-41d4-a716-446655440000
-          type: string
-        created_at:
-          type: string
-        deleted_at:
-          type: string
-        language:
-          example: en
-          type: string
-        sentiment:
-          example: 0.85
-          type: number
-        summary:
-          example: The company reported positive growth...
-          type: string
-        summary_id:
-          example: 550e8400-e29b-41d4-a716-446655440000
-          type: string
-        symbol:
-          example: MSFT
-          type: string
-        transcript_id:
-          example: 660e8400-e29b-41d4-a716-446655440000
-          type: string
-        updated_at:
-          type: string
-      type: object
-    domain.Transcripts:
-      properties:
-        confidence_score:
-          type: number
-        language:
-          type: string
-        segments:
-          items:
-            $ref: '#/components/schemas/domain.TranscriptSegments'
-          type: array
-        text:
-          type: string
-        transcript_id:
-          type: string
-        type:
-          $ref: '#/components/schemas/domain.TranscriptsType'
-      type: object
     domain.UpdateCallReq:
       properties:
         call_title:
@@ -449,6 +399,71 @@ components:
           example: AAPL
           type: string
       type: object
+    pgtype.Status:
+      enum:
+      - 0
+      - 1
+      - 2
+      type: integer
+      x-enum-varnames:
+      - Undefined
+      - 'Null'
+      - Present
+    domain.Transcripts:
+      properties:
+        confidence_score:
+          type: number
+        language:
+          type: string
+        segments:
+          items:
+            $ref: '#/components/schemas/domain.TranscriptSegments'
+          type: array
+        text:
+          type: string
+        transcript_id:
+          type: string
+        type:
+          $ref: '#/components/schemas/domain.TranscriptsType'
+      type: object
+    domain.TranscriptsType:
+      enum:
+      - LIVE
+      - NON_LIVE
+      type: string
+      x-enum-varnames:
+      - LiveTranscripts
+      - NonLiveTranscripts
+    domain.Summaries:
+      properties:
+        call_id:
+          example: 770e8400-e29b-41d4-a716-446655440000
+          type: string
+        created_at:
+          type: string
+        deleted_at:
+          type: string
+        language:
+          example: en
+          type: string
+        sentiment:
+          example: 0.85
+          type: number
+        summary:
+          example: The company reported positive growth...
+          type: string
+        summary_id:
+          example: 550e8400-e29b-41d4-a716-446655440000
+          type: string
+        symbol:
+          example: MSFT
+          type: string
+        transcript_id:
+          example: 660e8400-e29b-41d4-a716-446655440000
+          type: string
+        updated_at:
+          type: string
+      type: object
     domain.Recordings:
       properties:
         bucket:
@@ -472,38 +487,23 @@ components:
         updated_at:
           type: string
       type: object
-    pgtype.JSONB:
+    domain.Participants:
       properties:
-        bytes:
-          items:
-            type: integer
-          type: array
-        status:
-          $ref: '#/components/schemas/pgtype.Status'
-      type: object
-    domain.TranscriptsType:
-      enum:
-      - LIVE
-      - NON_LIVE
-      type: string
-      x-enum-varnames:
-      - LiveTranscripts
-      - NonLiveTranscripts
-    domain.TranscriptSegments:
-      properties:
-        confidence:
-          type: number
-        end_time:
+        call_id:
           type: string
-        segment_id:
+        deleted_at:
+          type: string
+        human_verified:
+          type: boolean
+        mentions:
           type: integer
-        sentiment:
-          type: number
-        speaker:
+        name:
           type: string
-        start_time:
+        organization:
           type: string
-        text:
+        participant_id:
+          type: string
+        role:
           type: string
       type: object
   securitySchemes:

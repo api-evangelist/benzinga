@@ -112,13 +112,10 @@ paths:
       - Offerings
 components:
   schemas:
-    api.OfferingResponse:
-      description: API response containing an array of offering records
+    api.ErrorResponse:
       properties:
-        offerings:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Offering'
-          type: array
+        text:
+          type: string
       type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Offering:
       properties:
@@ -178,10 +175,13 @@ components:
           example: https://www.benzinga.com/offering/123456
           type: string
       type: object
-    api.ErrorResponse:
+    api.OfferingResponse:
+      description: API response containing an array of offering records
       properties:
-        text:
-          type: string
+        offerings:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Offering'
+          type: array
       type: object
   securitySchemes:
     ApiKeyAuth:

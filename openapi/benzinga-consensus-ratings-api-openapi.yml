@@ -94,6 +94,11 @@ paths:
       - consensus_ratings
 components:
   schemas:
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.AggregateRating:
       properties:
         buy:
@@ -111,11 +116,6 @@ components:
         strong_sell:
           example: 0
           type: integer
-      type: object
-    api.ErrorResponse:
-      properties:
-        text:
-          type: string
       type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.ConsensusRating:
       properties:

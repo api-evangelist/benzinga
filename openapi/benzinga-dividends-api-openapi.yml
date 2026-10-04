@@ -263,14 +263,6 @@ paths:
       - Dividends
 components:
   schemas:
-    api.DividendResponse:
-      description: API response containing an array of dividend records
-      properties:
-        dividends:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Dividend'
-          type: array
-      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Dividend:
       properties:
         confirmed:
@@ -347,6 +339,14 @@ components:
       properties:
         text:
           type: string
+      type: object
+    api.DividendResponse:
+      description: API response containing an array of dividend records
+      properties:
+        dividends:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Dividend'
+          type: array
       type: object
   securitySchemes:
     ApiKeyAuth:

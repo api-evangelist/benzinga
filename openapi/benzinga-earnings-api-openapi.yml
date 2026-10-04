@@ -119,6 +119,11 @@ paths:
       - Earnings
 components:
   schemas:
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Earning:
       properties:
         currency:
@@ -202,11 +207,6 @@ components:
         updated:
           example: 1704819600
           type: integer
-      type: object
-    api.ErrorResponse:
-      properties:
-        text:
-          type: string
       type: object
     api.EarningResponse:
       description: API response containing an array of earnings records

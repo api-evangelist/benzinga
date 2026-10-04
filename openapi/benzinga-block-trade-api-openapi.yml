@@ -77,6 +77,11 @@ paths:
       - Block Trade
 components:
   schemas:
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.BlockTrade:
       properties:
         ask:
@@ -142,11 +147,6 @@ components:
           items:
             $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.BlockTrade'
           type: array
-      type: object
-    api.ErrorResponse:
-      properties:
-        text:
-          type: string
       type: object
   securitySchemes:
     ApiKeyAuth:

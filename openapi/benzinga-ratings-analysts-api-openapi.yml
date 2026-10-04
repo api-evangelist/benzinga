@@ -93,6 +93,11 @@ paths:
       - ratings_analysts
 components:
   schemas:
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Rank:
       properties:
         rank:
@@ -285,11 +290,6 @@ components:
         updated:
           example: 1704758400
           type: integer
-      type: object
-    api.ErrorResponse:
-      properties:
-        text:
-          type: string
       type: object
   securitySchemes:
     ApiKeyAuth:

@@ -156,62 +156,6 @@ paths:
       - Ticker Trends
 components:
   schemas:
-    api_httpapi.tickerTrendData:
-      properties:
-        exchange:
-          example: NASDAQ
-          type: string
-        metrics:
-          items:
-            $ref: '#/components/schemas/api_httpapi.tickerTrendMetrics'
-          type: array
-        ticker:
-          example: AAPL
-          type: string
-      type: object
-    models.TrendingTickersListAPIResponse:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/models.TrendingTickersListData'
-          type: array
-        ok:
-          example: true
-          type: boolean
-      type: object
-    models.TrendingTickersListData:
-      properties:
-        count:
-          example: 1523
-          type: integer
-        pct_chg:
-          example: 15
-          type: integer
-        security:
-          $ref: '#/components/schemas/models.Security'
-      type: object
-    bzhttp.Resp:
-      properties:
-        data:
-          additionalProperties: true
-          type: object
-        errors:
-          items:
-            $ref: '#/components/schemas/bzhttp.Error'
-          type: array
-        ok:
-          type: boolean
-      type: object
-    api_httpapi.tickerTrendAPIResponse:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/api_httpapi.tickerTrendData'
-          type: array
-        ok:
-          example: true
-          type: boolean
-      type: object
     api_httpapi.tickerTrendMetrics:
       properties:
         count:
@@ -233,26 +177,17 @@ components:
           example: '2024-01-09T10:00:00Z'
           type: string
       type: object
-    bzhttp.Error:
+    bzhttp.Resp:
       properties:
-        code:
-          $ref: '#/components/schemas/bzhttp.ErrorCode'
-        id:
-          type: string
-        value:
-          type: string
-      type: object
-    models.Security:
-      properties:
-        exchange:
-          example: NASDAQ
-          type: string
-        name:
-          example: Apple Inc
-          type: string
-        ticker:
-          example: AAPL
-          type: string
+        data:
+          additionalProperties: true
+          type: object
+        errors:
+          items:
+            $ref: '#/components/schemas/bzhttp.Error'
+          type: array
+        ok:
+          type: boolean
       type: object
     bzhttp.ErrorCode:
       enum:
@@ -284,6 +219,71 @@ components:
       - ErrorUpstreamAPIError
       - ErrorUnsupportedMessageType
       - ErrorDBQueryError
+    bzhttp.Error:
+      properties:
+        code:
+          $ref: '#/components/schemas/bzhttp.ErrorCode'
+        id:
+          type: string
+        value:
+          type: string
+      type: object
+    models.Security:
+      properties:
+        exchange:
+          example: NASDAQ
+          type: string
+        name:
+          example: Apple Inc
+          type: string
+        ticker:
+          example: AAPL
+          type: string
+      type: object
+    api_httpapi.tickerTrendData:
+      properties:
+        exchange:
+          example: NASDAQ
+          type: string
+        metrics:
+          items:
+            $ref: '#/components/schemas/api_httpapi.tickerTrendMetrics'
+          type: array
+        ticker:
+          example: AAPL
+          type: string
+      type: object
+    models.TrendingTickersListAPIResponse:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/models.TrendingTickersListData'
+          type: array
+        ok:
+          example: true
+          type: boolean
+      type: object
+    api_httpapi.tickerTrendAPIResponse:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/api_httpapi.tickerTrendData'
+          type: array
+        ok:
+          example: true
+          type: boolean
+      type: object
+    models.TrendingTickersListData:
+      properties:
+        count:
+          example: 1523
+          type: integer
+        pct_chg:
+          example: 15
+          type: integer
+        security:
+          $ref: '#/components/schemas/models.Security'
+      type: object
   securitySchemes:
     ApiKeyAuth:
       in: query

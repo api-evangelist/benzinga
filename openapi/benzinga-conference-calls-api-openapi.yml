@@ -100,6 +100,11 @@ paths:
       - conference_calls
 components:
   schemas:
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
     api.ConferenceResponse:
       description: API response containing an array of conference call records
       properties:
@@ -107,11 +112,6 @@ components:
           items:
             $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Conference'
           type: array
-      type: object
-    api.ErrorResponse:
-      properties:
-        text:
-          type: string
       type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Conference:
       properties:

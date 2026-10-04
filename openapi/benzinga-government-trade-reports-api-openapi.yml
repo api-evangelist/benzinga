@@ -132,22 +132,52 @@ components:
           example: 1704819600
           type: integer
       type: object
-    api.SwaggerGovtTradeReportSecurity:
+    api.SwaggerGovtTradeReportTransaction:
       properties:
-        name:
-          example: Apple Inc. - Common Stock
+        amendment_number:
+          example: 0
+          type: integer
+        amount:
+          example: $15,001 - $50,000
           type: string
-        ticker:
-          example: AAPL
+        chamber:
+          example: Senate
           type: string
-        type:
-          example: Stock
+        description:
+          example: Common Stock
           type: string
-      type: object
-    api.ErrorResponse:
-      properties:
-        text:
+        disclosure_url:
+          example: https://disclosurespreview.house.gov/ld/ldxmlrelease/2024/RR/123456.xml
           type: string
+        id:
+          example: 60a7f5e8e4b0f5a3c8e9f5c5
+          type: string
+        notification_date:
+          example: '2024-01-15'
+          type: string
+        ownership:
+          example: Joint
+          type: string
+        report_date:
+          example: '2024-01-09'
+          type: string
+        report_id:
+          example: RPT-2024-5678
+          type: string
+        security:
+          $ref: '#/components/schemas/api.SwaggerGovtTradeReportSecurity'
+        transaction_date:
+          example: '2024-01-05'
+          type: string
+        transaction_id:
+          example: TXN-2024-001234
+          type: string
+        transaction_type:
+          example: Purchase
+          type: string
+        updated:
+          example: 1704819600
+          type: integer
       type: object
     api.SwaggerGovtTradeReportFilerInfo:
       properties:
@@ -198,52 +228,22 @@ components:
           example: https://pelosi.house.gov
           type: string
       type: object
-    api.SwaggerGovtTradeReportTransaction:
+    api.ErrorResponse:
       properties:
-        amendment_number:
-          example: 0
-          type: integer
-        amount:
-          example: $15,001 - $50,000
+        text:
           type: string
-        chamber:
-          example: Senate
+      type: object
+    api.SwaggerGovtTradeReportSecurity:
+      properties:
+        name:
+          example: Apple Inc. - Common Stock
           type: string
-        description:
-          example: Common Stock
+        ticker:
+          example: AAPL
           type: string
-        disclosure_url:
-          example: https://disclosurespreview.house.gov/ld/ldxmlrelease/2024/RR/123456.xml
+        type:
+          example: Stock
           type: string
-        id:
-          example: 60a7f5e8e4b0f5a3c8e9f5c5
-          type: string
-        notification_date:
-          example: '2024-01-15'
-          type: string
-        ownership:
-          example: Joint
-          type: string
-        report_date:
-          example: '2024-01-09'
-          type: string
-        report_id:
-          example: RPT-2024-5678
-          type: string
-        security:
-          $ref: '#/components/schemas/api.SwaggerGovtTradeReportSecurity'
-        transaction_date:
-          example: '2024-01-05'
-          type: string
-        transaction_id:
-          example: TXN-2024-001234
-          type: string
-        transaction_type:
-          example: Purchase
-          type: string
-        updated:
-          example: 1704819600
-          type: integer
       type: object
     api.GovernmentTradeReportsResponse:
       description: API response containing an array of government trade report records

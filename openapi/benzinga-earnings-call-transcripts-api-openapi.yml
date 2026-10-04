@@ -3,7 +3,7 @@ info:
   contact: {}
   description: This REST API provides endpoints to get analyst report details.
   termsOfService: http://swagger.io/terms/
-  title: Analyst Reports Raw Text Analyst Insights Earnings Call…………
+  title: Analyst Reports Raw Text Analyst Insights Earnings Call……………
   version: 1.0.0
 servers:
 - url: https://api.benzinga.com
@@ -163,6 +163,24 @@ components:
         file_url:
           type: string
       type: object
+    models.Security:
+      properties:
+        cik:
+          example: '320193'
+          type: string
+        company_name:
+          example: Apple Inc
+          type: string
+        exchange:
+          example: NASDAQ
+          type: string
+        isin:
+          example: US0378331005
+          type: string
+        ticker:
+          example: AAPL
+          type: string
+      type: object
     models.TranscriptSummary:
       properties:
         call_id:
@@ -234,24 +252,6 @@ components:
         time:
           example: 123.45
           type: number
-      type: object
-    models.Security:
-      properties:
-        cik:
-          example: '320193'
-          type: string
-        company_name:
-          example: Apple Inc
-          type: string
-        exchange:
-          example: NASDAQ
-          type: string
-        isin:
-          example: US0378331005
-          type: string
-        ticker:
-          example: AAPL
-          type: string
       type: object
   securitySchemes:
     ApiKeyAuth:

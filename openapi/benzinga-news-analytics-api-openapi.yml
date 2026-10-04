@@ -89,27 +89,36 @@ paths:
       - News Analytics
 components:
   schemas:
-    bzhttp.Resp:
-      properties:
-        data:
-          additionalProperties: true
-          type: object
-        errors:
-          items:
-            $ref: '#/components/schemas/bzhttp.Error'
-          type: array
-        ok:
-          type: boolean
-      type: object
-    bzhttp.Error:
-      properties:
-        code:
-          $ref: '#/components/schemas/bzhttp.ErrorCode'
-        id:
-          type: string
-        value:
-          type: string
-      type: object
+    bzhttp.ErrorCode:
+      enum:
+      - unsupported_message_type
+      - database_query_error
+      - json_unmarshaling_error
+      - no_data_found
+      - no_matching_endpoint
+      - bad_request
+      - db_error
+      - internal_server_error
+      - auth_failed
+      - forbidden
+      - failed_dependency
+      - service_unavailable
+      - upstream_api_error
+      type: string
+      x-enum-varnames:
+      - ErrorUnsupportedMessageType
+      - ErrorDBQueryError
+      - ErrorJSONUnmarshaling
+      - ErrorNoDataFound
+      - ErrorNoMatchingEndpoint
+      - ErrorBadRequest
+      - ErrorDBError
+      - ErrorInternalServerError
+      - ErrorAuthFailed
+      - ErrorForbidden
+      - ErrorFailedDependency
+      - ErrorServiceUnavailable
+      - ErrorUpstreamAPIError
     models.Newsquantified:
       properties:
         _id:
@@ -401,36 +410,27 @@ components:
           example: '1.2'
           type: string
       type: object
-    bzhttp.ErrorCode:
-      enum:
-      - unsupported_message_type
-      - database_query_error
-      - json_unmarshaling_error
-      - no_data_found
-      - no_matching_endpoint
-      - bad_request
-      - db_error
-      - internal_server_error
-      - auth_failed
-      - forbidden
-      - failed_dependency
-      - service_unavailable
-      - upstream_api_error
-      type: string
-      x-enum-varnames:
-      - ErrorUnsupportedMessageType
-      - ErrorDBQueryError
-      - ErrorJSONUnmarshaling
-      - ErrorNoDataFound
-      - ErrorNoMatchingEndpoint
-      - ErrorBadRequest
-      - ErrorDBError
-      - ErrorInternalServerError
-      - ErrorAuthFailed
-      - ErrorForbidden
-      - ErrorFailedDependency
-      - ErrorServiceUnavailable
-      - ErrorUpstreamAPIError
+    bzhttp.Resp:
+      properties:
+        data:
+          additionalProperties: true
+          type: object
+        errors:
+          items:
+            $ref: '#/components/schemas/bzhttp.Error'
+          type: array
+        ok:
+          type: boolean
+      type: object
+    bzhttp.Error:
+      properties:
+        code:
+          $ref: '#/components/schemas/bzhttp.ErrorCode'
+        id:
+          type: string
+        value:
+          type: string
+      type: object
   securitySchemes:
     ApiKeyAuth:
       in: header
