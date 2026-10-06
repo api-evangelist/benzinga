@@ -62,7 +62,7 @@ tags_raw:
 - Options
 - Streaming
 created: '2026-07-21'
-modified: '2026-07-22'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: benzinga:benzinga-newsfeed-api
@@ -1727,6 +1727,8 @@ apis:
   - type: Overlay
     url: overlays/benzinga-transcripts-api-overlay.yaml
 common:
+- url: https://www.benzinga.com/feed
+  type: BlogRSS
 - type: Overlay
   url: overlays/benzinga-press-releases-api-overlay.yaml
 - type: VulnerabilityDisclosure
