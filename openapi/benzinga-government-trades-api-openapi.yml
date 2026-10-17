@@ -103,11 +103,6 @@ paths:
       - Government Trades
 components:
   schemas:
-    api.ErrorResponse:
-      properties:
-        text:
-          type: string
-      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.GovernmentTradeJSON:
       properties:
         data:
@@ -115,6 +110,11 @@ components:
             additionalProperties: true
             type: object
           type: array
+      type: object
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
       type: object
   securitySchemes:
     ApiKeyAuth:

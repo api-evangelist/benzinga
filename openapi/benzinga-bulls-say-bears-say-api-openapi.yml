@@ -78,11 +78,6 @@ paths:
       - Bulls Say Bears Say
 components:
   schemas:
-    api.ErrorResponse:
-      properties:
-        text:
-          type: string
-      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.BullsSayBearsSay:
       properties:
         analyst_firms_referenced:
@@ -140,6 +135,11 @@ components:
           items:
             $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.BullsSayBearsSay'
           type: array
+      type: object
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
       type: object
   securitySchemes:
     ApiKeyAuth:

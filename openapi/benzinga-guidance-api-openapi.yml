@@ -122,10 +122,13 @@ paths:
       - Guidance
 components:
   schemas:
-    api.ErrorResponse:
+    api.GuidanceResponse:
+      description: API response containing an array of guidance records
       properties:
-        text:
-          type: string
+        guidance:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Guidance'
+          type: array
       type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Guidance:
       properties:
@@ -214,13 +217,10 @@ components:
           example: 1704819600
           type: integer
       type: object
-    api.GuidanceResponse:
-      description: API response containing an array of guidance records
+    api.ErrorResponse:
       properties:
-        guidance:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Guidance'
-          type: array
+        text:
+          type: string
       type: object
   securitySchemes:
     ApiKeyAuth:

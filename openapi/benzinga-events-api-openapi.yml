@@ -169,10 +169,13 @@ components:
           example: https://webcast.example.com/event123
           type: string
       type: object
-    api.ErrorResponse:
+    api.EventsResponse:
+      description: API response containing an array of event records
       properties:
-        text:
-          type: string
+        events:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Events'
+          type: array
       type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Securities:
       properties:
@@ -192,13 +195,10 @@ components:
           example: AAPL
           type: string
       type: object
-    api.EventsResponse:
-      description: API response containing an array of event records
+    api.ErrorResponse:
       properties:
-        events:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Events'
-          type: array
+        text:
+          type: string
       type: object
   securitySchemes:
     ApiKeyAuth:

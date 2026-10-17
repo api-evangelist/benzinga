@@ -95,11 +95,6 @@ paths:
       - Option Activity
 components:
   schemas:
-    api.ErrorResponse:
-      properties:
-        text:
-          type: string
-      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.OptionActivity:
       properties:
         aggressor_ind:
@@ -183,6 +178,11 @@ components:
           type: integer
         volume:
           example: '2845'
+          type: string
+      type: object
+    api.ErrorResponse:
+      properties:
+        text:
           type: string
       type: object
   securitySchemes:

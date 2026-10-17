@@ -3,7 +3,7 @@ info:
   contact: {}
   description: This REST API provides endpoints to get analyst report details.
   termsOfService: http://swagger.io/terms/
-  title: Analyst Reports Raw Text Analyst Insights Earnings Call……………
+  title: Analyst Reports Raw Text Analyst Insights Earnings…
   version: 1.0.0
 servers:
 - url: https://api.benzinga.com
@@ -149,15 +149,6 @@ paths:
       - Earnings Call Transcripts
 components:
   schemas:
-    models.TranscriptTimestamp:
-      properties:
-        time:
-          example: 123.45
-          type: number
-        transcript:
-          example: Thank you for joining us today...
-          type: string
-      type: object
     models.TranscriptAudioFile:
       properties:
         file_url:
@@ -180,6 +171,34 @@ components:
         ticker:
           example: AAPL
           type: string
+      type: object
+    models.TranscriptTimestamp:
+      properties:
+        time:
+          example: 123.45
+          type: number
+        transcript:
+          example: Thank you for joining us today...
+          type: string
+      type: object
+    models.TranscriptSummaryAudio:
+      properties:
+        audio_file:
+          $ref: '#/components/schemas/models.TranscriptAudioFile'
+        call_id:
+          type: string
+        created:
+          type: integer
+        date:
+          type: string
+        id:
+          type: string
+        security:
+          $ref: '#/components/schemas/models.Security'
+        start_time:
+          type: string
+        updated:
+          type: integer
       type: object
     models.TranscriptSummary:
       properties:
@@ -223,25 +242,6 @@ components:
           type: integer
         user_id:
           example: 12345
-          type: integer
-      type: object
-    models.TranscriptSummaryAudio:
-      properties:
-        audio_file:
-          $ref: '#/components/schemas/models.TranscriptAudioFile'
-        call_id:
-          type: string
-        created:
-          type: integer
-        date:
-          type: string
-        id:
-          type: string
-        security:
-          $ref: '#/components/schemas/models.Security'
-        start_time:
-          type: string
-        updated:
           type: integer
       type: object
     models.Summary:

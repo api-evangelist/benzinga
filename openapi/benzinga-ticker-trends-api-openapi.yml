@@ -156,38 +156,41 @@ paths:
       - Ticker Trends
 components:
   schemas:
-    api_httpapi.tickerTrendMetrics:
+    models.TrendingTickersListData:
       properties:
         count:
           example: 1523
           type: integer
-        count_mavg:
-          example: 1245.67
-          type: number
-        market_count_average:
-          example: 92.1
-          type: number
-        scaled_count:
-          example: 98.5
-          type: number
-        scaled_count_mavg:
-          example: 87.3
-          type: number
-        time_bucket:
-          example: '2024-01-09T10:00:00Z'
+        pct_chg:
+          example: 15
+          type: integer
+        security:
+          $ref: '#/components/schemas/models.Security'
+      type: object
+    models.Security:
+      properties:
+        exchange:
+          example: NASDAQ
+          type: string
+        name:
+          example: Apple Inc
+          type: string
+        ticker:
+          example: AAPL
           type: string
       type: object
-    bzhttp.Resp:
+    api_httpapi.tickerTrendData:
       properties:
-        data:
-          additionalProperties: true
-          type: object
-        errors:
+        exchange:
+          example: NASDAQ
+          type: string
+        metrics:
           items:
-            $ref: '#/components/schemas/bzhttp.Error'
+            $ref: '#/components/schemas/api_httpapi.tickerTrendMetrics'
           type: array
-        ok:
-          type: boolean
+        ticker:
+          example: AAPL
+          type: string
       type: object
     bzhttp.ErrorCode:
       enum:
@@ -219,39 +222,27 @@ components:
       - ErrorUpstreamAPIError
       - ErrorUnsupportedMessageType
       - ErrorDBQueryError
-    bzhttp.Error:
+    api_httpapi.tickerTrendAPIResponse:
       properties:
-        code:
-          $ref: '#/components/schemas/bzhttp.ErrorCode'
-        id:
-          type: string
-        value:
-          type: string
-      type: object
-    models.Security:
-      properties:
-        exchange:
-          example: NASDAQ
-          type: string
-        name:
-          example: Apple Inc
-          type: string
-        ticker:
-          example: AAPL
-          type: string
-      type: object
-    api_httpapi.tickerTrendData:
-      properties:
-        exchange:
-          example: NASDAQ
-          type: string
-        metrics:
+        data:
           items:
-            $ref: '#/components/schemas/api_httpapi.tickerTrendMetrics'
+            $ref: '#/components/schemas/api_httpapi.tickerTrendData'
           type: array
-        ticker:
-          example: AAPL
-          type: string
+        ok:
+          example: true
+          type: boolean
+      type: object
+    bzhttp.Resp:
+      properties:
+        data:
+          additionalProperties: true
+          type: object
+        errors:
+          items:
+            $ref: '#/components/schemas/bzhttp.Error'
+          type: array
+        ok:
+          type: boolean
       type: object
     models.TrendingTickersListAPIResponse:
       properties:
@@ -263,26 +254,35 @@ components:
           example: true
           type: boolean
       type: object
-    api_httpapi.tickerTrendAPIResponse:
+    bzhttp.Error:
       properties:
-        data:
-          items:
-            $ref: '#/components/schemas/api_httpapi.tickerTrendData'
-          type: array
-        ok:
-          example: true
-          type: boolean
+        code:
+          $ref: '#/components/schemas/bzhttp.ErrorCode'
+        id:
+          type: string
+        value:
+          type: string
       type: object
-    models.TrendingTickersListData:
+    api_httpapi.tickerTrendMetrics:
       properties:
         count:
           example: 1523
           type: integer
-        pct_chg:
-          example: 15
-          type: integer
-        security:
-          $ref: '#/components/schemas/models.Security'
+        count_mavg:
+          example: 1245.67
+          type: number
+        market_count_average:
+          example: 92.1
+          type: number
+        scaled_count:
+          example: 98.5
+          type: number
+        scaled_count_mavg:
+          example: 87.3
+          type: number
+        time_bucket:
+          example: '2024-01-09T10:00:00Z'
+          type: string
       type: object
   securitySchemes:
     ApiKeyAuth:

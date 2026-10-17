@@ -263,6 +263,11 @@ paths:
       - Dividends
 components:
   schemas:
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Dividend:
       properties:
         confirmed:
@@ -334,11 +339,6 @@ components:
         year:
           example: 2024
           type: integer
-      type: object
-    api.ErrorResponse:
-      properties:
-        text:
-          type: string
       type: object
     api.DividendResponse:
       description: API response containing an array of dividend records

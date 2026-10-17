@@ -194,11 +194,6 @@ paths:
       - ipos
 components:
   schemas:
-    api.ErrorResponse:
-      properties:
-        text:
-          type: string
-      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.IPO:
       properties:
         currency:
@@ -342,6 +337,11 @@ components:
           items:
             $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.IPO'
           type: array
+      type: object
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
       type: object
   securitySchemes:
     ApiKeyAuth:

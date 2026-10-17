@@ -100,11 +100,6 @@ paths:
       - conference_calls
 components:
   schemas:
-    api.ErrorResponse:
-      properties:
-        text:
-          type: string
-      type: object
     api.ConferenceResponse:
       description: API response containing an array of conference call records
       properties:
@@ -175,6 +170,11 @@ components:
           type: integer
         webcast_url:
           example: https://event.webcasts.com/example
+          type: string
+      type: object
+    api.ErrorResponse:
+      properties:
+        text:
           type: string
       type: object
   securitySchemes:

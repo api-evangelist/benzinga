@@ -115,10 +115,38 @@ paths:
       - fda
 components:
   schemas:
-    api.ErrorResponse:
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Company:
       properties:
-        text:
+        cik:
+          example: '1682852'
           type: string
+        id:
+          example: 60a7f5e8e4b0f5a3c8e9f5be
+          type: string
+        name:
+          example: Moderna Inc.
+          type: string
+        securities:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Security'
+          type: array
+      type: object
+    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Security:
+      properties:
+        exchange:
+          example: NASDAQ
+          type: string
+        symbol:
+          example: MRNA
+          type: string
+      type: object
+    api.FDAResponse:
+      description: API response containing an array of FDA event records
+      properties:
+        fda:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.FDA'
+          type: array
       type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Drug:
       properties:
@@ -193,38 +221,10 @@ components:
           example: 1704819600
           type: integer
       type: object
-    api.FDAResponse:
-      description: API response containing an array of FDA event records
+    api.ErrorResponse:
       properties:
-        fda:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.FDA'
-          type: array
-      type: object
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Security:
-      properties:
-        exchange:
-          example: NASDAQ
+        text:
           type: string
-        symbol:
-          example: MRNA
-          type: string
-      type: object
-    gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Company:
-      properties:
-        cik:
-          example: '1682852'
-          type: string
-        id:
-          example: 60a7f5e8e4b0f5a3c8e9f5be
-          type: string
-        name:
-          example: Moderna Inc.
-          type: string
-        securities:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Security'
-          type: array
       type: object
   securitySchemes:
     ApiKeyAuth:

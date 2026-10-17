@@ -77,10 +77,13 @@ paths:
       - Block Trade
 components:
   schemas:
-    api.ErrorResponse:
+    api.BlockTradeResponse:
+      description: API response containing an array of block trade records
       properties:
-        text:
-          type: string
+        block-trade:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.BlockTrade'
+          type: array
       type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.BlockTrade:
       properties:
@@ -140,13 +143,10 @@ components:
           example: 1704819600
           type: integer
       type: object
-    api.BlockTradeResponse:
-      description: API response containing an array of block trade records
+    api.ErrorResponse:
       properties:
-        block-trade:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.BlockTrade'
-          type: array
+        text:
+          type: string
       type: object
   securitySchemes:
     ApiKeyAuth:

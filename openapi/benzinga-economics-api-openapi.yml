@@ -122,19 +122,6 @@ paths:
       - Economics
 components:
   schemas:
-    api.ErrorResponse:
-      properties:
-        text:
-          type: string
-      type: object
-    api.EconomicResponse:
-      description: API response containing an array of economic event records
-      properties:
-        economics:
-          items:
-            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Economic'
-          type: array
-      type: object
     gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Economic:
       properties:
         actual:
@@ -195,6 +182,19 @@ components:
         updated:
           example: 1704819600
           type: integer
+      type: object
+    api.ErrorResponse:
+      properties:
+        text:
+          type: string
+      type: object
+    api.EconomicResponse:
+      description: API response containing an array of economic event records
+      properties:
+        economics:
+          items:
+            $ref: '#/components/schemas/gitlab_benzinga_io_benzinga_bzgo_pkg_models_calendar-api.Economic'
+          type: array
       type: object
   securitySchemes:
     ApiKeyAuth:
